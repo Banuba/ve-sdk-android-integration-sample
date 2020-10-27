@@ -1,0 +1,19 @@
+{
+  "minVideoDuration": 3000,
+  "maxVideoDuration": 60000,
+  "takePhotoOnTap": true,
+  "supportsFlashlight": true,
+  "supportsMultiRecords": true,
+  "supportsDurationTimeline": true,
+  "supportsModeSelection": true,
+  "supportsSpeedRecording": true,
+  "supportsExternalMusic": true,
+  "textOnMaskColorCountOnPage": -1,
+  "banubaColorEffectsAssetsPath": "luts",
+  "banubaMasksAssetsPath": "effects",
+  "banubaMaskBeauty": "Beauty",
+  "showDebugViews": true,
+  "supportsMuteMic": true,
+  "switchFacingOnDoubleTap": true,
+  "showConfig": true
+}

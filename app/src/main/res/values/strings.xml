@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">IntegrationApp</string>
+
+    <!-- This key gives an access to AR masks on video -->
+    <string name="effect_player_token"><!-- Paste your effect player token here --></string>
+    <!-- This key gives an access to visual effects applied within video editor -->
+    <string name="video_editor_token"><!-- Paste your video editor token here --></string>
+</resources>
