@@ -6,9 +6,11 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.banuba.android.sdk.camera.BanubaCameraSdkManager
 import com.banuba.android.sdk.camera.CameraSdkManager
-import com.banuba.example.integrationapp.videoeditor.content.GlideImageLoader
+import com.banuba.example.integrationapp.videoeditor.custom.CustomRecordingAnimationProvider
+import com.banuba.example.integrationapp.videoeditor.custom.GlideImageLoader
 import com.banuba.example.integrationapp.videoeditor.export.IntegrationAppExportFlowManager
 import com.banuba.example.integrationapp.videoeditor.export.IntegrationAppExportResultHandler
+import com.banuba.sdk.cameraui.data.CameraRecordingAnimationProvider
 import com.banuba.sdk.core.AREffectPlayerProvider
 import com.banuba.sdk.core.IUtilityManager
 import com.banuba.sdk.core.domain.ImageLoader
@@ -75,6 +77,14 @@ class VideoeditorKoinModule : FlowEditorModule() {
                 is Context -> GlideImageLoader(context = source)
                 else -> throw IllegalArgumentException("Illegal source for GlideImageLoader")
             }
+        }
+
+    /**
+     * Override it to customize recording button view and setup custom animation to it
+     */
+    override val cameraRecordingAnimationProvider: BeanDefinition<CameraRecordingAnimationProvider> =
+        factory(override = true) {
+            CustomRecordingAnimationProvider(context = get())
         }
 
 }

@@ -1,16 +1,250 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+    <!-- Base application theme -->
     <style name="Theme.IntegrationApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/egg_blue</item>
         <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorSecondary">@color/violet_red</item>
         <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
+    </style>
+
+    <!-- To customize video editor according to your app style you should
+         create your own theme inherited from VideoCreationTheme and apply it
+         to VideoCreationActivity in AndroidManifest.xml file -->
+    <style name="CustomIntegrationAppTheme" parent="VideoCreationTheme">
+
+        <!-- Camera screen styles -->
+        <item name="cameraOverlayStyle">@style/CustomCameraOverlayStyle</item>
+        <item name="cameraActionButtonStyle">@style/CustomCameraActionButtonStyle</item>
+        <item name="cameraMusicTopIconStyle">@style/CustomCameraMusicTopIconStyle</item>
+        <item name="cameraBackButtonStyle">@style/CustomCameraBackButtonStyle</item>
+        <item name="cameraNextButtonStyle">@style/CustomCameraNextButtonStyle</item>
+        <item name="cameraRemoveLastPieceButtonStyle">@style/CustomCameraRemoveLastPieceButtonStyle
+        </item>
+        <item name="cameraRecorderTimelineStyle">@style/CustomCameraTimelineRecorderStyle</item>
+        <item name="cameraEffectsLabelStyle">@style/CustomCameraEffectLabelStyle</item>
+        <item name="cameraEffectsItemStyle">@style/CustomCameraEffectsItemStyle</item>
+        <item name="cameraEffectsRecyclerStyle">@style/CustomCameraEffectsRecyclerStyle</item>
+        <item name="cameraSpeedPickerLabelStyle">@style/CustomCameraSpeedPickerLabelStyle</item>
+        <item name="cameraSpeedPickerViewStyle">@style/CustomCameraSpeedPickerViewStyle</item>
+        <item name="cameraSpeedPickerItemStyle">@style/CustomCameraSpeedPickerItemStyle</item>
+
+
+        <!-- Wait dialog style -->
+        <item name="throbberViewStyle">@style/CustomThrobberViewStyle</item>
+        <!-- Attribute defines the background of progress view that is used for the long
+             video editor operations -->
+        <item name="wait_dialog_throbber_bg">@drawable/bg_progress_view</item>
+        <item name="waitDialogTextStyle">@style/CustomWaitDialogTextStyle</item>
+
+        <!-- Following attributes define custom alert dialog icons
+             that may be placed here if you want to apply images
+             to alert dialogs shown in the video editor
+             ("@null" means that there are no icons on alert dialogs -> it is default setup,
+             so if you do not want to add icons just not override these attributes) -->
+        <item name="alert_camera_delete_video">@null</item>
+        <item name="alert_camera_return_to_editor">@null</item>
+        <item name="alert_camera_return_to_trimmer">@null</item>
+        <item name="alert_camera_save">@null</item>
+        <item name="alert_camera_reset_all">@null</item>
+        <item name="alert_editor_delete_voice_record">@null</item>
+        <item name="alert_editor_reset_all">@null</item>
+        <item name="alert_editor_reset_effects">@null</item>
+
+        <item name="toastStyle">@style/CustomToastStyle</item>
+    </style>
+
+    <!-- CameraOverlayStyle setup icons for Camera screen.
+         You can setup only necessary attributes -->
+    <style name="CustomCameraOverlayStyle" parent="CameraOverlayStyle">
+        <item name="icon_mask_on">@drawable/ic_masks_on</item>
+        <item name="icon_mask_off">@drawable/ic_masks</item>
+
+        <item name="icon_beauty_on">@drawable/ic_beauty_on</item>
+        <item name="icon_beauty_off">@drawable/ic_beauty</item>
+
+        <item name="icon_flashlight_on">@drawable/ic_flash_on</item>
+        <item name="icon_flashlight_off">@drawable/ic_flash</item>
+
+        <item name="icon_music_on">@drawable/ic_audio_on</item>
+        <item name="icon_music_off">@drawable/ic_audio</item>
+        <!-- In case you want to place music icon on the top of the screen, pass "top" here.
+             If you select "top" you need to override CameraMusicTopIconStyle to
+             customize other music icon parameters (background, text alignment, etc.) -->
+        <item name="icon_music_screen_position">left</item>
+        <!-- In case you want to see music track name select true -->
+        <item name="icon_music_show_track_name">false</item>
+
+        <item name="icon_camera_switch_on">@drawable/ic_cam_back</item>
+        <item name="icon_camera_switch_off">@drawable/ic_cam_front</item>
+        <!-- Default animation is rotating icon clockwise -->
+        <item name="icon_camera_switch_animate">true</item>
+
+        <item name="icon_color_on">@drawable/ic_filters_on</item>
+        <item name="icon_color_off">@drawable/ic_filters</item>
+
+        <item name="icon_mute_mic_on">@drawable/ic_mic</item>
+        <item name="icon_mute_mic_off">@drawable/ic_mic_off</item>
+
+        <item name="icon_recording_speed_x0_5">@drawable/ic_speed_0_5x</item>
+        <item name="icon_recording_speed_x1">@drawable/ic_speed_1x</item>
+        <item name="icon_recording_speed_x2">@drawable/ic_speed_2x</item>
+        <item name="icon_recording_speed_x3">@drawable/ic_speed_3x</item>
+
+        <item name="icon_close">@drawable/ic_nav_close</item>
+        <item name="icon_back">@drawable/ic_nav_back_arrow</item>
+
+        <item name="icon_remove_last_piece">@drawable/ic_delete_videopart</item>
+
+        <!-- This icon will be shown in case of there are no video files that
+             can be selected from gallery. If at least one video is available
+             the thumbnail of the last file will be used as an icon.
+             To show the static image as a gallery icon instead of video file thumbnail
+             you should setup custom style for "galleryImageViewStyle" theme attribute and
+             set "use_custom_image" to "true" -->
+        <item name="icon_empty_gallery">@drawable/ic_default</item>
+        <!-- should be drawn below the gallery icon -->
+        <item name="icon_gallery_background">@drawable/bg_gallery_button</item>
+        <!-- as a default gallery icon view has a rectangle shape.
+             If you setup "icon_gallery_background" as an oval, you should add radius here -->
+        <item name="icon_gallery_radius">24dp</item>
+
+        <item name="camera_margin_to_record_button">64dp</item>
+
+        <item name="camera_gradient_top">@android:color/transparent</item>
+        <item name="camera_gradient_bottom">@android:color/transparent</item>
+
+        <item name="camera_effects_list_background">@color/big_stone</item>
+    </style>
+
+    <!-- Style for text appearance of bottom mode tabs (Normal/Slideshow) in checked state -->
+    <style name="CustomVideoTimelineCheckedStyle" parent="VideoTimelineCheckedStyle" />
+    <!-- Style for text appearance of bottom mode tabs (Normal/Slideshow) in unchecked state -->
+    <style name="CustomVideoTimelineUncheckedStyle" parent="VideoTimelineUncheckedStyle" />
+
+    <!-- Style for the music icon placed on top of the camera screen.
+         If "icon_music_screen_position" in CameraOverlayStyle selected as "left"
+         this style is not applied -->
+    <style name="CustomCameraMusicTopIconStyle" parent="CameraMusicTopIconStyle" />
+
+    <!-- Style for appearance of icons defined in CameraOverlayStyle -->
+    <style name="CustomCameraActionButtonStyle" parent="CameraActionButtonStyle" />
+
+    <!-- Style for appearance of "icon_back" icon defined in CameraOverlayStyle -->
+    <style name="CustomCameraBackButtonStyle" parent="CameraBackButtonStyle" />
+
+    <!-- Style for the Next button on Camera screen.
+         This button has activated and not activated states.
+         These states are applied when the user can or can not proceed with recorded video accordingly,
+         so the best approach to set background is to use selector -->
+    <style name="CustomCameraNextButtonStyle" parent="CameraNextButtonStyle">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/bg_btn_next</item>
+    </style>
+
+    <!-- Style for effects (filters and masks) list label. As default it's visibility is gone -->
+    <style name="CustomCameraEffectLabelStyle" parent="CameraEffectLabelStyle" />
+
+    <!-- Style for effects (filters and masks) list items -->
+    <style name="CustomCameraEffectsItemStyle" parent="CameraEffectsItemStyle" />
+
+    <!-- Style for effects (filters and masks) RecyclerView -->
+    <style name="CustomCameraEffectsRecyclerStyle" parent="CameraEffectsRecyclerStyle" />
+
+    <!-- Style for the label of speed options. It's visibility is gone as default -->
+    <style name="CustomCameraSpeedPickerLabelStyle" parent="CameraSpeedPickerLabelStyle" />
+
+    <!-- Style for the whole view that shows available recording speed options -->
+    <style name="CustomCameraSpeedPickerViewStyle" parent="CameraSpeedPickerViewStyle">
+        <item name="android:background">@color/big_stone</item>
+    </style>
+
+    <!-- Style for the speed option item. Speed option my be selected and unselected
+         so the best approach to set background as selector -->
+    <style name="CustomCameraSpeedPickerItemStyle" parent="CameraSpeedPickerItemStyle">
+        <item name="android:background">@drawable/bg_speed_option_item</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!-- Style for the appearance of "icon_remove_last_piece" defined in CameraOverlayStyle -->
+    <style name="CustomCameraRemoveLastPieceButtonStyle" parent="CameraRemoveLastPieceButtonStyle" />
+
+    <!-- Style for the recording timeline. There is a bulk of custom attributes applicable for customization -->
+    <style name="CustomCameraTimelineRecorderStyle" parent="CameraTimelineRecorderStyle">
+        <item name="divider_width">3dp</item>
+        <item name="background_color">@color/dustyGray</item>
+        <item name="divider_color">@color/big_stone</item>
+        <item name="normal_color">@color/egg_blue</item>
+        <item name="delete_color">@color/violet_red</item>
+    </style>
+
+
+    <!-- Style for custom Toasts -->
+    <style name="CustomToastStyle" parent="ToastStyle">
+        <item name="android:background">@drawable/bg_toast</item>
+    </style>
+
+    <!-- Style for the throbber on the progress view
+         that is shown during every long operation
+         in video editor (trimming, exporting, etc). This is used  -->
+    <style name="CustomThrobberViewStyle" parent="ThrobberViewStyle">
+        <item name="circle_colors">@array/progress_gradient_colors</item>
+    </style>
+
+    <!-- Style defines text style for the message that is shown on the progress view -->
+    <style name="CustomWaitDialogTextStyle" parent="WaitDialogTextStyle" />
+
+    <!-- Alert Dialog is fully customisable.
+         You should override "fragment_dialog_alert" within res/layout to apply your own layout
+         for alert dialogs.
+         Additionally if you want to add icons on the top of alert dialog,
+         you should setup them into appropriate attributes of activity's theme
+         (see above among CustomIntegrationAppTheme attributes).
+         They are placed as top drawables over the title of the dialog. -->
+    <style name="AlertDialogTitleStyle">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="AlertDialogActionButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:minWidth">128dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:foreground">?android:selectableItemBackgroundBorderless</item>
+    </style>
+
+    <!-- If you override alert dialog layout you should override styles below as well
+         to apply custom text appearance for dialog buttons:
+         CameraDialogPositiveButton, CameraDialogNegativeButton, CameraDialogNormalButton for camera screen and
+         EditorDialogPositiveButton, EditorDialogNegativeButton, EditorDialogNormalButton for editor screen -->
+    <style name="CameraDialogPositiveButton">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="CameraDialogNegativeButton">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="CameraDialogNormalButton">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="EditorDialogPositiveButton">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="EditorDialogNegativeButton">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="EditorDialogNormalButton">
+        <item name="android:textColor">@color/white</item>
     </style>
 </resources>

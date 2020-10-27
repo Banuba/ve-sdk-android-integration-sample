@@ -21,7 +21,7 @@
         <activity
             android:name="com.banuba.sdk.ve.flow.VideoCreationActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/VideoCreationTheme"
+            android:theme="@style/CustomIntegrationAppTheme"
             android:windowSoftInputMode="adjustResize"
             tools:replace="android:theme" />
     </application>
