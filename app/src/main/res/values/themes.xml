@@ -229,11 +229,11 @@
     </style>
 
     <style name="CameraDialogNegativeButton">
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="CameraDialogNormalButton">
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="EditorDialogPositiveButton">
