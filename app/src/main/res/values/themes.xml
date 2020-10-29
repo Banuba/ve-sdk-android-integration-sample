@@ -47,6 +47,15 @@
         <item name="alert_editor_delete_voice_record">@null</item>
         <item name="alert_editor_reset_all">@null</item>
         <item name="alert_editor_reset_effects">@null</item>
+
+
+        <!--Cover-->
+        <item name="coverNextButtonStyle">@style/CustomCoverNextButtonStyle</item>
+        <item name="coverCancelButtonStyle">@style/CustomCoverCancelButtonStyle</item>
+        <item name="coverSeekBarStyle">@style/CustomCoverSeekBarStyle</item>
+        <item name="coverDescriptionStyle">@style/CustomCoverDescriptionStyle</item>
+        <item name="coverChooseViewBackground">@null</item>
+        <!---->
     </style>
 
     <!-- CameraOverlayStyle setup icons for Camera screen.
@@ -232,4 +241,25 @@
     <style name="EditorDialogNormalButton">
         <item name="android:textColor">@color/white</item>
     </style>
+
+
+    <!--Cover styles-->
+    <style name="CustomCoverNextButtonStyle" parent="CoverNextButtonStyle">
+        <item name="android:textColor">@color/egg_blue</item>
+    </style>
+
+    <style name="CustomCoverCancelButtonStyle" parent="CoverCancelButtonStyle">
+        <item name="android:textColor">@color/egg_blue</item>
+    </style>
+
+    <style name="CustomCoverSeekBarStyle" parent="CoverSeekBarStyle">
+        <item name="android:progressTint">@color/egg_blue</item>
+        <item name="android:thumbTint">@color/egg_blue</item>
+    </style>
+
+    <style name="CustomCoverDescriptionStyle" parent="CoverDescriptionStyle">
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <!---->
+
 </resources>
