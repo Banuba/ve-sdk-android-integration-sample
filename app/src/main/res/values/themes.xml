@@ -48,6 +48,34 @@
         <item name="alert_editor_reset_all">@null</item>
         <item name="alert_editor_reset_effects">@null</item>
 
+            <!--Editor-->
+        <item name="editorOverlayStyle">@style/CustomEditorOverlayStyle</item>
+        <item name="editorActionsStyle">@style/CustomEditorActionsStyle</item>
+        <item name="editorActionButtonStyle">@style/CustomEditorActionButtonStyle</item>
+        <item name="editorBackButtonStyle">@style/CustomEditorBackButtonStyle</item>
+        <item name="editorNextButtonStyle">@style/CustomEditorNextButtonStyle</item>
+        <item name="editorTextActionsStyle">@style/CustomEditorTextActionsStyle</item>
+        <item name="editorTextColorLabelStyle">@style/CustomEditorTextColorLabelStyle</item>
+        <item name="editorTextColorBackground">@null</item>
+        <item name="editorTextEditorInputStyle">@style/CustomEditorTextEditorInputStyle</item>
+        <item name="editorTypefaceSwitcherStyle">@style/CustomTypefaceSwitcherStyle</item>
+        <item name="editorCancelStyle">@style/CustomEditorCancelStyle</item>
+        <item name="editorDoneStyle">@style/CustomEditorDoneStyle</item>
+        <item name="editorTextDoneStyle">@style/CustomEditorDoneStyle</item>
+        <item name="editorBoardStyle">@style/CustomEditorBoardStyle</item>
+        <item name="editorUndoButtonStyle">@style/CustomEditorUndoButtonStyle</item>
+        <item name="editorVisualAndTimeEffectsRecyclerStyle">
+            @style/CustomEditorVisualAndTimeEffectsRecyclerStyle
+        </item>
+        <item name="editorApplyEffectHintStyle">@style/CustomEditorApplyEffectHintStyle</item>
+        <item name="editorEffectVisualStyle">@style/CustomEditorEffectVisualStyle</item>
+        <item name="editorEffectTimeStyle">@style/CustomEditorEffectTimeStyle</item>
+        <item name="editorEffectMaskStyle">@style/CustomEditorEffectMaskStyle</item>
+        <item name="editorEffectLutItemStyle">@style/CustomEditorEffectLutItemStyle</item>
+        <item name="editorColorEffectsLabelStyle">@style/CustomEditorColorEffectsLabelStyle</item>
+        <item name="editorColorEffectsRecyclerStyle">@style/CustomEditorColorEffectsRecyclerStyle
+        </item>
+
 
         <!--Gallery-->
         <item name="galleryAlbumBlurViewStyle">@style/CustomGalleryAlbumBlurViewStyle</item>
@@ -326,7 +354,85 @@
     <style name="EditorDialogNormalButton">
         <item name="android:textColor">@color/white</item>
     </style>
+    
+     <!--Editor Styles-->
+    <style name="CustomEditorOverlayStyle" parent="EditorOverlayStyle">
+        <item name="editor_icon_back">@drawable/ic_nav_back_arrow</item>
+        <item name="editor_icon_playback_visible">false</item>
 
+        <item name="editor_gradient_top">@color/transparent</item>
+        <item name="editor_gradient_bottom">@color/transparent</item>
+        <item name="editor_effects_parent_view_background">@color/black</item>
+    </style>
+
+    <style name="CustomEditorActionsStyle" parent="EditorActionsStyle">
+        <item name="editor_act_icon_color_effect_off">@drawable/ic_filters</item>
+        <item name="editor_act_icon_color_effect_on">@drawable/ic_filters_on</item>
+
+        <item name="editor_act_icon_visual_effect_off">@drawable/ic_visual_effects</item>
+        <item name="editor_act_icon_visual_effect_on">@drawable/ic_visual_effects_on</item>
+
+        <item name="editor_act_icon_time_effect_off">@drawable/ic_speed_effects</item>
+        <item name="editor_act_icon_time_effect_on">@drawable/ic_speed_effects_on</item>
+
+        <item name="editor_act_icon_music_effect_off">@drawable/ic_audio</item>
+        <item name="editor_act_icon_music_effect_on">@drawable/ic_audio_on</item>
+
+        <item name="editor_act_icon_text_off">@drawable/ic_text</item>
+        <item name="editor_act_icon_text_on">@drawable/ic_text_on</item>
+
+        <item name="editor_act_icon_sticker_off">@drawable/ic_stickers</item>
+        <item name="editor_act_icon_sticker_on">@drawable/ic_stickers_on</item>
+
+        <item name="editor_act_icon_masks_off">@drawable/ic_masks</item>
+        <item name="editor_act_icon_masks_on">@drawable/ic_masks_on</item>
+    </style>
+
+    <style name="CustomEditorActionButtonStyle" parent="EditorActionButtonStyle" />
+
+    <style name="CustomEditorNextButtonStyle" parent="EditorNextButtonStyle">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="CustomEditorBackButtonStyle" parent="EditorBackButtonStyle" />
+
+    <style name="CustomEditorTextActionsStyle" parent="EditorTextActionsStyle" />
+
+    <style name="CustomEditorTextColorLabelStyle" parent="EditorTextColorLabelStyle" />
+
+    <style name="CustomEditorTextEditorInputStyle" parent="EditorTextEditorInputStyle" />
+
+    <style name="CustomTypefaceSwitcherStyle" parent="EditorTypefaceSwitcherStyle" />
+
+    <style name="CustomEditorCancelStyle" parent="EditorCancelStyle">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="CustomEditorDoneStyle" parent="CustomEditorCancelStyle" />
+
+    <style name="CustomEditorBoardStyle" parent="EditorBoardStyle">
+        <item name="editor_board_background_color_active">@color/black_a50</item>
+        <item name="editor_board_background_color_inactive">@color/transparent</item>
+        <item name="editor_board_delete_visible">false</item>
+    </style>
+
+    <style name="CustomEditorApplyEffectHintStyle" parent="EditorApplyEffectHintStyle" />
+
+    <style name="CustomEditorUndoButtonStyle" parent="EditorUndoButtonStyle" />
+
+    <style name="CustomEditorVisualAndTimeEffectsRecyclerStyle" parent="EditorVisualAndTimeEffectsRecyclerStyle" />
+
+    <style name="CustomEditorEffectLutItemStyle" parent="EditorEffectLutItemStyle" />
+
+    <style name="CustomEditorEffectVisualStyle" parent="EditorEffectVisualStyle" />
+
+    <style name="CustomEditorEffectTimeStyle" parent="EditorTimeEffectStyle" />
+
+    <style name="CustomEditorEffectMaskStyle" parent="EditorMaskEffectStyle" />
+
+    <style name="CustomEditorColorEffectsLabelStyle" parent="EditorColorEffectsLabelStyle" />
+
+    <style name="CustomEditorColorEffectsRecyclerStyle" parent="EditorColorEffectsRecyclerStyle" />
 
     <!--Gallery styles-->
     <style name="CustomGalleryAlbumBlurViewStyle" parent="GalleryAlbumBlurViewStyle">
