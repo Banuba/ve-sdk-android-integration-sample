@@ -98,6 +98,42 @@
         <!---->
 
 
+        <!--Music Editor-->
+        <item name="musicEditorStyle">@style/CustomMusicEditorStyle</item>
+        <item name="musicEditorRecordingButtonStyle">@style/CustomMusicEditorRecordingButtonStyle</item>
+        <item name="musicEditorTimelineStyle">@style/CustomMusicEditorTimelineStyle</item>
+        <item name="musicEditorTimelineTimeTextStyle">@style/CustomMusicEditorTimelineTimeTextStyle</item>
+        <item name="timelineEditorBoardStyle">@style/CustomTimelineEditorBoardStyle</item>
+        <item name="musicEditorTimelineSoundWaveStyle">@style/CustomMusicEditorTimelineSoundWaveStyle</item>
+        <item name="musicEditorVideoVolumeStyle">@style/CustomMusicEditorVideoVolumeStyle</item>
+
+        <item name="musicEditorVideoVolumeContainerBackground">@color/transparent</item>
+        <item name="hideBottomViewsInEditVolume">true</item>
+
+        <item name="musicEditorTrimViewStyle">@style/CustomMusicEditorTrimViewStyle</item>
+        <item name="musicEditorTrimmerStyle">@style/CustomMusicEditorTrimmerStyle</item>
+        <item name="musicEditorTrimmerSoundWaveStyle">@style/CustomMusicEditorTrimmerSoundWaveStyle</item>
+        <item name="musicEditorActionButtonStyle">@style/CustomMusicEditorActionButtonStyle</item>
+        <item name="musicEditorActionButtonParentStyle">@style/CustomMusicEditorActionButtonParentStyle</item>
+        <item name="musicEditorActionButtonTextStyle">@style/CustomMusicEditorActionButtonTextStyle</item>
+        <item name="musicEditorEqualizerRecyclerStyle">@style/CustomMusicEditorEqualizerRecyclerStyle</item>
+        <item name="musicEditorEqualizerItemStyle">@style/CustomMusicEditorEqualizerItemStyle</item>
+        <item name="musicEditorEqualizerThrobberStyle">@style/CustomMusicEditorEqualizerThrobberStyle</item>
+
+        <item name="music_editor_surface_background">@color/black</item>
+        <item name="music_editor_voice_recording_background">@color/black</item>
+        <item name="music_editor_timeline_background">@color/big_stone</item>
+        <item name="music_editor_playback_controller_bg">@color/black</item>
+        <item name="music_editor_action_container_bg">@color/black</item>
+
+        <item name="music_editor_icon_tracks">@drawable/ic_timeline_tracks</item>
+        <item name="music_editor_icon_effects">@drawable/ic_timeline_effects</item>
+        <item name="music_editor_icon_track_recording">@drawable/ic_timeline_recording</item>
+        <item name="music_editor_icon_track_edit">@drawable/ic_timeline_edit</item>
+        <item name="music_editor_icon_track_delete">@drawable/ic_timeline_trash</item>
+        <!---->
+
+
         <!--Cover-->
         <item name="coverNextButtonStyle">@style/CustomCoverNextButtonStyle</item>
         <item name="coverCancelButtonStyle">@style/CustomCoverCancelButtonStyle</item>
@@ -425,6 +461,108 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/white</item>
+    </style>
+    <!---->
+
+
+    <!--Music Editor Styles-->
+    <style name="CustomMusicEditorStyle" parent="MusicEditorStyle">
+        <item name="playback_icon_rewind">@drawable/ic_restart</item>
+        <item name="playback_icon_play">@drawable/ic_play</item>
+        <item name="playback_icon_pause">@drawable/ic_pause</item>
+        <item name="playback_icon_done">@drawable/ic_done</item>
+        <item name="voice_recording_icon_cancel">@drawable/ic_close</item>
+        <item name="voice_recording_icon_refresh">@drawable/ic_cancel</item>
+        <item name="voice_recording_icon_done">@drawable/ic_done</item>
+        <item name="playback_controller_icons_chain">spread_inside</item>
+        <item name="voice_recording_controller_icons_chain">spread_inside</item>
+    </style>
+
+    <style name="CustomMusicEditorRecordingButtonStyle" parent="MusicEditorRecordingButtonStyle">
+        <item name="voice_recording_btn_icon_start">@drawable/ic_audio_recording_record</item>
+        <item name="voice_recording_btn_icon_stop">@drawable/ic_audio_recording_pause</item>
+        <item name="voice_recording_icon_width">@dimen/voice_recording_icon_size</item>
+        <item name="voice_recording_icon_height">@dimen/voice_recording_icon_size</item>
+        <item name="voice_recording_btn_bg_start">@drawable/bg_audio_recording_button</item>
+        <item name="voice_recording_btn_bg_stop">@drawable/bg_audio_recording_button</item>
+        <item name="android:layout_width">64dp</item>
+        <item name="android:layout_height">64dp</item>
+    </style>
+
+    <style name="CustomMusicEditorTimelineStyle" parent="MusicEditorTimelineStyle">
+        <item name="applying_effect_color">@color/violet_red_20</item>
+    </style>
+
+    <style name="CustomMusicEditorTimelineTimeTextStyle" parent="MusicEditorTimelineTimeTextStyle">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="CustomTimelineEditorBoardStyle" parent="TimelineEditorBoardStyle">
+        <item name="editor_board_background_color_active">@color/transparent</item>
+        <item name="editor_board_background_color_inactive">@color/transparent</item>
+    </style>
+
+    <style name="CustomMusicEditorTimelineSoundWaveStyle" parent="MusicEditorTimelineSoundWaveStyle">
+        <item name="block_color">@color/white_a50</item>
+        <item name="description_text_color">@color/white</item>
+    </style>
+
+    <style name="CustomMusicEditorVideoVolumeStyle" parent="MusicEditorVideoVolumeStyle">
+        <item name="video_volume_icon_done">@drawable/ic_done</item>
+        <item name="video_volume_progress_tint">@color/egg_blue</item>
+        <item name="video_volume_volume_thumb_tint">@color/egg_blue</item>
+        <item name="android:background">@color/big_stone</item>
+    </style>
+
+    <style name="CustomMusicEditorTrimViewStyle" parent="MusicEditorTrimViewStyle">
+        <item name="music_editor_trimmer_background_color">@color/big_stone</item>
+        <item name="music_editor_trimmer_title_color">@color/white</item>
+        <item name="music_editor_trimmer_done_icon">@drawable/ic_done</item>
+        <item name="music_editor_trimmer_volume_value_color">@color/white</item>
+        <item name="music_editor_trimmer_volume_progress_tint">@color/egg_blue</item>
+        <item name="music_editor_trimmer_volume_thumb_tint">@color/egg_blue</item>
+    </style>
+
+    <style name="CustomMusicEditorTrimmerStyle" parent="MusicEditorTrimmerStyle">
+        <item name="music_trimmer_left_pointer">@drawable/bg_me_trimmer_pointer</item>
+        <item name="music_trimmer_right_pointer">@drawable/bg_me_trimmer_pointer</item>
+        <item name="music_trimmer_border_line">@drawable/bg_me_trimmer_border_line</item>
+        <item name="trimmer_player_pointer_color">@color/white</item>
+        <item name="trimmer_shadow_color">@color/black_a50</item>
+    </style>
+
+    <style name="CustomMusicEditorTrimmerSoundWaveStyle" parent="MusicEditorTrimmerSoundWaveStyle">
+        <item name="block_color">@color/catskill_white</item>
+        <item name="android:background">@color/violet_red_20</item>
+    </style>
+
+    <style name="CustomMusicEditorActionButtonStyle" parent="MusicEditorActionButtonStyle">
+        <item name="android:layout_width">@dimen/music_editor_action_icon_size</item>
+        <item name="android:layout_height">@dimen/music_editor_action_icon_size</item>
+    </style>
+
+    <style name="CustomMusicEditorActionButtonParentStyle" parent="MusicEditorActionButtonParentStyle">
+        <item name="android:layout_width">@dimen/action_button_width</item>
+        <item name="android:layout_height">@dimen/action_button_height</item>
+    </style>
+
+    <style name="CustomMusicEditorActionButtonTextStyle" parent="MusicEditorActionButtonTextStyle">
+        <item name="android:textColor">@color/color_selector_me_action_button</item>
+    </style>
+
+    <style name="CustomMusicEditorEqualizerRecyclerStyle" parent="MusicEditorEqualizerRecyclerStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="CustomMusicEditorEqualizerItemStyle" parent="MusicEditorEqualizerItemStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="corner_radius">4dp</item>
+    </style>
+
+    <style name="CustomMusicEditorEqualizerThrobberStyle" parent="MusicEditorEqualizerThrobberStyle">
+        <item name="circle_width">2dp</item>
     </style>
     <!---->
 
