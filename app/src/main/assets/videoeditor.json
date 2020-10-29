@@ -14,10 +14,10 @@
     "stickersApiKey": "<-- Paste Giphy key here to load gif images -->",
     "showConfig": true,
     "interactions": {
-      "question": true,
-      "quiz": true,
-      "interest": true,
-      "poll": true,
+      "question": false,
+      "quiz": false,
+      "interest": false,
+      "poll": false,
       "linkOnVideo": false
     }
   },
