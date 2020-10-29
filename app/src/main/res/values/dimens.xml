@@ -1,10 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Dimens used for the CustomRecordingButtonView and CustomRecordingButtonOuterView -->
-    <dimen name="record_button_size">96dp</dimen>
-    <dimen name="record_button_inner_part_size">40dp</dimen>
-    <dimen name="record_button_progress_size">82dp</dimen>
-    <dimen name="record_button_circle_idle_width">3dp</dimen>
-    <dimen name="record_button_circle_progress_width">5dp</dimen>
 </resources>

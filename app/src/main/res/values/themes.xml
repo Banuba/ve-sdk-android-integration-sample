@@ -32,9 +32,6 @@
 
         <!-- Wait dialog style -->
         <item name="throbberViewStyle">@style/CustomThrobberViewStyle</item>
-        <!-- Attribute defines the background of progress view that is used for the long
-             video editor operations -->
-        <item name="wait_dialog_throbber_bg">@drawable/bg_progress_view</item>
         <item name="waitDialogTextStyle">@style/CustomWaitDialogTextStyle</item>
 
         <!-- Following attributes define custom alert dialog icons
@@ -50,8 +47,6 @@
         <item name="alert_editor_delete_voice_record">@null</item>
         <item name="alert_editor_reset_all">@null</item>
         <item name="alert_editor_reset_effects">@null</item>
-
-        <item name="toastStyle">@style/CustomToastStyle</item>
     </style>
 
     <!-- CameraOverlayStyle setup icons for Camera screen.
@@ -103,8 +98,6 @@
              you should setup custom style for "galleryImageViewStyle" theme attribute and
              set "use_custom_image" to "true" -->
         <item name="icon_empty_gallery">@drawable/ic_default</item>
-        <!-- should be drawn below the gallery icon -->
-        <item name="icon_gallery_background">@drawable/bg_gallery_button</item>
         <!-- as a default gallery icon view has a rectangle shape.
              If you setup "icon_gallery_background" as an oval, you should add radius here -->
         <item name="icon_gallery_radius">24dp</item>
@@ -139,7 +132,6 @@
          so the best approach to set background is to use selector -->
     <style name="CustomCameraNextButtonStyle" parent="CameraNextButtonStyle">
         <item name="android:textColor">@color/white</item>
-        <item name="android:background">@drawable/bg_btn_next</item>
     </style>
 
     <!-- Style for effects (filters and masks) list label. As default it's visibility is gone -->
@@ -162,7 +154,6 @@
     <!-- Style for the speed option item. Speed option my be selected and unselected
          so the best approach to set background as selector -->
     <style name="CustomCameraSpeedPickerItemStyle" parent="CameraSpeedPickerItemStyle">
-        <item name="android:background">@drawable/bg_speed_option_item</item>
         <item name="android:textColor">@color/white</item>
     </style>
 
@@ -176,12 +167,6 @@
         <item name="divider_color">@color/big_stone</item>
         <item name="normal_color">@color/egg_blue</item>
         <item name="delete_color">@color/violet_red</item>
-    </style>
-
-
-    <!-- Style for custom Toasts -->
-    <style name="CustomToastStyle" parent="ToastStyle">
-        <item name="android:background">@drawable/bg_toast</item>
     </style>
 
     <!-- Style for the throbber on the progress view
