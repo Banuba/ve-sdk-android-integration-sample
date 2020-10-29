@@ -1,4 +1,4 @@
-package com.banuba.example.integrationapp.videoeditor.custom
+package com.banuba.example.integrationapp.videoeditor.impl
 
 import android.app.Activity
 import android.content.Context
