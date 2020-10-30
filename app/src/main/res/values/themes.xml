@@ -254,6 +254,7 @@
          so the best approach to set background is to use selector -->
     <style name="CustomCameraNextButtonStyle" parent="CameraNextButtonStyle">
         <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/bg_next_button</item>
     </style>
 
     <!-- Style for effects (filters and masks) list label. As default it's visibility is gone -->
@@ -393,6 +394,7 @@
 
     <style name="CustomEditorNextButtonStyle" parent="EditorNextButtonStyle">
         <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/bg_next_button</item>
     </style>
 
     <style name="CustomEditorBackButtonStyle" parent="EditorBackButtonStyle" />
