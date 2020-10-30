@@ -396,13 +396,21 @@
 
     <style name="CustomEditorBackButtonStyle" parent="EditorBackButtonStyle" />
 
-    <style name="CustomEditorTextActionsStyle" parent="EditorTextActionsStyle" />
+    <style name="CustomEditorTextActionsStyle" parent="EditorTextActionsStyle">
+        <item name="icon_fill_background_on">@drawable/ic_text_withbg</item>
+        <item name="icon_fill_background_off">@drawable/ic_text_nobg</item>
+        <item name="text_align_center">@drawable/ic_text_align_center</item>
+        <item name="text_align_start">@drawable/ic_text_align_left</item>
+        <item name="text_align_end">@drawable/ic_text_align_right</item>
+    </style>
 
     <style name="CustomEditorTextColorLabelStyle" parent="EditorTextColorLabelStyle" />
 
     <style name="CustomEditorTextEditorInputStyle" parent="EditorTextEditorInputStyle" />
 
-    <style name="CustomTypefaceSwitcherStyle" parent="EditorTypefaceSwitcherStyle" />
+    <style name="CustomTypefaceSwitcherStyle" parent="EditorTypefaceSwitcherStyle">
+        <item name="android:background">@drawable/bg_rounded_border</item>
+    </style>
 
     <style name="CustomEditorCancelStyle" parent="EditorCancelStyle">
         <item name="android:fontFamily">@font/roboto_bold</item>
