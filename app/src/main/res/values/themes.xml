@@ -277,6 +277,7 @@
          so the best approach to set background as selector -->
     <style name="CustomCameraSpeedPickerItemStyle" parent="CameraSpeedPickerItemStyle">
         <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/bg_item_speed_picker</item>
     </style>
 
     <!-- Style for the appearance of "icon_remove_last_piece" defined in CameraOverlayStyle -->
