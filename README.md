@@ -20,16 +20,17 @@ In progress
 GitHub packages is used to download the latest SDK modules.
 1. Add GitHub properties file to your project  [github.properties](github.properties)
 
-1. Load github.properties in your [build.gradle](build.gradle#L6)
+1. Load github.properties in your [build.gradle](build.gradle#L6)  
+
 ``` kotlin
 buildscript {
     ext.kotlin_version = "1.4.10"
 
     ext.githubProperties = new Properties()
     ext.githubProperties.load(new FileInputStream(rootProject.file("github.properties"))
-
     ...
-}
+} 
+```
 
 1. Add [Maven repository](build.gradle#L23) for GitHub
 ``` kotlin
@@ -51,7 +52,7 @@ allprojects {
 Please specify list of dependencies as in [app/build.gradle](app/build.gradle#L38) file to integrate Banuba Video Editor SDK.
 
 ### Add Activity
-Banuba Video Editor contains a specific flow and order of screens i.e. camera, gallery, trimmer, etc. Each screen is a [Fragment](https://developer.android.com/jetpack/androidx/releases/fragment?authuser=1). All Fragmens are handled with [Activity](https://developer.android.com/jetpack/androidx/releases/activity?hl=en&authuser=1) - VideoCreationActivity. Add VideoCreationActivity to [AndroidManifest.xml](app/src/main/AndroidManifest.xml)
+Banuba Video Editor contains a specific flow and order of screens i.e. camera, gallery, trimmer, etc. Each screen is a [Fragment](https://developer.android.com/jetpack/androidx/releases/fragment?authuser=1). All Fragmens are handled with [Activity](https://developer.android.com/jetpack/androidx/releases/activity?hl=en&authuser=1) - VideoCreationActivity. Add VideoCreationActivity to [AndroidManifest.xml](app/src/main/AndroidManifest.xml#L21)
 ``` xml
 <activity
             android:name="com.banuba.sdk.ve.flow.VideoCreationActivity"
