@@ -13,6 +13,11 @@
          to VideoCreationActivity in AndroidManifest.xml file -->
     <style name="CustomIntegrationAppTheme" parent="VideoCreationTheme">
 
+        <!-- Video Timeline -->
+        <item name="videoTimelineCheckedStyle">@style/CustomVideoTimelineCheckedStyle</item>
+        <item name="videoTimelineUncheckedStyle">@style/CustomVideoTimelineUncheckedStyle</item>
+        <item name="videoTimelineCheckedIconStyle">@null</item>
+
         <!-- Camera screen styles -->
         <item name="cameraOverlayStyle">@style/CustomCameraOverlayStyle</item>
         <item name="cameraActionButtonStyle">@style/CustomCameraActionButtonStyle</item>
@@ -28,7 +33,8 @@
         <item name="cameraSpeedPickerLabelStyle">@style/CustomCameraSpeedPickerLabelStyle</item>
         <item name="cameraSpeedPickerViewStyle">@style/CustomCameraSpeedPickerViewStyle</item>
         <item name="cameraSpeedPickerItemStyle">@style/CustomCameraSpeedPickerItemStyle</item>
-
+        <item name="actionableEffectTitleStyle">@style/CustomActionableEffectTitleStyle</item>
+        <item name="checkableEffectTitleStyle">@style/CustomCheckableEffectTitleStyle</item>
 
         <!-- Wait dialog style -->
         <item name="throbberViewStyle">@style/CustomThrobberViewStyle</item>
@@ -48,7 +54,7 @@
         <item name="alert_editor_reset_all">@null</item>
         <item name="alert_editor_reset_effects">@null</item>
 
-            <!--Editor-->
+        <!--Editor-->
         <item name="editorOverlayStyle">@style/CustomEditorOverlayStyle</item>
         <item name="editorActionsStyle">@style/CustomEditorActionsStyle</item>
         <item name="editorActionButtonStyle">@style/CustomEditorActionButtonStyle</item>
@@ -75,6 +81,7 @@
         <item name="editorColorEffectsLabelStyle">@style/CustomEditorColorEffectsLabelStyle</item>
         <item name="editorColorEffectsRecyclerStyle">@style/CustomEditorColorEffectsRecyclerStyle
         </item>
+        <item name="editorTimelineStyle">@style/CustomTimelineEditorViewStyle</item>
 
 
         <!--Gallery-->
@@ -162,6 +169,20 @@
         <!---->
 
 
+        <!--Stickers-->
+        <item name="stickersRetryTitleTextStyle">@style/CustomStickersRetryTitleTextStyle</item>
+        <item name="stickersRetryMessageTextStyle">@style/CustomStickersRetryMessageTextStyle</item>
+        <item name="stickersRetryBtnStyle">@style/CustomStickersRetryBtnStyle</item>
+        <item name="stickersSearchViewStyle">@style/CustomStickersSearchStyle</item>
+
+        <!--Sticker & text editor-->
+        <item name="timelineTextViewStyle">@style/CustomTimelineTextViewStyle</item>
+        <item name="object_editor_icon_text">@drawable/ic_add_text</item>
+        <item name="object_editor_icon_sticker">@drawable/ic_add_gif</item>
+        <item name="object_editor_icon_edit">@drawable/ic_timeline_edit</item>
+        <item name="object_editor_icon_delete">@drawable/ic_timeline_trash</item>
+        <!---->
+
         <!--Cover-->
         <item name="coverNextButtonStyle">@style/CustomCoverNextButtonStyle</item>
         <item name="coverCancelButtonStyle">@style/CustomCoverCancelButtonStyle</item>
@@ -169,6 +190,8 @@
         <item name="coverDescriptionStyle">@style/CustomCoverDescriptionStyle</item>
         <item name="coverChooseViewBackground">@null</item>
         <!---->
+
+        <item name="toastStyle">@style/CustomToastStyle</item>
     </style>
 
     <!-- CameraOverlayStyle setup icons for Camera screen.
@@ -279,6 +302,10 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
+    <style name="CustomActionableEffectTitleStyle" parent="ActionableEffectTitleStyle" />
+
+    <style name="CustomCheckableEffectTitleStyle" parent="CheckableEffectTitleStyle" />
+
     <!-- Style for the appearance of "icon_remove_last_piece" defined in CameraOverlayStyle -->
     <style name="CustomCameraRemoveLastPieceButtonStyle" parent="CameraRemoveLastPieceButtonStyle" />
 
@@ -354,8 +381,8 @@
     <style name="EditorDialogNormalButton">
         <item name="android:textColor">@color/white</item>
     </style>
-    
-     <!--Editor Styles-->
+
+    <!--Editor Styles-->
     <style name="CustomEditorOverlayStyle" parent="EditorOverlayStyle">
         <item name="editor_icon_back">@drawable/ic_nav_back_arrow</item>
         <item name="editor_icon_playback_visible">false</item>
@@ -433,6 +460,20 @@
     <style name="CustomEditorColorEffectsLabelStyle" parent="EditorColorEffectsLabelStyle" />
 
     <style name="CustomEditorColorEffectsRecyclerStyle" parent="EditorColorEffectsRecyclerStyle" />
+
+    <style name="CustomTimelineEditorViewStyle" parent="EditorTimelineViewStyle" />
+
+    <!--Stickers Styles-->
+    <style name="CustomStickersRetryTitleTextStyle" />
+
+    <style name="CustomStickersRetryMessageTextStyle" />
+
+    <style name="CustomStickersRetryBtnStyle" />
+
+    <style name="CustomStickersSearchStyle" parent="StickersSearchStyle" />
+
+    <!--Stickers & text editor styles-->
+    <style name="CustomTimelineTextViewStyle" parent="TimelineTextViewStyle" />
 
     <!--Gallery styles-->
     <style name="CustomGalleryAlbumBlurViewStyle" parent="GalleryAlbumBlurViewStyle">
@@ -692,4 +733,7 @@
     </style>
     <!---->
 
+    <!--Toast style-->
+    <style name="CustomToastStyle" parent="ToastStyle" />
+    <!---->
 </resources>
