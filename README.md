@@ -6,11 +6,14 @@ In progress
 ## Dependencies
 In progress
 
-## Usage
-In progres
-
-## Trial
-In progress
+## Free Trial
+Before purchasing the license cost you have 1-month free trial period.  
+1. Sign NDA. [Contact Us](https://www.banuba.com/video-editor-sdk#form)
+1. Clone this repository
+1. Request [tokens](##Tokens)
+1. Put tokens in the app
+1. Start the sample
+1. Follow [integration guide](##Getting-Started) to bring your customizations
 
 ## Tokens  
 Banuba uses tokens for [Face AR SDK](https://www.banuba.com/facear-sdk/face-filters) and VE SDK products to differentiate our clients, protects features and technology. SDK requires up to date tokens, otherwise SDK will crash the app.  
