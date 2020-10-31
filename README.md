@@ -3,8 +3,20 @@
 The Most Powerful Augmented Reality Video Editor SDK for Mobile  
 In progress
 
+## Requirements
+- Java 1.8+
+- Kotlin 1.4+
+- Android Studio 4+
+- Android OS 6.0 or higher with Camera 2 API
+- OpenGL ES 3.0 (3.1 for Neural networks on GPU)  
+
 ## Dependencies
-In progress
+- [Koin](https://insert-koin.io/)
+- [ExoPlayer](https://github.com/google/ExoPlayer)
+- [Glide](https://github.com/bumptech/glide)
+- [Kotlin Coroutines](https://github.com/Kotlin/kotlinx.coroutines)
+- [AndroidX](https://developer.android.com/jetpack/androidx/versions) libraries
+- [Banuba Face AR SDK](https://www.banuba.com/facear-sdk/face-filters). *Optional*
 
 ## Free Trial
 Before purchasing the license cost you have 1-month free trial period.  
