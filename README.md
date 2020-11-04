@@ -90,9 +90,38 @@ Usually, *minVideoDuration* and *maxVideoDuration* are most used properties.
 - [object_editor.json](app/src/main/assets/object_editor.json) contains properties that you can customize on editor screen while editing text or GIF on video effects.
 - [videoeditor.json](app/src/main/assets/videoeditor.json) contains properties that you can customize on editor, trimmer, gallery screens.  *Note*: please keep in mind that *minVideoDuration* and *maxVideoDuration* in this and [camera.json](app/src/main/assets/camera.json) should be the same.
 
-### Configure DI
+### Configure DI  
+VideoEditor behavior can be overriden. We use [Koin](https://insert-koin.io/) for this purpose.  
+Firstly, you need to create your own implementation of FlowEditorModule.  
+``` kotlin
+class VideoeditorKoinModule : FlowEditorModule() {
 
-### Configure your export flow
+    override val effectPlayerManager: BeanDefinition<AREffectPlayerProvider> =
+        single(override = true) {
+            BanubaAREffectPlayerProvider(
+                mediaSizeProvider = get(),
+                token = androidContext().getString(R.string.video_editor_token)
+            )
+        }
+
+    ...
+}
+```  
+You will need to override several properties to customize video editor for your application.
+Full example you can take a look [here](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoeditorKoinModule.kt).  
+
+Secondly, you need to initialize Koin module in your [Application.onCreate](app/main/src/java/com/banuba/example/integrationapp/IntegrationApp.kt#L12) method.  
+``` kotlin
+startKoin {
+    androidContext(this@IntegrationApp)        
+    modules(VideoeditorKoinModule().module)
+}
+```
+
+
+### Configure export flow
+
+### Configure styles
 
 
 
