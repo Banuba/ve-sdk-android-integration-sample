@@ -82,7 +82,13 @@ Banuba Video Editor contains a specific flow and order of screens i.e. camera, g
 ```
 It will allow to [launch Video Editor](app/src/main/java/com/banuba/example/integrationapp/MainActivity.kt#L24). 
 
-### Add config files
+### Add config files  
+Banuba VE SDK has several configuration files that allow to customize video editor for your needs. All config files should be placed into Android **assets** folder.  
+- [camera.json](app/src/main/assets/camera.json) contains properties that you can customize on camera screen i.e. the minimun and maximum video durations, if your camera screen should support flashlight, etc.
+Usually, *minVideoDuration* and *maxVideoDuration* are most used properties.
+- [music_editor.json](app/src/main/assets/music_editor.json) contains properties that you can customize on audio editor screen i.e. how many timelines or tracks are allowed, etc.
+- [object_editor.json](app/src/main/assets/object_editor.json) contains properties that you can customize on editor screen while editing text or GIF on video effects.
+- [videoeditor.json](app/src/main/assets/videoeditor.json) contains properties that you can customize on editor, trimmer, gallery screens.  *Note*: please keep in mind that *minVideoDuration* and *maxVideoDuration* in this and [camera.json](app/src/main/assets/camera.json) should be the same.
 
 ### Configure DI
 
