@@ -73,14 +73,15 @@ Please specify list of dependencies as in [app/build.gradle](app/build.gradle#L3
 ### Add Activity
 Banuba Video Editor contains a specific flow and order of screens i.e. camera, gallery, trimmer, etc. Each screen is a [Fragment](https://developer.android.com/jetpack/androidx/releases/fragment?authuser=1). All Fragmens are handled with [Activity](https://developer.android.com/jetpack/androidx/releases/activity?hl=en&authuser=1) - VideoCreationActivity. Add VideoCreationActivity to [AndroidManifest.xml](app/src/main/AndroidManifest.xml#L21)
 ``` xml
-<activity
-            android:name="com.banuba.sdk.ve.flow.VideoCreationActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/CustomIntegrationAppTheme"
-            android:windowSoftInputMode="adjustResize"
-            tools:replace="android:theme" />
+<activity android:name="com.banuba.sdk.ve.flow.VideoCreationActivity"
+    android:screenOrientation="portrait"
+    android:theme="@style/CustomIntegrationAppTheme"
+    android:windowSoftInputMode="adjustResize"
+    tools:replace="android:theme" />
 ```
-It will allow to [launch Video Editor](app/src/main/java/com/banuba/example/integrationapp/MainActivity.kt#L24). 
+It will allow to [launch Video Editor](app/src/main/java/com/banuba/example/integrationapp/MainActivity.kt#L24).  
+
+[CustomIntegrationAppTheme](app/src/main/res/values/themes.xml#L14) theme overrides icons, colors, etc. for VE SDK screens.
 
 ### Add config files  
 Banuba VE SDK has several configuration files that allow to customize video editor for your needs. All config files should be placed into Android **assets** folder.  
@@ -119,9 +120,17 @@ startKoin {
 ```
 
 
-### Configure export flow
+### Configure export flow  
 
-### Configure styles
+
+### How to integrate to Android Java project  
+In progress...
+
+### Configure screens  
+The SDK allows to override icons, colors, typefaces and many more using Android theme and styles. Every SDK screen has its own set of styles.  
+Below you can find how to customize VE SDK to bring your experience.
+1. [Camera screen](camera_styles.md)
+
 
 
 
