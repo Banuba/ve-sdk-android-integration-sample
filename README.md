@@ -130,6 +130,7 @@ In progress...
 The SDK allows to override icons, colors, typefaces and many more using Android theme and styles. Every SDK screen has its own set of styles.  
 Below you can find how to customize VE SDK to bring your experience.
 1. [Camera screen](camera_styles.md)
+1. [Editor screen](editor_styles.md)
 
 
 

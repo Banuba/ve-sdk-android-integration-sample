@@ -14,8 +14,10 @@
     <style name="CustomIntegrationAppTheme" parent="VideoCreationTheme">
 
         <!-- Video Timeline -->
+        <!-- Normal and Slideshow tabs on the bottom of camera screen -->
         <item name="videoTimelineCheckedStyle">@style/CustomVideoTimelineCheckedStyle</item>
         <item name="videoTimelineUncheckedStyle">@style/CustomVideoTimelineUncheckedStyle</item>
+        <!-- Icon that is shown as compound drawable for checked timeline mode -->
         <item name="videoTimelineCheckedIconStyle">@null</item>
 
         <!-- Camera screen styles -->
