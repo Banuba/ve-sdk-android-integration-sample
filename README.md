@@ -29,9 +29,7 @@ Before purchasing the license cost you have 1-month free trial period.
 
 ## Tokens  
 Banuba uses tokens for [Face AR SDK](https://www.banuba.com/facear-sdk/face-filters) and VE SDK products to differentiate our clients, protects features and technology. SDK requires up to date tokens, otherwise SDK will crash the app.  
-Since Banuba VE SDK includes Face AR SDK it is required to specify 2 tokens.  
-1. Face AR token for applying AR effects. Please, put the token [here](app/src/main/res/values/strings.xml#L5)
-1. Video effects token for applying visual and time effects. Please, put the token [here](app/src/main/res/values/strings.xml#L7)
+Since Banuba VE SDK includes Face AR SDK it is required to specify Face AR token for applying AR effects. Please, put the token [here](app/src/main/res/values/strings.xml#L5)
 
 
 ## Getting Started
