@@ -130,7 +130,7 @@ Below you can find how to customize VE SDK to bring your experience.
 1. [Camera screen](camera_styles.md)
 1. [Editor screen](editor_styles.md)
 1. [Gallery screen](gallery_styles.md)
-
+1. [Trimmer screen](trimmer_styles.md)
 
 
 
