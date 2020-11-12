@@ -21,7 +21,7 @@
     style defines an appearance for the button that is used to delete the last recorded video chunk from the timeline
 - [cameraRecorderTimelineStyle](app/src/main/res/values/themes.xml#L31)
 
-    style is intented to customize the timeline
+    style is intended to customize the timeline
 
 - [videoTimelineCheckedStyle](app/src/main/res/values/themes.xml#L18)
 

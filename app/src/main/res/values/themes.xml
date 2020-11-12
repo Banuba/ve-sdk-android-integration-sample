@@ -112,47 +112,49 @@
 
         <!--Video Trimmer-->
         <item name="trimmerStyle">@style/CustomTrimmerViewStyle</item>
-        <item name="trimmerRecyclerStyle">@style/CustomTrimmerRecyclerStyle</item>
         <item name="trimmerBackButtonStyle">@style/CustomTrimmerBackButtonStyle</item>
         <item name="trimmerNextButtonStyle">@style/CustomTrimmerNextButtonStyle</item>
-        <item name="trimmerCancelButtonStyle">@style/CustomTrimmerCancelButtonStyle</item>
-        <item name="trimmerDurationTimelineStyle">@style/CustomTrimmerDurationTimelineStyle</item>
         <item name="trimmerDurationSumTextStyle">@style/CustomTrimmerDurationSumTextStyle</item>
-        <item name="trimmerDeleteCrossStyle">@style/CustomTrimmerDeleteCrossStyle</item>
-        <item name="trimmerDeleteLabelStyle">@style/CustomTrimmerDeleteLabelStyle</item>
         <item name="trimmerContentViewStyle">@style/CustomTrimmerContentViewStyle</item>
         <item name="trimmerContentLabelStyle">@style/CustomTrimmerContentLabelStyle</item>
+        <item name="trimmerRecyclerStyle">@style/CustomTrimmerRecyclerStyle</item>
         <item name="trimmerThumbImageStyle">@style/CustomTrimmerThumbImageStyle</item>
         <item name="trimmerThumbTextStyle">@style/CustomTrimmerThumbTextStyle</item>
+        <item name="trimmerDeleteLabelStyle">@style/CustomTrimmerDeleteLabelStyle</item>
+        <item name="trimmerDeleteCrossStyle">@style/CustomTrimmerDeleteCrossStyle</item>
+        <item name="trimmerCancelButtonStyle">@style/CustomTrimmerCancelButtonStyle</item>
+        <item name="trimmerDurationTimelineStyle">@style/CustomTrimmerDurationTimelineStyle</item>
 
-        <item name="trimmer_icon_add_video">@drawable/ic_trimmer_add_video</item>
+        <item name="trimmer_play_control_visible">true</item>
         <item name="trimmer_icon_play">@drawable/ic_play</item>
         <item name="trimmer_icon_pause">@drawable/ic_pause</item>
+        <item name="trimmer_icon_add_video">@drawable/ic_trimmer_add_video</item>
         <item name="trimmer_bg_color_add_video">@color/transparent</item>
         <item name="trimmer_time_visible">true</item>
-        <item name="trimmer_play_control_visible">true</item>
         <item name="trimmer_hint_visible">false</item>
         <!---->
 
 
         <!--Music Editor-->
         <item name="musicEditorStyle">@style/CustomMusicEditorStyle</item>
-        <item name="musicEditorRecordingButtonStyle">@style/CustomMusicEditorRecordingButtonStyle</item>
         <item name="musicEditorTimelineStyle">@style/CustomMusicEditorTimelineStyle</item>
         <item name="musicEditorTimelineTimeTextStyle">@style/CustomMusicEditorTimelineTimeTextStyle</item>
+        <item name="musicEditorActionButtonParentStyle">@style/CustomMusicEditorActionButtonParentStyle</item>
+        <item name="musicEditorActionButtonStyle">@style/CustomMusicEditorActionButtonStyle</item>
+        <item name="musicEditorActionButtonTextStyle">@style/CustomMusicEditorActionButtonTextStyle</item>
         <item name="timelineEditorBoardStyle">@style/CustomTimelineEditorBoardStyle</item>
         <item name="musicEditorTimelineSoundWaveStyle">@style/CustomMusicEditorTimelineSoundWaveStyle</item>
-        <item name="musicEditorVideoVolumeStyle">@style/CustomMusicEditorVideoVolumeStyle</item>
 
+        <item name="musicEditorVideoVolumeStyle">@style/CustomMusicEditorVideoVolumeStyle</item>
         <item name="musicEditorVideoVolumeContainerBackground">@color/transparent</item>
         <item name="hideBottomViewsInEditVolume">true</item>
+
+        <item name="musicEditorRecordingButtonStyle">@style/CustomMusicEditorRecordingButtonStyle</item>
 
         <item name="musicEditorTrimViewStyle">@style/CustomMusicEditorTrimViewStyle</item>
         <item name="musicEditorTrimmerStyle">@style/CustomMusicEditorTrimmerStyle</item>
         <item name="musicEditorTrimmerSoundWaveStyle">@style/CustomMusicEditorTrimmerSoundWaveStyle</item>
-        <item name="musicEditorActionButtonStyle">@style/CustomMusicEditorActionButtonStyle</item>
-        <item name="musicEditorActionButtonParentStyle">@style/CustomMusicEditorActionButtonParentStyle</item>
-        <item name="musicEditorActionButtonTextStyle">@style/CustomMusicEditorActionButtonTextStyle</item>
+
         <item name="musicEditorEqualizerRecyclerStyle">@style/CustomMusicEditorEqualizerRecyclerStyle</item>
         <item name="musicEditorEqualizerItemStyle">@style/CustomMusicEditorEqualizerItemStyle</item>
         <item name="musicEditorEqualizerThrobberStyle">@style/CustomMusicEditorEqualizerThrobberStyle</item>
