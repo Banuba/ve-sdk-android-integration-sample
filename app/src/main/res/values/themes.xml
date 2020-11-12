@@ -87,17 +87,17 @@
 
 
         <!--Gallery-->
-        <item name="galleryAlbumBlurViewStyle">@style/CustomGalleryAlbumBlurViewStyle</item>
+        <item name="galleryImageViewStyle">@style/CustomGalleryImageViewStyle</item>
+        <item name="galleryTitleTextStyle">@style/CustomGalleryTitleTextStyle</item>
+        <item name="galleryChoiceButtonStyle">@style/CustomGalleryChoiceButtonStyle</item>
+        <item name="galleryBackButtonStyle">@style/CustomGalleryBackButtonStyle</item>
+        <item name="galleryNextButtonStyle">@style/CustomGalleryNextButtonStyle</item>
         <item name="galleryItemRadioButtonStyle">@style/CustomGalleryItemRadioButtonStyle</item>
         <item name="galleryItemTextStyle">@style/CustomGalleryItemTextStyle</item>
-        <item name="galleryTitleTextStyle">@style/CustomGalleryTitleTextStyle</item>
+        <item name="galleryEmptyTextStyle">@style/CustomGalleryEmptyTextStyle</item>
+        <item name="galleryAlbumBlurViewStyle">@style/CustomGalleryAlbumBlurViewStyle</item>
         <item name="galleryAlbumTitleTextStyle">@style/CustomGalleryAlbumTitleTextStyle</item>
         <item name="galleryAlbumDescTextStyle">@style/CustomGalleryAlbumDescTextStyle</item>
-        <item name="galleryEmptyTextStyle">@style/CustomGalleryEmptyTextStyle</item>
-        <item name="galleryBackButtonStyle">@style/CustomGalleryBackButtonStyle</item>
-        <item name="galleryChoiceButtonStyle">@style/CustomGalleryChoiceButtonStyle</item>
-        <item name="galleryNextButtonStyle">@style/CustomGalleryNextButtonStyle</item>
-        <item name="galleryImageViewStyle">@style/CustomGalleryImageViewStyle</item>
 
         <item name="galleryColumnsNumber">wrap_content</item>
         <item name="gallery_light_status_bar">false</item>
