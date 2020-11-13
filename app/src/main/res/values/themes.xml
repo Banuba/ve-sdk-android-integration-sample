@@ -196,6 +196,7 @@
         <!---->
 
         <item name="toastStyle">@style/CustomToastStyle</item>
+        <item name="wait_dialog_throbber_bg">@drawable/bg_wait_dialog_throbber</item>
     </style>
 
     <!-- CameraOverlayStyle setup icons for Camera screen.
