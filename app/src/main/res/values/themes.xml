@@ -174,10 +174,10 @@
 
 
         <!--Stickers-->
+        <item name="stickersSearchViewStyle">@style/CustomStickersSearchStyle</item>
         <item name="stickersRetryTitleTextStyle">@style/CustomStickersRetryTitleTextStyle</item>
         <item name="stickersRetryMessageTextStyle">@style/CustomStickersRetryMessageTextStyle</item>
         <item name="stickersRetryBtnStyle">@style/CustomStickersRetryBtnStyle</item>
-        <item name="stickersSearchViewStyle">@style/CustomStickersSearchStyle</item>
 
         <!--Sticker & text editor-->
         <item name="timelineTextViewStyle">@style/CustomTimelineTextViewStyle</item>
@@ -196,6 +196,7 @@
         <!---->
 
         <item name="toastStyle">@style/CustomToastStyle</item>
+        <item name="wait_dialog_throbber_bg">@drawable/bg_wait_dialog_throbber</item>
     </style>
 
     <!-- CameraOverlayStyle setup icons for Camera screen.
