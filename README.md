@@ -127,13 +127,13 @@ In progress...
 ### Configure screens  
 The SDK allows to override icons, colors, typefaces and many more using Android theme and styles. Every SDK screen has its own set of styles.  
 Below you can find how to customize VE SDK to bring your experience.
-1. [Camera screen](camera_styles.md)
-1. [Editor screen](editor_styles.md)
-1. [Gallery screen](gallery_styles.md)
-1. [Trimmer screen](trimmer_styles.md)
-1. [Music Editor screen](music_editor_styles.md)
-1. [Timeline Editor screen](timeline_editor_styles.md)
-1. [Cover screen](cover_styles.md)
-1. [Alert Dialogs](alert_styles.md)
+1. [Camera screen](mddocs/camera_styles.md)
+1. [Editor screen](mddocs/editor_styles.md)
+1. [Gallery screen](mddocs/gallery_styles.md)
+1. [Trimmer screen](mddocs/trimmer_styles.md)
+1. [Music Editor screen](mddocs/music_editor_styles.md)
+1. [Timeline Editor screen](mddocs/timeline_editor_styles.md)
+1. [Cover screen](mddocs/cover_styles.md)
+1. [Alert Dialogs](mddocs/alert_styles.md)
 
 
