@@ -1,0 +1,51 @@
+warp_mesh = "BeautyFaceSP.bsm2"
+msaa = 1
+shadowmap_size = 512
+adjust_znear = 150
+# bg_mips = true
+draw_order = ['retouch', 'flower', '!glfx_UPDATE_BG', 'TriMat']
+
+# Retouch
+[materials.retouch]
+vs = "retouch.vert"
+fs = "retouch.frag"
+blend = "off" # "alpha", "premul_alpha", "screen", "add", "multiply", "coverage", "off"
+backfaces = true
+colorwrite = true
+zwrite = true
+shadow = false
+onface = true
+mouth = true
+[materials.retouch.samplers]
+selection_tex="REDMASK_v3_256.png"
+lookupTexTeeth="TEETH_low.png"
+tex_softLight="SOFT_princess_256.png"
+tex_normalMakeup="lashes1_Base_Color.ktx"
+tex_highlight="FLARE_39_512.png"
+
+# PBR
+[materials.flower]
+vs = "flower.vert"
+fs = "flower.frag"
+blend = "off" # "alpha", "premul_alpha", "screen", "add", "multiply", "coverage", "off"
+backfaces = false
+colorwrite = true
+zwrite = true
+shadow = true
+[materials.flower.samplers]
+tex_diffuse="DefaultMaterial_Base_Color.ktx"
+tex_normal="DefaultMaterial_Normal.ktx"
+tex_brdf="brdf.ktx"
+tex_ibl_diff="ibl_diff.ktx"
+tex_ibl_spec="ibl_spec.ktx"
+tex_mrao="DefaultMaterial_MRAO.ktx"
+
+[materials.TriMat]
+vs = "bg.vert"
+fs = "bg.frag"
+blend = "off" # "alpha", "premul_alpha", "screen", "add", "multiply"
+backfaces = false
+colorwrite = true
+zwrite = false
+shadow = false
+samplers = {}

@@ -1,0 +1,27 @@
+warp_mesh = "Beauty06.bsm2"
+
+draw_order = ["retouch","face_mat"]
+
+[materials.face_mat]
+vs = "face.vert"
+fs = "face.frag"
+blend = "alpha"
+zwrite = false
+backfaces = false
+shadow = false
+onface = true
+mouth = true
+samplers = {}
+
+[materials.retouch]
+vs = "retouch.vert"
+fs = "retouch.frag"
+blend = "off"
+backfaces = false
+colorwrite = true
+zwrite = true
+shadow = false
+onface = true
+mouth = true
+samplers = { selection_tex="redmask_v3.png", lookupTexTeeth="teeth_highlighter5.png", lookupTexEyes="lut_80_percent.png"}
+

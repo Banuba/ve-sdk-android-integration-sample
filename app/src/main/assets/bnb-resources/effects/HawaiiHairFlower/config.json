@@ -1,0 +1,36 @@
+{
+  "name": "Sberbank_HawaiiHairFlower",
+  "frx": {
+    "type": "3d_anim",
+    "3d_anim": {
+      "type": "vfx"
+    }
+  },
+  "foreground": {
+    "type": "MEDIA",
+    "media": {
+      "type": "VIDEO",
+      "file": "Bokeh_F.mp4",
+      "opacity": 1.0,
+      "videoSpeed": 1.0,
+      "blend": "SCREEN",
+      "mode": "RGBA"
+    }
+  },
+  "final": {
+    "type": "FILTER",
+    "filter": {
+      "fragmentCode": "finalColorFilter.fsh",
+      "textures": [{
+        "file": "sunny.png",
+        "sampler": "lookupTexture",
+        "magFilter": "LINEAR",
+        "minFilter": "LINEAR"
+      }]
+    }
+  },
+  "recognizer": [
+    "background"
+  ],
+  "recordDuration": 15
+}
