@@ -1,0 +1,19 @@
+{
+    "name": "YandexBeautyEffects",
+    "effectVersionInfo": {
+        "commit": "c2dedfa286bcee70f70e236cf62611633239e1ad",
+        "date": "2019-04-10",
+        "time": "12:33:59",
+        "author": "v.makarevich"
+    },
+    "buildToolsVersionInfo": {
+        "commit": "4092ff63db6da178e66d3ac877dbf51cdfda453d",
+        "date": "2019-01-09",
+        "time": "09:55:26",
+        "author": "Antony"
+    },
+    "capabilities": {
+        "effectPlayerMajorVersion": 5,
+        "effectPlayerMinorVersion": 1
+    }
+}

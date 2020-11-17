@@ -1,0 +1,13 @@
+{
+  "name": "Lips_Raspberry",
+  "frx": {
+    "type": "3d_anim",
+    "3d_anim": {
+      "type": "vfx"
+    }
+  },
+  "recognizer": [
+    "lips_segmentation"
+  ],
+  "recordDuration": 10
+}

@@ -1,0 +1,9 @@
+{
+  "name": "YandexBeautyEffects",
+  "frx": {
+    "type": "3d_anim",
+    "3d_anim": {
+      "type": "vfx"
+    }
+  }
+}
