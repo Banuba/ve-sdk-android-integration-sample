@@ -22,12 +22,12 @@ In progress
 Before purchasing the license cost you have 1-month free trial period.  
 1. Sign NDA. [Contact Us](https://www.banuba.com/video-editor-sdk#form)
 1. Clone this repository
-1. Request [tokens](##Tokens)
-1. Put tokens in the app
+1. Request a [token](##Token)
+1. Put token in the app
 1. Start the sample
 1. Follow [integration guide](##Getting-Started) to bring your customizations
 
-## Tokens  
+## Token  
 Banuba uses tokens for [Face AR SDK](https://www.banuba.com/facear-sdk/face-filters) and VE SDK products to differentiate our clients, protects features and technology. SDK requires up to date tokens, otherwise SDK will crash the app.  
 Since Banuba VE SDK includes Face AR SDK it is required to specify Face AR token for applying AR effects. Please, put the token [here](app/src/main/res/values/strings.xml#L5)
 
