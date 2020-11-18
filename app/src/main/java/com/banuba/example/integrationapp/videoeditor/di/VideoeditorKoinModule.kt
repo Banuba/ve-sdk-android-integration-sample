@@ -9,6 +9,8 @@ import com.banuba.android.sdk.camera.CameraSdkManager
 import com.banuba.example.integrationapp.videoeditor.impl.GlideImageLoader
 import com.banuba.example.integrationapp.videoeditor.export.IntegrationAppExportFlowManager
 import com.banuba.example.integrationapp.videoeditor.export.IntegrationAppExportResultHandler
+import com.banuba.example.integrationapp.videoeditor.impl.IntegrationAppRecordingAnimationProvider
+import com.banuba.sdk.cameraui.data.CameraRecordingAnimationProvider
 import com.banuba.sdk.core.AREffectPlayerProvider
 import com.banuba.sdk.core.IUtilityManager
 import com.banuba.sdk.core.domain.ImageLoader
@@ -75,5 +77,13 @@ class VideoeditorKoinModule : FlowEditorModule() {
                 is Context -> GlideImageLoader(context = source)
                 else -> throw IllegalArgumentException("Illegal source for GlideImageLoader")
             }
+        }
+
+    /**
+     * Provides camera record button animation
+     * */
+    override val cameraRecordingAnimationProvider: BeanDefinition<CameraRecordingAnimationProvider> =
+        factory(override = true) {
+            IntegrationAppRecordingAnimationProvider(context = get())
         }
 }
