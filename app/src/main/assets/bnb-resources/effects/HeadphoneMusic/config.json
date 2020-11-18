@@ -1,0 +1,29 @@
+{
+  "name": "Sberbank_2_5D_HeadphoneMusic",
+  "frx": {
+    "type": "3d_anim",
+    "3d_anim": {
+      "type": "vfx"
+    },
+    "media": {
+      "type": "VIDEO",
+      "file": "music.mp4"
+    }
+  },
+  "final": {
+    "type": "FILTER",
+    "filter": {
+      "fragmentCode": "finalColorFilter.fsh",
+      "textures": [{
+        "file": "violla.png",
+        "sampler": "lookupTexture",
+        "magFilter": "LINEAR",
+        "minFilter": "LINEAR"
+      }]
+    }
+  },
+  "sounds" : [
+                  { "trackName" : "music.m4a" }
+                  ], 
+  "recordDuration" : 15
+}

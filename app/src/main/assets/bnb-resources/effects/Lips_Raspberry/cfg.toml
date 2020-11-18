@@ -1,0 +1,28 @@
+warp_mesh = "BeautyFaceSP.bsm2"
+
+draw_order = ["Q0", "!glfx_UPDATE_BG", "retouch"]
+
+[materials.retouch]
+vs = "retouch.vert"
+fs = "retouch.frag"
+blend = "off"
+backfaces = false
+colorwrite = true
+zwrite = false
+shadow = false
+onface = true
+mouth = true
+[materials.retouch.samplers]
+selection_tex="REDMASK_v3_256.png"
+lookupTexTeeth="TEETH_medium.png"
+
+[materials.Q0]
+vs = "lips.vert"
+fs = "lips.frag"
+blend = "off"
+backfaces = true
+colorwrite = true
+zwrite = false
+ztest = false
+shadow = false
+samplers = {}
