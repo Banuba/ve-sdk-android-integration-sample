@@ -5,4 +5,17 @@
     <string name="effect_player_token"><!-- Paste your effect player token here --></string>
     <!-- Used for enabling visual and time effects. Pleae contact Banuba https://www.banuba.com/video-editor-sdk to get this token. -->
     <string name="video_editor_token">ippJfY0xiKGOqWDm0uFnayxK7fK+1u0DuoAruXX1Ka54R5Qjwj4s9ZoGaGaACFfgi0HAL32wzC1slfUqZ6yyxXpxQ+ljiL+/hFpStDMmBWGZBCvG+FlTtd9wa9bU9rC6DjJwNuRfGSe4bszdKxGBEPE5MY5nJW76w/ffFeY6U898IOiOVy5wmsqXERSEbFA9PAeBYLnRpAx13CSFKWeTONMde5dMl3jmnLMlfXkbMXve9gTvL/fnDTyyUDeWHX6YfbmmWHFpP24t</string>
+
+    <!-- Effects -->
+    <!-- Time Effects -->
+    <string name="time_effect_slow_mo">Slow mo</string>
+    <string name="time_effect_rapid">Rapid</string>
+
+    <!-- Visual Effects -->
+    <string name="visual_effect_vhs">VHS</string>
+    <string name="visual_effect_rave">Rave</string>
+
+    <!-- Mask Effect -->
+    <string name="mask_effect_hawaiihairflower">HawaiiHairFlower</string>
+    <string name="mask_effect_asailines">AsaiLines</string>
 </resources>
