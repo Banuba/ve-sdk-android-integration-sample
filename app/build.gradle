@@ -60,6 +60,5 @@ dependencies {
     implementation "com.banuba.sdk:ve-sdk:${banubaSdkVersion}"
     implementation "com.banuba.sdk:ve-ui-sdk:${banubaSdkVersion}"
     implementation "com.banuba.sdk:ve-effects-sdk:${banubaSdkVersion}"
-    api "com.banuba.sdk:effect-player-adapter:1.0.12"
-    api "com.banuba.sdk:effect-player:0.32.0"
+    implementation "com.banuba.sdk:effect-player-adapter:1.0.14"
 }
