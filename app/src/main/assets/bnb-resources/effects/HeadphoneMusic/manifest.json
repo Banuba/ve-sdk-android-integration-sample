@@ -1,0 +1,19 @@
+{
+    "name": "Sberbank_2_5D_HeadphoneMusic",
+    "effectVersionInfo": {
+        "commit": "9a5994076024282e8c01cb3fa6f61c6f12e4c1ab",
+        "date": "2020-07-17",
+        "time": "13:02:28",
+        "author": "Alexander Layuk"
+    },
+    "buildToolsVersionInfo": {
+        "commit": "6c4f87b75f214de1559d54e5d957aef08adb08ac",
+        "date": "2020-03-12",
+        "time": "18:06:58",
+        "author": "Aleksey Cherkes"
+    },
+    "capabilities": {
+        "effectPlayerMajorVersion": 5,
+        "effectPlayerMinorVersion": 1
+    }
+}

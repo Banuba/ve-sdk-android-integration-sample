@@ -1,0 +1,38 @@
+warp_mesh = "Beauty09.bsm2"
+msaa = 1
+shadowmap_size = 512
+adjust_znear = 150
+draw_order = ['retouch', 'facemat']
+
+# Retouch
+[materials.retouch]
+vs = "retouch.vert"
+fs = "retouch.frag"
+blend = "off" # "alpha", "premul_alpha", "screen", "add", "multiply", "coverage", "off"
+backfaces = false
+colorwrite = true
+zwrite = true
+shadow = false
+onface = true
+mouth = true
+[materials.retouch.samplers]
+selection_tex="redmask_new_3.png"
+lookupTexTeeth="teeth_low.png"
+lookupTexEyes="eyes_low.png"
+tex_softLight="soft_low.png"
+tex_highlight="40.png"
+
+# PBR
+[materials.facemat]
+vs = "facemat.vert"
+fs = "facemat.frag"
+blend = "off" # "alpha", "premul_alpha", "screen", "add", "multiply", "coverage", "off"
+backfaces = false
+colorwrite = false
+zwrite = true
+shadow = true
+[materials.facemat.samplers]
+tex_diffuse="no_Base_Color.png"
+tex_normal="no_Normal.png"
+tex_metallic="no_Metallic.png"
+tex_roughness="no_Roughness.png"

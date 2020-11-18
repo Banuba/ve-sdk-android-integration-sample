@@ -1,0 +1,31 @@
+{
+    "name": "Sberbank_AsaiLines",
+    "version": 1,
+
+    "frx": {
+    "type" : "3d_anim",
+    "3d_anim" : {
+      "type" : "vfx"
+    },
+    "media": {
+          "type": "VIDEO_AUDIO",
+          "file": "asai.mp4",
+          "videoSpeed": 1.0,
+          "opacity": 1.0,
+          "mode": "RGBA"
+      }
+  },
+  "background": {
+        "kernelSize": 5,
+        "blurType": "big",
+
+        "type": "MEDIA",
+       
+        "media": {
+            "type": "PICTURE",
+            "file": "bg.png",
+            "opacity": 0.8,
+            "mode": "RGBA"
+        }
+    }
+}
