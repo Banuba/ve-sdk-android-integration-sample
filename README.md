@@ -35,21 +35,8 @@ The token should be put [here](app/src/main/res/values/strings.xml#L5).
 ## Getting Started
 ### Setup GitHub packages
 GitHub packages are used to download the latest SDK modules. You would need them also to receive a new SDK versions.
-1. Add GitHub properties file to your project  at [github.properties](github.properties)
 
-1. Load github.properties in your [build.gradle](build.gradle#L6)  
-
-``` kotlin
-buildscript {
-    ext.kotlin_version = "1.4.10"
-
-    ext.githubProperties = new Properties()
-    ext.githubProperties.load(new FileInputStream(rootProject.file("github.properties"))
-    ...
-} 
-```
-
-1. Add [Maven repository](build.gradle#L23) for GitHub
+Please add [Maven repository](build.gradle#L23) for GitHub
 ``` kotlin
 allprojects {
     repositories {
@@ -57,8 +44,8 @@ allprojects {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/Banuba/banuba-ve-sdk")
             credentials {
-                username = rootProject.ext.githubProperties['gpr.usr']
-                password = rootProject.ext.githubProperties['gpr.key']
+                username = "Banuba"
+                password = "put your new personal access token here"
             }
         }
         ...
