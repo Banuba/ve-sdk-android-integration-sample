@@ -106,6 +106,14 @@ startKoin {
 
 
 ### Configure export flow  
+--in progress--
+
+
+### Configure watermark
+One of the VE features is a watermmark. You can add your branded image on top of the video, which user exports.
+
+To utilize the watermark, add ``` kotlin WatermarkProvider``` interface to your app. 
+Add watermark image in the method ``` kotlin getWatermarkBitmap```. Finally, re-arrange the dependency ``` kotlin watermarkProvider``` in [DI](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoeditorKoinModule.kt#64). Check out [this example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationAppWatermarkProvider.kt) if you have any troubles.
 
 
 ### How to integrate to Android Java project  
