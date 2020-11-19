@@ -1,26 +1,24 @@
 package com.banuba.example.integrationapp.videoeditor.di
 
-import android.app.Application
 import android.content.Context
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.banuba.android.sdk.camera.BanubaCameraSdkManager
-import com.banuba.android.sdk.camera.CameraSdkManager
-import com.banuba.example.integrationapp.videoeditor.impl.GlideImageLoader
+import com.banuba.example.integrationapp.R
 import com.banuba.example.integrationapp.videoeditor.export.IntegrationAppExportFlowManager
 import com.banuba.example.integrationapp.videoeditor.export.IntegrationAppExportResultHandler
+import com.banuba.example.integrationapp.videoeditor.impl.GlideImageLoader
+import com.banuba.example.integrationapp.videoeditor.impl.IntegrationAppWatermarkProvider
 import com.banuba.example.integrationapp.videoeditor.impl.IntegrationAppRecordingAnimationProvider
 import com.banuba.sdk.cameraui.data.CameraRecordingAnimationProvider
 import com.banuba.sdk.core.AREffectPlayerProvider
 import com.banuba.sdk.core.IUtilityManager
 import com.banuba.sdk.core.domain.ImageLoader
-import com.banuba.sdk.core.effects.EffectsResourceManager
 import com.banuba.sdk.effectplayer.adapter.BanubaAREffectPlayerProvider
 import com.banuba.sdk.effectplayer.adapter.BanubaClassFactory
+import com.banuba.sdk.ve.effects.WatermarkProvider
 import com.banuba.sdk.ve.flow.ExportFlowManager
 import com.banuba.sdk.ve.flow.ExportResultHandler
 import com.banuba.sdk.ve.flow.FlowEditorModule
-import com.banuba.sdk.ve.flow.R
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.definition.BeanDefinition
 
@@ -40,26 +38,12 @@ class VideoeditorKoinModule : FlowEditorModule() {
             )
         }
 
-    override val banubaSdkManager: BeanDefinition<CameraSdkManager> =
-        single(override = true, createdAtStart = true) {
-            val context = get<Application>().applicationContext
-
-            val effectsResourceManager = EffectsResourceManager(
-                assetManager = context.assets,
-                storageDir = context.filesDir
-            )
-            val utilityManager: IUtilityManager = BanubaClassFactory.createUtilityManager(
-                context, effectsResourceManager
-            )
-            val effectPlayerProvider: AREffectPlayerProvider = get()
-
-            BanubaCameraSdkManager.createInstance(
-                context,
-                effectsResourceManager,
-                effectPlayerProvider,
-                utilityManager
-            )
-        }
+    override val utilityManager: BeanDefinition<IUtilityManager> = single(override = true) {
+        BanubaClassFactory.createUtilityManager(
+            context = get(),
+            resourceManager = get()
+        )
+    }
 
     override val exportFlowManager: BeanDefinition<ExportFlowManager> = single {
         IntegrationAppExportFlowManager()
@@ -78,6 +62,10 @@ class VideoeditorKoinModule : FlowEditorModule() {
                 else -> throw IllegalArgumentException("Illegal source for GlideImageLoader")
             }
         }
+
+    override val watermarkProvider: BeanDefinition<WatermarkProvider> = factory(override = true) {
+        IntegrationAppWatermarkProvider()
+    }
 
     /**
      * Provides camera record button animation
