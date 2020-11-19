@@ -35,21 +35,8 @@ The token should be put [here](app/src/main/res/values/strings.xml#L5).
 ## Getting Started
 ### Setup GitHub packages
 GitHub packages are used to download the latest SDK modules. You would need them also to receive a new SDK versions.
-1. Add GitHub properties file to your project  at [github.properties](github.properties)
 
-1. Load github.properties in your [build.gradle](build.gradle#L6)  
-
-``` kotlin
-buildscript {
-    ext.kotlin_version = "1.4.10"
-
-    ext.githubProperties = new Properties()
-    ext.githubProperties.load(new FileInputStream(rootProject.file("github.properties"))
-    ...
-} 
-```
-
-1. Add [Maven repository](build.gradle#L23) for GitHub
+Please add [Maven repository](build.gradle#L23) for GitHub
 ``` kotlin
 allprojects {
     repositories {
@@ -57,8 +44,8 @@ allprojects {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/Banuba/banuba-ve-sdk")
             credentials {
-                username = rootProject.ext.githubProperties['gpr.usr']
-                password = rootProject.ext.githubProperties['gpr.key']
+                username = "Banuba"
+                password = "put your new personal access token here"
             }
         }
         ...
@@ -119,6 +106,14 @@ startKoin {
 
 
 ### Configure export flow  
+--in progress--
+
+
+### Configure watermark
+One of the VE features is a watermmark. You can add your branded image on top of the video, which user exports.
+
+To utilize the watermark, add ``` kotlin WatermarkProvider``` interface to your app. 
+Add watermark image in the method ``` kotlin getWatermarkBitmap```. Finally, re-arrange the dependency ``` kotlin watermarkProvider``` in [DI](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoeditorKoinModule.kt#64). Check out [this example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationAppWatermarkProvider.kt) if you have any troubles.
 
 ### Add post processing effects
 There are several effects in Banuba VE SDK: visual, time and mask. In order to add a visual effect you would need to add a class followed by type, name and the icon of the effect. [Example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/data/VisualEffects.kt).
