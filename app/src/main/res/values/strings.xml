@@ -5,4 +5,17 @@
     <string name="effect_player_token">PUT FACE AR TOKEN HERE</string>
     <!-- Used for enabling visual and time effects. Pleae contact Banuba https://www.banuba.com/video-editor-sdk to get this token. -->
     <string name="video_editor_token">***REMOVED***</string>
+
+    <!-- Effects -->
+    <!-- Time Effects -->
+    <string name="time_effect_slow_mo">Slow mo</string>
+    <string name="time_effect_rapid">Rapid</string>
+
+    <!-- Visual Effects -->
+    <string name="visual_effect_vhs">VHS</string>
+    <string name="visual_effect_rave">Rave</string>
+
+    <!-- Mask Effect -->
+    <string name="mask_effect_hawaiihairflower">HawaiiHairFlower</string>
+    <string name="mask_effect_asailines">AsaiLines</string>
 </resources>
