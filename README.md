@@ -120,6 +120,10 @@ startKoin {
 
 ### Configure export flow  
 
+### Configure watermark
+Чтобы добавить watermark, добавьте реализацию ``` kotlin WatermarkProvider``` интерфейса. 
+В методе ``` kotlin getWatermarkBitmap``` верните изображение вашей вотермарки. Пример можете посмотреть [тут](app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationAppWatermarkProvider.kt)
+Далее переопределите зависимость ``` kotlin watermarkProvider``` в [DI](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoeditorKoinModule.kt#64)
 
 ### How to integrate to Android Java project  
 -----In progress-----

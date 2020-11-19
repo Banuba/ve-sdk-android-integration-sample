@@ -3,12 +3,9 @@ package com.banuba.example.integrationapp.videoeditor.di
 import android.content.Context
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.banuba.android.sdk.camera.BanubaCameraSdkManager
-import com.banuba.android.sdk.camera.CameraSdkManager
 import com.banuba.example.integrationapp.R
 import com.banuba.example.integrationapp.videoeditor.export.IntegrationAppExportFlowManager
 import com.banuba.example.integrationapp.videoeditor.export.IntegrationAppExportResultHandler
-import com.banuba.example.integrationapp.videoeditor.impl.GlideImageLoader
 import com.banuba.example.integrationapp.videoeditor.impl.GlideImageLoader
 import com.banuba.example.integrationapp.videoeditor.impl.IntegrationAppWatermarkProvider
 import com.banuba.sdk.core.AREffectPlayerProvider
