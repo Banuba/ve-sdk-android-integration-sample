@@ -121,10 +121,11 @@ startKoin {
 ### Configure export flow  
 
 ### Add post processing effects
-В Banuba VE SDK имеется несколько типов эффектов: visual, time, mask.
-Чтобы добавить визуальные эффекты, добавьте класс, определяющий тип, имя и иконку эффекта. Пример вы можете взять [тут](app/src/main/java/com/banuba/example/integrationapp/videoeditor/data/VisualEffects.kt).
-Для временных эффектов и масок, сделайте тоже самое. [Временные эффекты](app/src/main/java/com/banuba/example/integrationapp/videoeditor/data/TimeEffects.kt), [Маски](app/src/main/java/com/banuba/example/integrationapp/videoeditor/data/MaskEffects.kt)
-Далее переопределите [editorEffects](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoeditorKoinModule.kt#68) зависимость и укажите ваши эффекты.
+There are several effects in Banuba VE SDK: visual, time and mask. In order to add a visual effect you would need to add a class followed by type, name and the icon of the effect. [Example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/data/VisualEffects.kt).
+
+Same for [Time effects](app/src/main/java/com/banuba/example/integrationapp/videoeditor/data/TimeEffects.kt) and [Masks](app/src/main/java/com/banuba/example/integrationapp/videoeditor/data/MaskEffects.kt).
+
+Finally, override the dependency [editorEffects](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoeditorKoinModule.kt#68) and choose the effects you wannt to use.
 
 ### How to integrate to Android Java project  
 -----In progress-----
