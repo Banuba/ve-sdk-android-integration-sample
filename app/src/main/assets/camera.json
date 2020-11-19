@@ -15,5 +15,6 @@
   "showDebugViews": true,
   "supportsMuteMic": true,
   "switchFacingOnDoubleTap": true,
-  "showConfig": true
+  "showConfig": true,
+  "useFixedFPS30": true
 }

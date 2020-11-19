@@ -1,7 +1,6 @@
-# Banuba Video Editor SDK Integration sample for Android
-[Banuba VE SDK](https://www.banuba.com/video-editor-sdk)
-The Most Powerful Augmented Reality Video Editor SDK for Mobile  
-In progress
+# Banuba Video Editor SDK. Integration sample for Android
+Weldome to the [Banuba VE SDK](https://www.banuba.com/video-editor-sdk). Here you will find how to integrate VE into your product and take all  advantages of it.
+
 
 ## Requirements
 - Java 1.8+
@@ -15,27 +14,28 @@ In progress
 - [ExoPlayer](https://github.com/google/ExoPlayer)
 - [Glide](https://github.com/bumptech/glide)
 - [Kotlin Coroutines](https://github.com/Kotlin/kotlinx.coroutines)
+- [ffmpeg](https://github.com/FFmpeg/FFmpeg/tree/n3.4.1)
 - [AndroidX](https://developer.android.com/jetpack/androidx/versions) libraries
 - [Banuba Face AR SDK](https://www.banuba.com/facear-sdk/face-filters). *Optional*
 
 ## Free Trial
-Before purchasing the license cost you have 1-month free trial period.  
-1. Sign NDA. [Contact Us](https://www.banuba.com/video-editor-sdk#form)
+We provide a 14-days free trial period. Here is how to get it:  
+1. [Contact Us](https://www.banuba.com/video-editor-sdk#form)
 1. Clone this repository
-1. Request a [token](##Token)
-1. Put token in the app
+1. Request a [token](##Token) from our sales team
+1. Put the token into the app
 1. Start the sample
-1. Follow [integration guide](##Getting-Started) to bring your customizations
+1. Follow the [integration guide](##Getting-Started) and customize the app to have your branded user experience.
 
 ## Token  
-Banuba uses tokens for [Face AR SDK](https://www.banuba.com/facear-sdk/face-filters) and VE SDK products to differentiate our clients, protects features and technology. SDK requires up to date tokens, otherwise SDK will crash the app.  
-Since Banuba VE SDK includes Face AR SDK it is required to specify Face AR token for applying AR effects. Please, put the token [here](app/src/main/res/values/strings.xml#L5)
+Banuba uses tokens for [Face AR SDK](https://www.banuba.com/facear-sdk/face-filters) to manange features and protect the technology. SDK usage requires up to date tokens (trial or commercial one). When tokens expires, the SDK features became not available.  
+The token should be put [here](app/src/main/res/values/strings.xml#L5).
 
 
 ## Getting Started
 ### Setup GitHub packages
-GitHub packages is used to download the latest SDK modules.
-1. Add GitHub properties file to your project  [github.properties](github.properties)
+GitHub packages are used to download the latest SDK modules. You would need them also to receive a new SDK versions.
+1. Add GitHub properties file to your project  at [github.properties](github.properties)
 
 1. Load github.properties in your [build.gradle](build.gradle#L6)  
 
@@ -69,7 +69,7 @@ allprojects {
 Please specify list of dependencies as in [app/build.gradle](app/build.gradle#L38) file to integrate Banuba Video Editor SDK.
 
 ### Add Activity
-Banuba Video Editor contains a specific flow and order of screens i.e. camera, gallery, trimmer, etc. Each screen is a [Fragment](https://developer.android.com/jetpack/androidx/releases/fragment?authuser=1). All Fragmens are handled with [Activity](https://developer.android.com/jetpack/androidx/releases/activity?hl=en&authuser=1) - VideoCreationActivity. Add VideoCreationActivity to [AndroidManifest.xml](app/src/main/AndroidManifest.xml#L21)
+Banuba Video Editor contains a specific flow and order of screens: camera, gallery, trimmer, editor and export. Each screen is implemented as a [Fragment](https://developer.android.com/jetpack/androidx/releases/fragment?authuser=1). All Fragmens are handled with [Activity](https://developer.android.com/jetpack/androidx/releases/activity?hl=en&authuser=1) - VideoCreationActivity. Add VideoCreationActivity to [AndroidManifest.xml](app/src/main/AndroidManifest.xml#L21)
 ``` xml
 <activity android:name="com.banuba.sdk.ve.flow.VideoCreationActivity"
     android:screenOrientation="portrait"
@@ -79,15 +79,15 @@ Banuba Video Editor contains a specific flow and order of screens i.e. camera, g
 ```
 It will allow to [launch Video Editor](app/src/main/java/com/banuba/example/integrationapp/MainActivity.kt#L24).  
 
-[CustomIntegrationAppTheme](app/src/main/res/values/themes.xml#L14) theme overrides icons, colors, etc. for VE SDK screens.
+[CustomIntegrationAppTheme](app/src/main/res/values/themes.xml#L14) theme overrides icons, colors, etc. for VE SDK screens. Use it to brand your app.
 
 ### Add config files  
-Banuba VE SDK has several configuration files that allow to customize video editor for your needs. All config files should be placed into Android **assets** folder.  
-- [camera.json](app/src/main/assets/camera.json) contains properties that you can customize on camera screen i.e. the minimun and maximum video durations, if your camera screen should support flashlight, etc.
+Banuba VE SDK has several configuration files that allows to customize video editor for your needs. All config files should be placed into Android **assets** folder:  
+- [camera.json](app/src/main/assets/camera.json) contains properties that you can customize on the camera screen i.e. the minimun and maximum video durations, turn flashlight feature on or off.
 Usually, *minVideoDuration* and *maxVideoDuration* are most used properties.
-- [music_editor.json](app/src/main/assets/music_editor.json) contains properties that you can customize on audio editor screen i.e. how many timelines or tracks are allowed, etc.
-- [object_editor.json](app/src/main/assets/object_editor.json) contains properties that you can customize on editor screen while editing text or GIF on video effects.
-- [videoeditor.json](app/src/main/assets/videoeditor.json) contains properties that you can customize on editor, trimmer, gallery screens.  *Note*: please keep in mind that *minVideoDuration* and *maxVideoDuration* in this and [camera.json](app/src/main/assets/camera.json) should be the same.
+- [music_editor.json](app/src/main/assets/music_editor.json) contains properties that you can customize on the audio editor screen i.e. how many timelines or tracks are allowed.
+- [object_editor.json](app/src/main/assets/object_editor.json) contains properties that you can customize on the editor screen.
+- [videoeditor.json](app/src/main/assets/videoeditor.json) contains properties that you can customize on editor, trimmer and gallery screens.  *Note*: please keep in mind that *minVideoDuration* and *maxVideoDuration* in this and [camera.json](app/src/main/assets/camera.json) should be the same.
 
 ### Configure DI  
 VideoEditor behavior can be overriden. We use [Koin](https://insert-koin.io/) for this purpose.  
@@ -122,11 +122,11 @@ startKoin {
 
 
 ### How to integrate to Android Java project  
-In progress...
+-----In progress-----
 
 ### Configure screens  
-The SDK allows to override icons, colors, typefaces and many more using Android theme and styles. Every SDK screen has its own set of styles.  
-Below you can find how to customize VE SDK to bring your experience.
+The SDK allows to override icons, colors, typefaces and other things using Android theme and styles. Every SDK screen has its own set of styles.  
+Below you can find how to customize each VE step to bring your experience:
 1. [Camera screen](mddocs/camera_styles.md)
 1. [Editor screen](mddocs/editor_styles.md)
 1. [Gallery screen](mddocs/gallery_styles.md)
