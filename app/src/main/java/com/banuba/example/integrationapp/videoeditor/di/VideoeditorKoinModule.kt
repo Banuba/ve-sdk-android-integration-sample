@@ -13,7 +13,6 @@ import com.banuba.example.integrationapp.videoeditor.export.IntegrationAppExport
 import com.banuba.example.integrationapp.videoeditor.export.IntegrationAppExportParamsProvider
 import com.banuba.example.integrationapp.videoeditor.export.IntegrationAppExportResultHandler
 import com.banuba.example.integrationapp.videoeditor.impl.GlideImageLoader
-import com.banuba.example.integrationapp.videoeditor.impl.GlideImageLoader
 import com.banuba.example.integrationapp.videoeditor.impl.IntegrationAppWatermarkProvider
 import com.banuba.sdk.core.AREffectPlayerProvider
 import com.banuba.sdk.core.IUtilityManager
@@ -21,8 +20,8 @@ import com.banuba.sdk.core.domain.ImageLoader
 import com.banuba.sdk.core.effects.EffectsResourceManager
 import com.banuba.sdk.effectplayer.adapter.BanubaAREffectPlayerProvider
 import com.banuba.sdk.effectplayer.adapter.BanubaClassFactory
-import com.banuba.sdk.ve.effects.WatermarkProvider
 import com.banuba.sdk.ve.effects.EditorEffects
+import com.banuba.sdk.ve.effects.WatermarkProvider
 import com.banuba.sdk.ve.flow.ExportFlowManager
 import com.banuba.sdk.ve.flow.ExportResultHandler
 import com.banuba.sdk.ve.flow.FlowEditorModule

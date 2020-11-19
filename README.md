@@ -106,8 +106,23 @@ startKoin {
 
 
 ### Configure export flow  
---in progress--
+Переопределите зависимость ``` kotlin exportDir``` в [VideoeditorKoinModule](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoeditorKoinModule.kt#84).
+В эту директорию будут сохраняться экспортированные файлы.
 
+Переопределите зависимость ``` kotlin exportParamsProvider``` в [VideoeditorKoinModule](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoeditorKoinModule.kt#72).
+Укажите список параметров видео, которые нужно получить после экспорта.
+Пример можно посмотреть [тут](app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportParamsProvider.kt)
+
+Добавьте реализацию ``` kotlin ExportFlowManager```. 
+Экспорт может проводиться в foreground или background. Это задается свойством ``` kotlin provideExportInBackground```. 
+Переопределите остальные методы.
+Переопределите зависимость ``` kotlin exportFlowManager``` в [VideoeditorKoinModule](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoeditorKoinModule.kt#56).
+Пример можно посмотреть [тут](app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportFlowManager.kt)
+
+Добавьте реализацию ``` kotlin ExportResultHandler```.
+Реализуйте поведение, которое должно выполняться, после завершения экспорта. 
+Переопределите зависимость ``` kotlin exportResultHandler``` в [VideoeditorKoinModule](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoeditorKoinModule.kt#65).
+Пример можно посмотреть [тут](app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportResultHandler.kt)
 
 ### Configure watermark
 One of the VE features is a watermmark. You can add your branded image on top of the video, which user exports.
