@@ -122,6 +122,11 @@ Same for [Time effects](app/src/main/java/com/banuba/example/integrationapp/vide
 
 Finally, override the dependency [editorEffects](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoeditorKoinModule.kt#74) and choose the effects you wannt to use.
 
+### Configure record button
+Создайте кастомную view кнопки записи. Пример можно посмотреть [тут](app/src/main/java/com/banuba/example/integrationapp/videoeditor/widget/recordbutton/RecordButtonView.kt).
+Добавьте реализацию интерфейса ``` kotlin CameraRecordingAnimationProvider```.
+Переопределите зависимость [cameraRecordingAnimationProvider](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoeditorKoinModule.kt#108)
+
 ### How to integrate to Android Java project  
 -----In progress-----
 
