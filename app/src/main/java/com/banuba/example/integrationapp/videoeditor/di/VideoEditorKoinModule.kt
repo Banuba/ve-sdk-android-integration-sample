@@ -36,7 +36,7 @@ import org.koin.core.qualifier.named
  * Some dependencies has no default implementations. It means that
  * these classes fully depends on your requirements
  */
-class VideoeditorKoinModule : FlowEditorModule() {
+class VideoEditorKoinModule : FlowEditorModule() {
 
     override val effectPlayerManager: BeanDefinition<AREffectPlayerProvider> =
         single(override = true) {
