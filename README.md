@@ -123,7 +123,15 @@ Same for [Time effects](app/src/main/java/com/banuba/example/integrationapp/vide
 Finally, override the dependency [editorEffects](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoeditorKoinModule.kt#74) and choose the effects you wannt to use.
 
 ### How to integrate to Android Java project  
------In progress-----
+Выполните шаги, указанные в Configure DI
+Чтобы инициализировать Koin module в java классе добавьте следующий код:  
+``` java
+ startKoin(new GlobalContext(), koinApplication -> {
+            androidContext(koinApplication, this);
+            koinApplication.modules(new VideoeditorKoinModuleKotlin().getModule());
+            return null;
+        });
+```
 
 ### Configure screens  
 The SDK allows to override icons, colors, typefaces and other things using Android theme and styles. Every SDK screen has its own set of styles.  
