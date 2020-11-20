@@ -80,7 +80,7 @@ Usually, *minVideoDuration* and *maxVideoDuration* are most used properties.
 VideoEditor behavior can be overriden. We use [Koin](https://insert-koin.io/) for this purpose.  
 Firstly, you need to create your own implementation of FlowEditorModule.  
 ``` kotlin
-class VideoeditorKoinModule : FlowEditorModule() {
+class VideoEditorKoinModule : FlowEditorModule() {
 
     override val effectPlayerManager: BeanDefinition<AREffectPlayerProvider> =
         single(override = true) {
@@ -94,15 +94,26 @@ class VideoeditorKoinModule : FlowEditorModule() {
 }
 ```  
 You will need to override several properties to customize video editor for your application.
-Full example you can take a look [here](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoeditorKoinModule.kt).  
+Full example you can take a look [here](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt).  
 
 Secondly, you need to initialize Koin module in your [Application.onCreate](app/main/src/java/com/banuba/example/integrationapp/IntegrationApp.kt#L12) method.  
 ``` kotlin
 startKoin {
     androidContext(this@IntegrationApp)        
-    modules(VideoeditorKoinModule().module)
+    modules(VideoEditorKoinModule().module)
 }
-```
+```  
+
+### Configure and start SDK in Android Java project   
+You can use Java in your Android project. In this case you can start Koin in this way   
+``` java
+ startKoin(new GlobalContext(), koinApplication -> {
+            androidContext(koinApplication, this);
+            koinApplication.modules(new VideoeditorKoinModuleKotlin().getModule());
+            return null;
+        });
+```  
+Full example of Java Application class you can find [here](app/src/main/java/com/banuba/example/integrationapp/videoeditor/IntegrationJavaApp.kt#17).
 
 
 ### Configure export flow  
@@ -113,25 +124,15 @@ startKoin {
 One of the VE features is a watermmark. You can add your branded image on top of the video, which user exports.
 
 To utilize the watermark, add ``` kotlin WatermarkProvider``` interface to your app. 
-Add watermark image in the method ``` kotlin getWatermarkBitmap```. Finally, re-arrange the dependency ``` kotlin watermarkProvider``` in [DI](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoeditorKoinModule.kt#70). Check out [this example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationAppWatermarkProvider.kt) if you have any troubles.
+Add watermark image in the method ``` kotlin getWatermarkBitmap```. Finally, re-arrange the dependency ``` kotlin watermarkProvider``` in [DI](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#70). Check out [this example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationAppWatermarkProvider.kt) if you have any troubles.
 
 ### Add post processing effects
 There are several effects in Banuba VE SDK: visual, time and mask. In order to add a visual effect you would need to add a class followed by type, name and the icon of the effect. [Example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/data/VisualEffects.kt).
 
 Same for [Time effects](app/src/main/java/com/banuba/example/integrationapp/videoeditor/data/TimeEffects.kt) and [Masks](app/src/main/java/com/banuba/example/integrationapp/videoeditor/data/MaskEffects.kt).
 
-Finally, override the dependency [editorEffects](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoeditorKoinModule.kt#74) and choose the effects you wannt to use.
+Finally, override the dependency [editorEffects](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#74) and choose the effects you wannt to use.
 
-### How to integrate to Android Java project  
-Выполните шаги, указанные в Configure DI
-Чтобы инициализировать Koin module в java классе добавьте следующий код:  
-``` java
- startKoin(new GlobalContext(), koinApplication -> {
-            androidContext(koinApplication, this);
-            koinApplication.modules(new VideoeditorKoinModuleKotlin().getModule());
-            return null;
-        });
-```
 
 ### Configure screens  
 The SDK allows to override icons, colors, typefaces and other things using Android theme and styles. Every SDK screen has its own set of styles.  
