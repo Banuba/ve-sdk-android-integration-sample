@@ -117,8 +117,14 @@ Full example of Java Application class you can find [here](app/src/main/java/com
 
 
 ### Configure export flow  
---in progress--
+Override [exportDir](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoeditorKoinModule.kt#84) to specify where to store export targets - video, audio files and metadata.  
 
+Override [exportParamsProvider](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoeditorKoinModule.kt#72) to specify export targets i.e. video and audio files. 
+Please see our [example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportParamsProvider.kt).  
+
+Override  [exportFlowManager](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#56) in VideoEditorKoinModule to customize export flow. For instance, you can specify should export be performed in background or foreground. Please see our [example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportFlowManager.kt).
+
+Override [exportResultHandler](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoeditorKoinModule.kt#65) to handle an export result. Please see our [example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportResultHandler.kt)
 
 ### Configure watermark
 One of the VE features is a watermmark. You can add your branded image on top of the video, which user exports.
