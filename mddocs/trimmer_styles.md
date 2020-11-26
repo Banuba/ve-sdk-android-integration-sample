@@ -49,7 +49,7 @@
 
 - [trimmerCancelButtonStyle](app/src/main/res/values/themes.xml#L125)
 
-    style for the button that cancels recent chages
+    style for the button that cancels recent changes
 
 - [trimmerDurationTimelineStyle](app/src/main/res/values/themes.xml#L126)
 
@@ -64,4 +64,4 @@ Trimmer screen customization also provided by several custom theme attributes:
 - [trimmer_icon_add_video](app/src/main/res/values/themes.xml#L131) - for the last item in videos list RecyclerView. This item allows the user to open gallery screen to add videos to the recent list
 - [trimmer_bg_color_add_video](app/src/main/res/values/themes.xml#L132) - for the background color of the special item configured by "trimmer_icon_add_video" attribute
 - [trimmer_time_visible](app/src/main/res/values/themes.xml#L133) - to set if the label that shows final video duration should be visible
-- [trimmer_hint_visible](app/src/main/res/values/themes.xml#L134) - to set if the custom hint should be visible. To configure the custom hint the TrimmerHintStyle should be overriden.
+- [trimmer_hint_visible](app/src/main/res/values/themes.xml#L134) - to set if the custom hint should be visible. To configure the custom hint the TrimmerHintStyle should be overridden.

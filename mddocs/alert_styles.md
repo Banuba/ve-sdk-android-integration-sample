@@ -1,8 +1,6 @@
 # Banuba VideoEditor SDK
 ## Alert Dialog styles
 
-### In progress...
-
 There are following types of user notification used in Banuba Video Editor SDK:
 - toast
 - wait dialog (represents long running tasks)
@@ -44,7 +42,50 @@ After overriding layout file you can use your any of your own styles to customiz
 
 ![img](screenshots/alert3.png)
 
-Every alert dialog has its own type within SDK. It allows to customize descriptions and text over the positive and negative buttons. Also there is a possibility to add custom icon for every alert dialog type. To setup drawables for this reason they should be passed into custom theme attributes:
+Every alert dialog has its own type within SDK. It allows to customize descriptions and text over the positive and negative buttons. To do so you need to override the following string resources (they named according to the type of alert where they are used):
+- "alert_delete_video_message"
+    
+    "alert_delete_video_positive"
+
+    "alert_delete_video_negative"
+- "alert_save_video_chunk_message"
+
+    "alert_save_video_positive"
+
+    "alert_save_video_negative"
+- "alert_return_to_editor"
+
+    "alert_return_to_editor_positive"
+
+    "alert_return_to_editor_negative"
+- "alert_return_to_trimmer"
+
+    "alert_return_to_trimmer_positive"
+
+    "alert_return_to_trimmer_negative"
+- "alert_reset_all_message"
+
+    "alert_reset_all_positive"
+
+    "alert_reset_all_negative"
+- "editor_alert_reset_all"
+
+    "editor_alert_reset_all_positive"
+
+    "editor_alert_reset_all_negative"
+- "editor_alert_reset_effects"
+
+    "editor_alert_reset_effects_positive"
+
+    "editor_alert_reset_effects_negative"
+- "editor_alert_delete_voice_record"
+
+    "editor_alert_delete_voice_record_positive"
+
+    "editor_alert_delete_voice_record_negative"
+
+
+Also there is a possibility to add custom icon for every alert dialog type. To setup drawables for this reason they should be passed into custom theme attributes:
 
 - [alert_camera_delete_video](app/src/main/res/values/themes.xml#L50)
 - [alert_camera_return_to_editor](app/src/main/res/values/themes.xml#L51)
