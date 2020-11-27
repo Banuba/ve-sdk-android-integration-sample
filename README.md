@@ -140,9 +140,14 @@ Same for [Time effects](app/src/main/java/com/banuba/example/integrationapp/vide
 Finally, override the dependency [editorEffects](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#74) and choose the effects you wannt to use.
 
 ### Configure record button
-Создайте кастомную view кнопки записи. Пример можно посмотреть [тут](app/src/main/java/com/banuba/example/integrationapp/videoeditor/widget/recordbutton/RecordButtonView.kt).
-Добавьте реализацию интерфейса ``` kotlin CameraRecordingAnimationProvider```.
-Переопределите зависимость [cameraRecordingAnimationProvider](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoeditorKoinModule.kt#108)
+
+Record button is a main control on the camera screen that can be fully customized along with animations playing on tap. There are 3 steps to create record button:
+
+1. Create custom view for the record button. [Example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/widget/recordbutton/RecordButtonView.kt).
+
+2. Implement ```CameraRecordingAnimationProvider``` interface. Here the view created in step 1 should be provided through method ```provideView()``` within this interface. [Example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationAppRecordingAnimationProvider.kt). 
+
+3. Provide ```CameraRecordingAnimationProvider``` implementation in [DI](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#140).
 
 
 ### Configure screens  
