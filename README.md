@@ -94,7 +94,7 @@ class VideoEditorKoinModule : FlowEditorModule() {
 }
 ```  
 You will need to override several properties to customize video editor for your application.
-Full example you can take a look [here](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt).  
+Full example you can take a look [here](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt).
 
 Secondly, you need to initialize Koin module in your [Application.onCreate](app/main/src/java/com/banuba/example/integrationapp/IntegrationApp.kt#L12) method.  
 ``` kotlin
@@ -102,25 +102,25 @@ startKoin {
     androidContext(this@IntegrationApp)        
     modules(VideoEditorKoinModule().module)
 }
-```  
+```
 
-### Configure and start SDK in Android Java project   
-You can use Java in your Android project. In this case you can start Koin in this way   
+### Configure and start SDK in Android Java project
+You can use Java in your Android project. In this case you can start Koin in this way
 ``` java
  startKoin(new GlobalContext(), koinApplication -> {
             androidContext(koinApplication, this);
             koinApplication.modules(new VideoeditorKoinModuleKotlin().getModule());
             return null;
         });
-```  
+```
 Full example of Java Application class you can find [here](app/src/main/java/com/banuba/example/integrationapp/videoeditor/IntegrationJavaApp.kt#17).
 
 
 ### Configure export flow  
-Override [exportDir](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoeditorKoinModule.kt#84) to specify where to store export targets - video, audio files and metadata.  
+Override [exportDir](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoeditorKoinModule.kt#84) to specify where to store export targets - video, audio files and metadata.
 
-Override [exportParamsProvider](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoeditorKoinModule.kt#72) to specify export targets i.e. video and audio files. 
-Please see our [example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportParamsProvider.kt).  
+Override [exportParamsProvider](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoeditorKoinModule.kt#72) to specify export targets i.e. video and audio files.
+Please see our [example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportParamsProvider.kt).
 
 Override  [exportFlowManager](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#56) in VideoEditorKoinModule to customize export flow. For instance, you can specify should export be performed in background or foreground. Please see our [example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportFlowManager.kt).
 
@@ -138,6 +138,16 @@ There are several effects in Banuba VE SDK: visual, time and mask. In order to a
 Same for [Time effects](app/src/main/java/com/banuba/example/integrationapp/videoeditor/data/TimeEffects.kt) and [Masks](app/src/main/java/com/banuba/example/integrationapp/videoeditor/data/MaskEffects.kt).
 
 Finally, override the dependency [editorEffects](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#74) and choose the effects you wannt to use.
+
+### Configure record button
+
+Record button is a main control on the camera screen that can be fully customized along with animations playing on tap. There are 3 steps to create record button:
+
+1. Create custom view for the record button. [Example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/widget/recordbutton/RecordButtonView.kt).
+
+2. Implement ```CameraRecordingAnimationProvider``` interface. Here the view created in step 1 should be provided through method ```provideView()``` within this interface. [Example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationAppRecordingAnimationProvider.kt). 
+
+3. Provide ```CameraRecordingAnimationProvider``` implementation in [DI](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#140).
 
 
 ### Configure screens  
