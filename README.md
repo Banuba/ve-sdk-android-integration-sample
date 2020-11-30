@@ -18,18 +18,12 @@ Welcome to the [Banuba VE SDK](https://www.banuba.com/video-editor-sdk). Here yo
 - [AndroidX](https://developer.android.com/jetpack/androidx/versions) libraries
 - [Banuba Face AR SDK](https://www.banuba.com/facear-sdk/face-filters). *Optional*
 
-## Free Trial
-We provide a 14-days free trial period. Here is how to get it:  
-1. [Contact Us](https://www.banuba.com/video-editor-sdk#form)
-1. Clone this repository
-1. Request a [token](##Token) from our sales team
-1. Put the token into the app
-1. Start the sample
-1. Follow the [integration guide](##Getting-Started) and customize the app to have your branded user experience.
+## Free Trial  
+We offer а free 14-days trial, so you have the opportunity to thoroughly test and assess Video Editor SDK functionality in your app. To get access to your trial, please, get in touch with us via [sales@banuba.com](mailto:sales@banuba.com?subject=Banuba%20AI%20VE%20Free%20Trial). They will send you the trial token. Put it into the app, as described below, to run the SDK.  
 
-## Token  
-Banuba uses tokens for [Face AR SDK](https://www.banuba.com/facear-sdk/face-filters) to manage features and protect the technology. SDK usage requires up to date tokens (trial or commercial one). When tokens expires, the SDK features became not available.
-The token should be put [here](app/src/main/res/values/strings.xml#L5).
+## Token 
+Banuba uses tokens for Face AR SDK to manange features and protect the technology. SDK usage requires up to date tokens (trial or commercial one). When tokens expires, the SDK features became not available.
+The token should be put [here](app/src/main/res/values/strings.xml#L5). 
 
 
 ## Getting Started
