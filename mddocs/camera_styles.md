@@ -18,7 +18,7 @@
     style defines "next" button appearance
 - [cameraRemoveLastPieceButtonStyle](app/src/main/res/values/themes.xml#L29)
 
-    style defines an appearance for the button that is used to delete the last recorded video chunk from the timeline
+    style defines an appearance of the button that is used to delete the last recorded video chunk from the timeline
 - [cameraRecorderTimelineStyle](app/src/main/res/values/themes.xml#L31)
 
     style is intended to customize the timeline
@@ -34,13 +34,13 @@
     ![img](screenshots/camera1.png)
 - [cameraEffectsLabelStyle](app/src/main/res/values/themes.xml#L32)
 
-    style for visual effects (color filters and AR masks) list label. By default the label is not visible so this style can be omitted
+    style of the label, which appears at the top of the visual effects menu (color filters and AR masks). By default the label is not visible so this style can be omitted
 - [cameraEffectsItemStyle](app/src/main/res/values/themes.xml#L33)
 
-    style applied for every item within visual effects list
+    style applied to every item within visual effects list
 - [cameraEffectsRecyclerStyle](app/src/main/res/values/themes.xml#L34)
 
-    style applied for RecyclerView containing visual effects list
+    style applied to RecyclerView containing visual effects list
 - [cameraSpeedPickerLabelStyle](app/src/main/res/values/themes.xml#L35)
 
     style is applied to the recording speed options label. By default the label is not visible so this style can be omitted
@@ -53,7 +53,7 @@
 
 - [checkableEffectTitleStyle](app/src/main/res/values/themes.xml#L39)
 
-    style is used to set text appearance for "checkable" effects (applied/removed by selection) title. This type of effects includes: 
+    style is used to set text appearance of "checkable" effects (applied/removed by selection) title. This type of effects includes:
     - color filters on camera screen
     - AR masks on camera screen
     - color filters on editor screen

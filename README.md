@@ -1,5 +1,5 @@
 # Banuba Video Editor SDK. Integration sample for Android
-Weldome to the [Banuba VE SDK](https://www.banuba.com/video-editor-sdk). Here you will find how to integrate VE into your product and take all  advantages of it.
+Welcome to the [Banuba VE SDK](https://www.banuba.com/video-editor-sdk). Here you will find how to integrate VE into your product and take all  advantages of it.
 
 
 ## Requirements
@@ -28,7 +28,7 @@ We provide a 14-days free trial period. Here is how to get it:
 1. Follow the [integration guide](##Getting-Started) and customize the app to have your branded user experience.
 
 ## Token  
-Banuba uses tokens for [Face AR SDK](https://www.banuba.com/facear-sdk/face-filters) to manange features and protect the technology. SDK usage requires up to date tokens (trial or commercial one). When tokens expires, the SDK features became not available.  
+Banuba uses tokens for [Face AR SDK](https://www.banuba.com/facear-sdk/face-filters) to manage features and protect the technology. SDK usage requires up to date tokens (trial or commercial one). When tokens expires, the SDK features became not available.
 The token should be put [here](app/src/main/res/values/strings.xml#L5).
 
 
@@ -77,7 +77,7 @@ Usually, *minVideoDuration* and *maxVideoDuration* are most used properties.
 - [videoeditor.json](app/src/main/assets/videoeditor.json) contains properties that you can customize on editor, trimmer and gallery screens.  *Note*: please keep in mind that *minVideoDuration* and *maxVideoDuration* in this and [camera.json](app/src/main/assets/camera.json) should be the same.
 
 ### Configure DI  
-VideoEditor behavior can be overriden. We use [Koin](https://insert-koin.io/) for this purpose.  
+VideoEditor behavior can be overridden. We use [Koin](https://insert-koin.io/) for this purpose.
 Firstly, you need to create your own implementation of FlowEditorModule.  
 ``` kotlin
 class VideoEditorKoinModule : FlowEditorModule() {
@@ -127,10 +127,22 @@ Override  [exportFlowManager](app/src/main/java/com/banuba/example/integrationap
 Override [exportResultHandler](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoeditorKoinModule.kt#65) to handle an export result. Please see our [example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportResultHandler.kt)
 
 ### Configure watermark
-One of the VE features is a watermmark. You can add your branded image on top of the video, which user exports.
+One of the VE features is a watermark. You can add your branded image on top of the video, which user exports.
 
-To utilize the watermark, add ``` kotlin WatermarkProvider``` interface to your app. 
-Add watermark image in the method ``` kotlin getWatermarkBitmap```. Finally, re-arrange the dependency ``` kotlin watermarkProvider``` in [DI](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#70). Check out [this example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationAppWatermarkProvider.kt) if you have any troubles.
+To utilize the watermark, add ``` WatermarkProvider``` interface to your app. 
+Add watermark image in the method ```getWatermarkBitmap```. Finally, re-arrange the dependency ```watermarkProvider``` in [DI](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#70). Check out [this example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationAppWatermarkProvider.kt) if you have any troubles.
+
+### Configure audio content
+
+Video editor is able to work with audio files to create even more attractive video recordings. Video editor SDK does not provide audio files on its own but it has a convenient way to setup your internal or external audio files provider to apply audio content seamlessly for user.
+
+Check out [step-by-step guide](mddocs/audio_content.md) to add your audio content into the SDK.
+
+### Configure stickers content
+
+Stickers are interactive objects (gif images) that can be added to the video recording to add more fun for users. 
+
+By default [**Giphy API**](https://developers.giphy.com/docs/api/) is used to load stickers. All you need to start is just to pass your personal Giphy Api Key into **stickersApiKey** parameter in [videoeditor.json](app/src/main/assets/videoeditor.json) file.
 
 ### Add post processing effects
 There are several effects in Banuba VE SDK: visual, time and mask. In order to add a visual effect you would need to add a class followed by type, name and the icon of the effect. [Example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/data/VisualEffects.kt).
