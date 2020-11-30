@@ -9,7 +9,7 @@
     style setups drawables for all action buttons on the editor screen
 - [editorActionButtonStyle](app/src/main/res/values/themes.xml#L62)
 
-    style defines how action buttons look like (size, description, margins, etc.). It is applied for every action button on the editor screen
+    style defines how action buttons look like (size, description, margins, etc.). It is applied to every action button on the editor screen
 - [editorBackButtonStyle](app/src/main/res/values/themes.xml#L63)
 
     style for the button that is used to return the user on the previous screen
@@ -82,7 +82,7 @@
     style for the color filter list label. By default the label is not visible so this style can be omitted. This style is similar to [cameraEffectsLabelStyle](camera_styles.md#L35) for camera screen
 - [editorColorEffectsRecyclerStyle](app/src/main/res/values/themes.xml#L84)
 
-    style applied for RecyclerView containing color filters. This style is similar to [cameraEffectsRecyclerStyle](camera_styles.md#L41) for camera screen
+    style applied to RecyclerView containing color filters. This style is similar to [cameraEffectsRecyclerStyle](camera_styles.md#L41) for camera screen
 - [editorBoardStyle](app/src/main/res/values/themes.xml#L73)
 
     style for the custom view that holds all visual effects on the editor screen. This view handles different touch actions (drag, zoom in or out) on effects. It has a bulk of custom attributes that setup its appearance depends on user action
