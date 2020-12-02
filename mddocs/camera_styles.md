@@ -3,7 +3,7 @@
 
 - [cameraOverlayStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L24)
 
-    style is intended to setup action button icons, customize relative position and appearance of music, gallery, switch camera icons  
+    style is intended to **setup action button icons**, customize relative position and appearance of music, gallery, switch camera icons. Icons drawables customized by using custom attributes of this style (for instance, [icon_mask_on](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L205) and [icon_mask_off](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L206) setup drawables for icons related to applied AR mask effect)  
 - [cameraActionButtonStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L25)
 
     style defines action buttons appearance
