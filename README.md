@@ -111,14 +111,17 @@ Full example of Java Application class you can find [here](app/src/main/java/com
 
 
 ### Configure export flow  
-Override [exportDir](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoeditorKoinModule.kt#84) to specify where to store export targets - video, audio files and metadata.
+Export is the main process within video editor SDK. Its result is a compiled video file (or files) with "mp4" extension. The export flow can be customized in many directions to make it as seamless for client app as it could be.
 
-Override [exportParamsProvider](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoeditorKoinModule.kt#72) to specify export targets i.e. video and audio files.
-Please see our [example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportParamsProvider.kt).
+To configure export outputs you should override ```ExportParamsProvider``` interface. It has just one method ```provideExportParams()``` that returns ```List<ExportManager.Params>```. Every item within this list is a separate configuration associated with the separate mp4 file that will be created during export flow along with parameters you add (for example, you can setup resolution, destination directory, watermark image etc.). Please see our [example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportParamsProvider.kt). As a result after exporting there are four files within "export" directory: audio file containing all audio tracks compiled together, video file with the optimal resolution calculated by our algorithm, video file similar to previous but without the watermark, and another video file with watermark in low resolution.
 
-Override  [exportFlowManager](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#56) in VideoEditorKoinModule to customize export flow. For instance, you can specify should export be performed in background or foreground. Please see our [example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportFlowManager.kt).
+By overriding [exportDir](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoeditorKoinModule.kt#84) field in Koin module, you can explicitly setup the directory where export flow outputs should be placed in. By default they will be placed in "export" directory of external storage whithin application.
 
-Override [exportResultHandler](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoeditorKoinModule.kt#65) to handle an export result. Please see our [example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportResultHandler.kt)
+To cofigure the export flow itself you should override ```ExportFlowManager``` interface that passed into  [exportFlowManager](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#56) field in VideoEditorKoinModule. Here you can specify should export be performed in background or foreground and define behavior on starting and stopping export. Please see our [example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportFlowManager.kt).
+
+In case you setup export flow to work in a background you may want to override ```ExportNotificationManager``` to configure notifications. This interface has methods to customize notification for any export scenario (started, failed and finished successfully).
+
+The last step of export flow is to obtain the export result and perform any action with it. To configure this behavior just override ```ExportResultHandler``` interface. The only method it has is ```doAction``` that receives VideoCreationAcitivty and export outputs as arguments. Please see our [example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportResultHandler.kt). Here we resume from VideoCreationAcitivity into app with an export result.
 
 ### Configure watermark
 One of the VE features is a watermark. You can add your branded image on top of the video, which user exports.
