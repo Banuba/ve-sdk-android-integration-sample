@@ -6,7 +6,7 @@
     style defines back icon drawable, playback icon visibility, several editor screen appearance parameters, also setups icons used for voice recording (they can be omitted if music editor feature is enabled)
 - [editorActionsStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L61)
 
-    style setups drawables for all action buttons on the editor screen
+    style **setups drawables** for all action buttons **on the editor screen** (for instance, [editor_act_icon_masks_off](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L421) and [editor_act_icon_masks_on](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L422) setup drawables for an icon that related to AR masks applied to video)
 - [editorActionButtonStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L62)
 
     style defines how action buttons look like (size, description, margins, etc.). It is applied to every action button on the editor screen

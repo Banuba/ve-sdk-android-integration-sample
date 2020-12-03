@@ -109,14 +109,7 @@ Please, find the [full example](app/src/main/java/com/banuba/example/integration
 
 
 ### Configure export flow  
-Override [exportDir](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoeditorKoinModule.kt#84) to specify where to store export targets - video, audio files and metadata.
-
-Override [exportParamsProvider](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoeditorKoinModule.kt#72) to specify export targets, i.e. video and audio files.
-Please, see our [example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportParamsProvider.kt).
-
-Override  [exportFlowManager](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#56) in VideoEditorKoinModule to customize export flow. For instance, you can specify if to perform the export in the background or foreground. Please, see our [example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportFlowManager.kt).
-
-Override [exportResultHandler](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoeditorKoinModule.kt#65) to handle an export result. Please, see our [example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportResultHandler.kt)
+Export is the main process within video editor SDK. Its result is a compiled video file (or files) with "mp4" extension. The export flow can be customized in many directions to make it as seamless for client app as it could be.
 
 ### Configure watermark
 One of the SDK features is a watermark. You can add your branded image on top of the video, which user exports.
