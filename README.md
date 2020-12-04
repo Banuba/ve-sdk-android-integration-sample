@@ -88,7 +88,7 @@ class VideoEditorKoinModule : FlowEditorModule() {
 You will need to override several properties to customize the video editor for your application.
 Please, take a look at the [full example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt).
 
-Next, you need to initialize Koin module in your [Application.onCreate](app/main/src/java/com/banuba/example/integrationapp/IntegrationApp.kt#L12) method.  
+Next, you need to initialize Koin module in your [Application.onCreate](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/IntegrationKotlinApp.kt#L12) method.  
 ``` kotlin
 startKoin {
     androidContext(this@IntegrationApp)        
@@ -105,7 +105,7 @@ You can use Java in your Android project. In this case you can start Koin in thi
             return null;
         });
 ```
-Please, find the [full example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/IntegrationJavaApp.kt#17) of Java Application class.
+Please, find the [full example](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/IntegrationJavaApp.java#17) of Java Application class.
 
 
 ### Configure export flow  
