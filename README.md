@@ -14,7 +14,7 @@ Banuba [Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to
 - [Glide](https://github.com/bumptech/glide)
 - [Kotlin Coroutines](https://github.com/Kotlin/kotlinx.coroutines)
 - [ffmpeg](https://github.com/FFmpeg/FFmpeg/tree/n3.4.1)
-- [AndroidX](https://developer.android.com/jetpack/androidx/versions) libraries
+- [AndroidX](https://developer.android.com/jetpack/androidx) libraries
 - [Banuba Face AR SDK](https://www.banuba.com/facear-sdk/face-filters). *Optional*
 
 ## Free Trial  
@@ -48,7 +48,7 @@ allprojects {
 Please, specify a list of dependencies as in [app/build.gradle](app/build.gradle#L38) file to integrate Banuba Video Editor SDK.
 
 ### Add Activity
-Banuba Video Editor contains a specific flow and order of screens: camera, gallery, trimmer, editor and export. Each screen is implemented as a [Fragment](https://developer.android.com/jetpack/androidx/releases/fragment?authuser=1). All Fragmens are handled with [Activity](https://developer.android.com/jetpack/androidx/releases/activity?hl=en&authuser=1) - VideoCreationActivity. Add VideoCreationActivity to [AndroidManifest.xml](app/src/main/AndroidManifest.xml#L21)
+Banuba Video Editor contains a specific flow and order of screens: camera, gallery, trimmer, editor and export. Each screen is implemented as a [Fragment](https://developer.android.com/guide/fragments). All Fragmens are handled with [Activity](https://developer.android.com/guide/components/activities/intro-activities) - VideoCreationActivity. Add VideoCreationActivity to [AndroidManifest.xml](app/src/main/AndroidManifest.xml#L21)
 ``` xml
 <activity android:name="com.banuba.sdk.ve.flow.VideoCreationActivity"
     android:screenOrientation="portrait"
