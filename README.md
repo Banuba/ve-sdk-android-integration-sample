@@ -25,25 +25,11 @@ We offer а free 14-days trial for you could thoroughly test and assess Video Ed
 
 
 ## Getting Started
-### Setup GitHub packages
+### GitHub packages
 GitHub packages are used to download the latest SDK modules. You will also need them to receive new SDK versions.
+GitHub packages are set up for trial.  
 
-Add [Maven repository](build.gradle#L23) for GitHub
-``` kotlin
-allprojects {
-    repositories {
-        maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/Banuba/banuba-ve-sdk")
-            credentials {
-                username = "Banuba"
-                password = "put your new personal access token here"
-            }
-        }
-        ...
-    }
-}
-```  
+
 ### Add dependencies
 Please, specify a list of dependencies as in [app/build.gradle](app/build.gradle#L38) file to integrate Banuba Video Editor SDK.
 
