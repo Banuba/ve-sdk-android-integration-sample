@@ -26,13 +26,15 @@ We offer а free 14-days trial for you could thoroughly test and assess Video Ed
 ## What you can customize?  
 We undersand that the client should have options to brand video editor to bring its own experience to the market. Therefore we provide list of options to customize:  
 
-&check; use your branded icons  
-:white_check_mark: Use you branded colors  
-:white_check_mark: Localize and change text resources  
-:white_check_mark: Change text styles i.e. font, color  
-:white_check_mark: Make content you want i.e. a number of video with different resolutions and durations, an audio file.  
+:white_check_mark: Use your branded icons. [See details](###-Configure-screens )  
+:white_check_mark: Use you branded colors. [See details](###-Configure-screens)  
+:white_check_mark: Change text styles i.e. font, color. [See details](###-Configure-screens)  
+:white_check_mark: Localize and change text resources. Default locale is :us:  
+:white_check_mark: Make content you want i.e. a number of video with different resolutions and durations, an audio file. [See details](###-Configure-export-flow)  
 :x: Change layout  
-:x: Change screen order
+:x: Change screen order  
+
+:exclamation: We do custom UX/UI changes as a separate contract. Please contact our [sales@banuba.com](mailto:sales@banuba.com).
 
 
 ## Getting Started
