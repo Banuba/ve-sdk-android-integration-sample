@@ -134,7 +134,7 @@ The record button is a main control on the camera screen which you can fully cus
 
 
 ### Configure screens  
-The SDK allows overriding icons, colors, typefaces and other things using Android theme and styles. Every SDK screen has its own set of styles.  
+The SDK allows overriding **icons**, **colors**, **typefaces**, **text messages** and **button titles** and other things using Android theme and styles. Every SDK screen has its own set of styles.  
 Below you can find how to customize each video editor step to bring your branded experience:
 1. [Camera screen](mddocs/camera_styles.md)
 1. [Editor screen](mddocs/editor_styles.md)
