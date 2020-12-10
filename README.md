@@ -23,6 +23,17 @@ We offer а free 14-days trial, so you have the opportunity to thoroughly test a
 ## Token 
 We offer а free 14-days trial for you could thoroughly test and assess Video Editor SDK functionality in your app. To get access to your trial, please, get in touch with us by [filling a form](https://www.banuba.com/video-editor-sdk) on our website. Our sales managers will send you the trial token. The token should be put [here](app/src/main/res/values/strings.xml#L5). 
 
+## What you can customize?  
+We undersand that the client should have options to brand video editor to bring its own experience to the market. Therefore we provide list of options to customize:  
+
+&check; use your branded icons  
+:white_check_mark: Use you branded colors  
+:white_check_mark: Localize and change text resources  
+:white_check_mark: Change text styles i.e. font, color  
+:white_check_mark: Make content you want i.e. a number of video with different resolutions and durations, an audio file.  
+:x: Change layout  
+:x: Change screen order
+
 
 ## Getting Started
 ### GitHub packages

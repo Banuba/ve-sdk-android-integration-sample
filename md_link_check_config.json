@@ -5,6 +5,18 @@
         },
         {
             "pattern": "^(http|https)://localhost"
+        },
+        {
+            "pattern": "https://github.com/google/ExoPlayer"
+        },
+        {
+            "pattern": "https://github.com/bumptech/glide"
+        },
+        {
+            "pattern": "https://github.com/Kotlin/kotlinx.coroutines"
+        },
+        {
+            "pattern": "https://developer.android.com/jetpack/androidx"
         }
     ],
     "timeout": "20s",
