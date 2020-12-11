@@ -15,7 +15,14 @@ Banuba [Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to
 - [Kotlin Coroutines](https://github.com/Kotlin/kotlinx.coroutines)
 - [ffmpeg](https://github.com/FFmpeg/FFmpeg/tree/n3.4.1)
 - [AndroidX](https://developer.android.com/jetpack/androidx) libraries
-- [Banuba Face AR SDK](https://www.banuba.com/facear-sdk/face-filters). *Optional*
+- [Banuba Face AR SDK](https://www.banuba.com/facear-sdk/face-filters). *Optional*  
+
+## SDK size  
+[Banuba Face AR SDK](https://www.banuba.com/facear-sdk/face-filters) is included in VE SDK optionally and it impacts on the final size of your app. 
+| Options | Mb      | Note |
+| -------- | --------- | ----- |
+| :white_check_mark: Face AR SDK  | 55 | AR effect sizes are not included. AR effect takes 1-3 MB in average.
+| :x: Face AR SDK | 20  | no AR effects  |
 
 ## Free Trial  
 We offer а free 14-days trial, so you have the opportunity to thoroughly test and assess Video Editor SDK functionality in your app. To get access to your trial, please, get in touch with us via [sales@banuba.com](mailto:sales@banuba.com?subject=Banuba%20AI%20VE%20Free%20Trial). They will send you the trial token. Put it into the app, as described below, to run the SDK.  
