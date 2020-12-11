@@ -166,4 +166,9 @@ Below you can find how to customize each video editor step to bring your branded
 1. [Cover screen](mddocs/cover_styles.md)
 1. [Alert Dialogs](mddocs/alert_styles.md)
 
+### Localization
+
+The SDK can be localized and translated to any language. For your convenience we grouped all string resources used in SDK according to the screen where they are placed. To localize the SDK just override these resources in locales you need.
+
+1. [Camera screen](mddocs/camera_strings.md)
 
