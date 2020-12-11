@@ -168,7 +168,9 @@ Below you can find how to customize each video editor step to bring your branded
 
 ### Localization
 
-The SDK can be localized and translated to any language. For your convenience we grouped all string resources used in SDK according to the screen where they are placed. To localize the SDK just override these resources in locales you need.
+The SDK allows to add new language or customize current texts for your app. For your convenience we grouped all string resources used in the SDK according to the screen where they are utilized. To localize the SDK just override these resources in locales you need.  
+Default language is :us:.
+
 
 1. [Camera screen](mddocs/camera_strings.md)
 

@@ -1,19 +1,19 @@
 # Banuba VideoEditor SDK
 ## Camera string resources
 
-We grouped all string resources that is used on camera sceen into 3 groups:
+We grouped all string resources that are used on camera sceen into 3 groups:
 
-1. all **action buttons** may have a **text title** (its visibility is configured by ```descriptionPosition``` attribute of [cameraActionButtonStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L25))
+1. All **action buttons** may have a **text title** (its visibility is configured by *descriptionPosition* attribute of [cameraActionButtonStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L25))
 
-2. some situations invoke a **notifications** shown in a **toast** on the top of the screen. Some of them has a dynamic message depends on additional data (i.e. parameters from config files)
+2. Upon some actions **notification** displayed as **toast** is shown top of the screen. Some of them has a dynamic message depends on additional data (i.e. parameters from config files)
 
-3. bottom view with **AR masks and color filters** may have a **label** (its visibility is configured in [checkableEffectTitleStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L39)
+3. Bottom view with **AR masks and color filters** may have a **label** (its visibility is configured in [checkableEffectTitleStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L39)
 
 Groups described above are showcasted on the screenshot along with some string resources: 
 
 ![img](screenshots/camera_strings1.png)
 
-| Resource        |      Value      |   Description |
+| ResourceId        |      Value      |   Description |
 | ------------- | :----------- | :------------- |
 | control_description_switch | Flip | title for the icon to switch camera facing
 | control_description_flashlight |  Flash | title for the icon to switch flashlight
@@ -38,9 +38,7 @@ Groups described above are showcasted on the screenshot along with some string r
 | camera_next | Next | text on the button that goes on the editor screen
 
 
-
-
-If some TextViews that are shown on camera has no string resource mentioned here it means that you may use any resource from outside the SDK and apply it through view's style configuration.
+In case if a TextView that are shown on camera has no string resource mentioned here that means you may use any resource from outside the SDK and apply it through view's style configuration.
 
 All alert messages shown on the camera screen that require user's action are described in [Alert dialogs](alert_styles.md) section.
 
