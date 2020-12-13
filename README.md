@@ -23,7 +23,13 @@ If you utilize the AR technology with masks (like Tiktok or Snapchat) you would 
 | Options | Mb      | Note |
 | -------- | --------- | ----- |
 | :white_check_mark: Face AR SDK  | 55 | AR effect sizes are not included. AR effect takes 1-3 MB in average.
-| :x: Face AR SDK | 20  | no AR effects  |
+| :x: Face AR SDK | 20  | no AR effects  |  
+
+## Supported media formats  
+| Audio      | Video      | Images      |
+| ---------- | ---------  | ----------- |
+|.aac, .mp3, .wav<br>.ogg, .ac3 |.mp4, .mov, .m4a| .jpg, .gif, .heic, .png,<br>.nef, .cr2, .jpeg, .raf, .bmp
+ 
 
 ## Free Trial  
 We offer а free 14-days trial, so you have the opportunity to thoroughly test and assess Video Editor SDK functionality in your app. To get access to your trial, please, get in touch with us via [sales@banuba.com](mailto:sales@banuba.com?subject=Banuba%20AI%20VE%20Free%20Trial). They will send you the trial token. Put it into the app, as described below, to run the SDK.  
