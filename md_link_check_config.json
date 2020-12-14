@@ -17,6 +17,21 @@
         },
         {
             "pattern": "https://developer.android.com/jetpack/androidx"
+        },
+        {
+            "pattern": "https://github.com/FFmpeg/FFmpeg/tree/n3.4.1"
+        },
+        {
+            "pattern": "https://developer.android.com/guide/fragments"
+        },
+        {
+            "pattern": "https://developer.android.com/guide/components/activities/intro-activities"
+        },
+        {
+            "pattern": "https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/IntegrationKotlinApp.kt"
+        },
+        {
+            "pattern": "https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/IntegrationJavaApp.kt"
         }
     ],
     "timeout": "20s",
