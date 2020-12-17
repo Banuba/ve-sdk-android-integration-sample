@@ -65,3 +65,15 @@ Trimmer screen customization also provided by several custom theme attributes:
 - [trimmer_bg_color_add_video](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L132) - for the background color of the special item configured by "trimmer_icon_add_video" attribute
 - [trimmer_time_visible](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L133) - to set if the label that shows final video duration should be visible
 - [trimmer_hint_visible](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L134) - to set if the custom hint should be visible. To configure the custom hint the TrimmerHintStyle should be overridden.
+
+## Trimmer string resources
+
+| ResourceId        |      Value      |   Description |
+| ------------- | :----------- | :------------- |
+| trimmer_drag_hint | Drag to delete | hint that is shown to the user when he is long pressing on the video thumbnail in multitrimmer mode. Related TextView is customized in ```trimmerDeleteLabelStyle```
+| trimmer_duration_format_normal | %1$s sec | label that is shown on the top of the trimmer screen, represents the duration of the single video (if in trimmer mode) or of all selected videos (if in multitrimmer mode). Realated TextView is customized in ```trimmerDurationSumTextStyle```
+| trimmer_duration_format_exceed | Max length %1$s sec | label that is shown on the top of the trimmer screen in case of the sum of all selected videos exceeds the ```maxVideoDuration``` parameter in [videoeditor.json](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/videoeditor.json#L4) file. Realated TextView is customized in ```trimmerDurationSumTextStyle```
+| trimmer_content_label_single | Trimmer | label of the trimmer when selected one video. Related TextView is customized in ```trimmerContentLabelStyle```
+| trimmer_content_label_multi | Multitrimmer | label of the trimmer when selected several videos. Related TextView is customized in ```trimmerContentLabelStyle```
+| err_trimmer_invalid_duration | Video duration should be between %1$d and %2$d seconds | error message shown as a [toast](alert_styles.md#L11). Here placeholders are values from ```minVideoDuration``` and ```maxVideoDuration``` parameters in [videoeditor.json](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/videoeditor.json#L3) file
+| err_trimmer_internal | Error while making video | error message shown as a [toast](alert_styles.md#L11) if an undefined exception appeared during trimming video
