@@ -18,3 +18,11 @@
     custom theme attribute that setups background to the LinearLayout containing cover description and seek bar
 
     ![img](screenshots/cover.png)
+
+## Cover string resources
+
+| ResourceId        |      Value      |   Description |
+| ------------- | :----------- | :------------- |
+| cover_image_text | Choose cover | label over the progress bar that allows to choose a cover from video frames. The view is customized in ```coverDescriptionStyle```
+| cover_progress_text | Please, wait | text that is shown on the [throbber](alert_styles.md#L25) when the process of extracting cover image was started. The text appearance is customized by the ```waitDialogTextStyle```
+| err_cover_image | Failed to create cover image | message shown as a [toast](alert_styles.md#L11) in case of error happened during the process of extracting cover image
