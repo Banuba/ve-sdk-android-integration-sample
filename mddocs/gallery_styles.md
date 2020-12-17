@@ -50,3 +50,16 @@ Besides concrete styles there are a lot of theme attributes that allows to confi
 - [gallery_icon_back](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L107) - for drawable in case of "back" button returns to the previous screen
 - [gallery_icon_cross](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L108) - for drawable in case of "back" button cancels selected resources
 - [gallery_album_divider_color](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L109) - divider color in the albums list
+
+## Gallery string resources
+
+| ResourceId        |      Value      |   Description |
+| ------------- | :----------- | :------------- |
+| gallery_next | Choose | text on the button that opens the editor screen with selected videos or images. Defined in ```galleryNextButtonStyle```
+| gallery_album_untitled | untitled | the title of the album that has no name (it may be created in case of some videos or images has no album name in theirs meta data)
+| gallery_album_all_photos | All photos | the title of the album that contains all image resources
+| gallery_album_all_video | All videos | the title of the album that contains all video resources
+| gallery_empty_image_list | No images found | message that is shown in the middle of the gallery screen in case of there are no images found on device. The view is defined in ```galleryEmptyTextStyle```
+| gallery_empty_video_list | No videos found | message that is shown in the middle of the gallery screen in case of there are no videos found on device. The view is defined in ```galleryEmptyTextStyle```
+| gallery_choose_at_least | Select at least %1$d files | **plurals resource** that is used for the [toast](alert_styles.md#L11) message that is shown when the user want to open the editor screen but the number of selected resources (videos or images) is less than predefined custom value (recently "1" is used). This predefined value is a placeholder in every plural string resource here
+| err_gallery_video_creation | Failed to create video | message shown as a [toast](alert_styles.md#L11) in case of error that apperas during slideshow video creation from selected image resources
