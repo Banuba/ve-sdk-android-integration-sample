@@ -1,5 +1,5 @@
 # Banuba AI Video Editor SDK. Integration sample for Android.
-Banuba [Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to add a fully-functional video editor with Tiktok-like features, AR filters and effects in your app. The following guide explains how you can integrate our SDK into your Android project. 
+Banuba [Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to add a fully-functional video editor with Tiktok-like features, AR filters and effects in your app. The following guide explains how you can integrate our SDK into your Android project.
 
 ## Requirements
 - Java 1.8+
@@ -15,38 +15,38 @@ Banuba [Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to
 - [Kotlin Coroutines](https://github.com/Kotlin/kotlinx.coroutines)
 - [ffmpeg](https://github.com/FFmpeg/FFmpeg/tree/n3.4.1)
 - [AndroidX](https://developer.android.com/jetpack/androidx) libraries
-- [Banuba Face AR SDK](https://www.banuba.com/facear-sdk/face-filters). *Optional*  
+- [Banuba Face AR SDK](https://www.banuba.com/facear-sdk/face-filters). *Optional*
 
-## SDK size  
+## SDK size
 
 If you utilize the AR technology with masks (like Tiktok or Snapchat) you would need to have [Face AR module](https://www.banuba.com/facear-sdk/face-filters), produced by Banuba. Alternatively, you may just have the app that shoots the video/pics and edit it with no AR feature. Depending on your choice, the SDK size will vary:
 | Options | Mb      | Note |
 | -------- | --------- | ----- |
 | :white_check_mark: Face AR SDK  | 55 | AR effect sizes are not included. AR effect takes 1-3 MB in average.
-| :x: Face AR SDK | 20  | no AR effects  |  
+| :x: Face AR SDK | 20  | no AR effects  |
 
-## Supported media formats  
+## Supported media formats
 | Audio      | Video      | Images      |
 | ---------- | ---------  | ----------- |
 |.aac, .mp3, .wav<br>.ogg, .ac3 |.mp4, .mov, .m4a| .jpg, .gif, .heic, .png,<br>.nef, .cr2, .jpeg, .raf, .bmp
- 
 
-## Free Trial  
+
+## Free Trial
 We offer а free 14-days trial, so you have the opportunity to thoroughly test and assess Video Editor SDK functionality in your app. To get access to your trial, please, get in touch with us via [sales@banuba.com](mailto:sales@banuba.com?subject=Banuba%20AI%20VE%20Free%20Trial). They will send you the trial token. Put it into the app, as described below, to run the SDK.  
 
 ## Token 
-We offer а free 14-days trial for you could thoroughly test and assess Video Editor SDK functionality in your app. To get access to your trial, please, get in touch with us by [filling a form](https://www.banuba.com/video-editor-sdk) on our website. Our sales managers will send you the trial token. The token should be put [here](app/src/main/res/values/strings.xml#L5). 
+We offer а free 14-days trial for you could thoroughly test and assess Video Editor SDK functionality in your app. To get access to your trial, please, get in touch with us by [filling a form](https://www.banuba.com/video-editor-sdk) on our website. Our sales managers will send you the trial token. The token should be put [here](app/src/main/res/values/strings.xml#L5).
 
-## What you can customize?  
-We undersand that the client should have options to brand video editor to bring its own experience to the market. Therefore we provide list of options to customize:  
+## What you can customize?
+We undersand that the client should have options to brand video editor to bring its own experience to the market. Therefore we provide list of options to customize:
 
-:white_check_mark: Use your branded icons. [See details](###-Configure-screens )  
-:white_check_mark: Use you branded colors. [See details](###-Configure-screens)  
-:white_check_mark: Change text styles i.e. font, color. [See details](###-Configure-screens)  
-:white_check_mark: Localize and change text resources. Default locale is :us:  
-:white_check_mark: Make content you want i.e. a number of video with different resolutions and durations, an audio file. [See details](###-Configure-export-flow)  
-:x: Change layout  
-:x: Change screen order  
+:white_check_mark: Use your branded icons. [See details](###-Configure-screens )
+:white_check_mark: Use you branded colors. [See details](###-Configure-screens)
+:white_check_mark: Change text styles i.e. font, color. [See details](###-Configure-screens)
+:white_check_mark: Localize and change text resources. Default locale is :us:
+:white_check_mark: Make content you want i.e. a number of video with different resolutions and durations, an audio file. [See details](###-Configure-export-flow)
+:x: Change layout
+:x: Change screen order
 
 :exclamation: We do custom UX/UI changes as a separate contract. Please contact our [sales@banuba.com](mailto:sales@banuba.com).
 
@@ -54,7 +54,7 @@ We undersand that the client should have options to brand video editor to bring 
 ## Getting Started
 ### GitHub packages
 GitHub packages are used to download the latest SDK modules. You will also need them to receive new SDK versions.
-GitHub packages are set up for trial.  
+GitHub packages are set up for trial.
 
 
 ### Add dependencies
@@ -74,7 +74,7 @@ It will allow to [launch Video Editor](app/src/main/java/com/banuba/example/inte
 [CustomIntegrationAppTheme](app/src/main/res/values/themes.xml#L14) theme overrides icons, colors, etc. for SDK screens. Use it to brand your app.
 
 ### Add config files  
-The SDK has several configuration files which allow you to customize the video editor for your needs. All config files should be placed into Android **assets** folder:  
+The SDK has several configuration files which allow you to customize the video editor for your needs. All config files should be placed into Android **assets** folder:
 - [camera.json](app/src/main/assets/camera.json) contains properties that you can customize on the camera screen, i.e. the minimum and maximum video durations or turn on/off the flashlight feature.
 Usually, *minVideoDuration* and *maxVideoDuration* are the most used properties.
 - [music_editor.json](app/src/main/assets/music_editor.json) contains properties that you can customize on the audio editor screen, i.e. the number of timelines or tracks allowed.
@@ -83,7 +83,7 @@ Usually, *minVideoDuration* and *maxVideoDuration* are the most used properties.
 
 ### Configure DI  
 The Video Editor behavior can be overridden. We use [Koin](https://insert-koin.io/) for this purpose.
-First, you need to create your own implementation of FlowEditorModule.  
+First, you need to create your own implementation of FlowEditorModule.
 ``` kotlin
 class VideoEditorKoinModule : FlowEditorModule() {
 
@@ -101,7 +101,7 @@ class VideoEditorKoinModule : FlowEditorModule() {
 You will need to override several properties to customize the video editor for your application.
 Please, take a look at the [full example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt).
 
-Next, you need to initialize Koin module in your [Application.onCreate](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/IntegrationKotlinApp.kt#L12) method.  
+Next, you need to initialize Koin module in your [Application.onCreate](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/IntegrationKotlinApp.kt#L12) method.
 ``` kotlin
 startKoin {
     androidContext(this@IntegrationApp)        
@@ -123,6 +123,16 @@ Please, find the [full example](https://github.com/Banuba/ve-sdk-android-integra
 
 ### Configure export flow  
 Export is the main process within video editor SDK. Its result is a compiled video file (or files) with "mp4" extension. The export flow can be customized in many directions to make it as seamless for client app as it could be.
+
+To configure export outputs you should override ```ExportParamsProvider``` interface. It has just one method ```provideExportParams()``` that returns ```List<ExportManager.Params>```. Every item within this list is a separate configuration associated with the separate mp4 file that will be created during export flow along with parameters you add (for example, you can setup resolution, destination directory, watermark image etc.). Please see our [example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportParamsProvider.kt). As a result after exporting there are four files within "export" directory: audio file containing all audio tracks compiled together, video file with the optimal resolution calculated by our algorithm, video file similar to previous but without the watermark, and another video file with watermark in low resolution.
+
+By overriding [exportDir](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoeditorKoinModule.kt#84) field in Koin module, you can explicitly setup the directory where export flow outputs should be placed in. By default they will be placed in "export" directory of external storage whithin application.
+
+To cofigure the export flow itself you should override ```ExportFlowManager``` interface that passed into  [exportFlowManager](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#56) field in VideoEditorKoinModule. Here you can specify should export be performed in background or foreground and define behavior on starting and stopping export. Please see our [example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportFlowManager.kt).
+
+In case you setup export flow to work in a background you may want to override ```ExportNotificationManager``` to configure notifications. This interface has methods to customize notification for any export scenario (started, failed and finished successfully).
+
+The last step of export flow is to obtain the export result and perform any action with it. To configure this behavior just override ```ExportResultHandler``` interface. The only method it has is ```doAction``` that receives VideoCreationAcitivty and export outputs as arguments. Please see our [example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportResultHandler.kt). Here we resume from VideoCreationAcitivity into app with an export result.
 
 ### Configure watermark
 One of the SDK features is a watermark. You can add your branded image on top of the video, which user exports.
@@ -161,7 +171,7 @@ The record button is a main control on the camera screen which you can fully cus
 
 
 ### Configure screens  
-The SDK allows overriding icons, colors, typefaces and other things using Android theme and styles. Every SDK screen has its own set of styles.  
+The SDK allows overriding icons, colors, typefaces and other things using Android theme and styles. Every SDK screen has its own set of styles.
 Below you can find how to customize each video editor step to bring your branded experience:
 1. [Camera screen](mddocs/camera_styles.md)
 1. [Editor screen](mddocs/editor_styles.md)
@@ -174,7 +184,7 @@ Below you can find how to customize each video editor step to bring your branded
 
 ### Localization
 
-The SDK allows to add new language or customize current texts for your app. For your convenience we grouped all string resources used in the SDK according to the screen where they are utilized. To localize the SDK just override these resources in locales you need.  
+The SDK allows to add new language or customize current texts for your app. For your convenience we grouped all string resources used in the SDK according to the screen where they are utilized. To localize the SDK just override these resources in locales you need.
 Default language is :us:.
 
 
