@@ -3,6 +3,7 @@ package com.banuba.example.integrationapp;
 import android.app.Application;
 
 import com.banuba.example.integrationapp.videoeditor.di.VideoEditorKoinModule;
+import com.banuba.sdk.arcloud.di.ArCloudKoinModule;
 
 import org.koin.core.context.GlobalContext;
 
@@ -16,7 +17,8 @@ public class IntegrationJavaApp extends Application {
         super.onCreate();
         startKoin(new GlobalContext(), koinApplication -> {
             androidContext(koinApplication, this);
-            koinApplication.modules(new VideoEditorKoinModule().getModule());
+            koinApplication.modules(new VideoEditorKoinModule().getModule(),
+                    new ArCloudKoinModule().getModule());
             return null;
         });
     }

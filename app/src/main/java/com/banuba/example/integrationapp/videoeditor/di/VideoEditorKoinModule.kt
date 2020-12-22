@@ -2,24 +2,20 @@ package com.banuba.example.integrationapp.videoeditor.di
 
 import android.content.Context
 import android.net.Uri
-import android.view.View
 import androidx.core.net.toUri
-import androidx.fragment.app.Fragment
 import com.banuba.example.integrationapp.R
-import com.banuba.example.integrationapp.videoeditor.data.MaskEffects
 import com.banuba.example.integrationapp.videoeditor.data.TimeEffects
 import com.banuba.example.integrationapp.videoeditor.data.VisualEffects
 import com.banuba.example.integrationapp.videoeditor.export.IntegrationAppExportFlowManager
 import com.banuba.example.integrationapp.videoeditor.export.IntegrationAppExportParamsProvider
 import com.banuba.example.integrationapp.videoeditor.export.IntegrationAppExportResultHandler
-import com.banuba.example.integrationapp.videoeditor.impl.GlideImageLoader
-import com.banuba.example.integrationapp.videoeditor.impl.IntegrationAppWatermarkProvider
 import com.banuba.example.integrationapp.videoeditor.impl.IntegrationAppRecordingAnimationProvider
+import com.banuba.example.integrationapp.videoeditor.impl.IntegrationAppWatermarkProvider
 import com.banuba.sdk.cameraui.data.CameraRecordingAnimationProvider
+import com.banuba.sdk.cameraui.data.CameraTimerStateProvider
+import com.banuba.sdk.cameraui.data.TimerEntry
 import com.banuba.sdk.core.AREffectPlayerProvider
 import com.banuba.sdk.core.IUtilityManager
-import com.banuba.sdk.core.domain.ImageLoader
-import com.banuba.sdk.core.effects.EffectsResourceManager
 import com.banuba.sdk.effectplayer.adapter.BanubaAREffectPlayerProvider
 import com.banuba.sdk.effectplayer.adapter.BanubaClassFactory
 import com.banuba.sdk.ve.effects.EditorEffects
@@ -50,8 +46,7 @@ class VideoEditorKoinModule : FlowEditorModule() {
 
     override val utilityManager: BeanDefinition<IUtilityManager> = single(override = true) {
         BanubaClassFactory.createUtilityManager(
-            context = get(),
-            resourceManager = get()
+            context = get()
         )
     }
 
@@ -91,28 +86,11 @@ class VideoEditorKoinModule : FlowEditorModule() {
             ?.build() ?: throw NullPointerException("exportDir should't be null!")
     }
 
-    override val imageLoader: BeanDefinition<ImageLoader> =
-        factory(override = true) { (source: Any) ->
-            when (source) {
-                is Fragment -> GlideImageLoader(fragment = source)
-                is View -> GlideImageLoader(view = source)
-                is Context -> GlideImageLoader(context = source)
-                else -> throw IllegalArgumentException("Illegal source for GlideImageLoader")
-            }
-        }
-
     override val watermarkProvider: BeanDefinition<WatermarkProvider> = factory(override = true) {
         IntegrationAppWatermarkProvider()
     }
 
     override val editorEffects: BeanDefinition<EditorEffects> = single(override = true) {
-
-        val effectsResourceManager = get<EffectsResourceManager>()
-        val effectsUri = Uri.parse(effectsResourceManager.storageEffectsDir.absolutePath)
-            .buildUpon()
-            .appendPath("effects")
-            .build()
-
         val visualEffects = listOf(
             VisualEffects.VHS,
             VisualEffects.Rave
@@ -121,15 +99,10 @@ class VideoEditorKoinModule : FlowEditorModule() {
             TimeEffects.SlowMo(),
             TimeEffects.Rapid()
         )
-        val maskEffects = listOf(
-            MaskEffects.HawaiiHairFlower(effectsUri),
-            MaskEffects.AsaiLines(effectsUri)
-        )
 
         EditorEffects(
             visual = visualEffects,
             time = timeEffects,
-            masks = maskEffects,
             equalizer = emptyList()
         )
     }
@@ -141,4 +114,23 @@ class VideoEditorKoinModule : FlowEditorModule() {
         factory(override = true) {
             IntegrationAppRecordingAnimationProvider(context = get())
         }
+
+    override val cameraTimerStateProvider: BeanDefinition<CameraTimerStateProvider> =
+            factory {
+                IntegrationTimerStateProvider()
+            }
+
+    internal class IntegrationTimerStateProvider : CameraTimerStateProvider {
+
+        override val timerStates = listOf(
+                TimerEntry(
+                        durationMs = 0,
+                        iconResId = R.drawable.ic_stopwatch_off
+                ),
+                TimerEntry(
+                        durationMs = 3000,
+                        iconResId = R.drawable.ic_stopwatch_on
+                )
+        )
+    }
 }

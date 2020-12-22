@@ -8,14 +8,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.banuba.sdk.core.media.MediaFileNameHelper
 import com.banuba.sdk.ve.flow.ExportFlowManager
-import com.banuba.sdk.veui.data.IEditorSessionHelper
+import com.banuba.sdk.veui.data.EditorSessionHelper
 import com.banuba.sdk.veui.ui.*
 import kotlinx.coroutines.*
 import java.io.File
 
 class IntegrationAppExportFlowManager(
     private val exportDataProvider: ExportDataProvider,
-    private val editorSessionHelper: IEditorSessionHelper,
+    private val editorSessionHelper: EditorSessionHelper,
     private val exportDir: Uri,
     private val mediaFileNameHelper: MediaFileNameHelper
 ) : ExportFlowManager {
