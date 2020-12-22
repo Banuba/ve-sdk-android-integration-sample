@@ -40,3 +40,15 @@ Almost all views are the same as in [Music Editor screen](music_editor_styles.md
     style for the button that is used to retry stickers loading
 
 ![img](screenshots/timeline2.png)
+
+
+## Timeline editor string resources
+
+| ResourceId        |      Value      |   Description |
+| ------------- | :----------- | :------------- |
+| stickers_empty_list | No stickers found | message that is shown while the user is searching [stickers](https://github.com/Banuba/ve-sdk-android-integration-sample#configure-stickers-content) and has no result
+| stickers_search_hint | Search giphy.com | hint shown on the search view on the screen that provides [stickers](https://github.com/Banuba/ve-sdk-android-integration-sample#configure-stickers-content). The text appearance of this view is define in ```stickersSearchViewStyle```
+| stickers_search_cancel | Cancel | text on the button on the right of the search view on [stickers](https://github.com/Banuba/ve-sdk-android-integration-sample#configure-stickers-content) screen
+| connection_view_title | Connection failed | message that is shown in case of network error while [stickers](https://github.com/Banuba/ve-sdk-android-integration-sample#configure-stickers-content) are being loaded. The text appearance is defined in ```stickersRetryTitleTextStyle```
+| connection_view_message | Please check connection\nand retry | hint that is shown in case of network error while [stickers](https://github.com/Banuba/ve-sdk-android-integration-sample#configure-stickers-content) are being loaded. The text appearance is defined in ```stickersRetryMessageTextStyle```
+| connection_view_retry | Retry | text on the button that is shown in case of network error while [stickers](https://github.com/Banuba/ve-sdk-android-integration-sample#configure-stickers-content) are being loaded. It allows to resend the request for stickers. The text appearence is defined in ```stickersRetryBtnStyle```
