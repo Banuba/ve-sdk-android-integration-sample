@@ -55,3 +55,7 @@ Redistribution and use in source and binary forms, with or without modification,
 | --- | --- | --- |
 | Libyuv | [https://chromium.googlesource.com/libyuv/libyuv](https://chromium.googlesource.com/libyuv/libyuv) | Copyright 2011 The LibYuv Project Authors |
 | Glide | [https://github.com/bumptech/glide](https://github.com/bumptech/glide) | Copyright 2014 Google, Inc. All rights reserved. |
+
+### Face AR SDK
+
+[View](https://docs.banuba.com/face-ar-sdk/overview/3rd_licenses) third party libraries for Banuba Face AR SDK
