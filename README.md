@@ -185,3 +185,6 @@ Below you can find how to customize each video editor step to bring your branded
 1. [Cover screen](mddocs/cover_styles.md)
 1. [Alert Dialogs](mddocs/alert_styles.md)
 
+### Third party libraries
+
+[View](mddocs/3rd_party_licences.md) information about third party libraries
