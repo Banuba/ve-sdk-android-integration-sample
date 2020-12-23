@@ -11,9 +11,9 @@ import com.banuba.example.integrationapp.videoeditor.export.IntegrationAppExport
 import com.banuba.example.integrationapp.videoeditor.export.IntegrationAppExportResultHandler
 import com.banuba.example.integrationapp.videoeditor.impl.IntegrationAppRecordingAnimationProvider
 import com.banuba.example.integrationapp.videoeditor.impl.IntegrationAppWatermarkProvider
+import com.banuba.example.integrationapp.videoeditor.impl.IntegrationTimerStateProvider
 import com.banuba.sdk.cameraui.data.CameraRecordingAnimationProvider
 import com.banuba.sdk.cameraui.data.CameraTimerStateProvider
-import com.banuba.sdk.cameraui.data.TimerEntry
 import com.banuba.sdk.core.AREffectPlayerProvider
 import com.banuba.sdk.core.IUtilityManager
 import com.banuba.sdk.effectplayer.adapter.BanubaAREffectPlayerProvider
@@ -119,18 +119,4 @@ class VideoEditorKoinModule : FlowEditorModule() {
             factory {
                 IntegrationTimerStateProvider()
             }
-
-    internal class IntegrationTimerStateProvider : CameraTimerStateProvider {
-
-        override val timerStates = listOf(
-                TimerEntry(
-                        durationMs = 0,
-                        iconResId = R.drawable.ic_stopwatch_off
-                ),
-                TimerEntry(
-                        durationMs = 3000,
-                        iconResId = R.drawable.ic_stopwatch_on
-                )
-        )
-    }
 }
