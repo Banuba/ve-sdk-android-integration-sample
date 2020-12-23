@@ -187,4 +187,4 @@ Below you can find how to customize each video editor step to bring your branded
 
 ### Third party libraries
 
-[View](mddocs/third_party.md) information about third party libraries
+[View](mddocs/3rd_party_licences.md) information about third party libraries
