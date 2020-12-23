@@ -169,6 +169,17 @@ The record button is a main control on the camera screen which you can fully cus
 
 3. Provide ```CameraRecordingAnimationProvider``` implementation in [DI](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#140).
 
+### Configure camera timer
+
+Video editor SDK allows you to setup timer on camera screen in case your users like to make recordings or photos with a delay. 
+To setup timer you should override ```CameraTimerStateProvider``` interface. Every delay is represented by ```TimerEntry``` object:
+```kotlin
+data class TimerEntry(
+    val durationMs: Long,
+    @DrawableRes val iconResId: Int
+)
+```
+Pay attention that you can customize not only the time for delay, but also an icon that is shown when the particular delay is selected. [Example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationTimerStateProvider.kt).
 
 ### Configure screens  
 The SDK allows overriding **icons, colors, typefaces** and other things using Android theme and styles. Every SDK screen has its own set of styles.
