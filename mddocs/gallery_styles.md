@@ -51,7 +51,7 @@ Besides concrete styles there are a lot of theme attributes that allows to confi
 - [gallery_icon_cross](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L108) - for drawable in case of "back" button cancels selected resources
 - [gallery_album_divider_color](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L109) - divider color in the albums list
 
-## Gallery string resources
+## String resources
 
 | ResourceId        |      Value      |   Description |
 | ------------- | :----------- | :------------- |

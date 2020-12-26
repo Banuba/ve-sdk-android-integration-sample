@@ -19,7 +19,7 @@
 
     ![img](screenshots/cover.png)
 
-## Cover string resources
+## String resources
 
 | ResourceId        |      Value      |   Description |
 | ------------- | :----------- | :------------- |

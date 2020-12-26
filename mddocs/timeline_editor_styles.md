@@ -42,7 +42,7 @@ Almost all views are the same as in [Music Editor screen](music_editor_styles.md
 ![img](screenshots/timeline2.png)
 
 
-## Timeline editor string resources
+## String resources
 
 | ResourceId        |      Value      |   Description |
 | ------------- | :----------- | :------------- |

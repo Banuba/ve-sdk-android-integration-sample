@@ -182,11 +182,11 @@ data class TimerEntry(
 Pay attention that you can customize not only the time for delay, but also an icon that is shown when the particular delay is selected. [Example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationTimerStateProvider.kt).
 
 ### Configure screens  
-The SDK allows overriding **icons, colors, typefaces** and other things using Android theme and styles. Every SDK screen has its own set of styles.
+The SDK allows overriding **icons, colors, fonts** and others using Android theme and styles. Every screen includes its own set of styles.
 
-Also the SDK allows to **add new language** or **customize current texts** for your app. To localize the SDK just override these resources in locales you need.
+Moreover, the SDK allows to **add new languages** and **customize current text resources** for your app. Every screen incudes its own set of text resources that you can override.
 
-Below you can find how to customize each video editor step to bring your branded experience:
+The SDK incudes the following screens:
 1. [Camera screen](mddocs/camera_styles.md)
 1. [Editor screen](mddocs/editor_styles.md)
 1. [Gallery screen](mddocs/gallery_styles.md)
