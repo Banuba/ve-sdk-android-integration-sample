@@ -1,5 +1,30 @@
 # Banuba AI Video Editor SDK. Integration sample for Android.
-Banuba [Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to add a fully-functional video editor with Tiktok-like features, AR filters and effects in your app. The following guide explains how you can integrate our SDK into your Android project.
+Banuba [Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to add a fully-functional video editor with Tiktok-like features, AR filters and effects in your app. The following guide explains how you can integrate our SDK into your Android project.  
+
+- [Requirements](##Requirements)
+- [Dependencies](##Dependencies)
+- [SDK size](##SDK-size)
+- [Supported media formats](##Supported-media-formats)
+- [Free Trial](##Free-Trial)
+- [Token](##Token)
+- [What can you customize?](##What-can-you-customize?)
+- [Getting Started](##Getting-Started)  
+    + [GitHub packages](###GitHub-packages)
+    + [Add dependencies](###Add-dependencies)
+    + [Add Activity](###Add-Activity)
+    + [Add config files](###Add-config-files)
+    + [Configure DI](###Configure-DI)
+    + [Configure and start SDK in Android Java project](###Configure-and-start-SDK-in-Android-Java-project)
+    + [Configure export flow](###Configure-export-flow)
+    + [Configure watermark](###Configure-watermark)
+    + [Configure audio content](###Configure-audio-content)
+    + [Configure stickers content](###Configure-stickers-content)
+    + [Add post-processing effects](###Add-post-processing-effects)
+    + [Configure the record button](###Configure-the-record-button)
+    + [Configure camera timer](###Configure-camera-timer)
+    + [Configure screens](###Configure-screens)
+- [FAQ](##FAQ)
+- [Third party libraries](##Third-party-libraries)
 
 ## Requirements
 - Java 1.8+
@@ -37,7 +62,7 @@ We offer а free 14-days trial, so you have the opportunity to thoroughly test a
 ## Token 
 We offer а free 14-days trial for you could thoroughly test and assess Video Editor SDK functionality in your app. To get access to your trial, please, get in touch with us by [filling a form](https://www.banuba.com/video-editor-sdk) on our website. Our sales managers will send you the trial token. The token should be put [here](app/src/main/res/values/strings.xml#L5).
 
-## What you can customize?
+## What can you customize?
 We undersand that the client should have options to brand video editor to bring its own experience to the market. Therefore we provide list of options to customize:
 
 :white_check_mark: Use your branded icons. [See details](###-Configure-screens )
@@ -196,9 +221,9 @@ The SDK incudes the following screens:
 1. [Cover screen](mddocs/cover_styles.md)
 1. [Alert Dialogs](mddocs/alert_styles.md)  
 
-### FAQ  
+## FAQ  
 Please visit our [FAQ page](mddocs/faq.md) to find more technical answers to your questions.
 
-### Third party libraries
+## Third party libraries
 
 [View](mddocs/3rd_party_licences.md) information about third party libraries
