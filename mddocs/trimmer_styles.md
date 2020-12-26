@@ -66,7 +66,7 @@ Trimmer screen customization also provided by several custom theme attributes:
 - [trimmer_time_visible](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L133) - to set if the label that shows final video duration should be visible
 - [trimmer_hint_visible](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L134) - to set if the custom hint should be visible. To configure the custom hint the TrimmerHintStyle should be overridden.
 
-## Trimmer string resources
+## String resources
 
 | ResourceId        |      Value      |   Description |
 | ------------- | :----------- | :------------- |

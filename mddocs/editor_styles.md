@@ -88,7 +88,7 @@
     style for the custom view that holds all visual effects on the editor screen. This view handles different touch actions (drag, zoom in or out) on effects. It has a bulk of custom attributes that setup its appearance depends on user action
 
 
-## Editor string resources
+## String resources
 
 | ResourceId        |      Value      |   Description |
 | ------------- | :----------- | :------------- |

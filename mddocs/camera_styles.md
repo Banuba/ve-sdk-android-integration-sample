@@ -63,13 +63,13 @@
     ![img](screenshots/camera2.png)
 
 
-## Camera string resources
+## String resources
 
-We grouped all string resources that are used on camera sceen into 3 groups:
+We use 3 grous for all string resources on camera screen:
 
 1. All **action buttons** may have a **text title** (its visibility is configured by *descriptionPosition* attribute of [cameraActionButtonStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L25))
 
-2. Upon some actions **notification** displayed as **toast** is shown top of the screen. Some of them has a dynamic message depends on additional data (i.e. parameters from config files)
+2. **Notification** displayed as [Toast](https://developer.android.com/reference/android/widget/Toast) is shown at the top of the screen upon some actions. Some of them has a dynamic message that depends on additional data (i.e. parameters from config files)
 
 3. Bottom view with **AR masks and color filters** may have a **label** (its visibility is configured in [checkableEffectTitleStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L39)
 
