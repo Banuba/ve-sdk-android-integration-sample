@@ -1,12 +1,12 @@
 # Banuba AI Video Editor SDK. Integration sample for Android.
 Banuba [Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to add a fully-functional video editor with Tiktok-like features, AR filters and effects in your app. The following guide explains how you can integrate our SDK into your Android project.  
 
-- [Requirements](##Requirements)
-- [Dependencies](##Dependencies)
-- [SDK size](##SDK-size)
-- [Supported media formats](##Supported-media-formats)
-- [Free Trial](##Free-Trial)
-- [Token](##Token)
+- [Requirements](#Requirements)
+- [Dependencies](#Dependencies)
+- [SDK size](#SDK-size)
+- [Supported media formats](#Supported-media-formats)
+- [Free Trial](#Free-Trial)
+- [Token](#Token)
 - [What can you customize?](##What-can-you-customize?)
 - [Getting Started](##Getting-Started)  
     + [GitHub packages](###GitHub-packages)
