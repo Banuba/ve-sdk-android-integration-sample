@@ -38,11 +38,53 @@
         },
         {
             "pattern": "../static/img/logo.svg"
+        },
+        {
+            "pattern": "https://github.com/tanersener/mobile-ffmpeg"
+        }, 
+        {
+            "pattern": "https://github.com/jedisct1/libsodium"
+        }, 
+        {
+            "pattern": "https://github.com/jedisct1/libsodium/blob/master/AUTHORS"
+        }, 
+        {
+            "pattern": "https://github.com/nlohmann/json"
+        }, 
+        {
+            "pattern": "https://github.com/koral--/android-gif-drawable"
+        }, 
+        {
+            "pattern": "https://github.com/square/leakcanary"
+        }, 
+        {
+            "pattern": "https://github.com/square/okhttp"
+        }, 
+        {
+            "pattern": "https://github.com/square/retrofit"
+        }, 
+        {
+            "pattern": "https://github.com/square/okio"
+        }, 
+        {
+            "pattern": "https://github.com/google/flatbuffers"
+        }, 
+        {
+            "pattern": "https://github.com/google/guava"
+        }, 
+        {
+            "pattern": "https://github.com/InsertKoinIO/koin"
+        }, 
+        {
+            "pattern": "https://github.com/airbnb/lottie-android"
+        },
+        {
+            "pattern": "https://developer.android.com/reference/android/widget/Toast"
         }        
     ],
-    "timeout": "600s",
+    "timeout": "1m",
     "retryOn429": true,
     "retryCount": 5,
-    "fallbackRetryDelay": "600s",
+    "fallbackRetryDelay": "15m",
     "aliveStatusCodes": [200, 206, 429]
 }
