@@ -1,8 +1,5 @@
 package com.banuba.example.integrationapp.videoeditor.di
 
-import android.content.Context
-import android.net.Uri
-import androidx.core.net.toUri
 import com.banuba.example.integrationapp.R
 import com.banuba.example.integrationapp.videoeditor.data.TimeEffects
 import com.banuba.example.integrationapp.videoeditor.data.VisualEffects
@@ -74,17 +71,6 @@ class VideoEditorKoinModule : FlowEditorModule() {
                 watermarkBuilder = get()
             )
         }
-
-    /**
-     * Provides path for exported files
-     * */
-    override val exportDir: BeanDefinition<Uri> = single(named("exportDir"), override = true) {
-        get<Context>().getExternalFilesDir("")
-            ?.toUri()
-            ?.buildUpon()
-            ?.appendPath("export")
-            ?.build() ?: throw NullPointerException("exportDir should't be null!")
-    }
 
     override val watermarkProvider: BeanDefinition<WatermarkProvider> = factory(override = true) {
         IntegrationAppWatermarkProvider()
