@@ -52,27 +52,37 @@ Implement ContentFeatureProvider<TrackData>.
 ```kotlin
 class AwesomeActivityMusicProvider : ContentFeatureProvider<TrackData> {
 
-    override fun requestContent(
-        context: Context,
-        extras: Bundle
-    ): ContentFeatureProvider.Result<TrackData>? {
-        return ContentFeatureProvider.Result.RequestUi(
-            AwesomeAudioContentActivity.buildPickMusicResourceIntent(
-                context,
-                extras
-            )
+    private var activityResultLauncher: ActivityResultLauncher<Intent>? = null
+
+    private val activityResultCallback: (TrackData?) -> Unit = {
+        activityResultCallbackInternal(it)
+    }
+    private var activityResultCallbackInternal: (TrackData?) -> Unit = {}
+
+    override fun init(hostFragment: WeakReference<Fragment>) {
+        activityResultLauncher = hostFragment.get()?.registerForActivityResult(
+            ProvideTrackContract(),
+            activityResultCallback
         )
     }
 
+    override fun requestContent(
+        context: Context,
+        extras: Bundle
+    ): ContentFeatureProvider.Result<TrackData> = ContentFeatureProvider.Result.RequestUi(
+        intent = AwesomeAudioContentActivity.buildPickMusicResourceIntent(
+            context,
+            extras
+        )
+    )
+
     override fun handleResult(
         hostFragment: WeakReference<Fragment>,
-        intent: Intent?,
+        intent: Intent,
         block: (TrackData?) -> Unit
     ) {
-        hostFragment.get()
-            ?.registerForActivityResult(ProvideTrackContract()) { result: TrackData? ->
-                block(result)
-            }?.launch(intent)
+        activityResultCallbackInternal = block
+        activityResultLauncher?.launch(intent)
     }
 }
 ```
