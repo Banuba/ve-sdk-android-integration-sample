@@ -1,10 +1,14 @@
 # API for using AR cloud in the SDK
 
-## Implementation
+AR cloud is a product, which saves space for your app. In a nutshell, it stores AR masks on a server, instead of the SDK code. When the user open the app they download the masks, which are then saved in his phone’s memory.  
+
+With AR cloud you also can easily rotate masks for some special events like Christmas, Halloween, or Diwali.
+AR cloud is fully compatible with both Video Editor and Face AR products.
 
 ### Step 1
 
-Initialize ArCloudKoinModule before VideoEditorKoinModule.  
+Initialize ArCloudKoinModule module in Koin.  
+*ArCloudKoinModule should be placed before VideoEditorKoinModule.*
 
 ```kotlin
 startKoin {
@@ -17,12 +21,7 @@ startKoin {
 
 ### Step 2
 
-Get AR cloud token.
-The token should be put [here](../app/src/main/res/values/strings.xml#L9)
-
-### Step 3
-
-Add following code to your VideoEditorKoinModule.
+Configure AR Cloud dependencies in DI layer.
 
 ```kotlin
 class VideoEditorKoinModule : FlowEditorModule() {
@@ -43,3 +42,8 @@ class VideoEditorKoinModule : FlowEditorModule() {
         }
 }
 ```
+
+### Step 3
+
+Paste AR Cloud client id value [here](../app/src/main/res/values/strings.xml#L14).  
+*Please ask Banuba to provide **client id** for trial period.*

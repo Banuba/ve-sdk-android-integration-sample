@@ -25,7 +25,7 @@ Banuba [Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to
     + [Configure export flow](#Configure-export-flow)
     + [Configure watermark](#Configure-watermark)
     + [Configure audio content](#Configure-audio-content)
-    + [Configure AR cloud](#Configure AR cloud)
+    + [Configure AR cloud](#Configure-AR-cloud)
     + [Configure stickers content](#Configure-stickers-content)
     + [Add post-processing effects](#Add-post-processing-effects)
     + [Configure the record button](#Configure-the-record-button)
@@ -181,9 +181,9 @@ Check out [step-by-step guide](mddocs/audio_content.md) to add your audio conten
 
 ### Configure AR cloud
 
-The video editor can download masks from remote server.
+The video editor is able to download AR effects from Banuba server to provide more effects in video editor and save your app size .
 
-Check out [step-by-step guide](mddocs/ar_cloud.md) to add AR cloud into the SDK.
+Please check out [step-by-step guide](mddocs/ar_cloud.md) to configure AR Cloud in the SDK.
 
 ### Configure stickers content
 
