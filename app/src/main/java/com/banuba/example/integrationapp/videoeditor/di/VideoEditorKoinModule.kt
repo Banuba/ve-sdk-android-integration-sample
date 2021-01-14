@@ -9,6 +9,7 @@ import com.banuba.example.integrationapp.videoeditor.export.IntegrationAppExport
 import com.banuba.example.integrationapp.videoeditor.impl.IntegrationAppRecordingAnimationProvider
 import com.banuba.example.integrationapp.videoeditor.impl.IntegrationAppWatermarkProvider
 import com.banuba.example.integrationapp.videoeditor.impl.IntegrationTimerStateProvider
+import com.banuba.sdk.arcloud.data.source.ArEffectsRepositoryProvider
 import com.banuba.sdk.cameraui.data.CameraRecordingAnimationProvider
 import com.banuba.sdk.cameraui.data.CameraTimerStateProvider
 import com.banuba.sdk.core.AREffectPlayerProvider
@@ -102,7 +103,20 @@ class VideoEditorKoinModule : FlowEditorModule() {
         }
 
     override val cameraTimerStateProvider: BeanDefinition<CameraTimerStateProvider> =
-            factory {
-                IntegrationTimerStateProvider()
-            }
+        factory {
+            IntegrationTimerStateProvider()
+        }
+
+    val arEffectsRepositoryProvider: BeanDefinition<ArEffectsRepositoryProvider> =
+        single(override = true, createdAtStart = true) {
+            ArEffectsRepositoryProvider(
+                arEffectsRepository = get(named("backendArEffectsRepository")),
+                ioDispatcher = get(named("ioDispatcher"))
+            )
+        }
+
+    val arEffectsUUIDProvider: BeanDefinition<String> =
+        single(named("arEffectsCloudUuid"), override = true) {
+            androidContext().getString(R.string.ar_cloud_token)
+        }
 }
