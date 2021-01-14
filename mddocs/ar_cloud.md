@@ -17,7 +17,12 @@ startKoin {
 
 ### Step 2
 
-Get AR cloud UUID. Add following code to your VideoEditorKoinModule.
+Get AR cloud token.
+The token should be put [here](../app/src/main/res/values/strings.xml#L9)
+
+### Step 3
+
+Add following code to your VideoEditorKoinModule.
 
 ```kotlin
 class VideoEditorKoinModule : FlowEditorModule() {
@@ -34,7 +39,7 @@ class VideoEditorKoinModule : FlowEditorModule() {
 
     val arEffectsUUIDProvider: BeanDefinition<String> =
         single(named("arEffectsCloudUuid"), override = true) {
-           Paste your UUID here
+            androidContext().getString(R.string.ar_cloud_token)
         }
 }
 ```
