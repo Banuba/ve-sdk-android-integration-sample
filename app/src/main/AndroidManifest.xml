@@ -3,6 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.banuba.example.integrationapp">
 
+    <!-- For Giphy sticker loader and AR Cloud-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name="com.banuba.example.integrationapp.IntegrationKotlinApp"
         android:allowBackup="true"
