@@ -2,7 +2,7 @@
     <string name="app_name">Banuba VE SDK Integration sample</string>
 
     <!-- Used for enabling Banuba Face AR. Please contact Banuba https://www.banuba.com/video-editor-sdk to get this token -->
-    <string name="effect_player_token">1n2Vt44vvUy/dGSUTMws8DRKfEC8pkAjGbiOTzWJ7EqOo1CN0FY3JGXSUPLRHvR8tv5ccErzLrlCAj/zShPpS7U4wdTuIMOPEOchba+BjiUdx6Ihdl65iTjvzUKt5tT3QgbGP5tis40e0lDYWXVIDUKZ1BJAZtMYz4nU1Miz9hV6fGE0VWzzMBHkI1baO58VW/cgOY53upavJ4SqgS63J14tLhi6Aqb4Minv3WTdiHvSJs0L/7/IFOF3x/MklFCqgCwLmMlgsY65sNtczvnVj4ddpVQFqkBI4cz7ps9GnwUTYHX684Blb7NA+jqO55FlSlD0T7nnyHsXyqHSNX7KLv1SvYnXw398NTAaoHDozkFlelYx2Gq5mkoPwPMbB00yJ9sPrQu/yyCxgtiYdw4UN7gD+KW3CNikFzF2qKV0X492zHtL1Rey0rXDcEBkNO2+MELOw7FfB/3sLpIJpxUoxbz7o0hR7MWsxCdKO5xtsRLm9m1+QyWYPQQmjbFz6hRQHQ5ZHJJ560T/TPz5yzabYfPifBR1fCsRfdJTCyn1RxXNBsPBog3igSbK+lDD/01BGqJr8jjWxQbedNHcPzNN0mxVb4Uscc+0dy5HS64rnaigGzV2lI1wWtxF6iWxJ1wNJCmBsvcZT22Dvvgb12w+4p6gqZNz5GBBaq0cjsc8n4VzfUUlb1ocWQFTa3fvJ3TpXenqFbq1zdwDRf8LOu17A7tgK6O2CtwyjgF6VtpcdAd79cnmbdzafTwOxBB8wUxVToNtUK4dpUzwW27VnsaVUw4T358CtCqblKCmELsG6a1A4oSbmgix/pLTHTKFotYAKMShDc0JBY6ifEvvN5A0qgGE6Ctr8AA3E21tC7Bsk0JodiNLWp0=</string>
+    <string name="effect_player_token">PUT FACE AR TOKEN HERE</string>
     <!-- Used for enabling visual and time effects. Please contact Banuba https://www.banuba.com/video-editor-sdk to get this token. -->
     <string name="video_editor_token">ippJfY0xiKGOqWDm0uFnayxK7fK+1u0DuoAruXX1Ka54R5Qjwj4s9ZoGaGaACFfgi0HAL32wzC1slfUqZ6yyxXpxQ+ljiL+/hFpStDMmBWGZBCvG+FlTtd9wa9bU9rC6DjJwNuRfGSe4bszdKxGBEPE5MY5nJW76w/ffFeY6U898IOiOVy5wmsqXERSEbFA9PAeBYLnRpAx13CSFKWeTONMde5dMl3jmnLMlfXkbMXve9gTvL/fnDTyyUDeWHX6YfbmmWHFpP24t</string>
     <!-- Used for enabling AR cloud. Please contact Banuba https://www.banuba.com/video-editor-sdk to get this token -->
