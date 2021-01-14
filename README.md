@@ -183,7 +183,7 @@ Check out [step-by-step guide](mddocs/audio_content.md) to add your audio conten
 
 The video editor can download masks from remote server.
 
-Check out [step-by-step guide](mddocs/ar_cloud.md) to add your audio content into the SDK.
+Check out [step-by-step guide](mddocs/ar_cloud.md) to add AR cloud into the SDK.
 
 ### Configure stickers content
 
