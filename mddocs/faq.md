@@ -8,3 +8,13 @@ Please set [takePhotoOnTap](https://github.com/Banuba/ve-sdk-android-integration
 ``` json
  "takePhotoOnTap":false
 ```
+
+### 2. I want to add AR Mask to the Video Editor (without AR Cloud backend)
+
+Technically AR Mask is a bulk of files within the folder.
+
+You should place AR Mask folder to the **assets/bnb-resources/effects** directory inside the module containing video editor SDK ([**Example**](https://github.com/Banuba/ve-sdk-android-integration-sample/tree/main/app/src/main/assets/bnb-resources/effects)). Be sure that AR mask directory has a **preview.png** file. It is used as an icon of the AR mask in the app.
+
+**Note** that the name of directory will be used as a title of the AR mask within the app.
+
+
