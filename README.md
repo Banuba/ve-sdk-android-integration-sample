@@ -25,6 +25,7 @@ Banuba [Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to
     + [Configure export flow](#Configure-export-flow)
     + [Configure watermark](#Configure-watermark)
     + [Configure audio content](#Configure-audio-content)
+    + [Configure audio browser](#Configure-audio-browser)
     + [Configure AR cloud](#Configure-AR-cloud)
     + [Configure stickers content](#Configure-stickers-content)
     + [Add post-processing effects](#Add-post-processing-effects)
@@ -178,6 +179,10 @@ Add watermark image in the method ```getWatermarkBitmap```. Finally, re-arrange 
 The video editor can work with audio files to create even more attractive video recordings. The SDK does not provide audio files on its own, but it has a convenient way to set up your internal or external audio file provider for users would apply audio content.
 
 Check out [step-by-step guide](mddocs/audio_content.md) to add your audio content into the SDK.
+
+### Configure audio browser
+
+Check out [step-by-step guide](mddocs/audio_browser.md) to use audio browser in your app.
 
 ### Configure AR cloud
 
