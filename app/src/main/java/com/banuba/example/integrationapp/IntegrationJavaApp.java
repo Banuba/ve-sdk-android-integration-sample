@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.banuba.example.integrationapp.videoeditor.di.VideoEditorKoinModule;
 import com.banuba.sdk.arcloud.di.ArCloudKoinModule;
+import com.banuba.sdk.audiobrowser.di.AudioBrowserKoinModule;
 
 import org.koin.core.context.GlobalContext;
 
@@ -18,7 +19,7 @@ public class IntegrationJavaApp extends Application {
         startKoin(new GlobalContext(), koinApplication -> {
             androidContext(koinApplication, this);
             koinApplication.modules(new VideoEditorKoinModule().getModule(),
-                    new ArCloudKoinModule().getModule());
+                    new ArCloudKoinModule().getModule(), new AudioBrowserKoinModule().getModule());
             return null;
         });
     }

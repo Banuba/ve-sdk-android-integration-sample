@@ -10,10 +10,13 @@ import com.banuba.example.integrationapp.videoeditor.impl.IntegrationAppRecordin
 import com.banuba.example.integrationapp.videoeditor.impl.IntegrationAppWatermarkProvider
 import com.banuba.example.integrationapp.videoeditor.impl.IntegrationTimerStateProvider
 import com.banuba.sdk.arcloud.data.source.ArEffectsRepositoryProvider
+import com.banuba.sdk.audiobrowser.domain.AudioBrowserMusicProvider
 import com.banuba.sdk.cameraui.data.CameraRecordingAnimationProvider
 import com.banuba.sdk.cameraui.data.CameraTimerStateProvider
 import com.banuba.sdk.core.AREffectPlayerProvider
 import com.banuba.sdk.core.IUtilityManager
+import com.banuba.sdk.core.domain.TrackData
+import com.banuba.sdk.core.ui.ContentFeatureProvider
 import com.banuba.sdk.effectplayer.adapter.BanubaAREffectPlayerProvider
 import com.banuba.sdk.effectplayer.adapter.BanubaClassFactory
 import com.banuba.sdk.ve.effects.EditorEffects
@@ -118,5 +121,10 @@ class VideoEditorKoinModule : FlowEditorModule() {
     val arEffectsUUIDProvider: BeanDefinition<String> =
         single(named("arEffectsCloudUuid"), override = true) {
             androidContext().getString(R.string.ar_cloud_token)
+        }
+
+    override val musicTrackProvider: BeanDefinition<ContentFeatureProvider<TrackData>> =
+        single(named("musicTrackProvider"), override = true) {
+            AudioBrowserMusicProvider()
         }
 }
