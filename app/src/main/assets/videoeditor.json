@@ -28,7 +28,8 @@
   },
   "slideshow": {
     "maxSelectedImages": 20,
-    "animate": true
+    "animate": true,
+    "animateTakenPhotos": true
   },
   "gallery": {
     "supportsMixMediaData": false,

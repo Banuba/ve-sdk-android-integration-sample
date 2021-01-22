@@ -17,4 +17,22 @@ You should place AR Mask folder to the **assets/bnb-resources/effects** director
 
 **Note** that the name of directory will be used as a title of the AR mask within the app.
 
+### 3. I want to turn off animations from slideshow
+
+Slideshow is created either by selecting pictures from gallery or by making a photo on Video Editor camera screen.
+
+Every slide within slideshow can appeare with or without animations. This behavior is configured within [**videoeditor.json**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/videoeditor.json#L29) config file under ```slideshow``` section:
+```kotlin
+"slideshow": {
+    /* other slideshow related settings */
+    "animate": true,
+    "animateTakenPhotos": true
+  }
+```
+Here ```animate``` parameter is applicable to the slideshow created by selecting pictures from the gallery and ```animateTakenPhotos``` is for making photo use case.
+
+To turn off animations just **setup false for both fields**.
+
+
+
 
