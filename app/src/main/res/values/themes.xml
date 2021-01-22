@@ -197,6 +197,54 @@
 
         <item name="toastStyle">@style/CustomToastStyle</item>
         <item name="wait_dialog_throbber_bg">@drawable/bg_wait_dialog_throbber</item>
+
+        <!-- Audio Browser -->
+        <item name="audioBrowserBottomSheetStyle">@style/CustomAudioBrowserBottomSheetStyle</item>
+        <item name="audioBrowserTrackNameStyle">@style/CustomAudioBrowserTrackNameStyle</item>
+        <item name="audioBrowserTrackDurationStyle">@style/CustomAudioBrowserTrackDurationStyle</item>
+        <item name="audioBrowserTrackApplyBtnStyle">@style/CustomAudioBrowserTrackApplyBtnStyle</item>
+        <item name="audioBrowserTrackErrorImageStyle">@style/CustomAudioBrowserTrackErrorImageStyle
+        </item>
+        <item name="audioBrowserTrackPlaybackBtnStyle">@style/CustomAudioBrowserPlaybackBtnStyle</item>
+        <item name="audioBrowserTrackSeekBarStyle">@style/CustomAudioBrowserTrackSeekBarStyle</item>
+        <item name="audioBrowserTrackItemStyle">@style/CustomAudioBrowserTrackItemStyle</item>
+        <item name="audioBrowserTrackItemDividerDrawable">@drawable/bg_track_item_divider</item>
+        <item name="audioBrowserCategoryItemDividerDrawable">@null</item>
+        <item name="audioBrowserSubCategoryItemDividerDrawable">@drawable/bg_track_item_divider
+        </item>
+        <item name="audioBrowserCategoryItemStyle">@style/CustomAudioBrowserCategoryItemStyle</item>
+        <item name="audioBrowserCategoryImageStyle">@style/CustomAudioBrowserCategoryImageStyle</item>
+        <item name="audioBrowserCategoryNameStyle">@style/CustomAudioBrowserCategoryNameStyle</item>
+        <item name="audioBrowserSubCategoryItemStyle">@style/CustomAudioBrowserSubCategoryItemStyle
+        </item>
+        <item name="audioBrowserSubCategoryImageStyle">@style/CustomAudioBrowserSubCategoryImageStyle
+        </item>
+        <item name="audioBrowserSubCategoryNameStyle">@style/CustomAudioBrowserSubCategoryNameStyle
+        </item>
+        <item name="audioBrowserErrorViewStyle">@style/CustomAudioBrowserErrorViewStyle</item>
+        <item name="audioBrowserRecyclerViewStyle">@style/CustomAudioBrowserRecyclerViewStyle</item>
+        <item name="audioBrowserSearchViewStyle">@style/CustomAudioBrowserSearchViewStyle</item>
+        <item name="audioBrowserCloseViewStyle">@style/CustomAudioBrowserCloseViewStyle</item>
+        <item name="audioBrowserTitleViewStyle">@style/CustomAudioBrowserTitleViewStyle</item>
+        <item name="audioBrowserLibraryViewStyle">@style/CustomAudioBrowserLibraryViewStyle</item>
+        <item name="audioBrowserDownloadAnimationViewStyle">
+            @style/CustomAudioBrowserDownloadAnimationViewStyle
+        </item>
+        <item name="audioBrowserDownloadCancelViewStyle">
+            @style/CustomAudioBrowserDownloadCancelViewStyle
+        </item>
+        <item name="audioBrowserCameraTrackContainerStyle">
+            @style/CustomAudioBrowserCameraTrackContainerStyle
+        </item>
+        <item name="audioBrowserCameraTrackIconViewStyle">
+            @style/CustomAudioBrowserCameraTrackIconViewStyle
+        </item>
+        <item name="audioBrowserCameraTrackTitleViewStyle">
+            @style/CustomAudioBrowserCameraTrackTitleViewStyle
+        </item>
+        <item name="audioBrowserCameraTrackResetBtnStyle">
+            @style/CustomAudioBrowserCameraTrackResetBtnStyle
+        </item>
     </style>
 
     <!-- CameraOverlayStyle setup icons for Camera screen.
@@ -751,5 +799,61 @@
 
     <!--Toast style-->
     <style name="CustomToastStyle" parent="ToastStyle" />
+    <!---->
+
+    <!-- Audio Browser -->
+    <style name="CustomAudioBrowserBottomSheetStyle" parent="AudioBrowserBottomSheetStyle" />
+
+    <style name="CustomAudioBrowserTrackNameStyle" parent="AudioBrowserTrackNameStyle" />
+
+    <style name="CustomAudioBrowserTrackDurationStyle" parent="AudioBrowserTrackDurationStyle" />
+
+    <style name="CustomAudioBrowserTrackApplyBtnStyle" parent="AudioBrowserTrackApplyBtnStyle" />
+
+    <style name="CustomAudioBrowserTrackErrorImageStyle" parent="AudioBrowserTrackErrorImageStyle" />
+
+    <style name="CustomAudioBrowserPlaybackBtnStyle" parent="AudioBrowserPlaybackBtnStyle" />
+
+    <style name="CustomAudioBrowserTrackSeekBarStyle" parent="AudioBrowserTrackSeekBarStyle" />
+
+    <style name="CustomAudioBrowserTrackItemStyle" parent="AudioBrowserTrackItemStyle" />
+
+    <style name="CustomAudioBrowserCategoryItemStyle" parent="AudioBrowserCategoryItemStyle" />
+
+    <style name="CustomAudioBrowserCategoryImageStyle" parent="AudioBrowserCategoryImageStyle" />
+
+    <style name="CustomAudioBrowserCategoryNameStyle" parent="AudioBrowserCategoryNameStyle" />
+
+    <style name="CustomAudioBrowserSubCategoryItemStyle" parent="AudioBrowserSubCategoryItemStyle" />
+
+    <style name="CustomAudioBrowserSubCategoryImageStyle" parent="AudioBrowserSubCategoryImageStyle" />
+
+    <style name="CustomAudioBrowserSubCategoryNameStyle" parent="AudioBrowserCategoryNameStyle" />
+
+    <style name="CustomAudioBrowserErrorViewStyle" parent="AudioBrowserErrorViewStyle" />
+
+    <style name="CustomAudioBrowserRecyclerViewStyle" parent="AudioBrowserRecyclerViewStyle" />
+
+    <style name="CustomAudioBrowserSearchViewStyle" parent="AudioBrowserSearchViewStyle" />
+
+    <style name="CustomAudioBrowserCloseViewStyle" parent="AudioBrowserCloseViewStyle" />
+
+    <style name="CustomAudioBrowserTitleViewStyle" parent="AudioBrowserTitleViewStyle" />
+
+    <style name="CustomAudioBrowserLibraryViewStyle" parent="AudioBrowserLibraryViewStyle" />
+
+    <style name="CustomAudioBrowserDownloadAnimationViewStyle" parent="AudioBrowserDownloadAnimationViewStyle" />
+
+    <style name="CustomAudioBrowserDownloadCancelViewStyle" parent="AudioBrowserDownloadCancelViewStyle" />
+
+    <style name="CustomAudioBrowserCameraTrackContainerStyle" parent="AudioBrowserCameraTrackContainerStyle" />
+
+    <style name="CustomAudioBrowserCameraTrackIconViewStyle" parent="AudioBrowserCameraTrackIconViewStyle">
+        <item name="android:src">@drawable/ic_audio</item>
+    </style>
+
+    <style name="CustomAudioBrowserCameraTrackTitleViewStyle" parent="AudioBrowserCameraTrackTitleViewStyle" />
+
+    <style name="CustomAudioBrowserCameraTrackResetBtnStyle" parent="AudioBrowserCameraTrackResetBtnStyle" />
     <!---->
 </resources>

@@ -3,6 +3,7 @@ package com.banuba.example.integrationapp
 import android.app.Application
 import com.banuba.example.integrationapp.videoeditor.di.VideoEditorKoinModule
 import com.banuba.sdk.arcloud.di.ArCloudKoinModule
+import com.banuba.sdk.audiobrowser.di.AudioBrowserKoinModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -17,6 +18,7 @@ class IntegrationKotlinApp : Application() {
             modules(
                 ArCloudKoinModule().module,
                 VideoEditorKoinModule().module,
+                AudioBrowserKoinModule().module
             )
         }
     }
