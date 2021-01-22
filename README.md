@@ -69,10 +69,15 @@ If you utilize the AR technology with masks (like Tiktok or Snapchat) you would 
 We offer а free 14-days trial, so you have the opportunity to thoroughly test and assess Video Editor SDK functionality in your app. To get access to your trial, please, get in touch with us via [sales@banuba.com](mailto:sales@banuba.com?subject=Banuba%20AI%20VE%20Free%20Trial). They will send you the trial token. Put it into the app, as described below, to run the SDK.  
 
 ## Token 
-We offer а free 14-days trial for you could thoroughly test and assess Video Editor SDK functionality in your app. To get access to your trial, please, get in touch with us by [filling a form](https://www.banuba.com/video-editor-sdk) on our website. Our sales managers will send you the trial token. The token should be put [here](app/src/main/res/values/strings.xml#L5).
+We offer а free 14-days trial for you could thoroughly test and assess Video Editor SDK functionality in your app. To get access to your trial, please, get in touch with us by [filling a form](https://www.banuba.com/video-editor-sdk) on our website. Our sales managers will send you the trial token.
+
+There are 2 tokens:
+1. Face AR token used for [Face AR library](https://www.banuba.com/facear-sdk/face-filters). This token should be put [here](app/src/main/res/values/strings.xml#L5).
+1. Video Editor token used for enabling visual and time effects. This token should be put [here](app/src/main/res/values/strings.xml#L29).
+
 
 ## What can you customize?
-We undersand that the client should have options to brand video editor to bring its own experience to the market. Therefore we provide list of options to customize:
+We understand that the client should have options to brand video editor to bring its own experience to the market. Therefore we provide list of options to customize:
 
 :white_check_mark: Use your branded icons. [See details](###-Configure-screens )
 :white_check_mark: Use you branded colors. [See details](###-Configure-screens)
