@@ -13,6 +13,9 @@
     <!-- Please contact Banuba https://www.banuba.com/video-editor-sdk to get this token -->
     <string name="ar_cloud_token">PUT YOUR AR CLOUD CLIENT ID HERE</string>
 
+    <!-- AUDIO BROWSER MUBERT -->
+    <string name="mubert_api_key">PUT YOUR PERSONAL MUBERT KEY</string>
+
     <!-- Visual Effects -->
     <string name="visual_effect_vhs">VHS</string>
     <string name="visual_effect_rave">Rave</string>
