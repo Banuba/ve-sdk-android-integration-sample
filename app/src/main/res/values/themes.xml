@@ -67,8 +67,6 @@
         <item name="editorTextColorBackground">@null</item>
         <item name="editorTextEditorInputStyle">@style/CustomEditorTextEditorInputStyle</item>
         <item name="editorTypefaceSwitcherStyle">@style/CustomTypefaceSwitcherStyle</item>
-        <item name="editorCancelStyle">@style/CustomEditorCancelStyle</item>
-        <item name="editorDoneStyle">@style/CustomEditorDoneStyle</item>
         <item name="editorTextDoneStyle">@style/CustomEditorDoneStyle</item>
         <item name="editorBoardStyle">@style/CustomEditorBoardStyle</item>
         <item name="editorUndoButtonStyle">@style/CustomEditorUndoButtonStyle</item>
@@ -100,7 +98,8 @@
         <item name="galleryAlbumDescTextStyle">@style/CustomGalleryAlbumDescTextStyle</item>
 
         <item name="galleryColumnsNumber">wrap_content</item>
-        <item name="gallery_light_status_bar">false</item>
+        <item name="galleryTabLayoutStyle">@style/CustomGalleryTabLayoutStyle</item>
+        <item name="galleryTabTextColors">@color/gallery_tab_color_state_list</item>
         <item name="gallery_bg_color">@color/black</item>
         <item name="gallery_item_corner_radius">4dp</item>
         <item name="gallery_item_margin">2dp</item>
@@ -131,34 +130,61 @@
         <item name="trimmer_icon_add_video">@drawable/ic_trimmer_add_video</item>
         <item name="trimmer_bg_color_add_video">@color/transparent</item>
         <item name="trimmer_time_visible">true</item>
-        <item name="trimmer_hint_visible">false</item>
         <!---->
 
 
         <!--Music Editor-->
-        <item name="musicEditorStyle">@style/CustomMusicEditorStyle</item>
         <item name="musicEditorTimelineStyle">@style/CustomMusicEditorTimelineStyle</item>
-        <item name="musicEditorTimelineTimeTextStyle">@style/CustomMusicEditorTimelineTimeTextStyle</item>
-        <item name="musicEditorActionButtonParentStyle">@style/CustomMusicEditorActionButtonParentStyle</item>
+        <item name="musicEditorTimelineTimeTextStyle">
+            @style/CustomMusicEditorTimelineTimeTextStyle
+        </item>
+        <item name="musicEditorActionButtonParentStyle">
+            @style/CustomMusicEditorActionButtonParentStyle
+        </item>
         <item name="musicEditorActionButtonStyle">@style/CustomMusicEditorActionButtonStyle</item>
-        <item name="musicEditorActionButtonTextStyle">@style/CustomMusicEditorActionButtonTextStyle</item>
+        <item name="musicEditorActionButtonTextStyle">
+            @style/CustomMusicEditorActionButtonTextStyle
+        </item>
         <item name="timelineEditorBoardStyle">@style/CustomTimelineEditorBoardStyle</item>
-        <item name="musicEditorTimelineSoundWaveStyle">@style/CustomMusicEditorTimelineSoundWaveStyle</item>
+        <item name="musicEditorTimelineSoundWaveStyle">
+            @style/CustomMusicEditorTimelineSoundWaveStyle
+        </item>
 
         <item name="musicEditorVideoVolumeStyle">@style/CustomMusicEditorVideoVolumeStyle</item>
         <item name="musicEditorVideoVolumeContainerBackground">@color/transparent</item>
         <item name="hideBottomViewsInEditVolume">true</item>
 
-        <item name="musicEditorRecordingButtonStyle">@style/CustomMusicEditorRecordingButtonStyle</item>
+        <item name="musicEditorRecordingButtonStyle">@style/CustomMusicEditorRecordingButtonStyle
+        </item>
 
         <item name="musicEditorTrimViewStyle">@style/CustomMusicEditorTrimViewStyle</item>
         <item name="musicEditorTrimmerStyle">@style/CustomMusicEditorTrimmerStyle</item>
-        <item name="musicEditorTrimmerSoundWaveStyle">@style/CustomMusicEditorTrimmerSoundWaveStyle</item>
+        <item name="musicEditorTrimmerSoundWaveStyle">
+            @style/CustomMusicEditorTrimmerSoundWaveStyle
+        </item>
 
-        <item name="musicEditorEqualizerRecyclerStyle">@style/CustomMusicEditorEqualizerRecyclerStyle</item>
+        <item name="musicEditorEqualizerRecyclerStyle">
+            @style/CustomMusicEditorEqualizerRecyclerStyle
+        </item>
         <item name="musicEditorEqualizerItemStyle">@style/CustomMusicEditorEqualizerItemStyle</item>
-        <item name="musicEditorEqualizerThrobberStyle">@style/CustomMusicEditorEqualizerThrobberStyle</item>
-
+        <item name="musicEditorEqualizerThrobberStyle">
+            @style/CustomMusicEditorEqualizerThrobberStyle
+        </item>
+        <item name="musicEditorPlaybackControllerParentStyle">
+            @style/CustomMusicEditorPlaybackControllerParentStyle
+        </item>
+        <item name="musicEditorVoiceRecordingControllerParentStyle">
+            @style/CustomVoiceRecordingControllerParentStyle
+        </item>
+        <item name="musicEditorVoiceRecordingControllerCancelStyle">
+            @style/CustomVoiceRecordingControllerCancelStyle
+        </item>
+        <item name="musicEditorVoiceRecordingControllerDoneStyle">
+            @style/CustomVoiceRecordingControllerDoneStyle
+        </item>
+        <item name="musicEditorVoiceRecordingControllerResetStyle">
+            @style/CustomVoiceRecordingControllerResetStyle
+        </item>
         <item name="music_editor_surface_background">@color/black</item>
         <item name="music_editor_voice_recording_background">@color/black</item>
         <item name="music_editor_timeline_background">@color/big_stone</item>
@@ -201,11 +227,14 @@
         <!-- Audio Browser -->
         <item name="audioBrowserBottomSheetStyle">@style/CustomAudioBrowserBottomSheetStyle</item>
         <item name="audioBrowserTrackNameStyle">@style/CustomAudioBrowserTrackNameStyle</item>
-        <item name="audioBrowserTrackDurationStyle">@style/CustomAudioBrowserTrackDurationStyle</item>
-        <item name="audioBrowserTrackApplyBtnStyle">@style/CustomAudioBrowserTrackApplyBtnStyle</item>
+        <item name="audioBrowserTrackDurationStyle">@style/CustomAudioBrowserTrackDurationStyle
+        </item>
+        <item name="audioBrowserTrackApplyBtnStyle">@style/CustomAudioBrowserTrackApplyBtnStyle
+        </item>
         <item name="audioBrowserTrackErrorImageStyle">@style/CustomAudioBrowserTrackErrorImageStyle
         </item>
-        <item name="audioBrowserTrackPlaybackBtnStyle">@style/CustomAudioBrowserPlaybackBtnStyle</item>
+        <item name="audioBrowserTrackPlaybackBtnStyle">@style/CustomAudioBrowserPlaybackBtnStyle
+        </item>
         <item name="audioBrowserTrackSeekBarStyle">@style/CustomAudioBrowserTrackSeekBarStyle</item>
         <item name="audioBrowserTrackItemStyle">@style/CustomAudioBrowserTrackItemStyle</item>
         <item name="audioBrowserTrackItemDividerDrawable">@drawable/bg_track_item_divider</item>
@@ -213,11 +242,13 @@
         <item name="audioBrowserSubCategoryItemDividerDrawable">@drawable/bg_track_item_divider
         </item>
         <item name="audioBrowserCategoryItemStyle">@style/CustomAudioBrowserCategoryItemStyle</item>
-        <item name="audioBrowserCategoryImageStyle">@style/CustomAudioBrowserCategoryImageStyle</item>
+        <item name="audioBrowserCategoryImageStyle">@style/CustomAudioBrowserCategoryImageStyle
+        </item>
         <item name="audioBrowserCategoryNameStyle">@style/CustomAudioBrowserCategoryNameStyle</item>
         <item name="audioBrowserSubCategoryItemStyle">@style/CustomAudioBrowserSubCategoryItemStyle
         </item>
-        <item name="audioBrowserSubCategoryImageStyle">@style/CustomAudioBrowserSubCategoryImageStyle
+        <item name="audioBrowserSubCategoryImageStyle">
+            @style/CustomAudioBrowserSubCategoryImageStyle
         </item>
         <item name="audioBrowserSubCategoryNameStyle">@style/CustomAudioBrowserSubCategoryNameStyle
         </item>
@@ -440,8 +471,6 @@
     <!--Editor Styles-->
     <style name="CustomEditorOverlayStyle" parent="EditorOverlayStyle">
         <item name="editor_icon_back">@drawable/ic_nav_back_arrow</item>
-        <item name="editor_icon_playback_visible">false</item>
-
         <item name="editor_gradient_top">@color/transparent</item>
         <item name="editor_gradient_bottom">@color/transparent</item>
         <item name="editor_effects_parent_view_background">@color/black</item>
@@ -495,11 +524,7 @@
         <item name="android:background">@drawable/bg_rounded_border</item>
     </style>
 
-    <style name="CustomEditorCancelStyle" parent="EditorCancelStyle">
-        <item name="android:fontFamily">@font/roboto_bold</item>
-    </style>
-
-    <style name="CustomEditorDoneStyle" parent="CustomEditorCancelStyle" />
+    <style name="CustomEditorDoneStyle" parent="EditorTextDoneStyle" />
 
     <style name="CustomEditorBoardStyle" parent="EditorBoardStyle">
         <item name="editor_board_background_color_active">@color/black_a50</item>
@@ -569,6 +594,8 @@
     <style name="CustomGalleryAlbumDescTextStyle" parent="GalleryAlbumDescTextStyle">
         <item name="android:textColor">@color/white</item>
     </style>
+
+    <style name="CustomGalleryTabLayoutStyle" parent="GalleryTabLayoutStyle" />
 
     <style name="CustomGalleryEmptyTextStyle" parent="GalleryEmptyTextStyle">
         <item name="android:textColor">@color/white</item>
@@ -677,18 +704,6 @@
 
 
     <!--Music Editor Styles-->
-    <style name="CustomMusicEditorStyle" parent="MusicEditorStyle">
-        <item name="playback_icon_rewind">@drawable/ic_restart</item>
-        <item name="playback_icon_play">@drawable/ic_play</item>
-        <item name="playback_icon_pause">@drawable/ic_pause</item>
-        <item name="playback_icon_done">@drawable/ic_done</item>
-        <item name="voice_recording_icon_cancel">@drawable/ic_close</item>
-        <item name="voice_recording_icon_refresh">@drawable/ic_cancel</item>
-        <item name="voice_recording_icon_done">@drawable/ic_done</item>
-        <item name="playback_controller_icons_chain">spread_inside</item>
-        <item name="voice_recording_controller_icons_chain">spread_inside</item>
-    </style>
-
     <style name="CustomMusicEditorRecordingButtonStyle" parent="MusicEditorRecordingButtonStyle">
         <item name="voice_recording_btn_icon_start">@drawable/ic_audio_recording_record</item>
         <item name="voice_recording_btn_icon_stop">@drawable/ic_audio_recording_pause</item>
@@ -775,6 +790,24 @@
     <style name="CustomMusicEditorEqualizerThrobberStyle" parent="MusicEditorEqualizerThrobberStyle">
         <item name="circle_width">2dp</item>
     </style>
+
+    <style name="CustomMusicEditorPlaybackControllerParentStyle" parent="MusicEditorPlaybackControllerParentStyle" />
+
+    <style name="CustomVoiceRecordingControllerParentStyle" parent="VoiceRecordingControllerParentStyle" />
+
+    <style name="CustomVoiceRecordingControllerCancelStyle" parent="VoiceRecordingControllerCancelStyle">
+        <item name="android:padding">12dp</item>
+    </style>
+
+    <style name="CustomVoiceRecordingControllerResetStyle" parent="VoiceRecordingControllerResetStyle">
+        <item name="android:drawableLeft">@null</item>
+        <item name="android:drawablePadding">0dp</item>
+    </style>
+
+    <style name="CustomVoiceRecordingControllerDoneStyle" parent="VoiceRecordingControllerDoneStyle">
+        <item name="android:padding">12dp</item>
+    </style>
+
     <!---->
 
 

@@ -141,7 +141,10 @@ internal class RecordButtonView @JvmOverloads constructor(
 
     fun animateTakePhoto(onEndCallback: () -> Unit) {
         with(photoShootAnimation) {
-            doOnEnd { onEndCallback() }
+            removeAllListeners()
+            doOnEnd {
+                onEndCallback()
+            }
             start()
         }
     }
@@ -191,5 +194,9 @@ internal class RecordButtonView @JvmOverloads constructor(
 
     fun resumeAnimation() {
         outerPart.resumeAnimation()
+    }
+
+    fun setRecordingProgress(progressMs: Long) {
+        outerPart.setProgress(progressMs)
     }
 }

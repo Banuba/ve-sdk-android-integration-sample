@@ -9,6 +9,7 @@ import android.view.animation.LinearInterpolator
 import com.banuba.example.integrationapp.R
 import com.banuba.sdk.core.ui.ext.dimen
 
+
 internal class RecordButtonOuterView @JvmOverloads constructor(
     context: Context,
     attr: AttributeSet? = null,
@@ -67,8 +68,12 @@ internal class RecordButtonOuterView @JvmOverloads constructor(
         }
     }
 
+    private var initialStartTime = 0L
+
+    private var isAnimating = false
+
     init {
-//    Because 0 degrees angle correspond to 3 o'clock on a watch
+        // Because 0 degrees angle correspond to 3 o'clock on a watch
         rotation = INIT_VIEW_ROTATION
     }
 
@@ -104,10 +109,12 @@ internal class RecordButtonOuterView @JvmOverloads constructor(
         circleWidth = context.dimen(R.dimen.record_button_circle_progress_width)
         animator.duration = maxDurationMs
         animator.cancel()
-        animator.currentPlayTime = maxDurationMs - availableDurationMs
+        initialStartTime = maxDurationMs - availableDurationMs
+        animator.currentPlayTime = initialStartTime
     }
 
     fun stopAnimation() {
+        isAnimating = false
         circleWidth = context.dimen(R.dimen.record_button_circle_idle_width)
         animator.cancel()
         gradientSweepAngle = 0F
@@ -115,10 +122,16 @@ internal class RecordButtonOuterView @JvmOverloads constructor(
     }
 
     fun pauseAnimation() {
-        animator.pause()
+        isAnimating = false
     }
 
     fun resumeAnimation() {
-        animator.start()
+        isAnimating = true
+    }
+
+    fun setProgress(progressMs: Long) {
+        if (isAnimating) {
+            animator.currentPlayTime = initialStartTime + progressMs
+        }
     }
 }
