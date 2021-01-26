@@ -65,24 +65,25 @@
         <item name="editorTextActionsStyle">@style/CustomEditorTextActionsStyle</item>
         <item name="editorTextColorLabelStyle">@style/CustomEditorTextColorLabelStyle</item>
         <item name="editorTextColorBackground">@null</item>
+        <item name="editorTextColorItemBackground">@drawable/bg_checkable_color</item>
         <item name="editorTextEditorInputStyle">@style/CustomEditorTextEditorInputStyle</item>
         <item name="editorTypefaceSwitcherStyle">@style/CustomTypefaceSwitcherStyle</item>
         <item name="editorTextDoneStyle">@style/CustomEditorDoneStyle</item>
         <item name="editorBoardStyle">@style/CustomEditorBoardStyle</item>
         <item name="editorUndoButtonStyle">@style/CustomEditorUndoButtonStyle</item>
-        <item name="editorVisualAndTimeEffectsRecyclerStyle">
-            @style/CustomEditorVisualAndTimeEffectsRecyclerStyle
-        </item>
+        <item name="editorVisualAndTimeEffectsRecyclerStyle">@style/CustomEditorVisualAndTimeEffectsRecyclerStyle</item>
         <item name="editorApplyEffectHintStyle">@style/CustomEditorApplyEffectHintStyle</item>
         <item name="editorEffectVisualStyle">@style/CustomEditorEffectVisualStyle</item>
         <item name="editorEffectTimeStyle">@style/CustomEditorEffectTimeStyle</item>
         <item name="editorEffectMaskStyle">@style/CustomEditorEffectMaskStyle</item>
         <item name="editorEffectLutItemStyle">@style/CustomEditorEffectLutItemStyle</item>
         <item name="editorColorEffectsLabelStyle">@style/CustomEditorColorEffectsLabelStyle</item>
-        <item name="editorColorEffectsRecyclerStyle">@style/CustomEditorColorEffectsRecyclerStyle
-        </item>
+        <item name="editorColorEffectsRecyclerStyle">@style/CustomEditorColorEffectsRecyclerStyle</item>
         <item name="editorTimelineStyle">@style/CustomTimelineEditorViewStyle</item>
-
+        <item name="editorPlaybackControllerParentStyle">@style/CustomEditorPlaybackControllerParentStyle</item>
+        <item name="editorPlaybackControllerCancelStyle">@style/CustomEditorPlaybackControllerCancelStyle</item>
+        <item name="editorPlaybackControllerPlayStyle">@style/CustomEditorPlaybackControllerPlayStyle</item>
+        <item name="editorPlaybackControllerDoneStyle">@style/CustomEditorPlaybackControllerDoneStyle</item>
 
         <!--Gallery-->
         <item name="galleryImageViewStyle">@style/CustomGalleryImageViewStyle</item>
@@ -117,12 +118,14 @@
         <item name="trimmerContentViewStyle">@style/CustomTrimmerContentViewStyle</item>
         <item name="trimmerContentLabelStyle">@style/CustomTrimmerContentLabelStyle</item>
         <item name="trimmerRecyclerStyle">@style/CustomTrimmerRecyclerStyle</item>
+        <item name="trimmerContentHintStyle">@style/CustomTrimmerContentHintStyle</item>
         <item name="trimmerThumbImageStyle">@style/CustomTrimmerThumbImageStyle</item>
         <item name="trimmerThumbTextStyle">@style/CustomTrimmerThumbTextStyle</item>
         <item name="trimmerDeleteLabelStyle">@style/CustomTrimmerDeleteLabelStyle</item>
         <item name="trimmerDeleteCrossStyle">@style/CustomTrimmerDeleteCrossStyle</item>
         <item name="trimmerCancelButtonStyle">@style/CustomTrimmerCancelButtonStyle</item>
         <item name="trimmerDurationTimelineStyle">@style/CustomTrimmerDurationTimelineStyle</item>
+        <item name="trimmerThumbHintIconStyle">@style/CustomTrimmerThumbHintIconStyle</item>
 
         <item name="trimmer_play_control_visible">true</item>
         <item name="trimmer_icon_play">@drawable/ic_play</item>
@@ -152,39 +155,21 @@
 
         <item name="musicEditorVideoVolumeStyle">@style/CustomMusicEditorVideoVolumeStyle</item>
         <item name="musicEditorVideoVolumeContainerBackground">@color/transparent</item>
-        <item name="hideBottomViewsInEditVolume">true</item>
 
-        <item name="musicEditorRecordingButtonStyle">@style/CustomMusicEditorRecordingButtonStyle
-        </item>
+        <item name="musicEditorRecordingButtonStyle">@style/CustomMusicEditorRecordingButtonStyle</item>
 
         <item name="musicEditorTrimViewStyle">@style/CustomMusicEditorTrimViewStyle</item>
         <item name="musicEditorTrimmerStyle">@style/CustomMusicEditorTrimmerStyle</item>
-        <item name="musicEditorTrimmerSoundWaveStyle">
-            @style/CustomMusicEditorTrimmerSoundWaveStyle
-        </item>
+        <item name="musicEditorTrimmerSoundWaveStyle">@style/CustomMusicEditorTrimmerSoundWaveStyle</item>
 
-        <item name="musicEditorEqualizerRecyclerStyle">
-            @style/CustomMusicEditorEqualizerRecyclerStyle
-        </item>
+        <item name="musicEditorEqualizerRecyclerStyle">@style/CustomMusicEditorEqualizerRecyclerStyle</item>
         <item name="musicEditorEqualizerItemStyle">@style/CustomMusicEditorEqualizerItemStyle</item>
-        <item name="musicEditorEqualizerThrobberStyle">
-            @style/CustomMusicEditorEqualizerThrobberStyle
-        </item>
-        <item name="musicEditorPlaybackControllerParentStyle">
-            @style/CustomMusicEditorPlaybackControllerParentStyle
-        </item>
-        <item name="musicEditorVoiceRecordingControllerParentStyle">
-            @style/CustomVoiceRecordingControllerParentStyle
-        </item>
-        <item name="musicEditorVoiceRecordingControllerCancelStyle">
-            @style/CustomVoiceRecordingControllerCancelStyle
-        </item>
-        <item name="musicEditorVoiceRecordingControllerDoneStyle">
-            @style/CustomVoiceRecordingControllerDoneStyle
-        </item>
-        <item name="musicEditorVoiceRecordingControllerResetStyle">
-            @style/CustomVoiceRecordingControllerResetStyle
-        </item>
+        <item name="musicEditorEqualizerThrobberStyle">@style/CustomMusicEditorEqualizerThrobberStyle</item>
+        <item name="musicEditorPlaybackControllerParentStyle">@style/CustomMusicEditorPlaybackControllerParentStyle</item>
+        <item name="musicEditorVoiceRecordingControllerParentStyle">@style/CustomVoiceRecordingControllerParentStyle</item>
+        <item name="musicEditorVoiceRecordingControllerCancelStyle">@style/CustomVoiceRecordingControllerCancelStyle</item>
+        <item name="musicEditorVoiceRecordingControllerDoneStyle">@style/CustomVoiceRecordingControllerDoneStyle</item>
+        <item name="musicEditorVoiceRecordingControllerResetStyle">@style/CustomVoiceRecordingControllerResetStyle</item>
         <item name="music_editor_surface_background">@color/black</item>
         <item name="music_editor_voice_recording_background">@color/black</item>
         <item name="music_editor_timeline_background">@color/big_stone</item>
@@ -550,6 +535,23 @@
 
     <style name="CustomEditorColorEffectsRecyclerStyle" parent="EditorColorEffectsRecyclerStyle" />
 
+    <style name="CustomEditorPlaybackControllerParentStyle" parent="EditorPlaybackControllerParentStyle" />
+
+    <style name="CustomEditorPlaybackControllerCancelStyle" parent="EditorPlaybackControllerCancelStyle">
+        <item name="android:src">@drawable/ic_close</item>
+        <item name="android:padding">12dp</item>
+    </style>
+
+    <style name="CustomEditorPlaybackControllerPlayStyle" parent="EditorPlaybackControllerPlayStyle">
+        <item name="android:src">@drawable/ic_playback_controller_play</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <style name="CustomEditorPlaybackControllerDoneStyle" parent="EditorPlaybackControllerDoneStyle">
+        <item name="android:padding">12dp</item>
+        <item name="android:src">@drawable/ic_done</item>
+    </style>
+
     <style name="CustomTimelineEditorViewStyle" parent="EditorTimelineViewStyle" />
 
     <!--Stickers Styles-->
@@ -688,6 +690,10 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="CustomTrimmerContentHintStyle" parent="TrimmerContentHintStyle" />
+
+    <style name="CustomTrimmerThumbHintIconStyle" parent="TrimmerThumbHintIconStyle" />
+
     <style name="CustomTrimmerThumbImageStyle" parent="TrimmerThumbImageStyle">
         <item name="android:layout_width">@dimen/gallery_thumb_size</item>
         <item name="android:layout_height">@dimen/gallery_thumb_size</item>
@@ -797,6 +803,7 @@
 
     <style name="CustomVoiceRecordingControllerCancelStyle" parent="VoiceRecordingControllerCancelStyle">
         <item name="android:padding">12dp</item>
+        <item name="android:src">@drawable/ic_close</item>
     </style>
 
     <style name="CustomVoiceRecordingControllerResetStyle" parent="VoiceRecordingControllerResetStyle">
@@ -806,6 +813,7 @@
 
     <style name="CustomVoiceRecordingControllerDoneStyle" parent="VoiceRecordingControllerDoneStyle">
         <item name="android:padding">12dp</item>
+        <item name="android:src">@drawable/ic_done</item>
     </style>
 
     <!---->
