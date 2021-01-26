@@ -57,6 +57,19 @@ data class TrackData(
 )
 ```
 
+### 5. I want to add color filters
+
+Color filters (luts) are special graphic files placed into **assets/bnb-resources/luts** directory inside the module containing video editor SDK.
+
+To add your own color filter you should place it into aforementioned folder and create a **drawable resource** that will be used as an icon for this particular color effect within the list of effects.
+
+The name of the drawable resource must be **the same** as the graphic file within luts directory.
+
+As an example, check out how the black-and-white color filter is added: 
+
+[**Here**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/bnb-resources/luts/C1.png) is a graphic file named C1.png within assets/bnb-resources/luts directory that allows to achieve black-and-white picture
+
+[**Here**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/drawable/c1.png) is an appropriate drawable resource named c1.png within drawable resource directory that is used as an icon within the list of effects
 
 
 
