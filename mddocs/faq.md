@@ -1,7 +1,7 @@
 # FAQ  
 This page is aimed to explain the most frequent technical questions asked while integrating our SDK.  
 
-### 1. I want to start and stop video recording by short click.  
+### 1. I want to start and stop video recording by short click  
 The user has to keep pressing recording button to record new video by default. Video recording stops when the user releases finger from recording button.  
 
 Please set [takePhotoOnTap](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/camera.json#4) property to **false** to allow the user to start and stop recording new video by short click.  
@@ -32,6 +32,32 @@ Every slide within slideshow can appeare with or without animations. This behavi
 Here ```animate``` parameter is applicable to the slideshow created by selecting pictures from the gallery and ```animateTakenPhotos``` is for making photo use case.
 
 To turn off animations just **setup false for both fields**.
+
+### 4. I want to start VideoEditor with a preselected audio track
+
+You should create an intent using the method **VideoCreationActivity.buildIntent()** where **audioTrackData** is preselected audio track.
+
+```kotlin
+startActivity(
+    VideoCreationActivity.buildIntent(
+       context,
+       cameraMode,
+       audioTrackData,
+       predefinedVideos
+    )
+)
+```
+**audioTrackData** is an object of TrackData class
+
+```kotlin
+data class TrackData(
+    val id: UUID,
+    val title: String,
+    val localUri: Uri
+)
+```
+
+
 
 
 
