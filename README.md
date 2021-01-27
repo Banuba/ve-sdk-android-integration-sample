@@ -114,7 +114,7 @@ It will allow to [launch Video Editor](app/src/main/java/com/banuba/example/inte
 
 ### Add config files  
 The SDK has several configuration files which allow you to customize the video editor for your needs. All config files should be placed into Android **assets** folder:
-- [camera.json](app/src/main/assets/camera.json) contains properties that you can customize on the camera screen, i.e. the minimum and maximum video durations or turn on/off the flashlight feature.
+- [**Camera config file**](mddocs/config_camera.md) contains properties that you can customize on the camera screen, i.e. the minimum and maximum video durations or turn on/off the flashlight feature.
 Usually, *minVideoDuration* and *maxVideoDuration* are the most used properties.
 - [music_editor.json](app/src/main/assets/music_editor.json) contains properties that you can customize on the audio editor screen, i.e. the number of timelines or tracks allowed.
 - [object_editor.json](app/src/main/assets/object_editor.json) contains properties that you can customize on the editor screen.
