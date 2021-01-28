@@ -12,7 +12,7 @@ Banuba [Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to
 - [Dependencies](#Dependencies)
 - [SDK size](#SDK-size)
 - [Supported media formats](#Supported-media-formats)
-- [Video quality parameters](#Video-quality-parameters)
+- [Video properties](#Video-properties)
 - [Free Trial](#Free-Trial)
 - [Token](#Token)
 - [What can you customize?](#What-can-you-customize?)
@@ -65,7 +65,7 @@ If you utilize the AR technology with masks (like Tiktok or Snapchat) you would 
 | ---------- | ---------  | ----------- |
 |.aac, .mp3, .wav<br>.ogg, .ac3 |.mp4, .mov, .m4a| .jpg, .gif, .heic, .png,<br>.nef, .cr2, .jpeg, .raf, .bmp
 
-## Video quality parameters
+## Video properties
 | Resolution  | Bitrate(kbps) |
 | ----------- | ------------- |
 | 360 x 640   | 800           |
