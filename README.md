@@ -12,7 +12,7 @@ Banuba [Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to
 - [Dependencies](#Dependencies)
 - [SDK size](#SDK-size)
 - [Supported media formats](#Supported-media-formats)
-- [Video properties](#Video-properties)
+- [Video quality params](#Video-quality-params)
 - [Free Trial](#Free-Trial)
 - [Token](#Token)
 - [What can you customize?](#What-can-you-customize?)
@@ -65,13 +65,13 @@ If you utilize the AR technology with masks (like Tiktok or Snapchat) you would 
 | ---------- | ---------  | ----------- |
 |.aac, .mp3, .wav<br>.ogg, .ac3 |.mp4, .mov, .m4a| .jpg, .gif, .heic, .png,<br>.nef, .cr2, .jpeg, .raf, .bmp
 
-## Video properties
-| Resolution  | Bitrate(kbps) |
-| ----------- | ------------- |
-| 360 x 640   | 800           |
-| 480 x 854   | 2000          |
-| 720 x 1280  | 4000          |
-| 1080 x 1920 | 6400          |
+## Video quality params
+| Resolution  | Size        | Bitrate(kbps) |
+| ----------- | ------------| ------------- |
+| 360p        | 360 x 640   | 800           |
+| 480p        | 480 x 854   | 2000          |
+| HD          | 720 x 1280  | 4000          |
+| FHD         | 1080 x 1920 | 6400          |
 
 ## Free Trial
 We offer а free 14-days trial, so you have the opportunity to thoroughly test and assess Video Editor SDK functionality in your app. To get access to your trial, please, get in touch with us via [sales@banuba.com](mailto:sales@banuba.com?subject=Banuba%20AI%20VE%20Free%20Trial). They will send you the trial token. Put it into the app, as described below, to run the SDK.  
