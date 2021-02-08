@@ -46,6 +46,7 @@ Banuba [Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to
 - Android Studio 4+
 - Android OS 6.0 or higher with Camera 2 API
 - OpenGL ES 3.0 (3.1 for Neural networks on GPU)  
+- For Face AR library, device CPU architecture should be ARMv8 or ARMv7 with 8 cores. Otherwise Face AR wouldn't be enabled
 
 ## Dependencies
 - [Koin](https://insert-koin.io/)
