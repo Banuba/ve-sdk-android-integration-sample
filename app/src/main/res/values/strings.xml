@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Banuba VE SDK Integration sample</string>
-    <!-- FACE AR -->
+    <!-- VIDEO EDITOR TOKEN -->
     <!-- Please contact Banuba https://www.banuba.com/video-editor-sdk to get this token -->
-    <string name="effect_player_token">PUT FACE AR TOKEN HERE</string>
+    <string name="effect_player_token">PUT VIDEO EDITOR TOKEN HERE</string>
 
     <!-- Effects -->
     <!-- Time Effects -->
@@ -11,7 +11,7 @@
 
     <!-- AR CLOUD -->
     <!-- Please contact Banuba https://www.banuba.com/video-editor-sdk to get this token -->
-    <string name="ar_cloud_token">PUT YOUR AR CLOUD CLIENT ID HERE</string>
+    <string name="ar_cloud_client_id">PUT YOUR AR CLOUD CLIENT ID HERE</string>
 
     <!-- AUDIO BROWSER MUBERT -->
     <string name="mubert_api_key">PUT YOUR PERSONAL MUBERT KEY</string>
@@ -23,8 +23,4 @@
     <!-- Mask Effect -->
     <string name="mask_effect_hawaiihairflower">HawaiiHairFlower</string>
     <string name="mask_effect_asailines">AsaiLines</string>
-
-    <!-- Used for enabling visual and time effects. Please contact Banuba https://www.banuba.com/video-editor-sdk to get this token. -->
-    <!-- PLEASE DO NOT CHANGE THIS VALUE IN TRIAL!-->
-    <string name="video_editor_token">ippJfY0xiKGOqWDm0uFnayxK7fK+1u0DuoAruXX1Ka54R5Qjwj4s9ZoGaGaACFfgi0HAL32wzC1slfUqZ6yyxXpxQ+ljiL+/hFpStDMmBWGZBCvG+FlTtd9wa9bU9rC6DjJwNuRfGSe4bszdKxGBEPE5MY5nJW76w/ffFeY6U898IOiOVy5wmsqXERSEbFA9PAeBYLnRpAx13CSFKWeTONMde5dMl3jmnLMlfXkbMXve9gTvL/fnDTyyUDeWHX6YfbmmWHFpP24t</string>
 </resources>

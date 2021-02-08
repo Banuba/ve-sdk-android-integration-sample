@@ -41,7 +41,7 @@ class VideoEditorKoinModule : FlowEditorModule() {
         single(override = true) {
             BanubaAREffectPlayerProvider(
                 mediaSizeProvider = get(),
-                token = androidContext().getString(R.string.video_editor_token)
+                token = "ippJfY0xiKGOqWDm0uFnayxK7fK+1u0DuoAruXX1Ka54R5Qjwj4s9ZoGaGaACFfgi0HAL32wzC1slfUqZ6yyxXpxQ+ljiL+/hFpStDMmBWGZBCvG+FlTtd9wa9bU9rC6DjJwNuRfGSe4bszdKxGBEPE5MY5nJW76w/ffFeY6U898IOiOVy5wmsqXERSEbFA9PAeBYLnRpAx13CSFKWeTONMde5dMl3jmnLMlfXkbMXve9gTvL/fnDTyyUDeWHX6YfbmmWHFpP24t"
             )
         }
 
@@ -120,7 +120,7 @@ class VideoEditorKoinModule : FlowEditorModule() {
 
     val arEffectsUUIDProvider: BeanDefinition<String> =
         single(named("arEffectsCloudUuid"), override = true) {
-            androidContext().getString(R.string.ar_cloud_token)
+            androidContext().getString(R.string.ar_cloud_client_id)
         }
 
     override val musicTrackProvider: BeanDefinition<ContentFeatureProvider<TrackData>> =
