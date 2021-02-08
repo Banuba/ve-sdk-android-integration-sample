@@ -41,7 +41,7 @@ class VideoEditorKoinModule : FlowEditorModule() {
         single(override = true) {
             BanubaAREffectPlayerProvider(
                 mediaSizeProvider = get(),
-                token = androidContext().getString(R.string.video_editor_token)
+                token = "***REMOVED***"
             )
         }
 
@@ -120,7 +120,7 @@ class VideoEditorKoinModule : FlowEditorModule() {
 
     val arEffectsUUIDProvider: BeanDefinition<String> =
         single(named("arEffectsCloudUuid"), override = true) {
-            androidContext().getString(R.string.ar_cloud_token)
+            androidContext().getString(R.string.ar_cloud_client_id)
         }
 
     override val musicTrackProvider: BeanDefinition<ContentFeatureProvider<TrackData>> =
