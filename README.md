@@ -54,7 +54,7 @@ Banuba [Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to
 - [Kotlin Coroutines](https://github.com/Kotlin/kotlinx.coroutines)
 - [ffmpeg](https://github.com/FFmpeg/FFmpeg/tree/n3.4.1)
 - [AndroidX](https://developer.android.com/jetpack/androidx) libraries
-- [Banuba Face AR SDK](https://www.banuba.com/facear-sdk/face-filters). *Optional*
+- [Banuba Face AR SDK](https://www.banuba.com/facear-sdk/face-filters). **Optional**. *VE SDK disables Face AR for devices with CPU armv7l(8 cores) and armv8(working in 32bit mode)*.
 
 ## SDK size
 
