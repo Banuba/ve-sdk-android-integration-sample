@@ -72,7 +72,7 @@ If you utilize the AR technology with masks (like Tiktok or Snapchat) you would 
 ## Video quality params
 | Resolution  | Size        | Bitrate(kbps) |
 | ----------- | ------------| ------------- |
-| 360p        | 360 x 640   | 800           |
+| 360p        | 360 x 640   | 1200          |
 | 480p        | 480 x 854   | 2000          |
 | HD          | 720 x 1280  | 4000          |
 | FHD         | 1080 x 1920 | 6400          |
