@@ -71,6 +71,34 @@ As an example, check out how the black-and-white color filter is added:
 
 [**Here**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/drawable/c1.png) is an appropriate drawable resource named c1.png within drawable resource directory that is used as an icon within the list of effects
 
+### 6. I want to change an order of color filters
+
+**By default**, color filters are **ordered alphabetically** in Video editor SDK.
+
+To change an order of color filters within the app, you should use an implementation of the ```ColorFilterOrderProvider``` interface:
+```kotlin 
+interface ColorFilterOrderProvider {
+
+    fun provide(): List<String>
+}
+```
+Your custom implementation should return a list of color filters names with required order. **Note:** The name of color filter is a name of an appropriate file located in assets/bnb-resources/luts directory. [Example](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/bnb-resources/luts/C1.png). 
+
+Let`s say, you have two color filters in assets/bnb-resources/luts named "c1.png" and "c2.png". By default they appear in alphabetical order (c1, c2). If you want the "c2" filter to be the first, just create following implementation:
+```kotlin
+class CustomColorFilterOrder: ColorFilterOrderProvider {
+    override fun provide(): List<String> = listOf("c2", "c1")
+}
+```
+
+As the final step pass your custom ```ColorFilterOrderProvider``` implementation inside one of your [Koin modules](https://github.com/Banuba/ve-sdk-android-integration-sample#configure-di) to override the default implementation:
+
+```kotlin
+override val colorFilterOrderProvider: BeanDefinition<ColorFilterOrderProvider> = single(override = true) {
+        CustomColorFilterOrder()
+    }
+```
+
 
 
 
