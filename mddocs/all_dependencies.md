@@ -23,6 +23,7 @@
 | com.github.bumptech.glide:glide | 4.11.0 |
 | com.google.android.exoplayer:exoplayer | 2.12.1 |
 | com.google.android.material:material | 1.2.1 |
+| com.google.firebase:firebase-database-ktx | 19.6.0 |
 | com.squareup.moshi:moshi-kotlin | 1.9.2 |
 | com.squareup.moshi:moshi-kotlin-codegen | 1.9.2|
 | com.squareup.retrofit2:converter-moshi| 2.8.1 |
