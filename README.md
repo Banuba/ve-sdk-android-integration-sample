@@ -56,6 +56,8 @@ Banuba [Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to
 - [AndroidX](https://developer.android.com/jetpack/androidx) libraries
 - [Banuba Face AR SDK](https://www.banuba.com/facear-sdk/face-filters). **Optional**. *VE SDK disables Face AR for devices with CPU armv7l(8 cores) and armv8(working in 32bit mode)*.
 
+[Please see all used dependencies](mddocs/all_dependencies.md)
+
 ## SDK size
 
 If you utilize the AR technology with masks (like Tiktok or Snapchat) you would need to have [Face AR module](https://www.banuba.com/facear-sdk/face-filters), produced by Banuba. Alternatively, you may just have the app that shoots the video/pics and edit it with no AR feature. Depending on your choice, the SDK size will vary:
