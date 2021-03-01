@@ -63,8 +63,8 @@ Banuba [Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to
 If you utilize the AR technology with masks (like Tiktok or Snapchat) you would need to have [Face AR module](https://www.banuba.com/facear-sdk/face-filters), produced by Banuba. Alternatively, you may just have the app that shoots the video/pics and edit it with no AR feature. Depending on your choice, the SDK size will vary:
 | Options | Mb      | Note |
 | -------- | --------- | ----- |
-| :white_check_mark: Face AR SDK  | 55 | AR effect sizes are not included. AR effect takes 1-3 MB in average.
-| :x: Face AR SDK | 20  | no AR effects  |
+| :white_check_mark: Face AR SDK  | 50.5 | AR effect sizes are not included. AR effect takes 1-3 MB in average.
+| :x: Face AR SDK | 21.5  | no AR effects  |
 
 ## Supported media formats
 | Audio      | Video      | Images      |
