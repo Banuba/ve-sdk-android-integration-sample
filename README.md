@@ -172,6 +172,24 @@ You can use Java in your Android project. In this case you can start Koin in thi
 ```
 Please, find the [full example](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/IntegrationJavaApp.java#17) of Java Application class.
 
+### Disable Face AR
+If you don't need Face AR in your project, you can turn it off. You should remove ```BanubaEffectPlayerKoinModule().module``` from the video editor Koin module
+```diff
+startKoin {
+    androidContext(this@IntegrationApp)    
+    modules(
+        AudioBrowserKoinModule().module,
+        VideoEditorKoinModule().module,
+-       BanubaEffectPlayerKoinModule().module
+    )
+}
+```
+And also remove dependency ```com.banuba.sdk:effect-player-adapter``` from [app/build.gradle](app/build.gradle#L38)
+```diff
+    implementation "com.banuba.sdk:ve-effects-sdk:${banubaSdkVersion}"
+-   implementation "com.banuba.sdk:effect-player-adapter:${banubaSdkVersion}"
+    implementation "com.banuba.sdk:ar-cloud-sdk:${banubaSdkVersion}"
+```
 
 ### Configure export flow  
 Export is the main process within video editor SDK. Its result is a compiled video file (or files) with "mp4" extension. The export flow can be customized in many directions to make it as seamless for client app as it could be.
