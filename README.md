@@ -173,7 +173,9 @@ You can use Java in your Android project. In this case you can start Koin in thi
 Please, find the [full example](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/IntegrationJavaApp.java#17) of Java Application class.
 
 ### Disable Face AR
-If you don't need Face AR in your project, you can turn it off. You should remove ```BanubaEffectPlayerKoinModule().module``` from the video editor Koin module
+You can use Video Editor SDK without Face AR SDK. Please follow these changes to make it. 
+ 
+Remove ```BanubaEffectPlayerKoinModule().module``` from the video editor Koin module
 ```diff
 startKoin {
     androidContext(this@IntegrationApp)    
