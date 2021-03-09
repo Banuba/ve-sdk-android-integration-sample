@@ -51,7 +51,7 @@ class VideoEditorKoinModule : FlowEditorModule() {
         )
     }
 
-    override val exportFlowManager: BeanDefinition<ExportFlowManager> = single {
+    override val exportFlowManager: BeanDefinition<ExportFlowManager> = single(override = true) {
         IntegrationAppExportFlowManager(
             exportDataProvider = get(),
             editorSessionHelper = get(),
@@ -60,7 +60,7 @@ class VideoEditorKoinModule : FlowEditorModule() {
         )
     }
 
-    override val exportResultHandler: BeanDefinition<ExportResultHandler> = single {
+    override val exportResultHandler: BeanDefinition<ExportResultHandler> = single(override = true) {
         IntegrationAppExportResultHandler()
     }
 
@@ -106,7 +106,7 @@ class VideoEditorKoinModule : FlowEditorModule() {
         }
 
     override val cameraTimerStateProvider: BeanDefinition<CameraTimerStateProvider> =
-        factory {
+        factory(override = true) {
             IntegrationTimerStateProvider()
         }
 

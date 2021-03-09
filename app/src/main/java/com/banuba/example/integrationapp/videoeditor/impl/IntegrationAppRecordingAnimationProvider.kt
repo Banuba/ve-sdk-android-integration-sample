@@ -7,7 +7,8 @@ import com.banuba.example.integrationapp.videoeditor.widget.recordbutton.RecordB
 import com.banuba.sdk.cameraui.data.CameraRecordingAnimationProvider
 import com.banuba.sdk.core.ui.ext.dimenPx
 
-internal class IntegrationAppRecordingAnimationProvider(context: Context) : CameraRecordingAnimationProvider {
+internal class IntegrationAppRecordingAnimationProvider(context: Context) :
+    CameraRecordingAnimationProvider {
 
     private val animationView = RecordButtonView(context).apply {
         val defaultButtonSize = context.dimenPx(R.dimen.record_button_size)
@@ -69,5 +70,9 @@ internal class IntegrationAppRecordingAnimationProvider(context: Context) : Came
                 }
             }
         }
+    }
+
+    override fun setRecordingProgress(progressMs: Long) {
+        animationView.setRecordingProgress(progressMs)
     }
 }

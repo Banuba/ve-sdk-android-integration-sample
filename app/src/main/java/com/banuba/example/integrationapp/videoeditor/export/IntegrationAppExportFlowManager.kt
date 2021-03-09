@@ -78,10 +78,6 @@ class IntegrationAppExportFlowManager(
         _resultData.postValue(ExportResult.Inactive)
     }
 
-    override fun releaseRawSessionData() {
-        editorSessionHelper.clearAll()
-    }
-
     private fun transformExport(
         videoResult: List<Result<ExportedVideo>>,
         previewResult: Result<ExportedPreview>
