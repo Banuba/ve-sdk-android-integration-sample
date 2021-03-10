@@ -75,7 +75,7 @@ If you utilize the AR technology with masks (like Tiktok or Snapchat) you would 
 ## Video quality params
 | Recording speed | 360p(360 x 640) | 480p(480 x 854) | HD(720 x 1280) | FHD(1080 x 1920) |
 | --------------- | --------------- | --------------- | -------------- | ---------------- |
-| 1x              | 1200            | 2000            | 4000           | 6400             |
+| 1x(Default)     | 1200            | 2000            | 4000           | 6400             |
 | 0.5x            | 900             | 1500            | 3000           | 4800             |
 | 2x              | 1800            | 3000            | 6000           | 9600             |
 | 3x              | 2400            | 4000            | 8000           | 12800            |
