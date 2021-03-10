@@ -73,19 +73,12 @@ If you utilize the AR technology with masks (like Tiktok or Snapchat) you would 
 |.aac, .mp3, .wav<br>.ogg, .ac3 |.mp4, .mov, .m4a| .jpg, .gif, .heic, .png,<br>.nef, .cr2, .jpeg, .raf, .bmp
 
 ## Video quality params
-| Resolution  | Size        | Bitrate(kbps) |
-| ----------- | ------------| ------------- |
-| 360p        | 360 x 640   | 1200          |
-| 480p        | 480 x 854   | 2000          |
-| HD          | 720 x 1280  | 4000          |
-| FHD         | 1080 x 1920 | 6400          |
-
-Note: for recording with speed, bitrate having the following values:
-| Recording speed | 360p  | 480p  | HD    | FHD   |
-| --------------- | ----- | ----- | ----- | ----- |
-| 0.5x            | 900   | 1500  | 3000  | 4800  |
-| 2x              | 1800  | 3000  | 6000  | 9600  |
-| 3x              | 2400  | 4000  | 8000  | 12800 |
+| Recording speed | 360p(360 x 640) | 480p(480 x 854) | HD(720 x 1280) | FHD(1080 x 1920) |
+| --------------- | --------------- | --------------- | -------------- | ---------------- |
+| 1x              | 1200            | 2000            | 4000           | 6400             |
+| 0.5x            | 900             | 1500            | 3000           | 4800             |
+| 2x              | 1800            | 3000            | 6000           | 9600             |
+| 3x              | 2400            | 4000            | 8000           | 12800            |
 
 ## Free Trial
 We offer а free 14-days trial, so you have the opportunity to thoroughly test and assess Video Editor SDK functionality in your app. To get access to your trial, please, get in touch with us via [sales@banuba.com](mailto:sales@banuba.com?subject=Banuba%20AI%20VE%20Free%20Trial). They will send you the trial token. Put it into the app, as described below, to run the SDK.  
