@@ -80,6 +80,11 @@ If you utilize the AR technology with masks (like Tiktok or Snapchat) you would 
 | HD          | 720 x 1280  | 4000          |
 | FHD         | 1080 x 1920 | 6400          |
 
+Note: for recording with speed, bitrate is calculated using the following formulae:
+ ```math
+ resultBitrate = bitrate + (speed - 1) * bitrate / 2
+```
+
 ## Free Trial
 We offer а free 14-days trial, so you have the opportunity to thoroughly test and assess Video Editor SDK functionality in your app. To get access to your trial, please, get in touch with us via [sales@banuba.com](mailto:sales@banuba.com?subject=Banuba%20AI%20VE%20Free%20Trial). They will send you the trial token. Put it into the app, as described below, to run the SDK.  
 
