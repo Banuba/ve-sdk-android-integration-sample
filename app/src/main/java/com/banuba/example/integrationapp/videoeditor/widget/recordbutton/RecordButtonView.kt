@@ -11,6 +11,7 @@ import android.view.View
 import android.view.animation.LinearInterpolator
 import android.widget.FrameLayout
 import androidx.core.animation.doOnEnd
+import androidx.core.animation.doOnStart
 import com.banuba.example.integrationapp.R
 import com.banuba.sdk.core.ui.ext.dimenPx
 
@@ -167,15 +168,16 @@ internal class RecordButtonView @JvmOverloads constructor(
         }
     }
 
-    fun animateStopVideoRecord(onEndCallback: () -> Unit) {
+    fun animateStopVideoRecord(onEndCallback: (isAnimationFinished: Boolean) -> Unit) {
         outerPart.stopAnimation()
         with(videoShootInnerAnimation) {
             interpolator = ReverseInterpolator
             removeAllListeners()
+            doOnStart {
+                onEndCallback(false)
+            }
             doOnEnd {
-                postDelayed({
-                    onEndCallback()
-                }, FINISH_RECORD_DELAY)
+                onEndCallback(true)
             }
             start()
         }
@@ -191,5 +193,9 @@ internal class RecordButtonView @JvmOverloads constructor(
 
     fun resumeAnimation() {
         outerPart.resumeAnimation()
+    }
+
+    fun setRecordingProgress(progressMs: Long) {
+        outerPart.setProgress(progressMs)
     }
 }
