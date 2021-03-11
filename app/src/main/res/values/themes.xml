@@ -13,13 +13,6 @@
          to VideoCreationActivity in AndroidManifest.xml file -->
     <style name="CustomIntegrationAppTheme" parent="VideoCreationTheme">
 
-        <!-- Video Timeline -->
-        <!-- Normal and Slideshow tabs on the bottom of camera screen -->
-        <item name="videoTimelineCheckedStyle">@style/CustomVideoTimelineCheckedStyle</item>
-        <item name="videoTimelineUncheckedStyle">@style/CustomVideoTimelineUncheckedStyle</item>
-        <!-- Icon that is shown as compound drawable for checked timeline mode -->
-        <item name="videoTimelineCheckedIconStyle">@null</item>
-
         <!-- Camera screen styles -->
         <item name="cameraOverlayStyle">@style/CustomCameraOverlayStyle</item>
         <item name="cameraActionButtonStyle">@style/CustomCameraActionButtonStyle</item>
@@ -67,9 +60,7 @@
         <item name="editorTextColorBackground">@null</item>
         <item name="editorTextEditorInputStyle">@style/CustomEditorTextEditorInputStyle</item>
         <item name="editorTypefaceSwitcherStyle">@style/CustomTypefaceSwitcherStyle</item>
-        <item name="editorCancelStyle">@style/CustomEditorCancelStyle</item>
-        <item name="editorDoneStyle">@style/CustomEditorDoneStyle</item>
-        <item name="editorTextDoneStyle">@style/CustomEditorDoneStyle</item>
+        <item name="editorTextDoneStyle">@style/CustomEditorTextDoneStyle</item>
         <item name="editorBoardStyle">@style/CustomEditorBoardStyle</item>
         <item name="editorUndoButtonStyle">@style/CustomEditorUndoButtonStyle</item>
         <item name="editorVisualAndTimeEffectsRecyclerStyle">
@@ -84,7 +75,10 @@
         <item name="editorColorEffectsRecyclerStyle">@style/CustomEditorColorEffectsRecyclerStyle
         </item>
         <item name="editorTimelineStyle">@style/CustomTimelineEditorViewStyle</item>
-
+        <item name="editorPlaybackControllerParentStyle">@style/CustomEditorPlaybackControllerParentStyle</item>
+        <item name="editorPlaybackControllerCancelStyle">@style/CustomEditorPlaybackControllerCancelStyle</item>
+        <item name="editorPlaybackControllerPlayStyle">@style/CustomEditorPlaybackControllerPlayStyle</item>
+        <item name="editorPlaybackControllerDoneStyle">@style/CustomEditorPlaybackControllerDoneStyle</item>
 
         <!--Gallery-->
         <item name="galleryImageViewStyle">@style/CustomGalleryImageViewStyle</item>
@@ -98,9 +92,9 @@
         <item name="galleryAlbumBlurViewStyle">@style/CustomGalleryAlbumBlurViewStyle</item>
         <item name="galleryAlbumTitleTextStyle">@style/CustomGalleryAlbumTitleTextStyle</item>
         <item name="galleryAlbumDescTextStyle">@style/CustomGalleryAlbumDescTextStyle</item>
+        <item name="galleryTabLayoutStyle">@style/CustomGalleryTabLayoutStyle</item>
 
         <item name="galleryColumnsNumber">wrap_content</item>
-        <item name="gallery_light_status_bar">false</item>
         <item name="gallery_bg_color">@color/black</item>
         <item name="gallery_item_corner_radius">4dp</item>
         <item name="gallery_item_margin">2dp</item>
@@ -124,6 +118,7 @@
         <item name="trimmerDeleteCrossStyle">@style/CustomTrimmerDeleteCrossStyle</item>
         <item name="trimmerCancelButtonStyle">@style/CustomTrimmerCancelButtonStyle</item>
         <item name="trimmerDurationTimelineStyle">@style/CustomTrimmerDurationTimelineStyle</item>
+        <item name="trimmerContentHintStyle">@style/CustomTrimmerContentHintStyle</item>
 
         <item name="trimmer_play_control_visible">true</item>
         <item name="trimmer_icon_play">@drawable/ic_play</item>
@@ -131,12 +126,10 @@
         <item name="trimmer_icon_add_video">@drawable/ic_trimmer_add_video</item>
         <item name="trimmer_bg_color_add_video">@color/transparent</item>
         <item name="trimmer_time_visible">true</item>
-        <item name="trimmer_hint_visible">false</item>
         <!---->
 
 
         <!--Music Editor-->
-        <item name="musicEditorStyle">@style/CustomMusicEditorStyle</item>
         <item name="musicEditorTimelineStyle">@style/CustomMusicEditorTimelineStyle</item>
         <item name="musicEditorTimelineTimeTextStyle">@style/CustomMusicEditorTimelineTimeTextStyle</item>
         <item name="musicEditorActionButtonParentStyle">@style/CustomMusicEditorActionButtonParentStyle</item>
@@ -145,19 +138,22 @@
         <item name="timelineEditorBoardStyle">@style/CustomTimelineEditorBoardStyle</item>
         <item name="musicEditorTimelineSoundWaveStyle">@style/CustomMusicEditorTimelineSoundWaveStyle</item>
 
-        <item name="musicEditorVideoVolumeStyle">@style/CustomMusicEditorVideoVolumeStyle</item>
-        <item name="musicEditorVideoVolumeContainerBackground">@color/transparent</item>
-        <item name="hideBottomViewsInEditVolume">true</item>
-
         <item name="musicEditorRecordingButtonStyle">@style/CustomMusicEditorRecordingButtonStyle</item>
 
         <item name="musicEditorTrimViewStyle">@style/CustomMusicEditorTrimViewStyle</item>
         <item name="musicEditorTrimmerStyle">@style/CustomMusicEditorTrimmerStyle</item>
         <item name="musicEditorTrimmerSoundWaveStyle">@style/CustomMusicEditorTrimmerSoundWaveStyle</item>
 
+        <item name="musicEditorVideoVolumeProgressBarStyle">
+            @style/CustomMusicEditorVideoVolumeProgressBarStyle
+        </item>
+
         <item name="musicEditorEqualizerRecyclerStyle">@style/CustomMusicEditorEqualizerRecyclerStyle</item>
         <item name="musicEditorEqualizerItemStyle">@style/CustomMusicEditorEqualizerItemStyle</item>
         <item name="musicEditorEqualizerThrobberStyle">@style/CustomMusicEditorEqualizerThrobberStyle</item>
+
+        <item name="musicEditorVoiceRecordingControllerCancelStyle">@style/CustomVoiceRecordingControllerCancelStyle</item>
+        <item name="musicEditorVoiceRecordingControllerDoneStyle">@style/CustomVoiceRecordingControllerDoneStyle</item>
 
         <item name="music_editor_surface_background">@color/black</item>
         <item name="music_editor_voice_recording_background">@color/black</item>
@@ -308,11 +304,6 @@
         <item name="camera_effects_list_background">@color/big_stone</item>
     </style>
 
-    <!-- Style for text appearance of bottom mode tabs (Normal/Slideshow) in checked state -->
-    <style name="CustomVideoTimelineCheckedStyle" parent="VideoTimelineCheckedStyle" />
-    <!-- Style for text appearance of bottom mode tabs (Normal/Slideshow) in unchecked state -->
-    <style name="CustomVideoTimelineUncheckedStyle" parent="VideoTimelineUncheckedStyle" />
-
     <!-- Style for the music icon placed on top of the camera screen.
          If "icon_music_screen_position" in CameraOverlayStyle selected as "left"
          this style is not applied -->
@@ -440,7 +431,6 @@
     <!--Editor Styles-->
     <style name="CustomEditorOverlayStyle" parent="EditorOverlayStyle">
         <item name="editor_icon_back">@drawable/ic_nav_back_arrow</item>
-        <item name="editor_icon_playback_visible">false</item>
 
         <item name="editor_gradient_top">@color/transparent</item>
         <item name="editor_gradient_bottom">@color/transparent</item>
@@ -495,11 +485,7 @@
         <item name="android:background">@drawable/bg_rounded_border</item>
     </style>
 
-    <style name="CustomEditorCancelStyle" parent="EditorCancelStyle">
-        <item name="android:fontFamily">@font/roboto_bold</item>
-    </style>
-
-    <style name="CustomEditorDoneStyle" parent="CustomEditorCancelStyle" />
+    <style name="CustomEditorTextDoneStyle" parent="EditorTextDoneStyle" />
 
     <style name="CustomEditorBoardStyle" parent="EditorBoardStyle">
         <item name="editor_board_background_color_active">@color/black_a50</item>
@@ -527,6 +513,18 @@
 
     <style name="CustomTimelineEditorViewStyle" parent="EditorTimelineViewStyle" />
 
+    <style name="CustomEditorPlaybackControllerParentStyle" parent="EditorPlaybackControllerParentStyle" />
+
+    <style name="CustomEditorPlaybackControllerCancelStyle" parent="EditorPlaybackControllerCancelStyle" >
+        <item name="android:src">@drawable/ic_close</item>
+    </style>
+
+    <style name="CustomEditorPlaybackControllerPlayStyle" parent="EditorPlaybackControllerPlayStyle" />
+
+    <style name="CustomEditorPlaybackControllerDoneStyle" parent="EditorPlaybackControllerDoneStyle" >
+        <item name="android:src">@drawable/ic_done</item>
+    </style>
+
     <!--Stickers Styles-->
     <style name="CustomStickersRetryTitleTextStyle" />
 
@@ -540,6 +538,10 @@
     <style name="CustomTimelineTextViewStyle" parent="TimelineTextViewStyle" />
 
     <!--Gallery styles-->
+    <style name="CustomGalleryTabLayoutStyle" parent="GalleryTabLayoutStyle">
+        <item name="tabIndicatorColor">@color/egg_blue</item>
+    </style>
+
     <style name="CustomGalleryAlbumBlurViewStyle" parent="GalleryAlbumBlurViewStyle">
         <item name="overlay_color">@color/big_stone_a90</item>
     </style>
@@ -597,6 +599,10 @@
 
 
     <!--Trimmer styles-->
+    <style name="CustomTrimmerContentHintStyle" parent="TrimmerContentHintStyle">
+        <item name="android:visibility">visible</item>
+    </style>
+
     <style name="CustomTrimmerViewStyle" parent="TrimmerViewStyle">
         <item name="trimmer_default_color">@color/violet_red</item>
         <item name="trimmer_wrong_color">@color/violet_red</item>
@@ -677,17 +683,17 @@
 
 
     <!--Music Editor Styles-->
-    <style name="CustomMusicEditorStyle" parent="MusicEditorStyle">
-        <item name="playback_icon_rewind">@drawable/ic_restart</item>
-        <item name="playback_icon_play">@drawable/ic_play</item>
-        <item name="playback_icon_pause">@drawable/ic_pause</item>
-        <item name="playback_icon_done">@drawable/ic_done</item>
-        <item name="voice_recording_icon_cancel">@drawable/ic_close</item>
-        <item name="voice_recording_icon_refresh">@drawable/ic_cancel</item>
-        <item name="voice_recording_icon_done">@drawable/ic_done</item>
-        <item name="playback_controller_icons_chain">spread_inside</item>
-        <item name="voice_recording_controller_icons_chain">spread_inside</item>
+    <style name="CustomVoiceRecordingControllerCancelStyle" parent="VoiceRecordingControllerCancelStyle">
+        <item name="android:padding">12dp</item>
+        <item name="android:src">@drawable/ic_close</item>
     </style>
+
+    <style name="CustomVoiceRecordingControllerDoneStyle" parent="VoiceRecordingControllerDoneStyle">
+        <item name="android:padding">12dp</item>
+        <item name="android:src">@drawable/ic_done</item>
+    </style>
+
+    <style name="CustomMusicEditorPlaybackControllerParentStyle" parent="MusicEditorPlaybackControllerParentStyle"/>
 
     <style name="CustomMusicEditorRecordingButtonStyle" parent="MusicEditorRecordingButtonStyle">
         <item name="voice_recording_btn_icon_start">@drawable/ic_audio_recording_record</item>
@@ -718,11 +724,10 @@
         <item name="description_text_color">@color/white</item>
     </style>
 
-    <style name="CustomMusicEditorVideoVolumeStyle" parent="MusicEditorVideoVolumeStyle">
-        <item name="video_volume_icon_done">@drawable/ic_done</item>
-        <item name="video_volume_progress_tint">@color/egg_blue</item>
-        <item name="video_volume_volume_thumb_tint">@color/egg_blue</item>
-        <item name="android:background">@color/big_stone</item>
+    <style name="CustomMusicEditorVideoVolumeProgressBarStyle" parent="MusicEditorVideoVolumeProgressBarStyle">
+        <item name="android:maxHeight">3dp</item>
+        <item name="android:progressTint">@color/egg_blue</item>
+        <item name="android:thumbTint">@color/egg_blue</item>
     </style>
 
     <style name="CustomMusicEditorTrimViewStyle" parent="MusicEditorTrimViewStyle">

@@ -50,4 +50,5 @@ dependencies {
     implementation "com.banuba.sdk:effect-player-adapter:${banubaSdkVersion}"
     implementation "com.banuba.sdk:ar-cloud:${banubaSdkVersion}"
     implementation "com.banuba.sdk:ve-audio-browser-sdk:${banubaSdkVersion}"
+    implementation "com.banuba.sdk:banuba-token-storage-sdk:${banubaSdkVersion}"
 }
