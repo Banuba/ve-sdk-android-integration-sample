@@ -23,4 +23,6 @@
     <!-- Mask Effect -->
     <string name="mask_effect_hawaiihairflower">HawaiiHairFlower</string>
     <string name="mask_effect_asailines">AsaiLines</string>
+
+    <string name="video_editor_token">***REMOVED***</string>
 </resources>
