@@ -99,7 +99,15 @@ override val colorFilterOrderProvider: BeanDefinition<ColorFilterOrderProvider> 
     }
 ```
 
+### 7. I want to control visibility of debug info on camera and editor screens
 
-
-
-
+You can control visibility of camera config information and camera preview params(FPS, ISO). Change the following properties in [**camera.json**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/camera.json#L16) config file to control:
+```json
+    "showDebugViews": false,
+    "showConfig": false
+ ```
+You can control visibility of editor config. Change the following properties in  [**videoeditor.json**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/videoeditor.json#L15) config file to control:
+```json
+    "showConfig": false
+ ```
+Set **false** to hide info, set **true** to show.
