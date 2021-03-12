@@ -120,7 +120,7 @@ val customRemoteTrackLoader: BeanDefinition<TrackLoader> = single(named("remoteT
 
 Audio Browser supports integration with [Mubert](https://mubert.com/) API.
 
-Banuba team will provide you a specific Mubert API key that you need to put in your project. 
+If you decide to go with Mubert  just let our sale rep know. He will help you to get with Mubert team and generate the PAT key. This key should be put into the video editor, to get Mubert work. 
 
 Please follow below steps to configure it in your application.
 

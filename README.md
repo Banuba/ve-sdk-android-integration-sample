@@ -27,6 +27,7 @@ Banuba [Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to
     + [Add config files](#Add-config-files)
     + [Configure DI](#Configure-DI)
     + [Configure and start SDK in Android Java project](#Configure-and-start-SDK-in-Android-Java-project)
+     + [Disable Face AR SDK](#Disable-Face-AR-SDK)
     + [Configure export flow](#Configure-export-flow)
     + [Configure watermark](#Configure-watermark)
     + [Configure audio content](#Configure-audio-content)
@@ -63,8 +64,8 @@ Banuba [Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to
 If you utilize the AR technology with masks (like Tiktok or Snapchat) you would need to have [Face AR module](https://www.banuba.com/facear-sdk/face-filters), produced by Banuba. Alternatively, you may just have the app that shoots the video/pics and edit it with no AR feature. Depending on your choice, the SDK size will vary:
 | Options | Mb      | Note |
 | -------- | --------- | ----- |
-| :white_check_mark: Face AR SDK  | 55 | AR effect sizes are not included. AR effect takes 1-3 MB in average.
-| :x: Face AR SDK | 20  | no AR effects  |
+| :white_check_mark: Face AR SDK  | 50.5 | AR effect sizes are not included. AR effect takes 1-3 MB in average.
+| :x: Face AR SDK | 21.5  | no AR effects  |
 
 ## Supported media formats
 | Audio      | Video      | Images      |
@@ -72,12 +73,12 @@ If you utilize the AR technology with masks (like Tiktok or Snapchat) you would 
 |.aac, .mp3, .wav<br>.ogg, .ac3 |.mp4, .mov, .m4a| .jpg, .gif, .heic, .png,<br>.nef, .cr2, .jpeg, .raf, .bmp
 
 ## Video quality params
-| Resolution  | Size        | Bitrate(kbps) |
-| ----------- | ------------| ------------- |
-| 360p        | 360 x 640   | 1200          |
-| 480p        | 480 x 854   | 2000          |
-| HD          | 720 x 1280  | 4000          |
-| FHD         | 1080 x 1920 | 6400          |
+| Recording speed | 360p(360 x 640) | 480p(480 x 854) | HD(720 x 1280) | FHD(1080 x 1920) |
+| --------------- | --------------- | --------------- | -------------- | ---------------- |
+| 1x(Default)     | 1200            | 2000            | 4000           | 6400             |
+| 0.5x            | 900             | 1500            | 3000           | 4800             |
+| 2x              | 1800            | 3000            | 6000           | 9600             |
+| 3x              | 2400            | 4000            | 8000           | 12800            |
 
 ## Free Trial
 We offer а free 14-days trial, so you have the opportunity to thoroughly test and assess Video Editor SDK functionality in your app. To get access to your trial, please, get in touch with us via [sales@banuba.com](mailto:sales@banuba.com?subject=Banuba%20AI%20VE%20Free%20Trial). They will send you the trial token. Put it into the app, as described below, to run the SDK.  
@@ -172,6 +173,26 @@ You can use Java in your Android project. In this case you can start Koin in thi
 ```
 Please, find the [full example](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/IntegrationJavaApp.java#17) of Java Application class.
 
+### Disable Face AR SDK
+You can use Video Editor SDK without Face AR SDK. Please follow these changes to make it. 
+ 
+Remove ```BanubaEffectPlayerKoinModule().module``` from the video editor Koin module
+```diff
+startKoin {
+    androidContext(this@IntegrationApp)    
+    modules(
+        AudioBrowserKoinModule().module,
+        VideoEditorKoinModule().module,
+-       BanubaEffectPlayerKoinModule().module
+    )
+}
+```
+And also remove dependency ```com.banuba.sdk:effect-player-adapter``` from [app/build.gradle](app/build.gradle#L38)
+```diff
+    implementation "com.banuba.sdk:ve-effects-sdk:${banubaSdkVersion}"
+-   implementation "com.banuba.sdk:effect-player-adapter:${banubaSdkVersion}"
+    implementation "com.banuba.sdk:ar-cloud-sdk:${banubaSdkVersion}"
+```
 
 ### Configure export flow  
 Export is the main process within video editor SDK. Its result is a compiled video file (or files) with "mp4" extension. The export flow can be customized in many directions to make it as seamless for client app as it could be.
