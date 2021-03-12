@@ -79,6 +79,7 @@
         <item name="editorPlaybackControllerCancelStyle">@style/CustomEditorPlaybackControllerCancelStyle</item>
         <item name="editorPlaybackControllerPlayStyle">@style/CustomEditorPlaybackControllerPlayStyle</item>
         <item name="editorPlaybackControllerDoneStyle">@style/CustomEditorPlaybackControllerDoneStyle</item>
+        <item name="editorTextColorItemBackground">@drawable/bg_checkable_color</item>
 
         <!--Gallery-->
         <item name="galleryImageViewStyle">@style/CustomGalleryImageViewStyle</item>
