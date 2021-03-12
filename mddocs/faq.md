@@ -99,7 +99,15 @@ override val colorFilterOrderProvider: BeanDefinition<ColorFilterOrderProvider> 
     }
 ```
 
+### 7. I want to hide or show debug info on camera and editor screens
 
-
-
-
+On camera screen info visibility is configured within [**camera.json**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/camera.json#L16) config file:
+```json
+    "showDebugViews": false,
+    "showConfig": false
+ ```
+On editor screen visibility is configured within [**videoeditor.json**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/videoeditor.json#L15) config file:
+```json
+    "showConfig": false
+ ```
+Set false to hide info, set true to show.

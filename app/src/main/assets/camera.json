@@ -13,8 +13,8 @@
   "switchFacingOnDoubleTap": true,
   "saveLastCameraFacing": true,
   "useFixedFPS30": true,
-  "showDebugViews": true,
-  "showConfig": true,
+  "showDebugViews": false,
+  "showConfig": false,
   "banubaMasksAssetsPath": "effects",
   "banubaColorEffectsAssetsPath": "luts",
   "banubaMaskBeauty": "Beauty"
