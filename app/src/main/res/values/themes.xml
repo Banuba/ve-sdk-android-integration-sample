@@ -84,7 +84,6 @@
         <!--Gallery-->
         <item name="galleryImageViewStyle">@style/CustomGalleryImageViewStyle</item>
         <item name="galleryTitleTextStyle">@style/CustomGalleryTitleTextStyle</item>
-        <item name="galleryChoiceButtonStyle">@style/CustomGalleryChoiceButtonStyle</item>
         <item name="galleryBackButtonStyle">@style/CustomGalleryBackButtonStyle</item>
         <item name="galleryNextButtonStyle">@style/CustomGalleryNextButtonStyle</item>
         <item name="galleryItemRadioButtonStyle">@style/CustomGalleryItemRadioButtonStyle</item>
@@ -94,13 +93,13 @@
         <item name="galleryAlbumTitleTextStyle">@style/CustomGalleryAlbumTitleTextStyle</item>
         <item name="galleryAlbumDescTextStyle">@style/CustomGalleryAlbumDescTextStyle</item>
         <item name="galleryTabLayoutStyle">@style/CustomGalleryTabLayoutStyle</item>
+        <item name="galleryTabTextColors">@color/gallery_tab_color_state_list</item>
 
         <item name="galleryColumnsNumber">wrap_content</item>
         <item name="gallery_bg_color">@color/black</item>
         <item name="gallery_item_corner_radius">4dp</item>
         <item name="gallery_item_margin">2dp</item>
         <item name="gallery_icon_back">@drawable/ic_nav_back_arrow</item>
-        <item name="gallery_icon_cross">@drawable/ic_nav_close</item>
         <item name="gallery_album_divider_color">@color/catskill_white</item>
         <!---->
 
@@ -584,12 +583,6 @@
 
     <style name="CustomGalleryNextButtonStyle" parent="GalleryNextButtonStyle">
         <item name="android:textColor">@color/egg_blue</item>
-    </style>
-
-    <style name="CustomGalleryChoiceButtonStyle" parent="GalleryChoiceButtonStyle">
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:src">@drawable/ic_nav_multi_choice</item>
     </style>
 
     <style name="CustomGalleryImageViewStyle" parent="GalleryImageViewStyle">
