@@ -1,27 +1,27 @@
 # Banuba VideoEditor SDK
 ## Music Editor screen styles
 
-- [musicEditorStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L139)
+- [musicEditorPlaybackControllerParentStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L142)
 
-    style that setups drawables for playback and voice recording icons
+    style for the parent of buttons defined in `editorPlaybackControllerCancelStyle`, `editorPlaybackControllerPlayStyle`, `editorPlaybackControllerDoneStyle` attributes. See buttons on the [Editor screen](editor_styles.md#L46) page
 
-- [musicEditorTimelineStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L140)
+- [musicEditorTimelineStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L142)
 
     style for the complex view that contains applied music tracks, video timeline, video volume button. It has a lot of custom attributes appliceable to children views
 
-- [musicEditorTimelineTimeTextStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L141)
+- [musicEditorTimelineTimeTextStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L143)
 
     style for TextViews that represent current pointer's position and the whole video duration
 
-- [musicEditorTimelineSoundWaveStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L146)
+- [musicEditorTimelineSoundWaveStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L154)
 
     style for the view that represents added music effect on the timeline view. It configured with a lot of custom attributes
 
-- [musicEditorActionButtonParentStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L142)
+- [musicEditorActionButtonParentStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L146)
 
     style for the ConstraintLayout that is used as container for every action button
 
-- [musicEditorActionButtonStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L143)
+- [musicEditorActionButtonStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L149)
 
     style for the ImageView representing an icon for action button. Drawables for all action buttons in music editor are configured in custom theme attributes:
     - [music_editor_icon_tracks](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L165) - to open music track selection
@@ -39,55 +39,97 @@
     style for an invisible view that holds applied graphic effects. This view is similar to [editorBoardStyle](editor_styles.md#L86) and has several custom attributes to configure its behavior
 
 ![img](screenshots/musiceditor1.png)
-![img](screenshots/musiceditor4.png)
 
-- [musicEditorRecordingButtonStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L152)
+- [musicEditorVideoVolumeContainerStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L174)
 
-    style for the button that starts and stops voice recording. It has several custom attributes to setup different drawables for its states
+    style for the bottom sheet view that is opened by tapping on left bottom icon of the video timeline to change video volume
+- [musicEditorVideoVolumeTitleStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L177)
 
-- [musicEditorVideoVolumeStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L148)
+    style for the title of the volume setting
+- [musicEditorVideoVolumeValueStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L180)
 
-    style to configure custom view that is used to setup video volume. All children views (label, progress bar, "done" button) are configured by custom attributes within this style
+    style for the digit value of the video volume
+- [musicEditorVideoVolumeProgressBarStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L183)
 
-- [musicEditorVideoVolumeContainerBackground](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L149)
-
-    attribute for the drawable that covers the video while volume view is active
-
-- [hideBottomViewsInEditVolume](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L150) - custom theme attribute that defines if music editor controls are visible while video volume view is opened
+    style for the seek bar that is used to change video volume
 
 ![img](screenshots/musiceditor2.png)
 
-- [musicEditorTrimViewStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L154)
+- [music_editor_voice_recording_background](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L207)
+
+    attribute that defines the background of the voice recording button
+
+- [musicEditorRecordingButtonStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L187)
+
+    style for the voice recording button. There are a lot of custom attributes to configure its appearance. Please check out an [**example**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L752)
+
+![img](screenshots/musiceditor3.png)
+
+- [musicEditorVoiceRecordingControllerParentStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L161)
+
+    style for the view that holds action buttons to manipulate with voice recording on the music editor
+- [musicEditorVoiceRecordingControllerCancelStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L164)
+
+    style for the button that closes voice recording screen returning back to the music editor
+- [musicEditorVoiceRecordingControllerResetStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L167)
+
+    style for the button that removes the last voice recording
+- [musicEditorVoiceRecordingControllerDoneStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L170)
+
+    style for the button that applies voice recordings to the common timeline and returns back to music editor
+![img](screenshots/musiceditor4.png)
+
+- [musicEditorTrimViewStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L191)
 
     style for the view that is used to trim music effects. This style is applied to the bottom sheet dialog and all children views configuration are available through custom attributes 
 
-- [musicEditorTrimmerStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L155)
+- [musicEditorTrimmerStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L192)
 
     style for the trim view. It has a bulk of custom attributes to cofigure colors and left/right drawables
 
-- [musicEditorTrimmerSoundWaveStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L155)
+- [musicEditorTrimmerSoundWaveStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L193)
 
     style for the custom view laying behind the trimmer view. It is similar to [musicEditorTimelineSoundWaveStyle](music_editor_styles.md#L16) and has its own custom attributes as well
 
-- [musicEditorEqualizerRecyclerStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L158)
+- [musicEditorEqualizerRecyclerStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L197)
 
-    style for the RecyclerView containing voice recording effects. This view is shown only while trimming voice recordings
+    style for the RecyclerView containing voice recording effects. This view is shown **only while trimming voice recordings**
 
-- [musicEditorEqualizerItemStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L159)
+- [musicEditorEqualizerItemStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L200)
 
-    style for every item within voice recording effects. This style is applied to custom view and similar to [cameraEffectsItemStyle](camera_styles.md#L38)
+    style for every item within voice recording effects. This style is applied to custom view and similar to [cameraEffectsItemStyle](camera_styles.md#L36)
 
-- [musicEditorEqualizerThrobberStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L160)
+- [musicEditorEqualizerThrobberStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L201)
 
     style for the circle progress view that is shown over the voice effect item while this effect is being applied
 
-    ![img](screenshots/musiceditor3.png)
+    ![img](screenshots/musiceditor5.png)
 
 Music Editor screen also has some theme attributes that define background of some views:
 
-- [music_editor_surface_background](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L162) - background of Surface view that shows the video
-- [music_editor_voice_recording_background](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L163) - background of control panel on voice recording screen
-- [music_editor_timeline_background](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L164) - background of [timeline view](music_editor_styles.md#L8)
-- [music_editor_playback_controller_bg](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L165) - background of control panel on music editor screen
-- [music_editor_action_container_bg](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L166) - background of action buttons container
+- [music_editor_surface_background](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L206) - background of Surface view that shows the video
+- [music_editor_timeline_background](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L208) - background of [timeline view](music_editor_styles.md#L8)
+- [music_editor_playback_controller_bg](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L209) - background of control panel on music editor screen
+- [music_editor_action_container_bg](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L210) - background of action buttons container
+
+## String resources
+
+| ResourceId        |      Value      |   Description |
+| ------------- | :----------- | :------------- |
+| action_add_music_track | Tracks | title of the button to add tracks on the timeline
+| action_add_music_effect | Effects | title of the button to add voice effects on the voice recording
+| action_add_voice_recording | Record | title of the button to add voice recording to the timeline
+| action_edit | Edit | title of the button to edit music effect (or object effect if applies on the timeline screen)
+| action_delete | Delete | title of the button to delete selected music effect (or object effect if applies on the timeline screen)
+| edit_track_volume_title | Volume | text label shown together with the value when volume of the music effect and video change
+| edit_track_volume_percent | %1$d%% | placeholder for the digit volume representation
+| edit_track_audio_duration | Audio duration | label on the edit music effect screen
+| edit_track_duration_error | Audio should be longer than %1$.1f sec | toast message that is shown when the user tries to cut music track smaller than `minVoiceRecordingMs` parameter of the [**music_editor.json**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/music_editor.json) config file
+| error_voice_recording_start | Error on voice recording start | toast message that is shown when the error occurs at the start of the voice recording
+| error_voice_recording_stop | Error on voice recording stop | toast message that is shown when the error occurs in the end of the voice recording
+| error_invalid_duration_voice_recording | Min voice recording duration - %1$.1f sec | toast message that is shown when the user tries to create voicerecording smaller than `minVoiceRecordingMs` parameter of the [**music_editor.json**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/music_editor.json) config file
+| error_invalid_duration_music_track | Min music track duration - %1$.1f sec | toast message that is shown when the user tries to cut the music track smaller than `minVoiceRecordingMs` parameter of the [**music_editor.json**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/music_editor.json) config file
+| error_voice_recording_delete_file | Internal error when try to delete voice recording file | toast message that is shown when the error occures during voice recording deletion
+| error_track_limit | Max available tracks - %1$d | toast message that is shown when the user tries to add more music tracks than defined in `maxTracks` parameter of the [**music_editor.json**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/music_editor.json) config file
+| error_no_space | No space | toast message that is shown when the device is out of space before starting voive recording
 

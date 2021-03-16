@@ -138,8 +138,10 @@
         <item name="trimmer_time_visible">true</item>
         <!---->
 
-
         <!--Music Editor-->
+        <item name="musicEditorPlaybackControllerParentStyle">
+            @style/CustomMusicEditorPlaybackControllerParentStyle
+        </item>
         <item name="musicEditorTimelineStyle">@style/CustomMusicEditorTimelineStyle</item>
         <item name="musicEditorTimelineTimeTextStyle">
             @style/CustomMusicEditorTimelineTimeTextStyle
@@ -156,17 +158,40 @@
             @style/CustomMusicEditorTimelineSoundWaveStyle
         </item>
 
-        <item name="musicEditorRecordingButtonStyle">@style/CustomMusicEditorRecordingButtonStyle
+        <item name="musicEditorVoiceRecordingControllerParentStyle">
+            @style/CustomVoiceRecordingControllerParentStyle
+        </item>
+        <item name="musicEditorVoiceRecordingControllerCancelStyle">
+            @style/CustomVoiceRecordingControllerCancelStyle
+        </item>
+        <item name="musicEditorVoiceRecordingControllerResetStyle">
+            @style/CustomMusicEditorVoiceRecordingControllerResetStyle
+        </item>
+        <item name="musicEditorVoiceRecordingControllerDoneStyle">
+            @style/CustomVoiceRecordingControllerDoneStyle
+        </item>
+
+        <item name="musicEditorVideoVolumeContainerStyle">
+            @style/CustomMusicEditorVideoVolumeContainerStyle
+        </item>
+        <item name="musicEditorVideoVolumeTitleStyle">
+            @style/CustomMusicEditorVideoVolumeTitleStyle
+        </item>
+        <item name="musicEditorVideoVolumeValueStyle">
+            @style/CustomMusicEditorVideoVolumeValueStyle
+        </item>
+        <item name="musicEditorVideoVolumeProgressBarStyle">
+            @style/CustomMusicEditorVideoVolumeProgressBarStyle
+        </item>
+
+        <item name="musicEditorRecordingButtonStyle">
+            @style/CustomMusicEditorRecordingButtonStyle
         </item>
 
         <item name="musicEditorTrimViewStyle">@style/CustomMusicEditorTrimViewStyle</item>
         <item name="musicEditorTrimmerStyle">@style/CustomMusicEditorTrimmerStyle</item>
         <item name="musicEditorTrimmerSoundWaveStyle">
             @style/CustomMusicEditorTrimmerSoundWaveStyle
-        </item>
-
-        <item name="musicEditorVideoVolumeProgressBarStyle">
-            @style/CustomMusicEditorVideoVolumeProgressBarStyle
         </item>
 
         <item name="musicEditorEqualizerRecyclerStyle">
@@ -177,12 +202,6 @@
             @style/CustomMusicEditorEqualizerThrobberStyle
         </item>
 
-        <item name="musicEditorVoiceRecordingControllerCancelStyle">
-            @style/CustomVoiceRecordingControllerCancelStyle
-        </item>
-        <item name="musicEditorVoiceRecordingControllerDoneStyle">
-            @style/CustomVoiceRecordingControllerDoneStyle
-        </item>
 
         <item name="music_editor_surface_background">@color/black</item>
         <item name="music_editor_voice_recording_background">@color/black</item>
@@ -197,20 +216,19 @@
         <item name="music_editor_icon_track_delete">@drawable/ic_timeline_trash</item>
         <!---->
 
-
-        <!--Stickers-->
-        <item name="stickersSearchViewStyle">@style/CustomStickersSearchStyle</item>
-        <item name="stickersRetryTitleTextStyle">@style/CustomStickersRetryTitleTextStyle</item>
-        <item name="stickersRetryMessageTextStyle">@style/CustomStickersRetryMessageTextStyle</item>
-        <item name="stickersRetryBtnStyle">@style/CustomStickersRetryBtnStyle</item>
-
-        <!--Sticker & text editor-->
+        <!-- Timeline editor -->
         <item name="timelineTextViewStyle">@style/CustomTimelineTextViewStyle</item>
         <item name="object_editor_icon_text">@drawable/ic_add_text</item>
         <item name="object_editor_icon_sticker">@drawable/ic_add_gif</item>
         <item name="object_editor_icon_edit">@drawable/ic_timeline_edit</item>
         <item name="object_editor_icon_delete">@drawable/ic_timeline_trash</item>
         <!---->
+
+        <!--Stickers-->
+        <item name="stickersSearchViewStyle">@style/CustomStickersSearchStyle</item>
+        <item name="stickersRetryTitleTextStyle">@style/CustomStickersRetryTitleTextStyle</item>
+        <item name="stickersRetryMessageTextStyle">@style/CustomStickersRetryMessageTextStyle</item>
+        <item name="stickersRetryBtnStyle">@style/CustomStickersRetryBtnStyle</item>
 
         <!--Cover-->
         <item name="coverNextButtonStyle">@style/CustomCoverNextButtonStyle</item>
@@ -715,6 +733,10 @@
 
 
     <!--Music Editor Styles-->
+    <style name="CustomVoiceRecordingControllerParentStyle" parent="VoiceRecordingControllerParentStyle" />
+
+    <style name="CustomMusicEditorVoiceRecordingControllerResetStyle" parent="VoiceRecordingControllerResetStyle" />
+
     <style name="CustomVoiceRecordingControllerCancelStyle" parent="VoiceRecordingControllerCancelStyle">
         <item name="android:padding">12dp</item>
         <item name="android:src">@drawable/ic_close</item>
@@ -740,6 +762,7 @@
 
     <style name="CustomMusicEditorTimelineStyle" parent="MusicEditorTimelineStyle">
         <item name="applying_effect_color">@color/violet_red_20</item>
+        <item name="video_timeline_volume_icon">@drawable/ic_volume_up</item>
     </style>
 
     <style name="CustomMusicEditorTimelineTimeTextStyle" parent="MusicEditorTimelineTimeTextStyle">
@@ -754,6 +777,15 @@
     <style name="CustomMusicEditorTimelineSoundWaveStyle" parent="MusicEditorTimelineSoundWaveStyle">
         <item name="block_color">@color/white_a50</item>
         <item name="description_text_color">@color/white</item>
+    </style>
+
+    <style name="CustomMusicEditorVideoVolumeContainerStyle" parent="MusicEditorVideoVolumeContainerStyle" />
+
+    <style name="CustomMusicEditorVideoVolumeTitleStyle" parent="MusicEditorVideoVolumeTitleStyle" />
+
+    <style name="CustomMusicEditorVideoVolumeValueStyle" parent="MusicEditorVideoVolumeValueStyle">
+        <item name="android:textColor">@color/egg_blue</item>
+        <item name="android:textSize">16sp</item>
     </style>
 
     <style name="CustomMusicEditorVideoVolumeProgressBarStyle" parent="MusicEditorVideoVolumeProgressBarStyle">
