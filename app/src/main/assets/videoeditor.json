@@ -24,7 +24,8 @@
   "trimmer": {
     "minSourceVideoDuration": 2000,
     "supportsMultiChoice": true,
-    "appearanceThreshold": 0
+    "appearanceThreshold": 0,
+    "supportsRotation": true
   },
   "slideshow": {
     "maxSelectedImages": 20,
