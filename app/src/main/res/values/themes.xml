@@ -40,6 +40,7 @@
              to alert dialogs shown in the video editor
              ("@null" means that there are no icons on alert dialogs -> it is default setup,
              so if you do not want to add icons just not override these attributes) -->
+        <item name="alert_camera_return_to_camera">@null</item>
         <item name="alert_camera_delete_video">@null</item>
         <item name="alert_camera_return_to_editor">@null</item>
         <item name="alert_camera_return_to_trimmer">@null</item>
@@ -310,6 +311,14 @@
         <item name="audioBrowserCameraTrackResetBtnStyle">
             @style/CustomAudioBrowserCameraTrackResetBtnStyle
         </item>
+
+        <!-- Info alerts -->
+        <item name="permissionsDialogContainerStyle">@style/CustomPermissionsDialogContainer</item>
+        <item name="permissionsDialogDescriptionStyle">@style/CustomPermissionsDialogDescription
+        </item>
+        <item name="permissionsDialogActionButtonStyle">@style/CustomPermissionsDialogActionButton
+        </item>
+        <!---->
     </style>
 
     <!-- CameraOverlayStyle setup icons for Camera screen.
@@ -360,7 +369,7 @@
              To show the static image as a gallery icon instead of video file thumbnail
              you should setup custom style for "galleryImageViewStyle" theme attribute and
              set "use_custom_image" to "true" -->
-        <item name="icon_empty_gallery">@drawable/ic_default</item>
+        <item name="icon_empty_gallery">@drawable/ic_empty_gallery</item>
         <!-- as a default gallery icon view has a rectangle shape.
              If you setup "icon_gallery_background" as an oval, you should add radius here -->
         <item name="icon_gallery_radius">24dp</item>
@@ -952,5 +961,15 @@
     <style name="CustomAudioBrowserCameraTrackTitleViewStyle" parent="AudioBrowserCameraTrackTitleViewStyle" />
 
     <style name="CustomAudioBrowserCameraTrackResetBtnStyle" parent="AudioBrowserCameraTrackResetBtnStyle" />
+    <!---->
+
+    <!-- Info alerts -->
+    <style name="CustomPermissionsDialogContainer" parent="PermissionsDialogContainer" />
+
+    <style name="CustomPermissionsDialogDescription" parent="PermissionsDialogDescription" />
+
+    <style name="CustomPermissionsDialogActionButton" parent="PermissionsDialogActionButton">
+        <item name="android:background">@color/egg_blue</item>
+    </style>
     <!---->
 </resources>

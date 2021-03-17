@@ -4,15 +4,20 @@
 There are following types of user notification used in Banuba Video Editor SDK:
 - toast
 - wait dialog (represents long running tasks)
+- info alerts
 - alert with control buttons
 
 All of them are customized by theme attributes described in this file.
+
+### **Toast**
 
 - [toastStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L198)
 
     style to customize toast messages
 
     ![img](screenshots/alert1.png)
+
+### **Wait dialog**
 
 - [throbberViewStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L42)
 
@@ -28,17 +33,48 @@ All of them are customized by theme attributes described in this file.
 
     ![img](screenshots/alert2.png)
 
-Recently to customize alert dialogs with control buttons you should override fragment_dialog_alert.xml file in layout resource folder. For correct implemetation all views' ids should be the same as in the original file:
+### **Info alert**
+Info alerts are messages that are used to show information message to the user (recently they are rationale messages that should be shown before ask the user to grant permissions).
 
-- alertTitleText - for dialog description
-- alertPositiveButton - for the button meaning positive answer from the user (right button)
-- alertNegativeButton - for the button meaning negative answer from the user (left button)
+- [permissionsDialogContainerStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L316)
 
-After overriding layout file you can use your any of your own styles to customize these views.
+    style for the container of info alert
+
+- [permissionsDialogDescriptionStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L317)
+
+    style for the description text 
+
+- [permissionsDialogActionButtonStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L319)
+
+    style for the single button on the info alert
 
 ![img](screenshots/alert3.png)
 
+## String resources
+| ResourceId        |      Value      |   Description |
+| ------------- | :----------- | :------------- |
+| permission_camera_description_message | Allow to access your Camera and, Microphone to take and edit photos or videos, and record audio. | message to show as info alert before request vital video edior permissions
+| permission_gallery_description_message |  Allow to access to your storage to create video from your images and recordings. | message to show as info alert before request gallery permission
+| permission_dialog_allow | Allow | button title for simple confirmation from the user
+| permission_dialog_settings | Settings | button title for redirection to application settings (it is used in case the user did not granted permissions but still tries to make something unavailable without permission)
+
+### **Alert with control buttons**
+Recently to customize **alert dialogs with control buttons** you should override `fragment_dialog_alert.xml` file in layout resource folder. For correct implemetation all views' ids should be the same as in the original file:
+
+- `alertTitleText` - for dialog description
+- `alertPositiveButton` - for the button meaning positive answer from the user (right button)
+- `alertNegativeButton` - for the button meaning negative answer from the user (left button)
+
+After overriding layout file you can use your any of your own styles to customize these views.
+
+![img](screenshots/alert4.png)
+
 Every alert dialog has its own type within SDK. It allows to customize descriptions and text over the positive and negative buttons. To do so you need to override the following string resources (they named according to the type of alert where they are used):
+- "alert_return_to_camera"
+
+    "alert_return_to_camera_positive"
+
+    "alert_return_to_camera_negative"
 - "alert_delete_video_message"
     
     "alert_delete_video_positive"
