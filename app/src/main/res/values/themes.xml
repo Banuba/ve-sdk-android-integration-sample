@@ -900,7 +900,9 @@
 
     <style name="CustomExtendedCoverDescriptionStyle" parent="ExtendedCoverDescriptionStyle" />
 
-    <style name="CustomExtendedCoverThumbnailPickerStyle" parent="ExtendedCoverThumbnailPickerStyle" />
+    <style name="CustomExtendedCoverThumbnailPickerStyle" parent="ExtendedCoverThumbnailPickerStyle" >
+        <item name="thumbnail_picker_pointer">@drawable/ic_cover_picker</item>
+    </style>
     <!---->
 
     <!--Toast style-->
