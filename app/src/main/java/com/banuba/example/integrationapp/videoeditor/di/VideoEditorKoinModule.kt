@@ -19,6 +19,7 @@ import com.banuba.sdk.ve.flow.ExportFlowManager
 import com.banuba.sdk.ve.flow.FlowEditorModule
 import com.banuba.sdk.ve.flow.export.ForegroundExportFlowManager
 import com.banuba.sdk.veui.data.ExportParamsProvider
+import com.banuba.sdk.veui.domain.CoverProvider
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.definition.BeanDefinition
 import org.koin.core.qualifier.named
@@ -104,4 +105,8 @@ class VideoEditorKoinModule : FlowEditorModule() {
         single(named("musicTrackProvider"), override = true) {
             AudioBrowserMusicProvider()
         }
+
+    override val coverProvider: BeanDefinition<CoverProvider> = single(override = true) {
+        CoverProvider.EXTENDED
+    }
 }

@@ -3,24 +3,24 @@
 
 This screen is used to edit gif (sticker) and text effects. 
 
-Almost all views are the same as in [Music Editor screen](music_editor_styles.md) and configured using the same theme attributes. The special attributes related to this screen directly:
+Almost all views are **the same** as in [Music Editor screen](music_editor_styles.md) and configured using the same theme attributes. The special attributes related to this screen directly:
 
-- [timelineTextViewStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L183)
+- [timelineTextViewStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L220)
 
     style for the TextView that represents the text effect on the timeline
 
-- [object_editor_icon_text](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L184)
+- [object_editor_icon_text](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L221)
 
     theme attribute for the text effect drawable
 
-- [object_editor_icon_sticker](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L185)
+- [object_editor_icon_sticker](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L222)
 
     theme attribute for the sticker effect drawable
 
-- [object_editor_icon_edit](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L186)
+- [object_editor_icon_edit](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L223)
 
     theme attribute for the button that opens text editor screen (it is disabled if you try to edit sticker, cause the sticker is only available to delete)
-- [object_editor_icon_delete](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L187)
+- [object_editor_icon_delete](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L224)
 
     theme attribute for the button that deletes selected effect
 
@@ -44,6 +44,8 @@ Almost all views are the same as in [Music Editor screen](music_editor_styles.md
 
 ## String resources
 
+Some string resources (i.e. button titles) are common with the music editor screen, so they can be found on the music editor screen configuration [**page**](music_editor_styles.md#L115).
+
 | ResourceId        |      Value      |   Description |
 | ------------- | :----------- | :------------- |
 | stickers_empty_list | No stickers found | message that is shown while the user is searching [stickers](https://github.com/Banuba/ve-sdk-android-integration-sample#configure-stickers-content) and has no result
@@ -52,3 +54,4 @@ Almost all views are the same as in [Music Editor screen](music_editor_styles.md
 | connection_view_title | Connection failed | message that is shown in case of network error while [stickers](https://github.com/Banuba/ve-sdk-android-integration-sample#configure-stickers-content) are being loaded. The text appearance is defined in ```stickersRetryTitleTextStyle```
 | connection_view_message | Please check connection\nand retry | hint that is shown in case of network error while [stickers](https://github.com/Banuba/ve-sdk-android-integration-sample#configure-stickers-content) are being loaded. The text appearance is defined in ```stickersRetryMessageTextStyle```
 | connection_view_retry | Retry | text on the button that is shown in case of network error while [stickers](https://github.com/Banuba/ve-sdk-android-integration-sample#configure-stickers-content) are being loaded. It allows to resend the request for stickers. The text appearence is defined in ```stickersRetryBtnStyle```
+| error_invalid_duration_object_effect | Min effect duration - %1$.1f sec | toast message that is shown when the user tries to make the object effect shorter than defined in `objectEffectMinDurationMs` parameter of the [**object_editor.json**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/object_editor.json) config file
