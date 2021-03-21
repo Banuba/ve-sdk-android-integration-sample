@@ -3,7 +3,7 @@
 
 
 # Banuba AI Video Editor SDK. Integration sample for Android.
-Banuba [Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to add a fully-functional video editor with Tiktok-like features, AR filters and effects in your app. The following guide explains how you can integrate our SDK into your Android project.  
+Banuba [Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to quickly add short video functionality and possibly AR filters and effects into your mobile app. On this page, we will explain how to integrate it into an Android app.  
 
 <p align="center">
 <img src="mddocs/gif/camera_preview.gif" alt="Screenshot" width="31.6%" height="auto" class="docs-screenshot"/>&nbsp;
@@ -18,6 +18,7 @@ Banuba [Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to
 - [Supported media formats](#Supported-media-formats)
 - [Video quality params](#Video-quality-params)
 - [Free Trial](#Free-Trial)
+- [Connecting with AR cloud](#Connecting-with-AR-cloud)
 - [Token](#Token)
 - [What can you customize?](#What-can-you-customize?)
 - [Getting Started](#Getting-Started)  
@@ -41,7 +42,8 @@ Banuba [Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to
 - [FAQ](#FAQ)
 - [Third party libraries](#Third-party-libraries)
 
-## Requirements
+## Requirements  
+This is what you need to run the AI Video Editor SDK
 - Java 1.8+
 - Kotlin 1.4+
 - Android Studio 4+
@@ -59,13 +61,16 @@ Banuba [Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to
 
 [Please see all used dependencies](mddocs/all_dependencies.md)
 
-## SDK size
+## SDK size  
 
-If you utilize the AR technology with masks (like Tiktok or Snapchat) you would need to have [Face AR module](https://www.banuba.com/facear-sdk/face-filters), produced by Banuba. Alternatively, you may just have the app that shoots the video/pics and edit it with no AR feature. Depending on your choice, the SDK size will vary:
+If you want to use the SDK for a short video app like TikTok, the [Face AR module](https://www.banuba.com/facear-sdk/face-filters) would be useful for you, as it allows you to add masks and other AR effects. If you just need the video editing-related features, the SDK can work on its own.
+
 | Options | Mb      | Note |
 | -------- | --------- | ----- |
 | :white_check_mark: Face AR SDK  | 50.5 | AR effect sizes are not included. AR effect takes 1-3 MB in average.
-| :x: Face AR SDK | 21.5  | no AR effects  |
+| :x: Face AR SDK | 21.5  | no AR effects  |  
+
+If you choose to use the Face AR SDK, you can either include the filters/effects in your app or pull them from the AR cloud to save space. More on that later on this page.
 
 ## Supported media formats
 | Audio      | Video      | Images      |
@@ -78,16 +83,22 @@ If you utilize the AR technology with masks (like Tiktok or Snapchat) you would 
 | 1x(Default)     | 1200            | 2000            | 4000           | 6400             |
 | 0.5x            | 900             | 1500            | 3000           | 4800             |
 | 2x              | 1800            | 3000            | 6000           | 9600             |
-| 3x              | 2400            | 4000            | 8000           | 12800            |
+| 3x              | 2400            | 4000            | 8000           | 12800            |  
 
-## Free Trial
-We offer а free 14-days trial, so you have the opportunity to thoroughly test and assess Video Editor SDK functionality in your app. To get access to your trial, please, get in touch with us via [sales@banuba.com](mailto:sales@banuba.com?subject=Banuba%20AI%20VE%20Free%20Trial). They will send you the trial token. Put it into the app, as described below, to run the SDK.  
+## Connecting with AR cloud  
+
+To decrease the app size, you can connect with our servers and pull AR filters from there. The effects will be downloaded whenever a user needs them. This is how you integrate the AR cloud.
+
+## Free Trial  
+
+You should start with getting a trial token. It will grant you **14 days** to freely play around with the AI Video Editor SDK and test its entire functionality the way you see fit.
+
+There is nothing complicated about it - [contact us](https://www.banuba.com/video-editor-sdk#form) or send an email to sales@banuba.com and we will send it to you. We can also send you a sample app so you can see how it works “under the hood”.   
 
 ## Token 
 We offer а free 14-days trial for you could thoroughly test and assess Video Editor SDK functionality in your app. To get access to your trial, please, get in touch with us by [filling a form](https://www.banuba.com/video-editor-sdk) on our website. Our sales managers will send you the trial token.
 
 Video editor token should be put [here](app/src/main/res/values/strings.xml#L5)
-
 
 
 ## What can you customize?
@@ -113,18 +124,20 @@ GitHub packages are set up for trial.
 ### Add dependencies
 Please, specify a list of dependencies as in [app/build.gradle](app/build.gradle#L38) file to integrate Banuba Video Editor SDK.
 
-### Add Activity
-Banuba Video Editor contains a specific flow and order of screens: camera, gallery, trimmer, editor and export. Each screen is implemented as a [Fragment](https://developer.android.com/guide/fragments). All Fragmens are handled with [Activity](https://developer.android.com/guide/components/activities/intro-activities) - VideoCreationActivity. Add VideoCreationActivity to [AndroidManifest.xml](app/src/main/AndroidManifest.xml#L21)
+### Add Activity  
+To manage the main screens - camera, gallery, trimmer, editor, and export - you need to add the VideoCreationActivity to [AndroidManifest.xml](app/src/main/AndroidManifest.xml#L21). Each screen is implemented as a [Fragment](https://developer.android.com/guide/fragments).
+
 ``` xml
 <activity android:name="com.banuba.sdk.ve.flow.VideoCreationActivity"
     android:screenOrientation="portrait"
     android:theme="@style/CustomIntegrationAppTheme"
     android:windowSoftInputMode="adjustResize"
     tools:replace="android:theme" />
-```
-It will allow to [launch Video Editor](app/src/main/java/com/banuba/example/integrationapp/MainActivity.kt#L24).  
+```  
 
-[CustomIntegrationAppTheme](app/src/main/res/values/themes.xml#L14) theme overrides icons, colors, etc. for SDK screens. Use it to brand your app.
+Once it’s done, you’ll be able to launch the video editor.  
+
+Note the [CustomIntegrationAppTheme](app/src/main/res/values/themes.xml#L14) line in the code. Use this theme for changing icons, colors, and other screen elements to customize the app.
 
 ### Add config files  
 The SDK has several configuration files which allow you to customize the video editor for your needs. All config files should be placed into Android **assets** folder:
