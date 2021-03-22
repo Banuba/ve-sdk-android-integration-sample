@@ -40,41 +40,41 @@
 
 ![img](screenshots/musiceditor1.png)
 
-- [musicEditorVideoVolumeContainerStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L174)
+- [musicEditorVideoVolumeContainerStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L175)
 
     style for the bottom sheet view that is opened by tapping on left bottom icon of the video timeline to change video volume
-- [musicEditorVideoVolumeTitleStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L177)
+- [musicEditorVideoVolumeTitleStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L178)
 
     style for the title of the volume setting
-- [musicEditorVideoVolumeValueStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L180)
+- [musicEditorVideoVolumeValueStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L181)
 
     style for the digit value of the video volume
-- [musicEditorVideoVolumeProgressBarStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L183)
+- [musicEditorVideoVolumeProgressBarStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L184)
 
     style for the seek bar that is used to change video volume
 
 ![img](screenshots/musiceditor2.png)
 
-- [music_editor_voice_recording_background](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L207)
+- [music_editor_voice_recording_background](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L208)
 
     attribute that defines the background of the voice recording button
 
-- [musicEditorRecordingButtonStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L187)
+- [musicEditorRecordingButtonStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L188)
 
-    style for the voice recording button. There are a lot of custom attributes to configure its appearance. Please check out an [**example**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L752)
+    style for the voice recording button. There are a lot of custom attributes to configure its appearance. Please check out an [**example**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L778)
 
 ![img](screenshots/musiceditor3.png)
 
-- [musicEditorVoiceRecordingControllerParentStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L161)
+- [musicEditorVoiceRecordingControllerParentStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L162)
 
     style for the view that holds action buttons to manipulate with voice recording on the music editor
-- [musicEditorVoiceRecordingControllerCancelStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L164)
+- [musicEditorVoiceRecordingControllerCancelStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L165)
 
     style for the button that closes voice recording screen returning back to the music editor
 - [musicEditorVoiceRecordingControllerResetStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L167)
 
     style for the button that removes the last voice recording
-- [musicEditorVoiceRecordingControllerDoneStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L170)
+- [musicEditorVoiceRecordingControllerDoneStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L171)
 
     style for the button that applies voice recordings to the common timeline and returns back to music editor
 ![img](screenshots/musiceditor4.png)

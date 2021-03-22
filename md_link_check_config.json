@@ -82,9 +82,9 @@
             "pattern": "https://developer.android.com/reference/android/widget/Toast"
         }        
     ],
-    "timeout": "1m",
+    "timeout": "3m",
     "retryOn429": true,
-    "retryCount": 5,
-    "fallbackRetryDelay": "15m",
+    "retryCount": 10,
+    "fallbackRetryDelay": "60m",
     "aliveStatusCodes": [200, 206, 429]
 }
