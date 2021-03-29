@@ -252,6 +252,16 @@ The record button is a main control on the camera screen which you can fully cus
 
 3. Provide ```CameraRecordingAnimationProvider``` implementation in [DI](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#140).
 
+To properly implement `CameraRecordingAnimationProvider` you should take into account internal states classes: `VideoState` and `PhotoState`. 
+
+Methods `setRecordingPhotoState()` and `setRecordingVideoState()` are intended to handle recording button state changes (both `VideoState` and `PhotoState`). In the [**example**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationAppRecordingAnimationProvider.kt) you can see that these methods are used to animate recording button depending on the current state.
+
+Methods `setOnStartRecordingAnimationCallback`, `setOnEndRecordingAnimationCallback`, `setOnEndTakenPictureAnimationCallback` are intended to pass some actions from the SDK into recording button animation callbacks. For example), a callback passed in `setOnEndTakenPictureAnimationCallback` is [stored](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationAppRecordingAnimationProvider.kt#L37) in a local variable and is [invoked](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/videoeditor/widget/recordbutton/RecordButtonView.kt#L143) when the animation of photo capturing ends.
+
+`setRecordingProgress(progressMs: Long)` [method](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationAppRecordingAnimationProvider.kt#L33) is used if you need to handle recording progress value at the start and in the end of recording (but not during recording)
+
+`animateResumeRecording()` [method](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationAppRecordingAnimationProvider.kt#L45) is used when you need to handle the moment when video recording is started 
+
 ### Configure camera timer
 
 Video editor SDK allows you to setup timer on camera screen in case your users like to make recordings or photos with a delay. 
