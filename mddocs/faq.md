@@ -1,21 +1,20 @@
 # FAQ  
-This page is aimed to explain the most frequent technical questions asked while integrating our SDK.  
+These are the answers to the most popular questions we are asked about the Banuba AI Video Editor SDK  
 
-### 1. I want to start and stop video recording by short click  
-The user has to keep pressing recording button to record new video by default. Video recording stops when the user releases finger from recording button.  
+### 1. How do I start/stop recording with a tap? 
+By default, the user must hold the “record” button to film and release it to stop filming.   
 
-Please set [takePhotoOnTap](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/camera.json#4) property to **false** to allow the user to start and stop recording new video by short click.  
+To change that, simply set the [takePhotoOnTap](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/camera.json#4) property to **false**.  
 ``` json
  "takePhotoOnTap":false
 ```
 
-### 2. I want to add AR Mask to the Video Editor (without AR Cloud backend)
+### 2. How do I add an AR mask to the app without using the AR cloud?  
+If you don’t want to pull the masks from the backend, you can include them in the app itself. 
 
-Technically AR Mask is a bulk of files within the folder.
+To do so, name the folder with the mask files the way you want to call the mask, and place it into **assets/bnb-resources/effects** directory in the module containing the SDK (Example).
 
-You should place AR Mask folder to the **assets/bnb-resources/effects** directory inside the module containing video editor SDK ([**Example**](https://github.com/Banuba/ve-sdk-android-integration-sample/tree/main/app/src/main/assets/bnb-resources/effects)). Be sure that AR mask directory has a **preview.png** file. It is used as an icon of the AR mask in the app.
-
-**Note** that the name of directory will be used as a title of the AR mask within the app.
+Make sure that you include the **preview.png** file in the mask folder. It serves as an icon for the mask within the app. 
 
 ### 3. I want to turn off animations from slideshow
 
@@ -57,41 +56,26 @@ data class TrackData(
 )
 ```
 
-### 5. I want to add color filters
+### 5. How do I add LUTs to the app?
 
-Color filters (luts) are special graphic files placed into **assets/bnb-resources/luts** directory inside the module containing video editor SDK.
+Color filters are located in the **assets/bnb-resources/luts** directory in the module with the SDK. To add your own, place the files in this folder and create a drawable resource that will be used as an icon for this particular LUT. The name of the drawable resource must be the same as the graphic file in the filter’s directory.
 
-To add your own color filter you should place it into aforementioned folder and create a **drawable resource** that will be used as an icon for this particular color effect within the list of effects.
+For example, this is the [LUT](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/bnb-resources/luts/C1.png) file, and this is its [drawable resource]((https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/drawable/c1.png)).
 
-The name of the drawable resource must be **the same** as the graphic file within luts directory.
+### 6. How do I change the order of LUTs?
 
-As an example, check out how the black-and-white color filter is added: 
+By default, the filters are listed in alphabetical order. 
 
-[**Here**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/bnb-resources/luts/C1.png) is a graphic file named C1.png within assets/bnb-resources/luts directory that allows to achieve black-and-white picture
-
-[**Here**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/drawable/c1.png) is an appropriate drawable resource named c1.png within drawable resource directory that is used as an icon within the list of effects
-
-### 6. I want to change an order of color filters
-
-**By default**, color filters are **ordered alphabetically** in Video editor SDK.
-
-To change an order of color filters within the app, you should use an implementation of the ```ColorFilterOrderProvider``` interface:
-```kotlin 
-interface ColorFilterOrderProvider {
-
-    fun provide(): List<String>
-}
-```
-Your custom implementation should return a list of color filters names with required order. **Note:** The name of color filter is a name of an appropriate file located in assets/bnb-resources/luts directory. [Example](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/bnb-resources/luts/C1.png). 
-
-Let`s say, you have two color filters in assets/bnb-resources/luts named "c1.png" and "c2.png". By default they appear in alphabetical order (c1, c2). If you want the "c2" filter to be the first, just create following implementation:
+To change it, use the implementation of the ```ColorFilterOrderProvider``` interface. 
 ```kotlin
 class CustomColorFilterOrder: ColorFilterOrderProvider {
     override fun provide(): List<String> = listOf("c2", "c1")
 }
-```
+``` 
+This will return the list of color filters with the required order. 
+Note: The name of color filter is a name of an appropriate file located in **assets/bnb-resources/luts** directory. [Example](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/bnb-resources/luts/C1.png).
 
-As the final step pass your custom ```ColorFilterOrderProvider``` implementation inside one of your [Koin modules](https://github.com/Banuba/ve-sdk-android-integration-sample#configure-di) to override the default implementation:
+The final step is to pass your custom ```ColorFilterOrderProvider``` implementation in the [DI](https://github.com/Banuba/ve-sdk-android-integration-sample#configure-di) to override the default implementation:
 
 ```kotlin
 override val colorFilterOrderProvider: BeanDefinition<ColorFilterOrderProvider> = single(override = true) {

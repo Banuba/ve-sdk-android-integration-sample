@@ -140,16 +140,15 @@ Once it’s done, you’ll be able to launch the video editor.
 Note the [CustomIntegrationAppTheme](app/src/main/res/values/themes.xml#L14) line in the code. Use this theme for changing icons, colors, and other screen elements to customize the app.
 
 ### Add config files  
-The SDK has several configuration files which allow you to customize the video editor for your needs. All config files should be placed into Android **assets** folder:
-- [**Camera config file**](mddocs/config_camera.md) contains properties that you can customize on the camera screen, i.e. the minimum and maximum video durations or turn on/off the flashlight feature.
-Usually, *minVideoDuration* and *maxVideoDuration* are the most used properties.
-- [music_editor.json](app/src/main/assets/music_editor.json) contains properties that you can customize on the audio editor screen, i.e. the number of timelines or tracks allowed.
+There are several files in the video editor SDK that allow you to modify its parameters. All of them go into the Android **assets** folder.
+- The [**camera config file**](mddocs/config_camera.md) lets you change the min/max duration of the video, turn the flashlight on and off, etc. 
+- [music_editor.json](app/src/main/assets/music_editor.json) allows you to change the audio editor screen, e.g. the number of timelines or tracks allowed.
 - [object_editor.json](app/src/main/assets/object_editor.json) contains properties that you can customize on the editor screen.
-- [videoeditor.json](app/src/main/assets/videoeditor.json) contains properties that you can customize on the editor, trimmer and gallery screens.  *Note*: please keep in mind that *minVideoDuration* and *maxVideoDuration* in this and [camera.json](app/src/main/assets/camera.json) should be the same.
+- [videoeditor.json](app/src/main/assets/videoeditor.json) lets you modify the editor, trimmer, and gallery screens. Note: please keep in mind that *minVideoDuration* and *maxVideoDuration* in this and [camera.json](app/src/main/assets/camera.json) should be the same.
 
-### Configure DI  
-The Video Editor behavior can be overridden. We use [Koin](https://insert-koin.io/) for this purpose.
-First, you need to create your own implementation of FlowEditorModule.
+### Configure DI 
+You can override the behavior of the video editor in your app with DI libraries and tools (we use [Koin](https://insert-koin.io/), for example).  
+First, you need to create your own implementation of FlowEditorModule. 
 ``` kotlin
 class VideoEditorKoinModule : FlowEditorModule() {
 
@@ -164,10 +163,9 @@ class VideoEditorKoinModule : FlowEditorModule() {
     ...
 }
 ```  
-You will need to override several properties to customize the video editor for your application.
-Please, take a look at the [full example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt).
+You will need to override several properties to customize the video editor for your application. Please, take a look at the [full example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt).
 
-Next, you need to initialize Koin module in your [Application.onCreate](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/IntegrationKotlinApp.kt#L12) method.
+Once you’ve overridden the properties that you need, initialize the Koin module in your  [Application.onCreate](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/IntegrationKotlinApp.kt#L12) method.
 ``` kotlin
 startKoin {
     androidContext(this@IntegrationApp)        
@@ -208,29 +206,33 @@ And also remove dependency ```com.banuba.sdk:effect-player-adapter``` from [app/
 ```
 
 ### Configure export flow  
-Export is the main process within video editor SDK. Its result is a compiled video file (or files) with "mp4" extension. The export flow can be customized in many directions to make it as seamless for client app as it could be.
+The video editor SDK exports recordings as .mp4 files. There are many ways you can customize this flow to better integrate it into your app.
 
-To configure export outputs you should override ```ExportParamsProvider``` interface. It has just one method ```provideExportParams()``` that returns ```List<ExportManager.Params>```. Every item within this list is a separate configuration associated with the separate mp4 file that will be created during export flow along with parameters you add (for example, you can setup resolution, destination directory, watermark image etc.). Please see our [example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportParamsProvider.kt). As a result after exporting there are four files within "export" directory: audio file containing all audio tracks compiled together, video file with the optimal resolution calculated by our algorithm, video file similar to previous but without the watermark, and another video file with watermark in low resolution.
+To change export output, start with the ```ExportParamsProvider``` interface. It contains one method - ```provideExportParams()``` that returns ```List<ExportManager.Params>```. Each item on this list relates to one of the videos in the output and their configuration. See the example [here](app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportParamsProvider.kt).  
 
-**By default** export flow outputs will be placed in **"export" directory** of **external storage** whithin application. To override destination directory you should provide custom Uri instance named "exportDir" through DI.
+The end result would be four files:  
 
-To cofigure the export flow itself you should override ```ExportFlowManager``` interface that passed into  [exportFlowManager](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#L58) field in VideoEditorKoinModule. Here you can specify should export be performed in background or foreground and define behavior on starting and stopping export. Please see our [example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportFlowManager.kt).
+- Optimized video file (resolution will be calculated automatically);
+- Same file as above but without a watermark;
+- Low-res version of the watermarked file.
 
-In case you setup export flow to work in a background you may want to override ```ExportNotificationManager``` to configure notifications. This interface has methods to customize notification for any export scenario (started, failed and finished successfully).
 
-The last step of export flow is to obtain the export result and perform any action with it. To configure this behavior just override ```ExportResultHandler``` interface. The only method it has is ```doAction``` that receives VideoCreationAcitivty and export outputs as arguments. Please see our [example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportResultHandler.kt). Here we resume from VideoCreationAcitivity into app with an export result.
+By default, they are placed in the "export" directory of external storage. To change the target folder, you should provide a custom Uri instance named **exportDir** through DI.
 
-### Configure watermark
-One of the SDK features is a watermark. You can add your branded image on top of the video, which user exports.
+The interface ```ExportFlowManager``` can change the export flow itself. Here you can select the export to be performed in the foreground or background and define behavior on starting and stopping the export. See the details [here](app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportFlowManager.kt).  
 
-To utilize the watermark, add ``` WatermarkProvider``` interface to your app. 
-Add watermark image in the method ```getWatermarkBitmap```. Finally, re-arrange the dependency ```watermarkProvider``` in [DI](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#70). Check out [this example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationAppWatermarkProvider.kt) if you have any troubles.
+Should you choose to export files in the background, you’d do well to change ```ExportNotificationManager```. It lets you change the notifications for any export scenario (started, finished successfully, and failed).  
 
-### Configure audio content
+Finally, you should work with the export results. This can be done through the ```ExportResultHandler``` interface. Its only method receives the ```VideoCreationActivity``` and exports the results as arguments. Once again, check out the [example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportResultHandler.kt).
 
-The video editor can work with audio files to create even more attractive video recordings. The SDK does not provide audio files on its own, but it has a convenient way to set up your internal or external audio file provider for users would apply audio content.
+### Configure watermark  
+To use a watermark, add the ``` WatermarkProvider``` interface to your app. The image goes into the getWatermarkBitmap method. Once you’re done, rearrange the dependency watermarkProvider in [DI](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#70). See the [example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationAppWatermarkProvider.kt) of adding a watermark here.
 
-Check out [step-by-step guide](mddocs/audio_content.md) to add your audio content into the SDK.
+### Configure audio content  
+
+Banuba Video Editor SDK can trim audio tracks, merge them, and apply them to a video. **It doesn’t include music or sounds**, so adding them is on you. However, the SDK can be integrated with [Mubert](https://mubert.com/). 
+
+Adding audio content is simple. See this [step-by-step guide](mddocs/audio_content.md) guide for code examples.
 
 ### Configure audio browser
 
@@ -242,11 +244,9 @@ The video editor is able to download AR effects from Banuba server to provide mo
 
 Please check out [step-by-step guide](mddocs/ar_cloud.md) to configure AR Cloud in the SDK.
 
-### Configure stickers content
+### Configure stickers content  
 
-Stickers are interactive objects (gif images) that can be added to the video recording to add more fun for users. 
-
-By default [**Giphy API**](https://developers.giphy.com/docs/api/) is used to load stickers. All you need is just to pass your personal Giphy Api Key into **stickersApiKey** parameter in [videoeditor.json](app/src/main/assets/videoeditor.json) file.
+The stickers in the Banuba Video Editor SDK are GIFs. Adding them is as simple as adding your personal [**Giphy API**](https://developers.giphy.com/docs/api/) into the stickersApiKey parameter in [videoeditor.json](app/src/main/assets/videoeditor.json) file.
 
 ### Add post-processing effects
 There are several effects in Banuba Video Editor SDK: visual, time and mask. To add a visual effect you need to add a class followed by type, name and the icon of the effect. [Example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/data/VisualEffects.kt).
@@ -255,32 +255,32 @@ Same for [Time effects](app/src/main/java/com/banuba/example/integrationapp/vide
 
 Finally, override the dependency [editorEffects](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#74) and choose the effects you wannt to use.
 
-### Configure the record button
+### Configure the record button  
 
-The record button is a main control on the camera screen which you can fully customize along with animations playing on tap. There are 3 steps to create it:
+You can change the look of the button and the animation on tap. This is how it’s done:
 
-1. Create custom view for the record button. [Example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/widget/recordbutton/RecordButtonView.kt).
+1. Create a [custom view](app/src/main/java/com/banuba/example/integrationapp/videoeditor/widget/recordbutton/RecordButtonView.kt).
 
 2. Implement ```CameraRecordingAnimationProvider``` interface. Here the view created in step 1 should be provided through method ```provideView()``` within this interface. [Example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationAppRecordingAnimationProvider.kt). 
 
-3. Provide ```CameraRecordingAnimationProvider``` implementation in [DI](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#140).
+3. Implement ```CameraRecordingAnimationProvider``` in the [DI](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#140).
 
-### Configure camera timer
+### Configure camera timer  
 
-Video editor SDK allows you to setup timer on camera screen in case your users like to make recordings or photos with a delay. 
-To setup timer you should override ```CameraTimerStateProvider``` interface. Every delay is represented by ```TimerEntry``` object:
+This will allow your users to take pictures and videos after a delay. The timer is managed by the ```CameraTimerStateProvider``` interface. Every delay is represented by the TimerEntry object: 
+
 ```kotlin
 data class TimerEntry(
     val durationMs: Long,
     @DrawableRes val iconResId: Int
 )
 ```
-Pay attention that you can customize not only the time for delay, but also an icon that is shown when the particular delay is selected. [Example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationTimerStateProvider.kt).
+Besides the delay itself, you can customize the icon for it. See the example [here](app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationTimerStateProvider.kt).
 
 ### Configure screens  
-The SDK allows overriding **icons, colors, fonts** and others using Android theme and styles. Every screen includes its own set of styles.
+You can use the Android themes and styles to change the screens in the mobile video editor SDK. You can also change the language and text. 
 
-Moreover, the SDK allows to **add new languages** and **customize current text resources** for your app. Every screen incudes its own set of text resources that you can override.
+There are 8 screens in the SDK:
 
 The SDK incudes the following screens:
 1. [Camera screen](mddocs/camera_styles.md)
