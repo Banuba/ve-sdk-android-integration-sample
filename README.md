@@ -216,14 +216,9 @@ The end result would be four files:
 - Same file as above but without a watermark;
 - Low-res version of the watermarked file.
 
-
 By default, they are placed in the "export" directory of external storage. To change the target folder, you should provide a custom Uri instance named **exportDir** through DI.
 
-The interface ```ExportFlowManager``` can change the export flow itself. Here you can select the export to be performed in the foreground or background and define behavior on starting and stopping the export. See the details [here](app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportFlowManager.kt).  
-
-Should you choose to export files in the background, you’d do well to change ```ExportNotificationManager```. It lets you change the notifications for any export scenario (started, finished successfully, and failed).  
-
-Finally, you should work with the export results. This can be done through the ```ExportResultHandler``` interface. Its only method receives the ```VideoCreationActivity``` and exports the results as arguments. Once again, check out the [example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportResultHandler.kt).
+Should you choose to export files in the background, you’d do well to change ```ExportNotificationManager```. It lets you change the notifications for any export scenario (started, finished successfully, and failed).
 
 ### Configure watermark  
 To use a watermark, add the ``` WatermarkProvider``` interface to your app. The image goes into the getWatermarkBitmap method. Once you’re done, rearrange the dependency watermarkProvider in [DI](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#70). See the [example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationAppWatermarkProvider.kt) of adding a watermark here.
