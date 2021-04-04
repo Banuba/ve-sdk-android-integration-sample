@@ -80,7 +80,12 @@
         },
         {
             "pattern": "https://developer.android.com/reference/android/widget/Toast"
-        }        
+        },
+        {
+            "pattern": "https://developer.android.com/reference/android/Manifest.permission#READ_EXTERNAL_STORAGE"
+        }
+        
+    
     ],
     "timeout": "3m",
     "retryOn429": true,

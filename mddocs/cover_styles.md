@@ -27,19 +27,19 @@
 
     ![img](screenshots/cover1.png)
 
-- [extendedCoverPreviewParentStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L246)
+- [extendedCoverPreviewParentStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L247)
 
     style for the Constraint layout containing the recent cover preview
 
-- [extendedCoverExternalPhotoStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L248)
+- [extendedCoverExternalPhotoStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L249)
 
     style for the ImageView that shows the cover image
 
-- [extendedCoverExternalPhotoDeleteBackgroundStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L250)
+- [extendedCoverExternalPhotoDeleteBackgroundStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L251)
 
     style for the view at the bottom of the preview that plays a role of the background of "delete" button
 
-- [extendedCoverExternalPhotoDeleteStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L253)
+- [extendedCoverExternalPhotoDeleteStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L254)
 
     style for the text button for deletion of the chosen cover image
 
