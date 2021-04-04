@@ -58,8 +58,17 @@ Info alerts are messages that are used to show information message to the user (
 | permission_dialog_allow | Allow | button title for simple confirmation from the user
 | permission_dialog_settings | Settings | button title for redirection to application settings (it is used in case the user did not granted permissions but still tries to make something unavailable without permission)
 
-### **Alert with control buttons**
-Recently to customize **alert dialogs with control buttons** you should override `fragment_dialog_alert.xml` file in layout resource folder. For correct implemetation all views' ids should be the same as in the original file:
+### **Alert with control buttons**  
+
+You can customize the whole appearance of these dialog or to change just text appearance of control buttons.
+
+To customize just **text appearance of control buttons** you should override following styles :
+- for camera screen - `CameraDialogNormalButton`, `CameraDialogPositiveButton`, `CameraDialogNegativeButton`
+- for other screens - `EditorNormalButton`, `EditorDialogPositiveButton`, `EditorDialogNegativeButton`
+
+*(check out relations between styles and buttons on the screenshot below)*
+
+To customize **the whole apperance** of alert dialogs with control buttons you should override `fragment_dialog_alert.xml` file in layout resource folder. For correct implemetation all views' ids should be the same as in the original file:
 
 - `alertTitleText` - for dialog description
 - `alertPositiveButton` - for the button meaning positive answer from the user (right button)
@@ -119,11 +128,12 @@ Every alert dialog has its own type within SDK. It allows to customize descripti
 
 Also there is a possibility to add custom icon for every alert dialog type. To setup drawables for this reason they should be passed into custom theme attributes:
 
-- [alert_camera_delete_video](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L50)
-- [alert_camera_return_to_editor](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L51)
-- [alert_camera_return_to_trimmer](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L52)
-- [alert_camera_save](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L53)
-- [alert_camera_reset_all](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L54)
-- [alert_editor_delete_voice_record](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L55)
-- [alert_editor_reset_all](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L56)
-- [alert_editor_reset_effects](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L57)
+- [alert_camera_return_to_camera](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L43)
+- [alert_camera_delete_video](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L44)
+- [alert_camera_return_to_editor](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L45)
+- [alert_camera_return_to_trimmer](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L46)
+- [alert_camera_save](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L47)
+- [alert_camera_reset_all](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L48)
+- [alert_editor_delete_voice_record](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L49)
+- [alert_editor_reset_all](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L50)
+- [alert_editor_reset_effects](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L51)
