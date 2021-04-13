@@ -75,9 +75,9 @@ If you choose to use the Face AR SDK, you can either include the filters/effects
 ## Supported media formats
 | Audio      | Video      | Images      |
 | ---------- | ---------  | ----------- |
-|.aac, .mp3, .wav<br>.ogg, .ac3 |.mp4, .mov, .m4a| .jpg, .gif, .heic, .png,<br>.nef, .cr2, .jpeg, .raf, .bmp
+|.aac, .mp3, .wav<br>.ogg, .ac3, .m4a |.mp4, .mov| .jpg, .gif, .heic, .png,<br>.nef, .cr2, .jpeg, .raf, .bmp
 
-## Video quality params
+## Camera recording video quality params
 | Recording speed | 360p(360 x 640) | 480p(480 x 854) | HD(720 x 1280) | FHD(1080 x 1920) |
 | --------------- | --------------- | --------------- | -------------- | ---------------- |
 | 1x(Default)     | 1200            | 2000            | 4000           | 6400             |
