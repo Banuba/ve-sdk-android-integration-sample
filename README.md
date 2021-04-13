@@ -3,7 +3,7 @@
 
 
 # Banuba AI Video Editor SDK. Integration sample for Android.
-Banuba [Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to quickly add short video functionality and possibly AR filters and effects into your mobile app. On this page, we will explain how to integrate it into an Android app.  
+Banuba [Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to quickly add short video functionality and possibly AR filters and effects into your mobile app. On this page, we will explain how to integrate it into an Android app.
 
 <p align="center">
 <img src="mddocs/gif/camera_preview.gif" alt="Screenshot" width="31.6%" height="auto" class="docs-screenshot"/>&nbsp;
@@ -42,7 +42,7 @@ Banuba [Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to
 - [FAQ](#FAQ)
 - [Third party libraries](#Third-party-libraries)
 
-## Requirements  
+## Requirements
 This is what you need to run the AI Video Editor SDK
 - Java 1.8+
 - Kotlin 1.4+
@@ -61,14 +61,14 @@ This is what you need to run the AI Video Editor SDK
 
 [Please see all used dependencies](mddocs/all_dependencies.md)
 
-## SDK size  
+## SDK size
 
 If you want to use the SDK for a short video app like TikTok, the [Face AR module](https://www.banuba.com/facear-sdk/face-filters) would be useful for you, as it allows you to add masks and other AR effects. If you just need the video editing-related features, the SDK can work on its own.
 
 | Options | Mb      | Note |
 | -------- | --------- | ----- |
 | :white_check_mark: Face AR SDK  | 50.5 | AR effect sizes are not included. AR effect takes 1-3 MB in average.
-| :x: Face AR SDK | 21.5  | no AR effects  |  
+| :x: Face AR SDK | 21.5  | no AR effects  |
 
 If you choose to use the Face AR SDK, you can either include the filters/effects in your app or pull them from the AR cloud to save space. More on that later on this page.
 
@@ -83,17 +83,27 @@ If you choose to use the Face AR SDK, you can either include the filters/effects
 | 1x(Default)     | 1200            | 2000            | 4000           | 6400             |
 | 0.5x            | 900             | 1500            | 3000           | 4800             |
 | 2x              | 1800            | 3000            | 6000           | 9600             |
-| 3x              | 2400            | 4000            | 8000           | 12800            |  
+| 3x              | 2400            | 4000            | 8000           | 12800            |
 
-## Connecting with AR cloud  
+## Export video quality params
+Video Editor SDK classifies every device by its performance capabilities and uses the most suitable quality params for the exported video.
+
+Nevertheless it is possible to customize it with `ExportParamsProvider` interface. Just put a required video quality into `ExportManager.Params.Builder` constructor. Check out an [**example**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportParamsProvider.kt), where 3 videos are exported: the first and the second with the most suitable quality params (defined by `sizeProvider.provideOptimalExportVideoSize()` method) and the third with 360p quality (defined by using an SDK constant `VideoResolution.VGA360`).
+
+See the **default bitrate (kb/s)** for exported video (without audio) in the table below:
+| Recording speed | 360p(360 x 640) | 480p(480 x 854) | HD(720 x 1280) | FHD(1080 x 1920) |
+| --------------- | --------------- | --------------- | -------------- | ---------------- |
+1x (Default)| 1200|2000|4000|6400
+
+## Connecting with AR cloud
 
 To decrease the app size, you can connect with our servers and pull AR filters from there. The effects will be downloaded whenever a user needs them. This is how you integrate the AR cloud.
 
-## Free Trial  
+## Free Trial
 
 You should start with getting a trial token. It will grant you **14 days** to freely play around with the AI Video Editor SDK and test its entire functionality the way you see fit.
 
-There is nothing complicated about it - [contact us](https://www.banuba.com/video-editor-sdk#form) or send an email to sales@banuba.com and we will send it to you. We can also send you a sample app so you can see how it works “under the hood”.   
+There is nothing complicated about it - [contact us](https://www.banuba.com/video-editor-sdk#form) or send an email to sales@banuba.com and we will send it to you. We can also send you a sample app so you can see how it works “under the hood”.
 
 ## Token 
 We offer а free 14-days trial for you could thoroughly test and assess Video Editor SDK functionality in your app. To get access to your trial, please, get in touch with us by [filling a form](https://www.banuba.com/video-editor-sdk) on our website. Our sales managers will send you the trial token.
@@ -124,7 +134,7 @@ GitHub packages are set up for trial.
 ### Add dependencies
 Please, specify a list of dependencies as in [app/build.gradle](app/build.gradle#L38) file to integrate Banuba Video Editor SDK.
 
-### Add Activity  
+### Add Activity
 To manage the main screens - camera, gallery, trimmer, editor, and export - you need to add the VideoCreationActivity to [AndroidManifest.xml](app/src/main/AndroidManifest.xml#L21). Each screen is implemented as a [Fragment](https://developer.android.com/guide/fragments).
 
 ``` xml
@@ -133,22 +143,22 @@ To manage the main screens - camera, gallery, trimmer, editor, and export - you 
     android:theme="@style/CustomIntegrationAppTheme"
     android:windowSoftInputMode="adjustResize"
     tools:replace="android:theme" />
-```  
+```
 
-Once it’s done, you’ll be able to launch the video editor.  
+Once it’s done, you’ll be able to launch the video editor.
 
 Note the [CustomIntegrationAppTheme](app/src/main/res/values/themes.xml#L14) line in the code. Use this theme for changing icons, colors, and other screen elements to customize the app.
 
 ### Add config files  
 There are several files in the video editor SDK that allow you to modify its parameters. All of them go into the Android **assets** folder.
-- The [**camera config file**](mddocs/config_camera.md) lets you change the min/max duration of the video, turn the flashlight on and off, etc. 
+- The [**camera config file**](mddocs/config_camera.md) lets you change the min/max duration of the video, turn the flashlight on and off, etc.
 - [music_editor.json](app/src/main/assets/music_editor.json) allows you to change the audio editor screen, e.g. the number of timelines or tracks allowed.
 - [object_editor.json](app/src/main/assets/object_editor.json) contains properties that you can customize on the editor screen.
 - [videoeditor.json](app/src/main/assets/videoeditor.json) lets you modify the editor, trimmer, and gallery screens. Note: please keep in mind that *minVideoDuration* and *maxVideoDuration* in this and [camera.json](app/src/main/assets/camera.json) should be the same.
 
-### Configure DI 
-You can override the behavior of the video editor in your app with DI libraries and tools (we use [Koin](https://insert-koin.io/), for example).  
-First, you need to create your own implementation of FlowEditorModule. 
+### Configure DI
+You can override the behavior of the video editor in your app with DI libraries and tools (we use [Koin](https://insert-koin.io/), for example).
+First, you need to create your own implementation of FlowEditorModule.
 ``` kotlin
 class VideoEditorKoinModule : FlowEditorModule() {
 
@@ -208,9 +218,9 @@ And also remove dependency ```com.banuba.sdk:effect-player-adapter``` from [app/
 ### Configure export flow  
 The video editor SDK exports recordings as .mp4 files. There are many ways you can customize this flow to better integrate it into your app.
 
-To change export output, start with the ```ExportParamsProvider``` interface. It contains one method - ```provideExportParams()``` that returns ```List<ExportManager.Params>```. Each item on this list relates to one of the videos in the output and their configuration. See the example [here](app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportParamsProvider.kt).  
+To change export output, start with the ```ExportParamsProvider``` interface. It contains one method - ```provideExportParams()``` that returns ```List<ExportManager.Params>```. Each item on this list relates to one of the videos in the output and their configuration. See the example [here](app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportParamsProvider.kt).
 
-The end result would be four files:  
+The end result would be four files:
 
 - Optimized video file (resolution will be calculated automatically);
 - Same file as above but without a watermark;
@@ -220,12 +230,12 @@ By default, they are placed in the "export" directory of external storage. To ch
 
 Should you choose to export files in the background, you’d do well to change ```ExportNotificationManager```. It lets you change the notifications for any export scenario (started, finished successfully, and failed).
 
-### Configure watermark  
+### Configure watermark
 To use a watermark, add the ``` WatermarkProvider``` interface to your app. The image goes into the getWatermarkBitmap method. Once you’re done, rearrange the dependency watermarkProvider in [DI](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#70). See the [example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationAppWatermarkProvider.kt) of adding a watermark here.
 
-### Configure audio content  
+### Configure audio content
 
-Banuba Video Editor SDK can trim audio tracks, merge them, and apply them to a video. **It doesn’t include music or sounds**, so adding them is on you. However, the SDK can be integrated with [Mubert](https://mubert.com/). 
+Banuba Video Editor SDK can trim audio tracks, merge them, and apply them to a video. **It doesn’t include music or sounds**, so adding them is on you. However, the SDK can be integrated with [Mubert](https://mubert.com/).
 
 Adding audio content is simple. See this [step-by-step guide](mddocs/audio_content.md) guide for code examples.
 
@@ -239,7 +249,7 @@ The video editor is able to download AR effects from Banuba server to provide mo
 
 Please check out [step-by-step guide](mddocs/ar_cloud.md) to configure AR Cloud in the SDK.
 
-### Configure stickers content  
+### Configure stickers content
 
 The stickers in the Banuba Video Editor SDK are GIFs. Adding them is as simple as adding your personal [**Giphy API**](https://developers.giphy.com/docs/api/) into the stickersApiKey parameter in [videoeditor.json](app/src/main/assets/videoeditor.json) file.
 
@@ -250,7 +260,7 @@ Same for [Time effects](app/src/main/java/com/banuba/example/integrationapp/vide
 
 Finally, override the dependency [editorEffects](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#74) and choose the effects you wannt to use.
 
-### Configure the record button  
+### Configure the record button
 
 You can change the look of the button and the animation on tap. This is how it’s done:
 
@@ -260,9 +270,9 @@ You can change the look of the button and the animation on tap. This is how it�
 
 3. Implement ```CameraRecordingAnimationProvider``` in the [DI](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#140).
 
-### Configure camera timer  
+### Configure camera timer
 
-This will allow your users to take pictures and videos after a delay. The timer is managed by the ```CameraTimerStateProvider``` interface. Every delay is represented by the TimerEntry object: 
+This will allow your users to take pictures and videos after a delay. The timer is managed by the ```CameraTimerStateProvider``` interface. Every delay is represented by the TimerEntry object:
 
 ```kotlin
 data class TimerEntry(
@@ -273,7 +283,7 @@ data class TimerEntry(
 Besides the delay itself, you can customize the icon for it. See the example [here](app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationTimerStateProvider.kt).
 
 ### Configure screens  
-You can use the Android themes and styles to change the screens in the mobile video editor SDK. You can also change the language and text. 
+You can use the Android themes and styles to change the screens in the mobile video editor SDK. You can also change the language and text.
 
 There are 8 screens in the SDK:
 
