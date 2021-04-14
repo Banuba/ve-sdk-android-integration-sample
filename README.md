@@ -88,12 +88,12 @@ If you choose to use the Face AR SDK, you can either include the filters/effects
 ## Export video quality params
 Video Editor SDK classifies every device by its performance capabilities and uses the most suitable quality params for the exported video.
 
-Nevertheless it is possible to customize it with `ExportParamsProvider` interface. Just put a required video quality into `ExportManager.Params.Builder` constructor. Check out an [**example**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportParamsProvider.kt), where 3 videos are exported: the first and the second with the most suitable quality params (defined by `sizeProvider.provideOptimalExportVideoSize()` method) and the third with 360p quality (defined by using an SDK constant `VideoResolution.VGA360`).
+Nevertheless it is possible to customize it with `ExportParamsProvider` interface. Just put a required video quality into `ExportManager.Params.Builder` constructor. Check out an [**example**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportParamsProvider.kt), where multiple video files are exported: the first and the second with the most suitable quality params (defined by `sizeProvider.provideOptimalExportVideoSize()` method) and the third with 360p quality (defined by using an SDK constant `VideoResolution.VGA360`).
 
 See the **default bitrate (kb/s)** for exported video (without audio) in the table below:
-| Recording speed | 360p(360 x 640) | 480p(480 x 854) | HD(720 x 1280) | FHD(1080 x 1920) |
-| --------------- | --------------- | --------------- | -------------- | ---------------- |
-1x (Default)| 1200|2000|4000|6400
+| 360p(360 x 640) | 480p(480 x 854) | HD(720 x 1280) | FHD(1080 x 1920) |
+| --------------- | --------------- | -------------- | ---------------- |
+|             1200|             2000|            4000|              6400|
 
 ## Connecting with AR cloud  
 
