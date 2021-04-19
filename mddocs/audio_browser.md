@@ -10,33 +10,39 @@ The module supports integration with [Mubert](https://mubert.com/) API.
 
 ## Implementation
 
-### Step 1
+### Step 0
 
-Android
-
-Add a dependency into your gradle file containing other VE SDK dependencies and setup its version (the latest is 1.0.14):  
+Before starting integration make sure that `camera.json` file has a parameter:
 
 ```kotlin
-implementation "com.banuba.sdk:ve-audio-browser-sdk:1.0.14"
+"supportsExternalMusic": true
+```
+
+And `videoeditor.json` file has a parameter:
+
+```kotlin
+"supportsMusicMixer": true
+```
+
+### Step 1
+
+Add a dependency into your gradle file containing other VE SDK dependencies and setup its version (the latest is 1.0.15):
+
+```kotlin
+implementation "com.banuba.sdk:ve-audio-browser-sdk:1.0.15"
 ```
 
 ### Step 2
-
-Android
 
 Add the Audio Browser Koin module to the video editor module. The video editor Koin module should be configured according to **[Configuring DI](https://github.com/Banuba/ve-sdk-android-integration-sample#configure-di)** guide.
 
 ```kotlin
 startKoin {
     androidContext(this@IntegrationApp)        
-    modules(
-      AudioBrowserKoinModule().module,
-      VideoEditorKoinModule().module
-    )
+    modules(VideoEditorKoinModule().module,
+						AudioBrowserKoinModule().module)
 }
 ```
-
-**NOTE: the AudioBrowserKoinModule always should be placed before the main SDK module to be able to override default audio content provider implementation within the main module.**
 
 Within the main SDK module (`VideoEditorKoinModule`) override `musicTrackProvider` to use audio browser as an audio content provider:
 
@@ -49,8 +55,6 @@ override val musicTrackProvider: BeanDefinition<ContentFeatureProvider<TrackData
 
 ### Step 3
 
-Android
-
 There are bulk of **theme attributes** that should be added to the main **Video Editor SDK theme** to setup Audio Browser appearance:
 
 ```xml
@@ -60,12 +64,8 @@ There are bulk of **theme attributes** that should be added to the main **Video 
 - audioBrowserTrackDurationStyle
 - audioBrowserTrackApplyBtnStyle
 - audioBrowserTrackErrorImageStyle
-- audioBrowserTrackDownloadBtnStyle
 - audioBrowserTrackPlaybackBtnStyle
 - audioBrowserTrackSeekBarStyle
-- audioBrowserTrackItemDividerDrawable
-- audioBrowserCategoryItemDividerDrawable
-- audioBrowserSubCategoryItemDividerDrawable
 - audioBrowserDownloadAnimationViewStyle
 - audioBrowserDownloadCancelViewStyle
 - audioBrowserCategoryItemStyle
@@ -73,7 +73,6 @@ There are bulk of **theme attributes** that should be added to the main **Video 
 - audioBrowserCategoryNameStyle
 - audioBrowserSubCategoryItemStyle
 - audioBrowserSubCategoryImageStyle
-- audioBrowserSubCategoryNameStyle
 - audioBrowserErrorViewStyle
 - audioBrowserRecyclerViewStyle
 - audioBrowserSearchViewStyle
@@ -86,7 +85,7 @@ There are bulk of **theme attributes** that should be added to the main **Video 
 - audioBrowserCameraTrackResetBtnStyle
 ```
 
-**Every** **attribute has an appropriate style** (with the name similar to an attribute) that can be used as a default. For example, the `AudioBrowserBottomSheetStyle` can be placed under `audioBrowserBottomSheetStyle` theme attribute. 
+**Almost all** **attributes have an appropriate style** (with the name similar to an attribute) that can be used as a default (exceptions are shown below). For example, the `AudioBrowserBottomSheetStyle` can be placed under `audioBrowserBottomSheetStyle` theme attribute. 
 
 ```xml
 <style name="YourCustomVideoCreationTheme" parent="VideoCreationTheme">
@@ -102,9 +101,18 @@ All these styles **are recommended** to be used as parents in case of UI customi
 <style name="YourCustomAudioBrowserBottomSheetStyle" parent="AudioBrowserBottomSheetStyle" />
 ```
 
-### Step 4 (Optional)
+**Exceptions** of this approach are following styles:
 
-Android
+```kotlin
+- audioBrowserSubCategoryNameStyle (there is no an appropriate default style)
+- audioBrowserTrackItemDividerDrawable (here drawable resource is required)
+- audioBrowserCategoryItemDividerDrawable (here drawable resource is required)
+- audioBrowserSubCategoryItemDividerDrawable (here drawable resource is required)
+```
+
+**Check out an example of audio browser styles customization in our [sample project](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L262).**
+
+### Step 4 (Optional)
 
 Audio browser allows to use **external audio sources** that provide network API. In this case the `TrackLoader` interface named `"remoteTrackLoader"` should be overridden:
 
@@ -114,19 +122,19 @@ val customRemoteTrackLoader: BeanDefinition<TrackLoader> = single(named("remoteT
         }
 ```
 
+To map networking results into audio browser entities a convenient parameterized interface `com.banuba.sdk.audiobrowser.domain.Mapper` can be used.
+
 **NOTE: By using custom implementation you should create and provide through DI all mappers and other utility classes (eg. API services) on your own.**
 
 ## [Mubert](https://mubert.com/) integration (Optional)
 
 Audio Browser supports integration with [Mubert](https://mubert.com/) API.
 
-If you decide to go with Mubert  just let our sale rep know. He will help you to get with Mubert team and generate the PAT key. This key should be put into the video editor, to get Mubert work. 
+Banuba team will provide you a specific Mubert API key that you need to put in your project. 
 
 Please follow below steps to configure it in your application.
 
 ### Step 1
-
-Android
 
 Put provided Mubert API Key in `strings.xml`
 
@@ -137,8 +145,6 @@ Put provided Mubert API Key in `strings.xml`
 NOTE:  name "mubert_api_key"  is mandatory.
 
 ### Step 2
-
-Android
 
 Create a **mubert_api.json** file with your specific requirements for Mubert service. Place  **mubert_api.json** file into `assets` folder of your app.
 
