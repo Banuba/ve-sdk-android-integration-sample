@@ -12,13 +12,13 @@ The module supports integration with [Mubert](https://mubert.com/) API.
 
 ### Step 0
 
-Before starting integration make sure that `camera.json` file has a parameter:
+Before starting integration make sure that [**camera.json**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/camera.json) file has a parameter:
 
 ```kotlin
 "supportsExternalMusic": true
 ```
 
-And `videoeditor.json` file has a parameter:
+And [**videoeditor.json**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/videoeditor.json) file has a parameter:
 
 ```kotlin
 "supportsMusicMixer": true
@@ -130,7 +130,7 @@ To map networking results into audio browser entities a convenient parameterized
 
 Audio Browser supports integration with [Mubert](https://mubert.com/) API.
 
-Banuba team will provide you a specific Mubert API key that you need to put in your project. 
+If you decide to go with Mubert  just let our sale rep know. He will help you to get with Mubert team and generate the PAT key. This key should be put into the video editor, to get Mubert work.
 
 Please follow below steps to configure it in your application.
 
