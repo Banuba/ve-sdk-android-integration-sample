@@ -101,10 +101,10 @@ All these styles **are recommended** to be used as parents in case of UI customi
 <style name="YourCustomAudioBrowserBottomSheetStyle" parent="AudioBrowserBottomSheetStyle" />
 ```
 
-**Exceptions** of this approach are following styles:
+Additional attributes that have not appropriate styles are:
 
 ```kotlin
-- audioBrowserSubCategoryNameStyle (there is no an appropriate default style)
+- audioBrowserSubCategoryNameStyle
 - audioBrowserTrackItemDividerDrawable (here drawable resource is required)
 - audioBrowserCategoryItemDividerDrawable (here drawable resource is required)
 - audioBrowserSubCategoryItemDividerDrawable (here drawable resource is required)
