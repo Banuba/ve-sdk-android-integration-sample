@@ -40,7 +40,7 @@ Add the Audio Browser Koin module to the video editor module. The video editor K
 startKoin {
     androidContext(this@IntegrationApp)        
     modules(VideoEditorKoinModule().module,
-						AudioBrowserKoinModule().module)
+            AudioBrowserKoinModule().module)
 }
 ```
 
@@ -85,7 +85,7 @@ There are bulk of **theme attributes** that should be added to the main **Video 
 - audioBrowserCameraTrackResetBtnStyle
 ```
 
-**Almost all** **attributes have an appropriate style** (with the name similar to an attribute) that can be used as a default (exceptions are shown below). For example, the `AudioBrowserBottomSheetStyle` can be placed under `audioBrowserBottomSheetStyle` theme attribute. 
+**Almost all** **attributes have an appropriate style** (with the name similar to an attribute) that can be used as a default style implementation. For example, the `AudioBrowserBottomSheetStyle` can be placed under `audioBrowserBottomSheetStyle` theme attribute. 
 
 ```xml
 <style name="YourCustomVideoCreationTheme" parent="VideoCreationTheme">
@@ -101,13 +101,13 @@ All these styles **are recommended** to be used as parents in case of UI customi
 <style name="YourCustomAudioBrowserBottomSheetStyle" parent="AudioBrowserBottomSheetStyle" />
 ```
 
-Additional attributes that have not appropriate styles are:
+Additional attributes that do not have appropriate styles are:
 
-```kotlin
+```
 - audioBrowserSubCategoryNameStyle
-- audioBrowserTrackItemDividerDrawable (here drawable resource is required)
-- audioBrowserCategoryItemDividerDrawable (here drawable resource is required)
-- audioBrowserSubCategoryItemDividerDrawable (here drawable resource is required)
+- audioBrowserTrackItemDividerDrawable (drawable is required)
+- audioBrowserCategoryItemDividerDrawable (drawable is required)
+- audioBrowserSubCategoryItemDividerDrawable (drawable is required)
 ```
 
 **Check out an example of audio browser styles customization in our [sample project](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L262).**
