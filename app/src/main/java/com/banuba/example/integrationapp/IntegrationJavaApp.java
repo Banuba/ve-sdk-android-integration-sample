@@ -11,14 +11,14 @@ import com.banuba.sdk.token.storage.TokenStorageKoinModule;
 import org.koin.core.context.GlobalContext;
 
 import static org.koin.android.ext.koin.KoinExtKt.androidContext;
-import static org.koin.core.context.ContextFunctionsKt.startKoin;
+import static org.koin.core.context.GlobalContextExtKt.startKoin;
 
 public class IntegrationJavaApp extends Application {
 
     @Override
     public void onCreate() {
         super.onCreate();
-        startKoin(new GlobalContext(), koinApplication -> {
+        startKoin(GlobalContext.INSTANCE, koinApplication -> {
             androidContext(koinApplication, this);
             koinApplication.modules(
                     new VideoEditorKoinModule().getModule(),
