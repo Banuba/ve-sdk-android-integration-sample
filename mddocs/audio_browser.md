@@ -117,7 +117,7 @@ Additional attributes that have not appropriate styles are:
 Audio browser allows to use **external audio sources** that provide network API. In this case the `TrackLoader` interface named `"remoteTrackLoader"` should be overridden:
 
 ```kotlin
-val customRemoteTrackLoader: BeanDefinition<TrackLoader> = single(named("remoteTrackLoader")) {
+val customRemoteTrackLoader: BeanDefinition<TrackLoader> = single(named("remoteTrackLoader"), override = true) {
             CustomRemoteTrackLoader()
         }
 ```
