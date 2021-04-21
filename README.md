@@ -303,3 +303,7 @@ Please visit our [FAQ page](mddocs/faq.md) to find more technical answers to you
 ## Third party libraries
 
 [View](mddocs/3rd_party_licences.md) information about third party libraries
+
+## Migration guides
+
+[1.0.15.1](mddocs/releases/1.0.15.1.md)
