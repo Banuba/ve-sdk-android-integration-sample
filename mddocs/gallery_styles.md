@@ -7,13 +7,19 @@
 
     ![img](screenshots/gallery0.png)
 
+- [galleryBackButtonStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L87)
+
+    style for the button placed on the top left corner of the screen. This icon has **two states:** if some files are already selected in the gallery and if nothing is selected. Both states have different drawables that are configured into `VideoCreationTheme` [attributes](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L111):
+
+    - `gallery_icon_back` -  nothing is selected → **get back to the previous screen**
+    - `gallery_icon_cross` - some files are selected → **clear selection** 
+
+    ![img](screenshots/gallery3.png)
+
 - [galleryTitleTextStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L86)
 
     style for the gallery screen title (screen title equals to the selected media album)
 
-- [galleryBackButtonStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L87)
-
-    style for the button placed on the top left corner of the screen to return to the previous screen
 - [galleryNextButtonStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L88)
 
     style for the button that appears during selection to proceed with selected resources
