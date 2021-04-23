@@ -15,7 +15,6 @@
 | androidx.lifecycle:lifecycle-service| 2.2.0 |
 | androidx.lifecycle:lifecycle-viewmodel-ktx| 2.2.0 |
 | androidx.recyclerview:recyclerview | 1.1.0 |
-| androidx.recyclerview:recyclerview-selection | 1.1.0 |
 | androidx.room:room-compiler | 2.2.5 |
 | androidx.room:room-ktx | 2.2.5 |
 | androidx.room:room-runtime | 2.2.5 |
