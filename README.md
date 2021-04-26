@@ -38,6 +38,7 @@ Banuba [Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to
     + [Add post-processing effects](#Add-post-processing-effects)
     + [Configure the record button](#Configure-the-record-button)
     + [Configure camera timer](#Configure-camera-timer)
+    + [Configure Cover preview screen](#Configure-Cover-preview-screen)
     + [Configure screens](#Configure-screens)
 - [FAQ](#FAQ)
 - [Third party libraries](#Third-party-libraries)
@@ -281,6 +282,22 @@ data class TimerEntry(
 )
 ```
 Besides the delay itself, you can customize the icon for it. See the example [here](app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationTimerStateProvider.kt).
+
+### Configure Cover preview screen
+If you want to manage Cover preview screen you need to override CoverProvider property in [DI](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt).
+``` kotlin
+override val coverProvider: BeanDefinition<CoverProvider> = single(override = true) {
+    CoverProvider.EXTENDED
+}
+```
+There are 3 modes:
+``` kotlin
+ enum class CoverProvider {
+    SIMPLE,     // enable cover screen with simple UI
+    EXTENDED,   // enable cover screen with extended UI
+    NONE        // disable cover screen
+}
+```
 
 ### Configure screens  
 You can use the Android themes and styles to change the screens in the mobile video editor SDK. You can also change the language and text. 
