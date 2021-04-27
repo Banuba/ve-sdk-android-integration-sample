@@ -19,10 +19,10 @@ class IntegrationKotlinApp : Application() {
             // pass the customized Koin module that implements required dependencies.
             modules(
                 ArCloudKoinModule().module,
+                TokenStorageKoinModule().module,
                 VideoEditorKoinModule().module,
                 AudioBrowserKoinModule().module, // use this module only if you bought it
-                BanubaEffectPlayerKoinModule().module,
-                TokenStorageKoinModule().module
+                BanubaEffectPlayerKoinModule().module
             )
         }
     }

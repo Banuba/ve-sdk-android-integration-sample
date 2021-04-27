@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+    id 'com.google.gms.google-services'
     id 'kotlin-android'
     id 'kotlin-android-extensions'
 }
@@ -34,10 +35,14 @@ android {
 }
 
 dependencies {
+    def banubaSdkVersion = '1.0.15.1'
+    def firebaseDatabaseKtxVersion = '19.7.0'
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
+    implementation "com.google.firebase:firebase-database-ktx:$firebaseDatabaseKtxVersion"
+
     // Banuba Video Editor SDK dependencies
-    def banubaSdkVersion = '1.0.15.1'
     implementation "com.banuba.sdk:camera-sdk:${banubaSdkVersion}"
     implementation "com.banuba.sdk:camera-ui-sdk:${banubaSdkVersion}"
     implementation "com.banuba.sdk:core-sdk:${banubaSdkVersion}"
