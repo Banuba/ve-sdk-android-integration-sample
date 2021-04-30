@@ -219,7 +219,7 @@ And also remove dependency ```com.banuba.sdk:effect-player-adapter``` from [app/
 ### Configure export flow  
 The video editor SDK exports recordings as .mp4 files. There are many ways you can customize this flow to better integrate it into your app.
 
-To change export output, start with the ```ExportParamsProvider``` interface. It contains one method - ```provideExportParams()``` that returns ```List<ExportManager.Params>```. Each item on this list relates to one of the videos in the output and their configuration. See the example [here](app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportParamsProvider.kt).  
+To change export output, start with the ```ExportParamsProvider``` interface. It contains one method - ```provideExportParams()``` that returns ```List<ExportManager.Params>```. Each item on this list relates to one of the videos in the output and their configuration. Please check out [guide](mddocs/configure_export_params.md) to configure ExportParams. See the example [here](app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportParamsProvider.kt).
 
 The end result would be four files:  
 
