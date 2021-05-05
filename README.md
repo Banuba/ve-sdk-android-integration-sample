@@ -254,6 +254,8 @@ Please check out [step-by-step guide](mddocs/ar_cloud.md) to configure AR Cloud 
 
 The stickers in the Banuba Video Editor SDK are GIFs. Adding them is as simple as adding your personal [**Giphy API**](https://developers.giphy.com/docs/api/) into the stickersApiKey parameter in [videoeditor.json](app/src/main/assets/videoeditor.json) file.
 
+If you don't want to use Giphy, check out [guide](mddocs/sticker_loader.md) to set up your sticker loader.
+
 ### Add post-processing effects
 There are several effects in Banuba Video Editor SDK: visual, time and mask. To add a visual effect you need to add a class followed by type, name and the icon of the effect. [Example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/data/VisualEffects.kt).
 
