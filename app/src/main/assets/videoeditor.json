@@ -18,7 +18,8 @@
       "interest": false,
       "poll": false,
       "linkOnVideo": false
-    }
+    },
+    "supportsTrimRecordedVideo": true
   },
   "trimmer": {
     "minSourceVideoDuration": 2000,

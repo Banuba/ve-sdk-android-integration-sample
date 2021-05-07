@@ -1,7 +1,7 @@
 # FAQ  
 These are the answers to the most popular questions we are asked about the Banuba AI Video Editor SDK  
 
-### 1. How do I start/stop recording with a tap? 
+### **1. How do I start/stop recording with a tap?** 
 By default, the user must hold the “record” button to film and release it to stop filming.   
 
 To change that, simply set the [takePhotoOnTap](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/camera.json#4) property to **false**.  
@@ -9,14 +9,14 @@ To change that, simply set the [takePhotoOnTap](https://github.com/Banuba/ve-sdk
  "takePhotoOnTap":false
 ```
 
-### 2. How do I add an AR mask to the app without using the AR cloud?  
+### **2. How do I add an AR mask to the app without using the AR cloud?**  
 If you don’t want to pull the masks from the backend, you can include them in the app itself. 
 
 To do so, name the folder with the mask files the way you want to call the mask, and place it into **assets/bnb-resources/effects** directory in the module containing the SDK (Example).
 
 Make sure that you include the **preview.png** file in the mask folder. It serves as an icon for the mask within the app. 
 
-### 3. I want to turn off animations from slideshow
+### **3. I want to turn off animations from slideshow**
 
 Slideshow is created either by selecting pictures from gallery or by making a photo on Video Editor camera screen.
 
@@ -32,7 +32,7 @@ Here ```animate``` parameter is applicable to the slideshow created by selecting
 
 To turn off animations just **setup false for both fields**.
 
-### 4. I want to start VideoEditor with a preselected audio track
+### **4. I want to start VideoEditor with a preselected audio track**
 
 You should create an intent using the method **VideoCreationActivity.buildIntent()** where **audioTrackData** is preselected audio track.
 
@@ -56,13 +56,13 @@ data class TrackData(
 )
 ```
 
-### 5. How do I add LUTs to the app?
+### **5. How do I add LUTs to the app?**
 
 Color filters are located in the **assets/bnb-resources/luts** directory in the module with the SDK. To add your own, place the files in this folder and create a drawable resource that will be used as an icon for this particular LUT. The name of the drawable resource must be the same as the graphic file in the filter’s directory.
 
 For example, this is the [LUT](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/bnb-resources/luts/C1.png) file, and this is its [drawable resource]((https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/drawable/c1.png)).
 
-### 6. How do I change the order of LUTs?
+### **6. How do I change the order of LUTs?**
 
 By default, the filters are listed in alphabetical order. 
 
@@ -83,7 +83,7 @@ override val colorFilterOrderProvider: BeanDefinition<ColorFilterOrderProvider> 
     }
 ```
 
-### 7. I want to control visibility of debug info on camera and editor screens
+### **7. I want to control visibility of debug info on camera and editor screens**
 
 You can control visibility of camera config information and camera preview params(FPS, ISO). Change the following properties in [**camera.json**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/camera.json#L16) config file to control:
 ```json
@@ -96,7 +96,7 @@ You can control visibility of editor config. Change the following properties in 
  ```
 Set **false** to hide info, set **true** to show.
 
-### 8. I want to customize gallery icon
+### **8. I want to customize gallery icon**
 
 Gallery icon is represented by AppCompatImageView. Its style placed into `galleryImageViewStyle` attribute of the main theme ([**example**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L94)) 
 
@@ -112,4 +112,9 @@ Gallery icon is represented by AppCompatImageView. Its style placed into `galler
 
  **To setup custom drawable resource** instead of the last media file you have to put custom style into `galleryImageViewStyle` attribute of the main theme ([**example**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L94)) and set there `use_custom_image` to `true` and put your drawable as `android:src` attribute value
 
+### **9. How to enable trimming camera recording**
 
+To allow trimming camera recordings, just turn on this feature in [**videoeditor.json**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/videoeditor.json#L22) config file under "editor" section:
+```json
+    "supportsTrimRecordedVideo": true
+```
