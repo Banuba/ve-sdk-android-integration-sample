@@ -15,9 +15,9 @@ Banuba [Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to
 - [Requirements](#Requirements)
 - [Dependencies](#Dependencies)
 - [SDK size](#SDK-size)
+- [Starting a free trial](#Starting-a-free-trial)
 - [Supported media formats](#Supported-media-formats)
 - [Video quality params](#Video-quality-params)
-- [Free Trial](#Free-Trial)
 - [Connecting with AR cloud](#Connecting-with-AR-cloud)
 - [Token](#Token)
 - [What can you customize?](#What-can-you-customize?)
@@ -73,6 +73,12 @@ If you want to use the SDK for a short video app like TikTok, the [Face AR modul
 
 If you choose to use the Face AR SDK, you can either include the filters/effects in your app or pull them from the AR cloud to save space. More on that later on this page.
 
+## Starting a free trial
+
+You should start with getting a trial token. It will grant you **14 days** to freely play around with the AI Video Editor SDK and test its entire functionality the way you see fit.
+
+There is nothing complicated about it - [contact us](https://www.banuba.com/video-editor-sdk#form) or send an email to sales@banuba.com and we will send it to you. We can also send you a sample app so you can see how it works “under the hood”.
+
 ## Supported media formats
 | Audio      | Video      | Images      |
 | ---------- | ---------  | ----------- |
@@ -99,12 +105,6 @@ See the **default bitrate (kb/s)** for exported video (without audio) in the tab
 ## Connecting with AR cloud  
 
 To decrease the app size, you can connect with our servers and pull AR filters from there. The effects will be downloaded whenever a user needs them. This is how you integrate the AR cloud.
-
-## Free Trial  
-
-You should start with getting a trial token. It will grant you **14 days** to freely play around with the AI Video Editor SDK and test its entire functionality the way you see fit.
-
-There is nothing complicated about it - [contact us](https://www.banuba.com/video-editor-sdk#form) or send an email to sales@banuba.com and we will send it to you. We can also send you a sample app so you can see how it works “under the hood”.   
 
 ## Token 
 We offer а free 14-days trial for you could thoroughly test and assess Video Editor SDK functionality in your app. To get access to your trial, please, get in touch with us by [filling a form](https://www.banuba.com/video-editor-sdk) on our website. Our sales managers will send you the trial token.
