@@ -18,9 +18,11 @@ Banuba [Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to
 - [SDK size](#SDK-size)
 - [Starting a free trial](#Starting-a-free-trial)
 - [Supported media formats](#Supported-media-formats)
-- [Video quality params](#Video-quality-params)
-- [Connecting with AR cloud](#Connecting-with-AR-cloud)
+- [Camera recording video quality params](#Camera-recording-video-quality-params)
+- [Export video quality params](#Export-video-quality-params)
+- [Free Trial](#Free-Trial)
 - [Token](#Token)
+- [Connecting with AR cloud](#Connecting-with-AR-cloud)
 - [What can you customize?](#What-can-you-customize?)
 - [Getting Started](#Getting-Started)  
     + [GitHub packages](#GitHub-packages)
@@ -34,7 +36,6 @@ Banuba [Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to
     + [Configure watermark](#Configure-watermark)
     + [Configure audio content](#Configure-audio-content)
     + [Configure audio browser](#Configure-audio-browser)
-    + [Configure AR cloud](#Configure-AR-cloud)
     + [Configure stickers content](#Configure-stickers-content)
     + [Add post-processing effects](#Add-post-processing-effects)
     + [Configure the record button](#Configure-the-record-button)
@@ -103,14 +104,20 @@ See the **default bitrate (kb/s)** for exported video (without audio) in the tab
 | --------------- | --------------- | -------------- | ---------------- |
 |             1200|             2000|            4000|              6400|
 
-## Connecting with AR cloud  
+## Free Trial
 
-To decrease the app size, you can connect with our servers and pull AR filters from there. The effects will be downloaded whenever a user needs them. This is how you integrate the AR cloud.
+You should start with getting a trial token. It will grant you **14 days** to freely play around with the AI Video Editor SDK and test its entire functionality the way you see fit.
+
+There is nothing complicated about it - [contact us](https://www.banuba.com/video-editor-sdk#form) or send an email to sales@banuba.com and we will send it to you. We can also send you a sample app so you can see how it works “under the hood”.   
 
 ## Token 
 We offer а free 14-days trial for you could thoroughly test and assess Video Editor SDK functionality in your app. To get access to your trial, please, get in touch with us by [filling a form](https://www.banuba.com/video-editor-sdk) on our website. Our sales managers will send you the trial token.
 
 Video editor token should be put [here](app/src/main/res/values/strings.xml#L5)
+
+## Connecting with AR cloud
+
+To decrease the app size, you can connect with our servers and pull AR filters from there. The effects will be downloaded whenever a user needs them. Please check out [step-by-step guide](mddocs/ar_cloud.md) to configure AR Cloud in the SDK.
 
 
 ## What can you customize?
@@ -244,12 +251,6 @@ Adding audio content is simple. See this [step-by-step guide](mddocs/audio_conte
 ### Configure audio browser
 
 Check out [step-by-step guide](mddocs/audio_browser.md) to use audio browser in your app.
-
-### Configure AR cloud
-
-The video editor is able to download AR effects from Banuba server to provide more effects in video editor and save your app size .
-
-Please check out [step-by-step guide](mddocs/ar_cloud.md) to configure AR Cloud in the SDK.
 
 ### Configure stickers content  
 
