@@ -60,7 +60,7 @@ Info alerts are messages that are used to show information message to the user (
 
 ### **Confirmation alert**  
 
-Confirmation alerts are used in cases when some action from the user is required. They have two buttons representing different user experience flow. 
+Confirmation alerts are used when some action from the user is required. They have two buttons representing different user experience flow. 
 
 To customize this type of dialogs you should override following styles :
  - alertParentViewStyle - for the whole alert container
