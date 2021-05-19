@@ -122,3 +122,15 @@ Gallery icon is represented by AppCompatImageView. Its style placed into `galler
   }
  ```
 The rotation button appearance can be customized by `trimmerRotateButtonStyle` theme [**attribute**]((https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L131)) (more on trimmer screen customization [**here**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/mddocs/trimmer_styles.md)).
+
+### **10. How does video editor work when token expires?**
+
+[Token](https://github.com/Banuba/ve-sdk-android-integration-sample#token) provided by sales managers has an expiration term to protect Video Editor SDK from malicious access. When the token expires the following happens:
+ - video resolution will be lowered to 360p on camera, after trimmer and after export
+ - Banuba watermark is applied to every exported video
+
+ Also [FaceAR SDK](https://docs.banuba.com/face-ar-sdk/overview/token_management) you may expect the following actions if the token expires:
+ - on the first expired month a watermark with "Powered by Banuba" label will be added on the top of both recorded and exported videos
+ - after the first month the camera screen will be blurred and a full-screen watermark will be displayed
+
+ Please keep your licence up to date to avoid unwanted behavior.
