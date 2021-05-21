@@ -203,6 +203,13 @@ You can use Java in your Android project. In this case you can start Koin in thi
 ```
 Please, find the [full example](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/IntegrationJavaApp.java#17) of Java Application class.
 
+### Check SDK availability before opening
+
+The SDK is protected by the token so its presence is a vital part of Video Editor launch. To check if the SDK is ready to use you may invoke the following method:
+```kotlin
+VideoEditorSDK.isAvailable()
+``` 
+
 ### Disable Face AR SDK
 You can use Video Editor SDK without Face AR SDK. Please follow these changes to make it. 
  
