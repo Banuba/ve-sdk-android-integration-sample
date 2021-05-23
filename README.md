@@ -31,6 +31,7 @@ Banuba [Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to
     + [Add config files](#Add-config-files)
     + [Configure DI](#Configure-DI)
     + [Configure and start SDK in Android Java project](#Configure-and-start-SDK-in-Android-Java-project)
+    + [Check SDK availability before opening](#Check-SDK-availability-before-opening)
      + [Disable Face AR SDK](#Disable-Face-AR-SDK)
     + [Configure export flow](#Configure-export-flow)
     + [Configure watermark](#Configure-watermark)
