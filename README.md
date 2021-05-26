@@ -6,20 +6,23 @@
 Banuba [Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to quickly add short video functionality and possibly AR filters and effects into your mobile app. On this page, we will explain how to integrate it into an Android app.  
 
 <p align="center">
-<img src="mddocs/gif/camera_preview.gif" alt="Screenshot" width="31.6%" height="auto" class="docs-screenshot"/>&nbsp;
-<img src="mddocs/gif/audio_browser.gif" alt="Screenshot" width="31.6%" height="auto" class="docs-screenshot"/>&nbsp;
-<img src="mddocs/gif/editor_timeline.gif" alt="Screenshot" width="31.6%" height="auto" class="docs-screenshot"/>&nbsp;
+<img src="mddocs/gif/camera_preview.gif" alt="Screenshot" width="24%" height="auto" class="docs-screenshot"/>&nbsp;
+<img src="mddocs/gif/camera_pip.gif" alt="Screenshot" width="24%" height="auto" class="docs-screenshot"/>&nbsp;
+<img src="mddocs/gif/audio_browser.gif" alt="Screenshot" width="24%" height="auto" class="docs-screenshot"/>&nbsp;
+<img src="mddocs/gif/editor_timeline.gif" alt="Screenshot" width="24%" height="auto" class="docs-screenshot"/>&nbsp;
 </p>
 
 
 - [Requirements](#Requirements)
 - [Dependencies](#Dependencies)
 - [SDK size](#SDK-size)
+- [Starting a free trial](#Starting-a-free-trial)
 - [Supported media formats](#Supported-media-formats)
-- [Video quality params](#Video-quality-params)
+- [Camera recording video quality params](#Camera-recording-video-quality-params)
+- [Export video quality params](#Export-video-quality-params)
 - [Free Trial](#Free-Trial)
-- [Connecting with AR cloud](#Connecting-with-AR-cloud)
 - [Token](#Token)
+- [Connecting with AR cloud](#Connecting-with-AR-cloud)
 - [What can you customize?](#What-can-you-customize?)
 - [Getting Started](#Getting-Started)  
     + [GitHub packages](#GitHub-packages)
@@ -28,12 +31,12 @@ Banuba [Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to
     + [Add config files](#Add-config-files)
     + [Configure DI](#Configure-DI)
     + [Configure and start SDK in Android Java project](#Configure-and-start-SDK-in-Android-Java-project)
+    + [Check SDK availability before opening](#Check-SDK-availability-before-opening)
      + [Disable Face AR SDK](#Disable-Face-AR-SDK)
     + [Configure export flow](#Configure-export-flow)
     + [Configure watermark](#Configure-watermark)
     + [Configure audio content](#Configure-audio-content)
     + [Configure audio browser](#Configure-audio-browser)
-    + [Configure AR cloud](#Configure-AR-cloud)
     + [Configure stickers content](#Configure-stickers-content)
     + [Add post-processing effects](#Add-post-processing-effects)
     + [Configure the record button](#Configure-the-record-button)
@@ -71,7 +74,13 @@ If you want to use the SDK for a short video app like TikTok, the [Face AR modul
 | :white_check_mark: Face AR SDK  | 50.5 | AR effect sizes are not included. AR effect takes 1-3 MB in average.
 | :x: Face AR SDK | 21.5  | no AR effects  |  
 
-If you choose to use the Face AR SDK, you can either include the filters/effects in your app or pull them from the AR cloud to save space. More on that later on this page.
+You can either include the filters in the app or have users download them from the [AR cloud](#Configure-AR-cloud) to decrease the app size.
+
+## Starting a free trial
+
+You should start with getting a trial token. It will grant you **14 days** to freely play around with the AI Video Editor SDK and test its entire functionality the way you see fit.
+
+There is nothing complicated about it - [contact us](https://www.banuba.com/video-editor-sdk#form) or send an email to sales@banuba.com and we will send it to you. We can also send you a sample app so you can see how it works “under the hood”.
 
 ## Supported media formats
 | Audio      | Video      | Images      |
@@ -96,11 +105,7 @@ See the **default bitrate (kb/s)** for exported video (without audio) in the tab
 | --------------- | --------------- | -------------- | ---------------- |
 |             1200|             2000|            4000|              6400|
 
-## Connecting with AR cloud  
-
-To decrease the app size, you can connect with our servers and pull AR filters from there. The effects will be downloaded whenever a user needs them. This is how you integrate the AR cloud.
-
-## Free Trial  
+## Free Trial
 
 You should start with getting a trial token. It will grant you **14 days** to freely play around with the AI Video Editor SDK and test its entire functionality the way you see fit.
 
@@ -110,6 +115,10 @@ There is nothing complicated about it - [contact us](https://www.banuba.com/vide
 We offer а free 14-days trial for you could thoroughly test and assess Video Editor SDK functionality in your app. To get access to your trial, please, get in touch with us by [filling a form](https://www.banuba.com/video-editor-sdk) on our website. Our sales managers will send you the trial token.
 
 Video editor token should be put [here](app/src/main/res/values/strings.xml#L5)
+
+## Connecting with AR cloud
+
+To decrease the app size, you can connect with our servers and pull AR filters from there. The effects will be downloaded whenever a user needs them. Please check out [step-by-step guide](mddocs/ar_cloud.md) to configure AR Cloud in the SDK.
 
 
 ## What can you customize?
@@ -195,6 +204,13 @@ You can use Java in your Android project. In this case you can start Koin in thi
 ```
 Please, find the [full example](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/IntegrationJavaApp.java#17) of Java Application class.
 
+### Check SDK availability before opening
+
+The SDK is protected by the token so its presence is a vital part of Video Editor launch. To check if the SDK is ready to use you may invoke the following method:
+```kotlin
+VideoEditorSDK.isAvailable()
+``` 
+
 ### Disable Face AR SDK
 You can use Video Editor SDK without Face AR SDK. Please follow these changes to make it. 
  
@@ -243,12 +259,6 @@ Adding audio content is simple. See this [step-by-step guide](mddocs/audio_conte
 ### Configure audio browser
 
 Check out [step-by-step guide](mddocs/audio_browser.md) to use audio browser in your app.
-
-### Configure AR cloud
-
-The video editor is able to download AR effects from Banuba server to provide more effects in video editor and save your app size .
-
-Please check out [step-by-step guide](mddocs/ar_cloud.md) to configure AR Cloud in the SDK.
 
 ### Configure stickers content  
 

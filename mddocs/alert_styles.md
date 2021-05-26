@@ -4,8 +4,8 @@
 There are following types of user notification used in Banuba Video Editor SDK:
 - toast
 - wait dialog (represents long running tasks)
-- info alerts
-- alert with control buttons
+- info alert
+- confirmation alert
 
 All of them are customized by theme attributes described in this file.
 
@@ -58,27 +58,22 @@ Info alerts are messages that are used to show information message to the user (
 | permission_dialog_allow | Allow | button title for simple confirmation from the user
 | permission_dialog_settings | Settings | button title for redirection to application settings (it is used in case the user did not granted permissions but still tries to make something unavailable without permission)
 
-### **Alert with control buttons**  
+### **Confirmation alert**  
 
-You can customize the whole appearance of these dialog or to change just text appearance of control buttons.
+Confirmation alerts are used when some action from the user is required. They have two buttons representing different user experience flow. 
 
-To customize just **text appearance of control buttons** you should override following styles :
-- for camera screen - `CameraDialogNormalButton`, `CameraDialogPositiveButton`, `CameraDialogNegativeButton`
-- for other screens - `EditorNormalButton`, `EditorDialogPositiveButton`, `EditorDialogNegativeButton`
-
-*(check out relations between styles and buttons on the screenshot below)*
-
-To customize **the whole apperance** of alert dialogs with control buttons you should override `fragment_dialog_alert.xml` file in layout resource folder. For correct implemetation all views' ids should be the same as in the original file:
-
-- `alertTitleText` - for dialog description
-- `alertPositiveButton` - for the button meaning positive answer from the user (right button)
-- `alertNegativeButton` - for the button meaning negative answer from the user (left button)
-
-After overriding layout file you can use your any of your own styles to customize these views.
+To customize this type of dialogs you should override following styles :
+ - alertParentViewStyle - for the whole alert container
+ - alertTitleTextStyle - for the alert title (how to add an icon to every alert is described below)
+ - alertDescriptionTextStyle - for the optional alert description (now it is used only for Audio Browser feature, so if you does not have it just do not override this attribute)
+ - alertPositiveBtnStyle - for the right button that represents user's confirmation
+ - alertNegativeBtnStyle - for the left button representing user's cancellation
 
 ![img](screenshots/alert4.png)
 
-Every alert dialog has its own type within SDK. It allows to customize descriptions and text over the positive and negative buttons. To do so you need to override the following string resources (they named according to the type of alert where they are used):
+To customize **the whole appearance** of confirmation alerts you should override `ConfirmationDialogProvider` interface and provide your custom implementation through DI. With custom implementation you should take into account confirmation alert types to create consistent user experience within SDK.
+
+Every alert dialog has its own type within SDK. It allows to customize descriptions and text over the positive and negative buttons. To do so you need to override the following **string resources** (they named according to the type of alert where they are used):
 - "alert_return_to_camera"
 
     "alert_return_to_camera_positive"
@@ -126,7 +121,7 @@ Every alert dialog has its own type within SDK. It allows to customize descripti
     "editor_alert_delete_voice_record_negative"
 
 
-Also there is a possibility to add custom icon for every alert dialog type. To setup drawables for this reason they should be passed into custom theme attributes:
+Also there is a possibility to **add custom icon** for every alert dialog type. To setup drawables for this reason they should be passed into custom theme attributes:
 
 - [alert_camera_return_to_camera](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L43)
 - [alert_camera_delete_video](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L44)
