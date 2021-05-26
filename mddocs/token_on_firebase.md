@@ -37,4 +37,5 @@ class VideoEditorKoinModule : FlowEditorModule() {
 ```
 
 ### Note:
+In firebase, field should be named as `banubaToken`.
 To verify that token is ready, you can use `VideoEditorSDK.isAvailable()` before launch `VideoCreationActivity`. If method returns true - you can safely launch video editor, otherwise exception is raised.
