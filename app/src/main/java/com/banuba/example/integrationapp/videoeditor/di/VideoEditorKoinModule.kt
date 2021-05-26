@@ -113,8 +113,4 @@ class VideoEditorKoinModule : FlowEditorModule() {
     val firebaseTargetUrl: BeanDefinition<String> = single(named("firebaseVeSdkTargetUrl"), override = true) {
         "https://banuba-ve-sdk-default-rtdb.europe-west1.firebasedatabase.app/"
     }
-
-    val firebaseTokenSnapshot: BeanDefinition<String> = single(named("firebaseVeSdkTokenSnapshot"), override = true) {
-        "banubaToken"
-    }
 }

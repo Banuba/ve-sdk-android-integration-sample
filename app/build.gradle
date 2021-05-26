@@ -40,8 +40,6 @@ dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
-    implementation "com.google.firebase:firebase-database-ktx:$firebaseDatabaseKtxVersion"
-
     // Banuba Video Editor SDK dependencies
     implementation "com.banuba.sdk:camera-sdk:${banubaSdkVersion}"
     implementation "com.banuba.sdk:camera-ui-sdk:${banubaSdkVersion}"

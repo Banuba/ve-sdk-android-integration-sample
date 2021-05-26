@@ -109,7 +109,7 @@ There is nothing complicated about it - [contact us](https://www.banuba.com/vide
 We offer а free 14-days trial for you could thoroughly test and assess Video Editor SDK functionality in your app. To get access to your trial, please, get in touch with us by [filling a form](https://www.banuba.com/video-editor-sdk) on our website. Our sales managers will send you the trial token.
 
 Video editor token should be put [here](app/src/main/res/values/strings.xml#L5)
-
+Also you can load token from firebase. [Check](mddocs/token_on_firebase.md) to configure firebase
 
 ## What can you customize?
 We understand that the client should have options to brand video editor to bring its own experience to the market. Therefore we provide list of options to customize:
