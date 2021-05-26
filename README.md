@@ -38,7 +38,6 @@ Banuba [Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to
     + [Configure audio content](#Configure-audio-content)
     + [Configure audio browser](#Configure-audio-browser)
     + [Configure stickers content](#Configure-stickers-content)
-    + [Add post-processing effects](#Add-post-processing-effects)
     + [Configure the record button](#Configure-the-record-button)
     + [Configure camera timer](#Configure-camera-timer)
     + [Configure Cover preview screen](#Configure-Cover-preview-screen)
@@ -114,7 +113,7 @@ There is nothing complicated about it - [contact us](https://www.banuba.com/vide
 ## Token 
 We offer а free 14-days trial for you could thoroughly test and assess Video Editor SDK functionality in your app. To get access to your trial, please, get in touch with us by [filling a form](https://www.banuba.com/video-editor-sdk) on our website. Our sales managers will send you the trial token.
 
-Video editor token should be put [here](app/src/main/res/values/strings.xml#L5)
+Video editor token should be put [here](app/src/main/res/values/strings.xml#L6)
 
 ## Connecting with AR cloud
 
@@ -266,13 +265,6 @@ The stickers in the Banuba Video Editor SDK are GIFs. Adding them is as simple a
 
 If you don't want to use Giphy, check out [guide](mddocs/sticker_loader.md) to set up your sticker loader.
 
-### Add post-processing effects
-There are several effects in Banuba Video Editor SDK: visual, time and mask. To add a visual effect you need to add a class followed by type, name and the icon of the effect. [Example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/data/VisualEffects.kt).
-
-Same for [Time effects](app/src/main/java/com/banuba/example/integrationapp/videoeditor/data/TimeEffects.kt) and [Masks](app/src/main/java/com/banuba/example/integrationapp/videoeditor/data/MaskEffects.kt).
-
-Finally, override the dependency [editorEffects](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#74) and choose the effects you wannt to use.
-
 ### Configure the record button  
 
 You can change the look of the button and the animation on tap. This is how it’s done:
@@ -336,3 +328,4 @@ Please visit our [FAQ page](mddocs/faq.md) to find more technical answers to you
 ## Migration guides
 
 [1.0.15.1](mddocs/releases/1.0.15.1.md)
+[1.0.16](mddocs/releases/1.0.16.md)

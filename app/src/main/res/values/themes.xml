@@ -50,6 +50,16 @@
         <item name="alert_editor_reset_all">@null</item>
         <item name="alert_editor_reset_effects">@null</item>
 
+        <!--Picture in picture style-->
+        <item name="pipParentStyle">@style/CustomPipParentStyle</item>
+        <item name="pipTitleStyle">@style/CustomPipTitleStyle</item>
+        <item name="pipActionRecyclerStyle">@style/CustomPipActionRecyclerStyle</item>
+        <item name="pipActionItemStyle">@style/CustomPipActionItemStyle</item>
+        <item name="pipLayoutRecyclerStyle">@style/CustomPipLayoutRecyclerStyle</item>
+        <item name="pipLayoutItemParentStyle">@style/CustomPipLayoutItemParentStyle</item>
+        <item name="pipLayoutItemImageStyle">@style/CustomPipLayoutItemImageStyle</item>
+        <item name="pipLayoutItemTextStyle">@style/CustomPipLayoutItemTextStyle</item>
+
         <!--Editor-->
         <item name="editorOverlayStyle">@style/CustomEditorOverlayStyle</item>
         <item name="editorActionsStyle">@style/CustomEditorActionsStyle</item>
@@ -361,6 +371,9 @@
         <item name="icon_close">@drawable/ic_nav_close</item>
         <item name="icon_back">@drawable/ic_nav_back_arrow</item>
 
+        <item name="icon_pip_on">@drawable/ic_pip_on</item>
+        <item name="icon_pip_off">@drawable/ic_pip_off</item>
+
         <item name="icon_remove_last_piece">@drawable/ic_delete_videopart</item>
 
         <!-- This icon will be shown in case of there are no video files that
@@ -508,6 +521,23 @@
     <style name="EditorDialogNormalButton">
         <item name="android:textColor">@color/black</item>
     </style>
+
+    <!--Picture in picture style-->
+    <style name="CustomPipParentStyle" parent="PipParentStyle" />
+
+    <style name="CustomPipTitleStyle" parent="PipTitleStyle" />
+
+    <style name="CustomPipActionRecyclerStyle" parent="PipActionRecyclerStyle" />
+
+    <style name="CustomPipActionItemStyle" parent="PipActionItemStyle" />
+
+    <style name="CustomPipLayoutRecyclerStyle" parent="PipLayoutRecyclerStyle" />
+
+    <style name="CustomPipLayoutItemParentStyle" parent="PipLayoutItemParentStyle" />
+
+    <style name="CustomPipLayoutItemImageStyle" parent="PipLayoutItemImageStyle" />
+
+    <style name="CustomPipLayoutItemTextStyle" parent="PipLayoutItemTextStyle" />
 
     <!--Editor Styles-->
     <style name="CustomEditorOverlayStyle" parent="EditorOverlayStyle">
@@ -679,7 +709,9 @@
 
 
     <!--Trimmer styles-->
-    <style name="CustomTrimmerRotateButton" parent="TrimmerRotateButtonStyle" />
+    <style name="CustomTrimmerRotateButton" parent="TrimmerRotateButtonStyle">
+        <item name="android:src">@drawable/ic_trimmer_rotate</item>
+    </style>
 
     <style name="CustomTrimmerThumbHintIconStyle" parent="TrimmerThumbHintIconStyle" />
 
