@@ -113,7 +113,8 @@ There is nothing complicated about it - [contact us](https://www.banuba.com/vide
 ## Token 
 We offer а free 14-days trial for you could thoroughly test and assess Video Editor SDK functionality in your app. To get access to your trial, please, get in touch with us by [filling a form](https://www.banuba.com/video-editor-sdk) on our website. Our sales managers will send you the trial token.
 
-Video editor token should be put [here](app/src/main/res/values/strings.xml#L6)
+Video editor token should be put [here](app/src/main/res/values/strings.xml#L6).\
+Also you can load token from [Firebase](https://firebase.google.com/docs/database/android/start). [Check](mddocs/token_on_firebase.md) to configure firebase
 
 ## Connecting with AR cloud
 
@@ -208,7 +209,7 @@ Please, find the [full example](https://github.com/Banuba/ve-sdk-android-integra
 The SDK is protected by the token so its presence is a vital part of Video Editor launch. To check if the SDK is ready to use you may invoke the following method:
 ```kotlin
 VideoEditorSDK.isAvailable()
-``` 
+```
 
 ### Disable Face AR SDK
 You can use Video Editor SDK without Face AR SDK. Please follow these changes to make it. 
@@ -303,7 +304,7 @@ There are 3 modes:
 }
 ```
 
-### Configure screens  
+### Configure screens
 You can use the Android themes and styles to change the screens in the mobile video editor SDK. You can also change the language and text. 
 
 There are 8 screens in the SDK:
