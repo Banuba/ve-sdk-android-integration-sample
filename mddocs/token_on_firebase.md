@@ -1,4 +1,4 @@
-# API for using AR cloud in the SDK
+# API for using token from Firebase in the SDK
 
 Banuba token can be stored in Firebase
 
