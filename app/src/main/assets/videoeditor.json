@@ -12,7 +12,6 @@
     "supportsEditorLinkOnVideo": false,
     "stickersApiKey": "<-- Paste Giphy key here to load gif images -->",
     "showConfig": false,
-    "supportsTrimRecordedVideo": true,
     "interactions": {
       "question": false,
       "quiz": false,
@@ -22,7 +21,7 @@
     }
   },
   "trimmer": {
-    "minSourceVideoDuration": 1000,
+    "minSourceVideoDuration": 2000,
     "supportsMultiChoice": true,
     "appearanceThreshold": 0,
     "supportsRotation": true

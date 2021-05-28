@@ -2,7 +2,7 @@ package com.banuba.example.integrationapp.videoeditor.export
 
 import android.net.Uri
 import androidx.core.net.toFile
-import com.banuba.sdk.core.MediaResolutionProvider
+import com.banuba.sdk.core.MediaSizeProvider
 import com.banuba.sdk.core.VideoResolution
 import com.banuba.sdk.core.media.MediaFileNameHelper.Companion.DEFAULT_SOUND_FORMAT
 import com.banuba.sdk.ve.domain.VideoList
@@ -16,7 +16,7 @@ import com.banuba.sdk.veui.ext.withWatermark
 
 class IntegrationAppExportParamsProvider(
     private val exportDir: Uri,
-    private val sizeProvider: MediaResolutionProvider,
+    private val sizeProvider: MediaSizeProvider,
     private val watermarkBuilder: WatermarkBuilder
 ) : ExportParamsProvider {
 
@@ -52,7 +52,7 @@ class IntegrationAppExportParamsProvider(
                 .musicEffects(musicEffects)
                 .volumeVideo(videoVolume)
                 .build(),
-            ExportManager.Params.Builder(VideoResolution.VGA360)
+            ExportManager.Params.Builder(VideoResolution.VGA360.size)
                 .effects(effects.withWatermark(watermarkBuilder, WatermarkAlignment.BOTTOM_RIGHT))
                 .fileName("export_360_watermark")
                 .videoList(videoList)
