@@ -50,6 +50,16 @@
         <item name="alert_editor_reset_all">@null</item>
         <item name="alert_editor_reset_effects">@null</item>
 
+        <!--Picture in picture style-->
+        <item name="pipParentStyle">@style/CustomPipParentStyle</item>
+        <item name="pipTitleStyle">@style/CustomPipTitleStyle</item>
+        <item name="pipActionRecyclerStyle">@style/CustomPipActionRecyclerStyle</item>
+        <item name="pipActionItemStyle">@style/CustomPipActionItemStyle</item>
+        <item name="pipLayoutRecyclerStyle">@style/CustomPipLayoutRecyclerStyle</item>
+        <item name="pipLayoutItemParentStyle">@style/CustomPipLayoutItemParentStyle</item>
+        <item name="pipLayoutItemImageStyle">@style/CustomPipLayoutItemImageStyle</item>
+        <item name="pipLayoutItemTextStyle">@style/CustomPipLayoutItemTextStyle</item>
+
         <!--Editor-->
         <item name="editorOverlayStyle">@style/CustomEditorOverlayStyle</item>
         <item name="editorActionsStyle">@style/CustomEditorActionsStyle</item>
@@ -108,7 +118,6 @@
         <item name="gallery_bg_color">@color/black</item>
         <item name="gallery_item_corner_radius">4dp</item>
         <item name="gallery_item_margin">2dp</item>
-        <item name="gallery_icon_back">@drawable/ic_nav_back_arrow</item>
         <item name="gallery_album_divider_color">@color/catskill_white</item>
         <!---->
 
@@ -214,6 +223,7 @@
         <item name="music_editor_icon_effects">@drawable/ic_timeline_effects</item>
         <item name="music_editor_icon_track_recording">@drawable/ic_timeline_recording</item>
         <item name="music_editor_icon_track_edit">@drawable/ic_timeline_edit</item>
+        <item name="music_editor_icon_track_effects">@drawable/ic_timeline_effects</item>
         <item name="music_editor_icon_track_delete">@drawable/ic_timeline_trash</item>
         <!---->
 
@@ -361,6 +371,9 @@
         <item name="icon_close">@drawable/ic_nav_close</item>
         <item name="icon_back">@drawable/ic_nav_back_arrow</item>
 
+        <item name="icon_pip_on">@drawable/ic_pip_on</item>
+        <item name="icon_pip_off">@drawable/ic_pip_off</item>
+
         <item name="icon_remove_last_piece">@drawable/ic_delete_videopart</item>
 
         <!-- This icon will be shown in case of there are no video files that
@@ -440,6 +453,9 @@
         <item name="divider_color">@color/big_stone</item>
         <item name="normal_color">@color/egg_blue</item>
         <item name="delete_color">@color/violet_red</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:layout_marginBottom">32dp</item>
     </style>
 
     <!-- Style for the throbber on the progress view
@@ -505,6 +521,23 @@
     <style name="EditorDialogNormalButton">
         <item name="android:textColor">@color/black</item>
     </style>
+
+    <!--Picture in picture style-->
+    <style name="CustomPipParentStyle" parent="PipParentStyle" />
+
+    <style name="CustomPipTitleStyle" parent="PipTitleStyle" />
+
+    <style name="CustomPipActionRecyclerStyle" parent="PipActionRecyclerStyle" />
+
+    <style name="CustomPipActionItemStyle" parent="PipActionItemStyle" />
+
+    <style name="CustomPipLayoutRecyclerStyle" parent="PipLayoutRecyclerStyle" />
+
+    <style name="CustomPipLayoutItemParentStyle" parent="PipLayoutItemParentStyle" />
+
+    <style name="CustomPipLayoutItemImageStyle" parent="PipLayoutItemImageStyle" />
+
+    <style name="CustomPipLayoutItemTextStyle" parent="PipLayoutItemTextStyle" />
 
     <!--Editor Styles-->
     <style name="CustomEditorOverlayStyle" parent="EditorOverlayStyle">
@@ -595,12 +628,16 @@
 
     <style name="CustomEditorPlaybackControllerCancelStyle" parent="EditorPlaybackControllerCancelStyle">
         <item name="android:src">@drawable/ic_close</item>
+        <item name="android:padding">12dp</item>
     </style>
 
-    <style name="CustomEditorPlaybackControllerPlayStyle" parent="EditorPlaybackControllerPlayStyle" />
+    <style name="CustomEditorPlaybackControllerPlayStyle" parent="EditorPlaybackControllerPlayStyle">
+        <item name="android:padding">8dp</item>
+    </style>
 
     <style name="CustomEditorPlaybackControllerDoneStyle" parent="EditorPlaybackControllerDoneStyle">
         <item name="android:src">@drawable/ic_done</item>
+        <item name="android:padding">12dp</item>
     </style>
 
     <!--Stickers Styles-->
@@ -657,6 +694,7 @@
     <style name="CustomGalleryBackButtonStyle" parent="GalleryBackButtonStyle">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
+        <item name="android:background">@drawable/ic_gallery_back</item>
     </style>
 
     <style name="CustomGalleryNextButtonStyle" parent="GalleryNextButtonStyle">
@@ -671,7 +709,9 @@
 
 
     <!--Trimmer styles-->
-    <style name="CustomTrimmerRotateButton" parent="TrimmerRotateButtonStyle" />
+    <style name="CustomTrimmerRotateButton" parent="TrimmerRotateButtonStyle">
+        <item name="android:src">@drawable/ic_trimmer_rotate</item>
+    </style>
 
     <style name="CustomTrimmerThumbHintIconStyle" parent="TrimmerThumbHintIconStyle" />
 
@@ -865,10 +905,12 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">match_parent</item>
         <item name="corner_radius">4dp</item>
+        <item name="label_position">below_preview</item>
     </style>
 
     <style name="CustomMusicEditorEqualizerThrobberStyle" parent="MusicEditorEqualizerThrobberStyle">
         <item name="circle_width">2dp</item>
+        <item name="circle_colors">@array/progress_gradient_colors</item>
     </style>
     <!---->
 
@@ -920,7 +962,7 @@
 
     <style name="CustomAudioBrowserTrackErrorImageStyle" parent="AudioBrowserTrackErrorImageStyle" />
 
-    <style name="CustomAudioBrowserPlaybackBtnStyle" parent="AudioBrowserPlaybackBtnStyle" />
+    <style name="CustomAudioBrowserPlaybackBtnStyle" parent="AudioBrowserTrackPlaybackBtnStyle" />
 
     <style name="CustomAudioBrowserTrackSeekBarStyle" parent="AudioBrowserTrackSeekBarStyle" />
 
