@@ -9,9 +9,9 @@ To serve this purpose camera.json file has following properties:
 | ------------- | :------------: | :------------- |
 | **minVideoDuration** | Number > 0 | for the minimum recording duration *in milliseconds* that is allowed to proceed with Editor screen (i.e. 3000 for 3 seconds)
 | **maxVideoDuration** | Number > 0 | for the maximum video duration *in milliseconds* available to record on the camera (i.e. 60000 for 1 minute)
+| **minChunkVideoDuration** | Number > 1000 | for the minimum video duration *in milliseconds* that is allowed to record one video on the camera (i.e. 1000 for 1 second)
 | **takePhotoOnTap** | true/false | defines if it is available to capture photos on the camera (*true* means that by tap on the record button the photo will be created, and to make a video recording you should long press the record button, *false* means that by tap on the record button the video recording starts)
 | **supportsMultiRecords** | true/false | defines if it is possible to make a video recording by concatenating several recodings on the camera (*false* means that when the first video recording is stopped the editor screen will be opened)
-| **supportsModeSelection** | true/false | defines if there are two options - Normal and Slideshow - available on the camera screen (*true* means that there are two bottom tabs on the camera switching between camera and image gallery screens, *false* means that the camera screen has not these tabs and shows only itself). **Note**, that false here removes the possibility to select pictures for the slideshow (thought it remains to be allowed by capturing photo)
 | **supportsFlashlight** | true/false | setups flashlight icon on the camera screen overlay and possibility to make photos with the flashlight
 | **supportsDurationTimeline** | true/false | setups [timeline view](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/mddocs/camera_styles.md#L22) on the camera screen (*true* means that this view is shown, *false* means that it is not shown)
 | **supportsSpeedRecording** | true/false | setups the speed icon on the camera overlay and possibility to select recording speed

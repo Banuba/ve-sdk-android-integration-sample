@@ -6,7 +6,6 @@ import com.banuba.sdk.arcloud.di.ArCloudKoinModule
 import com.banuba.sdk.audiobrowser.di.AudioBrowserKoinModule
 import com.banuba.sdk.effectplayer.adapter.BanubaEffectPlayerKoinModule
 import com.banuba.sdk.gallery.di.GalleryKoinModule
-import com.banuba.sdk.token.storage.di.TokenStorageKoinModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -19,12 +18,12 @@ class IntegrationKotlinApp : Application() {
 
             // pass the customized Koin module that implements required dependencies.
             modules(
-                ArCloudKoinModule().module,
-                VideoEditorKoinModule().module,
                 AudioBrowserKoinModule().module, // use this module only if you bought it
-                BanubaEffectPlayerKoinModule().module,
+                ArCloudKoinModule().module,
                 TokenStorageKoinModule().module,
-                GalleryKoinModule().module
+                VideoEditorKoinModule().module,
+                GalleryKoinModule().module,
+                BanubaEffectPlayerKoinModule().module
             )
         }
     }

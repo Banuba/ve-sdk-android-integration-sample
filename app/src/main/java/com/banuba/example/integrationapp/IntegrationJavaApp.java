@@ -22,12 +22,12 @@ public class IntegrationJavaApp extends Application {
         startKoin(GlobalContext.INSTANCE, koinApplication -> {
             androidContext(koinApplication, this);
             koinApplication.modules(
-                    new VideoEditorKoinModule().getModule(),
-                    new ArCloudKoinModule().getModule(),
                     new AudioBrowserKoinModule().getModule(), // use this module only if you bought it
-                    new BanubaEffectPlayerKoinModule().getModule(),
+                    new ArCloudKoinModule().getModule(),
                     new TokenStorageKoinModule().getModule(),
-                    new GalleryKoinModule().getModule()
+                    new VideoEditorKoinModule().getModule(),
+                    new GalleryKoinModule().getModule(),
+                    new BanubaEffectPlayerKoinModule().getModule()
             );
             return null;
         });

@@ -4,7 +4,7 @@ These are the answers to the most popular questions we are asked about the Banub
 ### **1. How do I start/stop recording with a tap?** 
 By default, the user must hold the “record” button to film and release it to stop filming.   
 
-To change that, simply set the [takePhotoOnTap](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/camera.json#4) property to **false**.  
+To change that, simply set the [takePhotoOnTap](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/camera.json#L5) property to **false**.
 ``` json
  "takePhotoOnTap":false
 ```
@@ -20,7 +20,7 @@ Make sure that you include the **preview.png** file in the mask folder. It serve
 
 Slideshow is created either by selecting pictures from gallery or by making a photo on Video Editor camera screen.
 
-Every slide within slideshow can appeare with or without animations. This behavior is configured within [**videoeditor.json**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/videoeditor.json#L29) config file under ```slideshow``` section:
+Every slide within slideshow can appeare with or without animations. This behavior is configured within [**videoeditor.json**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/videoeditor.json#L30) config file under ```slideshow``` section:
 ```kotlin
 "slideshow": {
     /* other slideshow related settings */
@@ -41,8 +41,7 @@ startActivity(
     VideoCreationActivity.buildIntent(
        context,
        cameraMode,
-       audioTrackData,
-       predefinedVideos
+       audioTrackData
     )
 )
 ```
@@ -60,7 +59,7 @@ data class TrackData(
 
 Color filters are located in the **assets/bnb-resources/luts** directory in the module with the SDK. To add your own, place the files in this folder and create a drawable resource that will be used as an icon for this particular LUT. The name of the drawable resource must be the same as the graphic file in the filter’s directory.
 
-For example, this is the [LUT](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/bnb-resources/luts/C1.png) file, and this is its [drawable resource]((https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/drawable/c1.png)).
+For example, this is the [LUT](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/bnb-resources/luts/C1.png) file, and this is its [drawable resource](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/drawable/c1.png).
 
 ### **6. How do I change the order of LUTs?**
 
@@ -90,7 +89,7 @@ You can control visibility of camera config information and camera preview param
     "showDebugViews": false,
     "showConfig": false
  ```
-You can control visibility of editor config. Change the following properties in  [**videoeditor.json**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/videoeditor.json#L15) config file to control:
+You can control visibility of editor config. Change the following properties in  [**videoeditor.json**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/videoeditor.json#L14) config file to control:
 ```json
     "showConfig": false
  ```
@@ -98,10 +97,10 @@ Set **false** to hide info, set **true** to show.
 
 ### **8. I want to customize gallery icon**
 
-Gallery icon is represented by AppCompatImageView. Its style placed into `galleryImageViewStyle` attribute of the main theme ([**example**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L94)) 
+Gallery icon is represented by AppCompatImageView. Its style placed into `galleryImageViewStyle` attribute of the main theme ([**example**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L104))
 
 **Drawable resource** of the gallery icon may vary depending on the use case:
- - in case of the very first launch, if the user **did not grant permission** to [read external storage](https://developer.android.com/reference/android/Manifest.permission#READ_EXTERNAL_STORAGE), or if the gallery on the device **is empty**, the drawable resource defined in `icon_empty_gallery` attribute of the `CameraOverlayStyle` ([**example**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L372)) will be used
+ - in case of the very first launch, if the user **did not grant permission** to [read external storage](https://developer.android.com/reference/android/Manifest.permission#READ_EXTERNAL_STORAGE), or if the gallery on the device **is empty**, the drawable resource defined in `icon_empty_gallery` attribute of the `CameraOverlayStyle` ([**example**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L385)) will be used
  - in other cases you can select what to show as a gallery icon: 
     -  **the last media file** from the device
     - **custom drawable** resource
@@ -121,7 +120,7 @@ Gallery icon is represented by AppCompatImageView. Its style placed into `galler
     "supportsRotation": true
   }
  ```
-The rotation button appearance can be customized by `trimmerRotateButtonStyle` theme [**attribute**]((https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L131)) (more on trimmer screen customization [**here**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/mddocs/trimmer_styles.md)).
+The rotation button appearance can be customized by `trimmerRotateButtonStyle` theme [**attribute**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L140) (more on trimmer screen customization [**here**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/mddocs/trimmer_styles.md)).
 
 ### **10. How does video editor work when token expires?**
 
