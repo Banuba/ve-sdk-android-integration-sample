@@ -6,6 +6,7 @@ import com.banuba.sdk.arcloud.di.ArCloudKoinModule
 import com.banuba.sdk.audiobrowser.di.AudioBrowserKoinModule
 import com.banuba.sdk.effectplayer.adapter.BanubaEffectPlayerKoinModule
 import com.banuba.sdk.gallery.di.GalleryKoinModule
+import com.banuba.sdk.token.storage.di.TokenStorageKoinModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 

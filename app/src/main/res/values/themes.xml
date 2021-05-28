@@ -419,7 +419,9 @@
     <style name="CustomCameraEffectLabelStyle" parent="CameraEffectLabelStyle" />
 
     <!-- Style for effects (filters and masks) list items -->
-    <style name="CustomCameraEffectsItemStyle" parent="CameraEffectsItemStyle" />
+    <style name="CustomCameraEffectsItemStyle" parent="CameraEffectsItemStyle">
+        <item name="download_icon">@drawable/ic_download_button</item>
+    </style>
 
     <!-- Style for effects (filters and masks) RecyclerView -->
     <style name="CustomCameraEffectsRecyclerStyle" parent="CameraEffectsRecyclerStyle" />
@@ -942,7 +944,7 @@
 
     <style name="CustomExtendedCoverDescriptionStyle" parent="ExtendedCoverDescriptionStyle" />
 
-    <style name="CustomExtendedCoverThumbnailPickerStyle" parent="ExtendedCoverThumbnailPickerStyle" >
+    <style name="CustomExtendedCoverThumbnailPickerStyle" parent="ExtendedCoverThumbnailPickerStyle">
         <item name="thumbnail_picker_pointer">@drawable/ic_cover_picker</item>
     </style>
     <!---->
