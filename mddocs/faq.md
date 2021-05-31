@@ -129,7 +129,7 @@ The rotation button appearance can be customized by `trimmerRotateButtonStyle` t
  - video resolution will be lowered to 360p on camera, after trimmer and after export
  - Banuba watermark is applied to every exported video
 
- Also [FaceAR SDK](https://docs.banuba.com/face-ar-sdk/overview/token_management) you may expect the following actions if the token expires:
+ Also [FaceAR SDK](https://docs.banuba.com/face-ar-sdk/overview/token_management#how-does-it-work) you may expect the following actions if the token expires:
  - on the first expired month a watermark with "Powered by Banuba" label will be added on the top of both recorded and exported videos
  - after the first month the camera screen will be blurred and a full-screen watermark will be displayed
 
