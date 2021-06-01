@@ -38,7 +38,6 @@ Banuba [Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to
     + [Configure audio content](#Configure-audio-content)
     + [Configure audio browser](#Configure-audio-browser)
     + [Configure stickers content](#Configure-stickers-content)
-    + [Add post-processing effects](#Add-post-processing-effects)
     + [Configure the record button](#Configure-the-record-button)
     + [Configure camera timer](#Configure-camera-timer)
     + [Configure Cover preview screen](#Configure-Cover-preview-screen)
@@ -114,7 +113,7 @@ There is nothing complicated about it - [contact us](https://www.banuba.com/vide
 ## Token 
 We offer а free 14-days trial for you could thoroughly test and assess Video Editor SDK functionality in your app. To get access to your trial, please, get in touch with us by [filling a form](https://www.banuba.com/video-editor-sdk) on our website. Our sales managers will send you the trial token.
 
-Video editor token should be put [here](app/src/main/res/values/strings.xml#L5).\
+Video editor token should be put [here](app/src/main/res/values/strings.xml#L6).\
 Also you can load token from [Firebase](https://firebase.google.com/docs/database/android/start). [Check](mddocs/token_on_firebase.md) to configure firebase
 
 ## Connecting with AR cloud
@@ -143,10 +142,10 @@ GitHub packages are set up for trial.
 
 
 ### Add dependencies
-Please, specify a list of dependencies as in [app/build.gradle](app/build.gradle#L38) file to integrate Banuba Video Editor SDK.
+Please, specify a list of dependencies as in [app/build.gradle](app/build.gradle#L36) file to integrate Banuba Video Editor SDK.
 
 ### Add Activity  
-To manage the main screens - camera, gallery, trimmer, editor, and export - you need to add the VideoCreationActivity to [AndroidManifest.xml](app/src/main/AndroidManifest.xml#L21). Each screen is implemented as a [Fragment](https://developer.android.com/guide/fragments).
+To manage the main screens - camera, gallery, trimmer, editor, and export - you need to add the VideoCreationActivity to [AndroidManifest.xml](app/src/main/AndroidManifest.xml#L25). Each screen is implemented as a [Fragment](https://developer.android.com/guide/fragments).
 
 ``` xml
 <activity android:name="com.banuba.sdk.ve.flow.VideoCreationActivity"
@@ -186,7 +185,7 @@ class VideoEditorKoinModule : FlowEditorModule() {
 ```  
 You will need to override several properties to customize the video editor for your application. Please, take a look at the [full example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt).
 
-Once you’ve overridden the properties that you need, initialize the Koin module in your  [Application.onCreate](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/IntegrationKotlinApp.kt#L12) method.
+Once you’ve overridden the properties that you need, initialize the Koin module in your  [Application.onCreate](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/IntegrationKotlinApp.kt#L16) method.
 ``` kotlin
 startKoin {
     androidContext(this@IntegrationApp)        
@@ -203,7 +202,7 @@ You can use Java in your Android project. In this case you can start Koin in thi
             return null;
         });
 ```
-Please, find the [full example](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/IntegrationJavaApp.java#17) of Java Application class.
+Please, find the [full example](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/IntegrationJavaApp.java#L22) of Java Application class.
 
 ### Check SDK availability before opening
 
@@ -226,7 +225,7 @@ startKoin {
     )
 }
 ```
-And also remove dependency ```com.banuba.sdk:effect-player-adapter``` from [app/build.gradle](app/build.gradle#L38)
+And also remove dependency ```com.banuba.sdk:effect-player-adapter``` from [app/build.gradle](app/build.gradle#L52)
 ```diff
     implementation "com.banuba.sdk:ve-effects-sdk:${banubaSdkVersion}"
 -   implementation "com.banuba.sdk:effect-player-adapter:${banubaSdkVersion}"
@@ -249,7 +248,7 @@ By default, they are placed in the "export" directory of external storage. To ch
 Should you choose to export files in the background, you’d do well to change ```ExportNotificationManager```. It lets you change the notifications for any export scenario (started, finished successfully, and failed).
 
 ### Configure watermark  
-To use a watermark, add the ``` WatermarkProvider``` interface to your app. The image goes into the getWatermarkBitmap method. Once you’re done, rearrange the dependency watermarkProvider in [DI](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#70). See the [example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationAppWatermarkProvider.kt) of adding a watermark here.
+To use a watermark, add the ``` WatermarkProvider``` interface to your app. The image goes into the getWatermarkBitmap method. Once you’re done, rearrange the dependency watermarkProvider in [DI](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#L53). See the [example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationAppWatermarkProvider.kt) of adding a watermark here.
 
 ### Configure audio content  
 
@@ -263,16 +262,9 @@ Check out [step-by-step guide](mddocs/audio_browser.md) to use audio browser in 
 
 ### Configure stickers content  
 
-The stickers in the Banuba Video Editor SDK are GIFs. Adding them is as simple as adding your personal [**Giphy API**](https://developers.giphy.com/docs/api/) into the stickersApiKey parameter in [videoeditor.json](app/src/main/assets/videoeditor.json) file.
+The stickers in the Banuba Video Editor SDK are GIFs. Adding them is as simple as adding your personal [**Giphy API**](https://developers.giphy.com/docs/api/) into the stickersApiKey parameter in [videoeditor.json](app/src/main/assets/videoeditor.json#L13) file.
 
 If you don't want to use Giphy, check out [guide](mddocs/sticker_loader.md) to set up your sticker loader.
-
-### Add post-processing effects
-There are several effects in Banuba Video Editor SDK: visual, time and mask. To add a visual effect you need to add a class followed by type, name and the icon of the effect. [Example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/data/VisualEffects.kt).
-
-Same for [Time effects](app/src/main/java/com/banuba/example/integrationapp/videoeditor/data/TimeEffects.kt) and [Masks](app/src/main/java/com/banuba/example/integrationapp/videoeditor/data/MaskEffects.kt).
-
-Finally, override the dependency [editorEffects](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#74) and choose the effects you wannt to use.
 
 ### Configure the record button  
 
@@ -282,7 +274,7 @@ You can change the look of the button and the animation on tap. This is how it�
 
 2. Implement ```CameraRecordingAnimationProvider``` interface. Here the view created in step 1 should be provided through method ```provideView()``` within this interface. [Example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationAppRecordingAnimationProvider.kt). 
 
-3. Implement ```CameraRecordingAnimationProvider``` in the [DI](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#140).
+3. Implement ```CameraRecordingAnimationProvider``` in the [DI](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#L60).
 
 ### Configure camera timer  
 
@@ -297,7 +289,7 @@ data class TimerEntry(
 Besides the delay itself, you can customize the icon for it. See the example [here](app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationTimerStateProvider.kt).
 
 ### Configure Cover preview screen
-If you want to manage Cover preview screen you need to override CoverProvider property in [DI](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt).
+If you want to manage Cover preview screen you need to override CoverProvider property in [DI](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#L83).
 ``` kotlin
 override val coverProvider: BeanDefinition<CoverProvider> = single(override = true) {
     CoverProvider.EXTENDED
@@ -337,3 +329,4 @@ Please visit our [FAQ page](mddocs/faq.md) to find more technical answers to you
 ## Migration guides
 
 [1.0.15.1](mddocs/releases/1.0.15.1.md)
+[1.0.16](mddocs/releases/1.0.16.md)

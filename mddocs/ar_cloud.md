@@ -35,15 +35,8 @@ class VideoEditorKoinModule : FlowEditorModule() {
                 ioDispatcher = get(named("ioDispatcher"))
             )
         }
-
-    val arEffectsUUIDProvider: BeanDefinition<String> =
-        single(named("arEffectsCloudUuid"), override = true) {
-            androidContext().getString(R.string.ar_cloud_token)
-        }
 }
 ```
 
 ### Step 3
-
-Paste AR Cloud client id value [here](../app/src/main/res/values/strings.xml#L14).  
-*Please ask Banuba to provide **client id** for trial period.*
+*Please ask Banuba to provide `banuba_token` with AR cloud for trial period.*
