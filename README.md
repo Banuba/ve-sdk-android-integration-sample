@@ -319,7 +319,11 @@ The SDK incudes the following screens:
 1. [Cover screen](mddocs/cover_styles.md)
 1. [Alert Dialogs](mddocs/alert_styles.md)  
 
-## FAQ  
+### Launch Video Editor
+
+The Video Editor has several entry points. Please check out [guide](mddocs/launch_modes.md).
+
+## FAQ
 Please visit our [FAQ page](mddocs/faq.md) to find more technical answers to your questions.
 
 ## Third party libraries
