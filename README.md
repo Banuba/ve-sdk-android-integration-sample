@@ -321,7 +321,7 @@ The SDK incudes the following screens:
 
 ### Launch Video Editor
 
-The Video Editor has several entry points. Please check out [guide](mddocs/launch_modes.md).
+The Video Editor has multiple entry points. Please check out [guide](mddocs/launch_modes.md).
 
 ## FAQ
 Please visit our [FAQ page](mddocs/faq.md) to find more technical answers to your questions.
