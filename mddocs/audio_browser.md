@@ -26,10 +26,10 @@ And [**videoeditor.json**](https://github.com/Banuba/ve-sdk-android-integration-
 
 ### Step 1
 
-Add a dependency into your gradle file containing other VE SDK dependencies and setup its version (the latest is 1.0.15):
+Add a dependency into your gradle file containing other VE SDK dependencies and setup its version (the latest is 1.0.16):
 
 ```kotlin
-implementation "com.banuba.sdk:ve-audio-browser-sdk:1.0.15"
+implementation "com.banuba.sdk:ve-audio-browser-sdk:${current sdk version}"
 ```
 
 ### Step 2
@@ -39,8 +39,10 @@ Add the Audio Browser Koin module to the video editor module. The video editor K
 ```kotlin
 startKoin {
     androidContext(this@IntegrationApp)        
-    modules(VideoEditorKoinModule().module,
-            AudioBrowserKoinModule().module)
+    modules(
+       AudioBrowserKoinModule().module,
+       VideoEditorKoinModule().module
+    )
 }
 ```
 
