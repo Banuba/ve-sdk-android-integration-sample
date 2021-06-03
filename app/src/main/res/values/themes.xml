@@ -329,6 +329,24 @@
         <item name="permissionsDialogActionButtonStyle">@style/CustomPermissionsDialogActionButton
         </item>
         <!---->
+
+        <!--Hands free-->
+        <item name="handsFreeBottomSheetStyle">@style/CustomHandsFreeBottomSheetStyle</item>
+        <item name="handsFreeTimerLabelStyle">@style/CustomHandsFreeTimerLabelStyle</item>
+        <item name="handsFreeTimerPickerStyle">@style/CustomHandsFreeTimerPickerStyle</item>
+        <item name="handsFreeTimerItemStyle">@style/CustomHandsFreeTimerItemStyle</item>
+        <item name="handsFreeTimerDividerStyle">@style/CustomHandsFreeTimerDividerStyle</item>
+        <item name="handsFreeTimelineLabelStyle">@style/CustomHandsFreeTimelineLabelStyle</item>
+        <item name="handsFreeTimelineSwitchStyle">@style/CustomHandsFreeTimelineSwitchStyle</item>
+        <item name="handsFreeTimelineHintStyle">@style/CustomHandsFreeTimelineHintStyle</item>
+        <item name="handsFreeTimelineRangeDurationStyle">
+            @style/CustomHandsFreeTimelineRangeDurationStyle
+        </item>
+        <item name="handsFreeTimelineCurrentDurationStyle">
+            @style/CustomHandsFreeTimelineCurrentDurationStyle
+        </item>
+        <item name="handsFreeTimelineStyle">@style/CustomHandsFreeTimelineStyle</item>
+        <item name="handsFreeRecordButtonStyle">@style/CustomHandsFreeRecordButtonStyle</item>
     </style>
 
     <!-- CameraOverlayStyle setup icons for Camera screen.
@@ -1016,6 +1034,48 @@
 
     <style name="CustomPermissionsDialogActionButton" parent="PermissionsDialogActionButton">
         <item name="android:background">@color/egg_blue</item>
+    </style>
+    <!---->
+
+
+    <!-- Hands Free -->
+    <style name="CustomHandsFreeBottomSheetStyle" parent="HandsFreeBottomSheetStyle">
+        <item name="android:background">@drawable/bg_hands_free_dialog</item>
+    </style>
+
+    <style name="CustomHandsFreeTimerLabelStyle" parent="HandsFreeTimerLabelStyle" />
+
+    <style name="CustomHandsFreeTimerPickerStyle" parent="HandsFreeTimerPickerStyle">
+        <item name="android:background">@drawable/bg_hands_free_timer_parent</item>
+    </style>
+
+    <style name="CustomHandsFreeTimerItemStyle" parent="HandsFreeTimerItemStyle">
+        <item name="android:background">@drawable/bg_item_timer_entry</item>
+        <item name="android:textColor">@color/color_selector_timer_entry_text</item>
+    </style>
+
+    <style name="CustomHandsFreeTimerDividerStyle" parent="HandsFreeTimerDividerStyle" />
+
+    <style name="CustomHandsFreeTimelineLabelStyle" parent="HandsFreeTimelineLabelStyle" />
+
+    <style name="CustomHandsFreeTimelineSwitchStyle" parent="HandsFreeTimelineSwitchStyle">
+        <item name="thumbTint">@color/color_selector_switch_thumb</item>
+        <item name="trackTint">@color/color_selector_switch_track</item>
+    </style>
+
+    <style name="CustomHandsFreeTimelineHintStyle" parent="HandsFreeTimelineHintStyle" />
+
+    <style name="CustomHandsFreeTimelineRangeDurationStyle" parent="HandsFreeTimelineRangeDurationStyle" />
+
+    <style name="CustomHandsFreeTimelineCurrentDurationStyle" parent="HandsFreeTimelineCurrentDurationStyle" />
+
+    <style name="CustomHandsFreeTimelineStyle" parent="HandsFreeTimelineStyle" >
+        <item name="video_duration_timeline_default_lines_color">@color/egg_blue</item>
+    </style>
+
+    <style name="CustomHandsFreeRecordButtonStyle" parent="HandsFreeRecordButtonStyle">
+        <item name="android:background">@drawable/bg_hands_free_record_button</item>
+        <item name="android:textColor">@color/color_selector_button_text</item>
     </style>
     <!---->
 </resources>
