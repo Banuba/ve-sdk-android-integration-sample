@@ -1,6 +1,7 @@
 package com.banuba.example.integrationapp.videoeditor.di
 
 import com.banuba.example.integrationapp.videoeditor.export.IntegrationAppExportParamsProvider
+import com.banuba.example.integrationapp.videoeditor.impl.IntegrationAppColorFilterOrderProvider
 import com.banuba.example.integrationapp.videoeditor.impl.IntegrationAppRecordingAnimationProvider
 import com.banuba.example.integrationapp.videoeditor.impl.IntegrationAppWatermarkProvider
 import com.banuba.example.integrationapp.videoeditor.impl.IntegrationTimerStateProvider
@@ -9,6 +10,7 @@ import com.banuba.sdk.audiobrowser.domain.AudioBrowserMusicProvider
 import com.banuba.sdk.cameraui.data.CameraRecordingAnimationProvider
 import com.banuba.sdk.cameraui.data.CameraTimerActionProvider
 import com.banuba.sdk.cameraui.data.CameraTimerStateProvider
+import com.banuba.sdk.core.data.ColorFilterOrderProvider
 import com.banuba.sdk.core.domain.TrackData
 import com.banuba.sdk.core.pip.IPictureInPictureProvider
 import com.banuba.sdk.core.ui.ContentFeatureProvider
@@ -95,5 +97,10 @@ class VideoEditorKoinModule : FlowEditorModule() {
     override val cameraTimerActionProvider: BeanDefinition<CameraTimerActionProvider> =
         single(override = true) {
             HandsFreeTimerActionProvider()
+        }
+
+    override val colorFilterOrderProvider: BeanDefinition<ColorFilterOrderProvider> =
+        single(override = true) {
+            IntegrationAppColorFilterOrderProvider()
         }
 }
