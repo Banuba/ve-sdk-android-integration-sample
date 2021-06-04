@@ -288,6 +288,8 @@ data class TimerEntry(
 ```
 Besides the delay itself, you can customize the icon for it. See the example [here](app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationTimerStateProvider.kt).
 
+More advanced timer settings are available with [**Hands-Free feature**](mddocs/hands_free.md).
+
 ### Configure Cover preview screen
 If you want to manage Cover preview screen you need to override CoverProvider property in [DI](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#L83).
 ``` kotlin
@@ -319,7 +321,11 @@ The SDK incudes the following screens:
 1. [Cover screen](mddocs/cover_styles.md)
 1. [Alert Dialogs](mddocs/alert_styles.md)  
 
-## FAQ  
+### Launch Video Editor
+
+The Video Editor has multiple entry points. Please check out [guide](mddocs/launch_modes.md).
+
+## FAQ
 Please visit our [FAQ page](mddocs/faq.md) to find more technical answers to your questions.
 
 ## Third party libraries

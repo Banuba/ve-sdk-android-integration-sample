@@ -8,14 +8,18 @@ import com.banuba.example.integrationapp.videoeditor.impl.IntegrationTimerStateP
 import com.banuba.sdk.arcloud.data.source.ArEffectsRepositoryProvider
 import com.banuba.sdk.audiobrowser.domain.AudioBrowserMusicProvider
 import com.banuba.sdk.cameraui.data.CameraRecordingAnimationProvider
+import com.banuba.sdk.cameraui.data.CameraTimerActionProvider
 import com.banuba.sdk.cameraui.data.CameraTimerStateProvider
 import com.banuba.sdk.core.data.ColorFilterOrderProvider
 import com.banuba.sdk.core.domain.TrackData
+import com.banuba.sdk.core.pip.IPictureInPictureProvider
 import com.banuba.sdk.core.ui.ContentFeatureProvider
 import com.banuba.sdk.ve.effects.WatermarkProvider
 import com.banuba.sdk.ve.flow.ExportFlowManager
 import com.banuba.sdk.ve.flow.FlowEditorModule
 import com.banuba.sdk.ve.flow.export.ForegroundExportFlowManager
+import com.banuba.sdk.ve.flow.provider.HandsFreeTimerActionProvider
+import com.banuba.sdk.ve.pip.ExoPlayerPictureInPictureProvider
 import com.banuba.sdk.veui.data.ExportParamsProvider
 import com.banuba.sdk.veui.domain.CoverProvider
 import org.koin.core.definition.BeanDefinition
@@ -85,6 +89,15 @@ class VideoEditorKoinModule : FlowEditorModule() {
     override val coverProvider: BeanDefinition<CoverProvider> = single(override = true) {
         CoverProvider.EXTENDED
     }
+
+    override val pipProvider: BeanDefinition<IPictureInPictureProvider> = single(override = true) {
+        ExoPlayerPictureInPictureProvider()
+    }
+
+    override val cameraTimerActionProvider: BeanDefinition<CameraTimerActionProvider> =
+        single(override = true) {
+            HandsFreeTimerActionProvider()
+        }
 
     override val colorFilterOrderProvider: BeanDefinition<ColorFilterOrderProvider> =
         single(override = true) {
