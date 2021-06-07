@@ -167,3 +167,31 @@ Config parameters are follows:
 - **generatedTrackIntencity** - can be low, medium, high. high - is recommended.
 - **generatedTrackFormat** - mp3
 - **generatedTracksAmount** - how much audio tracks should be generated at a time (**NOTE: the more tracks you want the more time it takes to generate all of them**)
+
+## Localization
+There are a lot of string resources that are used withing audio browser:
+| ResourceId        |      Value      |   Description |
+| ------------- | :----------- | :------------- |
+| apply_track | Use | Text of the button that applies music track
+| remove_track| Stop\nusing | Text on the button that cancels selected music track
+| track_loading_failed | Sorry, audio content is temporarily unavailable | Message for the uknown error within audiobrowser
+| track_search_cancel | Cancel | Text of the button that cancels recent search
+| audio_browser_title_library | My library | label of the music track list from the device
+| audio_browser_title_category | Music | label for the music track list from external API
+| audio_browser_title_empty_category | Music | label for the music track list that has no category
+| audio_browser_load_more | Show more | Text on the button that allows to load more tracks
+| audio_browser_error_tracks_not_found | No tracks found | Error message in case of failed tracks search
+| audio_browser_error_categories_not_found | No categories found | Error message in case of failed categories search
+| audio_browser_error_empty_library | No tracks yet | Message that is shown if there are no tracks on the device
+| audio_browser_error_license_not_active | The license is not active | Error message from the Mubert API
+| audio_browser_error_license_expired | The license expired | Error message from the Mubert API
+| audio_browser_error_license_access | Access denied, check license access type | Error message from the Mubert API
+| audio_browser_error_license_api_version | Access denied, check license API version | Error message from the Mubert API
+| audio_browser_hint_search_categories | Search by categories | Hint for the categories search
+| audio_browser_hint_search_sub_categories | Search by groups | Hint for the sub-categroies search
+| audio_browser_hint_search_tracks | Search by tracks | Hint for tracks search
+| audio_browser_error_dialog_title | Oops, something went wrong… | Title of the dialog message that is shown when something wrong with network request 
+| audio_browser_error_dialog_description | Please, try again later. | Description of the dialog message that is shown when something wrong with network request
+| audio_browser_error_dialog_retry | Retry | Text on the button that allows to retry loading tracks in case of network error 
+| audio_browser_error_dialog_close | Close | Text on the button that closes dialog message in case of network error 
+| permission_library_description_message | Allow to access to your storage to select an audio tracks from your device. | Message that is shown to the user before request a permission for loading tracks from the device
