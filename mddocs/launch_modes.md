@@ -1,7 +1,7 @@
 # How to launch Video Editor
 
-## You can launch Banuba video editor via following methods:
-1. ### To start video editor in a normal way:
+## You can launch AI Video Editor via following methods:
+1. ### To start Video Editor in a normal way:
    ```kotlin
      VideoCreationActivity.buildIntent(
          context: Context,
@@ -9,7 +9,7 @@
          audioTrackData: TrackData?
      )
    ```
-2. ### To start video editor from Trimmer screen i.e. camera screen is skipped:
+2. ### To start Video Editor from Trimmer screen i.e. camera screen is skipped:
    ```kotlin
      VideoCreationActivity.buildPredefinedVideosIntent(
          context: Context,
@@ -18,7 +18,7 @@
          audioTrackData: TrackData?
      )
    ```
-3. ### To start video editor in PIP mode:
+3. ### To Start Video editor in PIP mode:
    ```kotlin
      VideoCreationActivity.buildPipIntent(
          context: Context,

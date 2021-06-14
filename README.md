@@ -3,7 +3,7 @@
 
 
 # Banuba AI Video Editor SDK. Integration sample for Android.
-Banuba [Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to quickly add short video functionality and possibly AR filters and effects into your mobile app. On this page, we will explain how to integrate it into an Android app.  
+Banuba [AI Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to quickly add short video functionality and possibly AR filters and effects into your mobile app. On this page, we will explain how to integrate it into an Android app.
 
 <p align="center">
 <img src="mddocs/gif/camera_preview.gif" alt="Screenshot" width="24%" height="auto" class="docs-screenshot"/>&nbsp;
@@ -15,7 +15,7 @@ Banuba [Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to
 
 - [Requirements](#Requirements)
 - [Dependencies](#Dependencies)
-- [SDK size](#SDK-size)
+- [Video Editor SDK size](#Video-Editor-SDK-size)
 - [Starting a free trial](#Starting-a-free-trial)
 - [Supported media formats](#Supported-media-formats)
 - [Camera recording video quality params](#Camera-recording-video-quality-params)
@@ -30,8 +30,8 @@ Banuba [Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to
     + [Add Activity](#Add-Activity)
     + [Add config files](#Add-config-files)
     + [Configure DI](#Configure-DI)
-    + [Configure and start SDK in Android Java project](#Configure-and-start-SDK-in-Android-Java-project)
-    + [Check SDK availability before opening](#Check-SDK-availability-before-opening)
+    + [Configure and start Video Editor SDK in Android Java project](#Configure-and-start-Video-Editor-SDK-in-Android-Java-project)
+    + [Check Video Editor SDK availability before opening](#Check-Video-Editor-SDK-availability-before-opening)
      + [Disable Face AR SDK](#Disable-Face-AR-SDK)
     + [Configure export flow](#Configure-export-flow)
     + [Configure watermark](#Configure-watermark)
@@ -60,13 +60,13 @@ This is what you need to run the AI Video Editor SDK
 - [Kotlin Coroutines](https://github.com/Kotlin/kotlinx.coroutines)
 - [ffmpeg](https://github.com/FFmpeg/FFmpeg/tree/n3.4.1)
 - [AndroidX](https://developer.android.com/jetpack/androidx) libraries
-- [Banuba Face AR SDK](https://www.banuba.com/facear-sdk/face-filters). **Optional**. *VE SDK disables Face AR for devices with CPU armv7l(8 cores) and armv8(working in 32bit mode)*.
+- [Banuba Face AR SDK](https://www.banuba.com/facear-sdk/face-filters). **Optional**. *Video Editor SDK disables Face AR for devices with CPU armv7l(8 cores) and armv8(working in 32bit mode)*.
 
 [Please see all used dependencies](mddocs/all_dependencies.md)
 
-## SDK size  
+## Video Editor SDK size
 
-If you want to use the SDK for a short video app like TikTok, the [Face AR module](https://www.banuba.com/facear-sdk/face-filters) would be useful for you, as it allows you to add masks and other AR effects. If you just need the video editing-related features, the SDK can work on its own.
+If you want to use the Video Editor SDK for a short video app like TikTok, the [Face AR module](https://www.banuba.com/facear-sdk/face-filters) would be useful for you, as it allows you to add masks and other AR effects. If you just need the video editing-related features, the AI Video Editor SDK can work on its own.
 
 | Options | Mb      | Note |
 | -------- | --------- | ----- |
@@ -97,7 +97,7 @@ There is nothing complicated about it - [contact us](https://www.banuba.com/vide
 ## Export video quality params
 Video Editor SDK classifies every device by its performance capabilities and uses the most suitable quality params for the exported video.
 
-Nevertheless it is possible to customize it with `ExportParamsProvider` interface. Just put a required video quality into `ExportManager.Params.Builder` constructor. Check out an [**example**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportParamsProvider.kt), where multiple video files are exported: the first and the second with the most suitable quality params (defined by `sizeProvider.provideOptimalExportVideoSize()` method) and the third with 360p quality (defined by using an SDK constant `VideoResolution.VGA360`).
+Nevertheless it is possible to customize it with `ExportParamsProvider` interface. Just put a required video quality into `ExportManager.Params.Builder` constructor. Check out an [**example**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportParamsProvider.kt), where multiple video files are exported: the first and the second with the most suitable quality params (defined by `sizeProvider.provideOptimalExportVideoSize()` method) and the third with 360p quality (defined by using an Video Editor SDK constant `VideoResolution.VGA360`).
 
 See the **default bitrate (kb/s)** for exported video (without audio) in the table below:
 | 360p(360 x 640) | 480p(480 x 854) | HD(720 x 1280) | FHD(1080 x 1920) |
@@ -108,7 +108,7 @@ See the **default bitrate (kb/s)** for exported video (without audio) in the tab
 
 You should start with getting a trial token. It will grant you **14 days** to freely play around with the AI Video Editor SDK and test its entire functionality the way you see fit.
 
-There is nothing complicated about it - [contact us](https://www.banuba.com/video-editor-sdk#form) or send an email to sales@banuba.com and we will send it to you. We can also send you a sample app so you can see how it works “under the hood”.   
+There is nothing complicated about it - [contact us](https://www.banuba.com/video-editor-sdk#form) or send an email to sales@banuba.com and we will send it to you. We can also send you a sample app so you can see how it works “under the hood”.
 
 ## Token 
 We offer а free 14-days trial for you could thoroughly test and assess Video Editor SDK functionality in your app. To get access to your trial, please, get in touch with us by [filling a form](https://www.banuba.com/video-editor-sdk) on our website. Our sales managers will send you the trial token.
@@ -118,7 +118,7 @@ Also you can load token from [Firebase](https://firebase.google.com/docs/databas
 
 ## Connecting with AR cloud
 
-To decrease the app size, you can connect with our servers and pull AR filters from there. The effects will be downloaded whenever a user needs them. Please check out [step-by-step guide](mddocs/ar_cloud.md) to configure AR Cloud in the SDK.
+To decrease the app size, you can connect with our servers and pull AR filters from there. The effects will be downloaded whenever a user needs them. Please check out [step-by-step guide](mddocs/ar_cloud.md) to configure AR Cloud in the Video Editor SDK.
 
 
 ## What can you customize?
@@ -137,12 +137,12 @@ We understand that the client should have options to brand video editor to bring
 
 ## Getting Started
 ### GitHub packages
-GitHub packages are used to download the latest SDK modules. You will also need them to receive new SDK versions.
+GitHub packages are used to download the latest Video Editor SDK modules. You will also need them to receive new AI Video Editor SDK versions.
 GitHub packages are set up for trial.
 
 
 ### Add dependencies
-Please, specify a list of dependencies as in [app/build.gradle](app/build.gradle#L36) file to integrate Banuba Video Editor SDK.
+Please, specify a list of dependencies as in [app/build.gradle](app/build.gradle#L36) file to integrate AI Video Editor SDK.
 
 ### Add Activity  
 To manage the main screens - camera, gallery, trimmer, editor, and export - you need to add the VideoCreationActivity to [AndroidManifest.xml](app/src/main/AndroidManifest.xml#L25). Each screen is implemented as a [Fragment](https://developer.android.com/guide/fragments).
@@ -160,7 +160,7 @@ Once it’s done, you’ll be able to launch the video editor.
 Note the [CustomIntegrationAppTheme](app/src/main/res/values/themes.xml#L14) line in the code. Use this theme for changing icons, colors, and other screen elements to customize the app.
 
 ### Add config files  
-There are several files in the video editor SDK that allow you to modify its parameters. All of them go into the Android **assets** folder.
+There are several files in the Video Editor SDK that allow you to modify its parameters. All of them go into the Android **assets** folder.
 - The [**camera config file**](mddocs/config_camera.md) lets you change the min/max duration of the video, turn the flashlight on and off, etc. 
 - [music_editor.json](app/src/main/assets/music_editor.json) allows you to change the audio editor screen, e.g. the number of timelines or tracks allowed.
 - [object_editor.json](app/src/main/assets/object_editor.json) contains properties that you can customize on the editor screen.
@@ -193,7 +193,7 @@ startKoin {
 }
 ```
 
-### Configure and start SDK in Android Java project
+### Configure and start Video Editor SDK in Android Java project
 You can use Java in your Android project. In this case you can start Koin in this way
 ``` java
  startKoin(new GlobalContext(), koinApplication -> {
@@ -204,7 +204,7 @@ You can use Java in your Android project. In this case you can start Koin in thi
 ```
 Please, find the [full example](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/IntegrationJavaApp.java#L22) of Java Application class.
 
-### Check SDK availability before opening
+### Check Video Editor SDK availability before opening
 
 The SDK is protected by the token so its presence is a vital part of Video Editor launch. To check if the SDK is ready to use you may invoke the following method:
 ```kotlin
@@ -212,7 +212,7 @@ VideoEditorSDK.isAvailable()
 ```
 
 ### Disable Face AR SDK
-You can use Video Editor SDK without Face AR SDK. Please follow these changes to make it. 
+You can use AI Video Editor SDK without Face AR SDK. Please follow these changes to make it.
  
 Remove ```BanubaEffectPlayerKoinModule().module``` from the video editor Koin module
 ```diff
@@ -233,7 +233,7 @@ And also remove dependency ```com.banuba.sdk:effect-player-adapter``` from [app/
 ```
 
 ### Configure export flow  
-The video editor SDK exports recordings as .mp4 files. There are many ways you can customize this flow to better integrate it into your app.
+The Video Editor SDK exports recordings as .mp4 files. There are many ways you can customize this flow to better integrate it into your app.
 
 To change export output, start with the ```ExportParamsProvider``` interface. It contains one method - ```provideExportParams()``` that returns ```List<ExportManager.Params>```. Each item on this list relates to one of the videos in the output and their configuration. Please check out [guide](mddocs/configure_export_params.md) to configure ExportParams. See the example [here](app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportParamsProvider.kt).
 
@@ -252,7 +252,7 @@ To use a watermark, add the ``` WatermarkProvider``` interface to your app. The 
 
 ### Configure audio content  
 
-Banuba Video Editor SDK can trim audio tracks, merge them, and apply them to a video. **It doesn’t include music or sounds**, so adding them is on you. However, the SDK can be integrated with [Mubert](https://mubert.com/). 
+Banuba AI Video Editor SDK can trim audio tracks, merge them, and apply them to a video. **It doesn’t include music or sounds**, so adding them is on you. However, the SDK can be integrated with [Mubert](https://mubert.com/).
 
 Adding audio content is simple. See this [step-by-step guide](mddocs/audio_content.md) guide for code examples.
 
@@ -262,7 +262,7 @@ Check out [step-by-step guide](mddocs/audio_browser.md) to use audio browser in 
 
 ### Configure stickers content  
 
-The stickers in the Banuba Video Editor SDK are GIFs. Adding them is as simple as adding your personal [**Giphy API**](https://developers.giphy.com/docs/api/) into the stickersApiKey parameter in [videoeditor.json](app/src/main/assets/videoeditor.json#L13) file.
+The stickers in the AI Video Editor SDK are GIFs. Adding them is as simple as adding your personal [**Giphy API**](https://developers.giphy.com/docs/api/) into the stickersApiKey parameter in [videoeditor.json](app/src/main/assets/videoeditor.json#L13) file.
 
 If you don't want to use Giphy, check out [guide](mddocs/sticker_loader.md) to set up your sticker loader.
 
@@ -307,11 +307,9 @@ There are 3 modes:
 ```
 
 ### Configure screens
-You can use the Android themes and styles to change the screens in the mobile video editor SDK. You can also change the language and text. 
+You can use the Android themes and styles to change the screens in the mobile Video Editor SDK. You can also change the language and text.
 
-There are 8 screens in the SDK:
-
-The SDK incudes the following screens:
+The AI Video Editor SDK incudes the following screens:
 1. [Camera screen](mddocs/camera_styles.md)
 1. [Editor screen](mddocs/editor_styles.md)
 1. [Gallery screen](mddocs/gallery_styles.md)

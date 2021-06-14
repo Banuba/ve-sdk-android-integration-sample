@@ -12,7 +12,7 @@ To change that, simply set the [takePhotoOnTap](https://github.com/Banuba/ve-sdk
 ### **2. How do I add an AR mask to the app without using the AR cloud?**  
 If you don’t want to pull the masks from the backend, you can include them in the app itself. 
 
-To do so, name the folder with the mask files the way you want to call the mask, and place it into **assets/bnb-resources/effects** directory in the module containing the SDK (Example).
+To do so, name the folder with the mask files the way you want to call the mask, and place it into **assets/bnb-resources/effects** directory in the module containing the Video Editor SDK (Example).
 
 Make sure that you include the **preview.png** file in the mask folder. It serves as an icon for the mask within the app. 
 
@@ -57,7 +57,7 @@ data class TrackData(
 
 ### **5. How do I add LUTs to the app?**
 
-Color filters are located in the **assets/bnb-resources/luts** directory in the module with the SDK. To add your own, place the files in this folder and create a drawable resource that will be used as an icon for this particular LUT. The name of the drawable resource must be the same as the graphic file in the filter’s directory.
+Color filters are located in the **assets/bnb-resources/luts** directory in the module with the AI Video Editor SDK. To add your own, place the files in this folder and create a drawable resource that will be used as an icon for this particular LUT. The name of the drawable resource must be the same as the graphic file in the filter’s directory.
 
 For example, this is the [LUT](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/bnb-resources/luts/C1.png) file, and this is its [drawable resource](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/drawable/c1.png).
 

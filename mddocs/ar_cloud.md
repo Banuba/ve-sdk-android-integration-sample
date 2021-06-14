@@ -1,6 +1,6 @@
-# API for using AR cloud in the SDK
+# API for using AR cloud in the Video Editor SDK
 
-AR cloud is a product, which saves space for your app. In a nutshell, it stores AR masks on a server, instead of the SDK code. When the user open the app they download the masks, which are then saved in his phone’s memory.  
+AR cloud is a product, which saves space for your app. In a nutshell, it stores AR masks on a server, instead of the Video EditorSDK code. When the user open the app they download the masks, which are then saved in his phone’s memory.
 
 With AR cloud you also can easily rotate masks for some special events like Christmas, Halloween, or Diwali.
 AR cloud is fully compatible with both Video Editor and Face AR products.

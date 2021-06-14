@@ -1,4 +1,4 @@
-# Banuba VideoEditor SDK
+# Banuba AI Video Editor SDK
 ## Timeline Editor screen styles
 
 This screen is used to edit gif (sticker) and text effects. 

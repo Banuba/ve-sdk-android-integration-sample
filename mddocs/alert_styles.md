@@ -1,7 +1,7 @@
-# Banuba VideoEditor SDK
+# Banuba AI Video Editor SDK
 ## Alert Dialog styles
 
-There are following types of user notification used in Banuba Video Editor SDK:
+There are following types of user notification used in AI Video Editor SDK:
 - toast
 - wait dialog (represents long running tasks)
 - info alert
@@ -58,9 +58,9 @@ Info alerts are messages that are used to show information message to the user (
 | permission_dialog_allow | Allow | button title for simple confirmation from the user
 | permission_dialog_settings | Settings | button title for redirection to application settings (it is used in case the user did not granted permissions but still tries to make something unavailable without permission)
 
-### **Confirmation alert**  
+### **Confirmation alert**
 
-Confirmation alerts are used when some action from the user is required. They have two buttons representing different user experience flow. 
+Confirmation alerts are used when some action from the user is required. They have two buttons representing different user experience flow.
 
 To customize this type of dialogs you should override following styles :
  - alertParentViewStyle - for the whole alert container
@@ -71,7 +71,7 @@ To customize this type of dialogs you should override following styles :
 
 ![img](screenshots/alert4.png)
 
-To customize **the whole appearance** of confirmation alerts you should override `ConfirmationDialogProvider` interface and provide your custom implementation through DI. With custom implementation you should take into account confirmation alert types to create consistent user experience within SDK.
+To customize **the whole appearance** of confirmation alerts you should override `ConfirmationDialogProvider` interface and provide your custom implementation through DI. With custom implementation you should take into account confirmation alert types to create consistent user experience within Video Editor SDK.
 
 Every alert dialog has its own type within SDK. It allows to customize descriptions and text over the positive and negative buttons. To do so you need to override the following **string resources** (they named according to the type of alert where they are used):
 - "alert_return_to_camera"

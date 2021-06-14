@@ -1,4 +1,4 @@
-# Banuba VideoEditor SDK
+# Banuba AI Video Editor SDK
 ## Camera screen styles  
 
 - [cameraOverlayStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L17)
@@ -94,7 +94,7 @@ Groups described above are showcasted on the screenshot along with some string r
 | notification_timer_on | Timer %1$d seconds is on | message shown when one of the TimerEntry was selected (placeholder is a TimerEntry value in seconds)
 | notification_timer_off | Timer is off | message shown when the timer is being turned off
 | notification_speed_changed | Recording speed %1$s | message shown when the speed of recording changes
-| err_no_space_left | Not enough disk space | message widely used in SDK and informing that there is not space to effort further operations
+| err_no_space_left | Not enough disk space | message widely used in Video Editor SDK and informing that there is not space to effort further operations
 | err_no_time_left | Max video length %1$.1f sec | message shown in case of user tries to record video longer than the ```maxVideoDuration``` parameter from [camera.json](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/camera.json#L3) file
 | err_no_space_left_recording | Running out of disk space. Recording is canceled. | message shown in case the phone is running out of space during video recording
 | label_camera_effects_luts | Filter | label at the top of the color filters list (visibility of the label is configured in [cameraEffectsLabelStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L25))
@@ -102,7 +102,7 @@ Groups described above are showcasted on the screenshot along with some string r
 | camera_next | Next | text on the button that goes on the editor screen
 
 
-In case if a TextView that are shown on camera has no string resource mentioned here that means you may use any resource from outside the SDK and apply it through view's style configuration.
+In case if a TextView that are shown on camera has no string resource mentioned here that means you may use any resource from outside the Video Editor SDK and apply it through view's style configuration.
 
 All alert messages shown on the camera screen that require user's action are described in [Alert dialogs](alert_styles.md) section.
 
