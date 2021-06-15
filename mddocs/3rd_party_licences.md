@@ -1,4 +1,4 @@
-# Banuba VideoEditor SDK
+# Banuba AI Video Editor SDK
 ## Third party libraries
 
 ### **GNU Lesser General Public Licence version 2.1 or later**
