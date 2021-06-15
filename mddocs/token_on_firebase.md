@@ -1,4 +1,4 @@
-# API for using token from Firebase in the SDK
+# API for using token from Firebase in the AI Video Editor SDK
 
 Banuba token can be stored in Firebase
 

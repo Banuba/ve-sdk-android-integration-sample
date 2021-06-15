@@ -1,16 +1,16 @@
-# API for using client's audio content in the SDK
+# API for using client's audio content in the AI Video Editor SDK
 [comment]: <> (This file was created by exporting notion page from here: https://www.notion.so/vebanuba/API-for-using-client-s-audio-content-in-the-SDK-9a0e03dd3ad04962a2cbadebe5c73c19)
 ## Overview
 
 The user can apply audio tracks on camera and audio editor screens.
 
-The SDK can apply an audio track to a video, trim an audio track before applying, create new audio track as a composition of several applied audio tracks on video.
+The Video Editor SDK can apply an audio track to a video, trim an audio track before applying, create new audio track as a composition of several applied audio tracks on video.
 
-**NOTE: the VE SDK is not responsible for providing audio content. The client has to implement an integration with audio content provider.**
+**NOTE: the Video Editor SDK is not responsible for providing audio content. The client has to implement an integration with audio content provider.**
 
 ## Implementation
 
-The SDK allows to open client's audio content screen in order to user could pick audio tracks and apply it in the SDK. The screen should be implemented as Android [Activity](https://developer.android.com/reference/android/app/Activity).
+The Video Editor SDK allows to open client's audio content screen in order to user could pick audio tracks and apply it in the SDK. The screen should be implemented as Android [Activity](https://developer.android.com/reference/android/app/Activity).
 
 ### Step 1
 
@@ -125,9 +125,9 @@ Now when the user clicks on audio icon your Activity will open.
 
 Please display audio content to the user.
 
-The SDK requires audio track to be downloaded on locale storage.
+The Video Editor SDK requires audio track to be downloaded on locale storage.
 
-Create an instance of TrackData when the user is ready to apply this audio track in the SDK.
+Create an instance of TrackData when the user is ready to apply this audio track in the Video Editor SDK.
 
 ```kotlin
 val trackData = TrackData(
@@ -162,4 +162,4 @@ setResult(Activity.RESULT_OK, resultIntent)
 finish()
 ```
 
-Now the selected track will be passed and applied in the SDK.
+Now the selected track will be passed and applied in the Video Editor SDK.

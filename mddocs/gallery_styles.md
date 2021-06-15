@@ -1,4 +1,4 @@
-# Banuba VideoEditor SDK
+# Banuba AI Video Editor SDK
 ## Gallery screen styles
 
 - [galleryImageViewStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L85)

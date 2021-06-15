@@ -1,4 +1,4 @@
-# Banuba VideoEditor SDK
+# Banuba AI Video Editor SDK
 ## Trimmer screen styles
 
 - [trimmerStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L116)

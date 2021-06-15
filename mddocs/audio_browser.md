@@ -2,9 +2,9 @@
 
 ## Overview
 
-**Audio Browser** is an audio content provider module developed by the Banuba Video Editor SDK team for Android and iOS. 
+**Audio Browser** is an audio content provider module developed by the Banuba AI Video Editor SDK team for Android and iOS.
 
-It allows users to apply audio tracks from audio content service and the device storage to video within SDK.
+It allows users to apply audio tracks from audio content service and the device storage to video within Video Editor SDK.
 
 The module supports integration with [Mubert](https://mubert.com/) API.
 
@@ -26,7 +26,7 @@ And [**videoeditor.json**](https://github.com/Banuba/ve-sdk-android-integration-
 
 ### Step 1
 
-Add a dependency into your gradle file containing other VE SDK dependencies and setup its version (the latest is 1.0.16):
+Add a dependency into your gradle file containing other Video Editor SDK dependencies and setup its version (the latest is 1.0.16):
 
 ```kotlin
 implementation "com.banuba.sdk:ve-audio-browser-sdk:${current sdk version}"
@@ -46,7 +46,7 @@ startKoin {
 }
 ```
 
-Within the main SDK module (`VideoEditorKoinModule`) override `musicTrackProvider` to use audio browser as an audio content provider:
+Within the main Video Editor SDK module (`VideoEditorKoinModule`) override `musicTrackProvider` to use audio browser as an audio content provider:
 
 ```kotlin
 override val musicTrackProvider: BeanDefinition<ContentFeatureProvider<TrackData>> =
@@ -190,8 +190,8 @@ There are a lot of string resources that are used withing audio browser:
 | audio_browser_hint_search_categories | Search by categories | Hint for the categories search
 | audio_browser_hint_search_sub_categories | Search by groups | Hint for the sub-categroies search
 | audio_browser_hint_search_tracks | Search by tracks | Hint for tracks search
-| audio_browser_error_dialog_title | Oops, something went wrong… | Title of the dialog message that is shown when something wrong with network request 
+| audio_browser_error_dialog_title | Oops, something went wrong… | Title of the dialog message that is shown when something wrong with network request
 | audio_browser_error_dialog_description | Please, try again later. | Description of the dialog message that is shown when something wrong with network request
-| audio_browser_error_dialog_retry | Retry | Text on the button that allows to retry loading tracks in case of network error 
-| audio_browser_error_dialog_close | Close | Text on the button that closes dialog message in case of network error 
+| audio_browser_error_dialog_retry | Retry | Text on the button that allows to retry loading tracks in case of network error
+| audio_browser_error_dialog_close | Close | Text on the button that closes dialog message in case of network error
 | permission_library_description_message | Allow to access to your storage to select an audio tracks from your device. | Message that is shown to the user before request a permission for loading tracks from the device
