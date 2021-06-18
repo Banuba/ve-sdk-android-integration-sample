@@ -3,7 +3,8 @@
 
     <!-- VIDEO EDITOR TOKEN -->
     <!-- Please contact Banuba https://www.banuba.com/video-editor-sdk to get this token -->
-    <string name="banuba_token">4Feq89zoEmVWVWXjabwWmjRKfEC8pkAjGbiOTzWJiBePqEuPuRAuPGvUFLGBAPM/+NZcC1DlKbMHRHu6CQ7TavIWz8zBa+uTKtYrZ6DG2ipeyq4vakC1iC3pygTQhLHnXwihK5FfiYgW0FfCGjsXTg6+2hl6SfpdisWzl5zTv1BufG4ya330O12dfhSNR/9hBLpiRK5gu8fWfMf7gCuaClIkLV/yE7unWFnanjCgqEjpHO57gN62ecFe/cUVtVngw305pPBShP7Gu9Q/r9rjvaxx9R1UwBt6sdrnpNFgnR4BcXjB76hsbKRdsXLr8r0iFTHTXKLw+GoZyKr/Lm3bCt4e0sTg31dDVHNKmnTiyHthfWw0+yT6yn9/tPN/RGISLPAtniCLu0PQi+qlTDYjZ/9l24OKNPyZICJLlYN8QP4FtxUOhyiS0rXcfltrN9ifdw2Y4KpsG8zmEbtmxxVIjoDhkFRw9smh1WwJd5JjsBzYiAwiFErVbCAl2pxO8EMIVxVbEJtT4UOpCIrZwziPYeWCIllQbhYQcdF2HDSgGGPsB83Asxqk73b25Urx+UFCP7V2p2eg5ALQf9H6b3YI5mROIcxaYsWneSRbHOxgiLj2Xnh5k4hwWvAVo2CiMEQXPwTR+7INS32Vju5cjys795K3qZl40WtGbK0Hte4CicgtOm4ILhNhWwVEa0v/LXLTUPPGCJe+7sRnJf9BeehsJIBoOrK0XJ9itx1sXexiP0QrzNXwcd7NbBBgyh441UZyYYF2VrMwlEzfYUzr04PTeD8omd5BoDO8r7WgHLcA2bFxz4W9uQnfgZLTDSWumc1Qe9DxIdYXIaecKhSLE7V49E6R6DVRtklhBXtpFK1BiV9+VzwMd4Flhzi4wNFtqz1wAE/sMlEU5PFRLr/Lvh1oe0NdmuQJoET3CQinWl1dyRRPccgqCYx6BCAKivDrakm/hQkX4ce496405bytjwsMRSAk+24UUZ27sb7LpAFs84krlLiIneUNLBuxy5v/jeVEB0RxRGXWL1BxOnyle+Y6YKV8oJ5OrcEKpgM=</string>
+    <string name="banuba_token">PUT VIDEO EDITOR TOKEN HERE</string>
+
     <!-- AUDIO BROWSER MUBERT -->
     <string name="mubert_api_key">PUT YOUR PERSONAL MUBERT KEY</string>
 </resources>
