@@ -289,7 +289,9 @@ If you don't want to use Giphy, check out [guide](mddocs/sticker_loader.md) to s
 
 ### Configure the record button  
 
-You can change the look of the button and the animation on tap. This is how it’s done:
+If you want to use the **default record button** provided by the Video Editor SDK with some color, size and animation customization, follow [this guide](mddocs/record_button_styles.md).
+
+If you want to fully change the look of the button and the animation on tap, you should provide your **custom record button** implementation. This is how it’s done:
 
 1. Create a [custom view](app/src/main/java/com/banuba/example/integrationapp/videoeditor/widget/recordbutton/RecordButtonView.kt).
 
