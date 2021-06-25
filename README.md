@@ -35,6 +35,7 @@ Banuba [AI Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you
      + [Disable Face AR SDK](#Disable-Face-AR-SDK)
     + [Configure export flow](#Configure-export-flow)
     + [Configure watermark](#Configure-watermark)
+    + [Configure media content](#Configure-media-content)
     + [Configure audio content](#Configure-audio-content)
     + [Configure audio browser](#Configure-audio-browser)
     + [Configure stickers content](#Configure-stickers-content)
@@ -249,6 +250,26 @@ Should you choose to export files in the background, you’d do well to change `
 
 ### Configure watermark  
 To use a watermark, add the ``` WatermarkProvider``` interface to your app. The image goes into the getWatermarkBitmap method. Once you’re done, rearrange the dependency watermarkProvider in [DI](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#L53). See the [example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationAppWatermarkProvider.kt) of adding a watermark here.
+
+### Configure media content
+
+AI Video Editor SDK is provided with its own solution for media content (i.e. images and videos) selection - the gallery screen. To use it as a part of SDK just add a dependency into build.gradle:
+```kotlin
+implementation "com.banuba.sdk:ve-gallery-sdk:1.0.16"
+```
+and put the new koin module into `startKoin` function:
+```diff
+startKoin {
+    androidContext(this@IntegrationApp)
+        modules(
+            // other Video Editor modules
++           GalleryKoinModule().module
+        )
+}
+```
+The gallery screen is fully customizable according to [this guide](mddocs/gallery_styles.md). 
+
+Also there is an option to use **your own implementation of the gallery**. This is available according to this [step-by-step guide](mddocs/configure_external_gallery.md). 
 
 ### Configure audio content  
 
