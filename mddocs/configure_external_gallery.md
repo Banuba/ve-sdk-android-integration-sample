@@ -42,13 +42,13 @@ class ExternalMediaContentProvider : ContentFeatureProvider<List<Uri>, Fragment>
 }
 ```
 
-Method `init` is invoked inside Video Editor SDK to register onActivityResult callback to receive media content. We use `ProvideMediaContentContract` class to manage data bundle that passed between SDK and your external media provider implementation. 
+Method `init` is invoked inside Video Editor SDK to register `onActivityResult` callback to receive media content. We use `ProvideMediaContentContract` class to manage data bundle that passed between SDK and your external media provider implementation. 
 
 Inside `requestContent` method we create an intent that will be used inside our `CustomMediaProviderActivity` and return it wrapped into `ContentFeatureProvider.Result.RequestUi` object.
 
 **NOTE**: `extras` argument contains meta data for media content selection and should be passed into your external media provider.
 
-`handleResult` method connects onActivityResult callback within Video Editor SDK with the media content provided by `CustomMediaProviderActivity`.
+`handleResult` method connects `onActivityResult` callback within Video Editor SDK with the media content provided by `CustomMediaProviderActivity`.
 
 ## Step 2
 
@@ -75,7 +75,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
     )
 ```
 
-`mode` - is a type of request
+`mode` - is a type of request (NORMAL, FEATURE_BACKGROUND, ADD_TO_TRIMMER)
 
 `types` - list of requested media types (Video, Image)
 
