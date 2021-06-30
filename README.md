@@ -273,7 +273,7 @@ Also there is an option to use **your own implementation of the gallery**. This 
 
 ### Configure audio content  
 
-Banuba AI Video Editor SDK can trim audio tracks, merge them, and apply them to a video. **It doesn’t include music or sounds**, so adding them is on you. However, the SDK can be integrated with [Mubert](https://mubert.com/).
+Banuba Video Editor SDK can trim audio tracks, merge them, and apply them to a video. **It doesn’t include music or sounds**. However, it can be integrated with [Mubert](https://mubert.com/) and get music from it (requires additional contract with them). Moreover, the users can add audio files from internal memory (downloaded library) from the phone.
 
 Adding audio content is simple. See this [step-by-step guide](mddocs/audio_content.md) guide for code examples.
 
