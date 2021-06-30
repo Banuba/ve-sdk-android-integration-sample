@@ -5,6 +5,14 @@
 
     style defines the overview of gallery icon on the **camera screen**. By default the last media resource is used as gallery icon drawable. To show the custom icon for gallery the `use_custom_image` attribute should be changed to "true" and the custom drawable should be passed as `android:src` value. If there are no media resource on the device the icon from `icon_empty_gallery` attribute of `CameraOverlayView` style is used (if `use_custom_image` is false). 
 
+- [popupTextStyle]()
+
+    style for text that is shown within popup to attract the user to the Drafts feature
+
+- [popupArrowStyle]()
+
+    style for the arrow image of drafts hint popup
+
     ![img](screenshots/gallery0.png)
 
 - [galleryBackButtonStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L87)
@@ -164,3 +172,4 @@ Besides concrete styles there are a lot of theme attributes that allows to confi
 | drafts_empty_description | No Drafts | text description inside ```draftsEmptyTextStyle```
 | drafts_options_subtitle | Draft | subtitle of the draft
 | drafts_options_remove | Remove | label of the button inside ```draftOptionsRemoveButtonStyle```
+| drafts_popup_hint | You can find your draft in the Gallery | hint that is shown on the camera screen to attract the user to the new feature
