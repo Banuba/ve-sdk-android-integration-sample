@@ -43,6 +43,7 @@ Banuba [AI Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you
     + [Configure camera timer](#Configure-camera-timer)
     + [Configure Cover preview screen](#Configure-Cover-preview-screen)
     + [Configure screens](#Configure-screens)
+    + [Configure additional Video Editor SDK features](#Configure-additional-Video-Editor-SDK-features)
 - [FAQ](#FAQ)
 - [Third party libraries](#Third-party-libraries)
 
@@ -341,6 +342,10 @@ The AI Video Editor SDK incudes the following screens:
 1. [Timeline Editor screen](mddocs/timeline_editor_styles.md)
 1. [Cover screen](mddocs/cover_styles.md)
 1. [Alert Dialogs](mddocs/alert_styles.md)  
+
+### Configure additional Video Editor SDK features
+
+1. [Background separation](mddocs/background_mask.md)
 
 ### Launch Video Editor
 

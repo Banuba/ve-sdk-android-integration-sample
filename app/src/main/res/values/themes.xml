@@ -347,6 +347,36 @@
         </item>
         <item name="handsFreeTimelineStyle">@style/CustomHandsFreeTimelineStyle</item>
         <item name="handsFreeRecordButtonStyle">@style/CustomHandsFreeRecordButtonStyle</item>
+        <!---->
+
+        <!-- Background mask -->
+        <item name="backgroundEffectContainerStyle">@style/CustomBackgroundEffectContainerStyle
+        </item>
+        <item name="backgroundEffectHintStyle">@style/CustomBackgroundEffectHintStyle</item>
+        <item name="backgroundEffectEmptyViewStyle">@style/CustomBackgroundEffectEmptyViewStyle
+        </item>
+        <item name="backgroundEffectPermissionsBtnStyle">
+            @style/CustomBackgroundEffectPermissionsBtnStyle
+        </item>
+        <item name="backgroundEffectGalleryListStyle">
+            @style/CustomBackgroundEffectGalleryListStyle
+        </item>
+        <item name="backgroundEffectGalleryBtnStyle">@style/CustomBackgroundEffectGalleryBtnStyle
+        </item>
+        <item name="backgroundEffectGalleryThumbStyle">
+            @style/CustomBackgroundEffectGalleryThumbStyle
+        </item>
+        <item name="backgroundEffectGalleryThumbTextStyle">
+            @style/CustomBackgroundEffectGalleryThumbTextStyle
+        </item>
+        <item name="backgroundEffectGalleryThumbProgressStyle">
+            @style/CustomBackgroundEffectGalleryThumbProgressStyle
+        </item>
+        <item name="backgroundEffectGalleryBorderedImageViewStyle">
+            @style/CustomBackgroundEffectGalleryBorderedImageViewStyle
+        </item>
+
+        <!---->
     </style>
 
     <!-- CameraOverlayStyle setup icons for Camera screen.
@@ -1069,7 +1099,7 @@
 
     <style name="CustomHandsFreeTimelineCurrentDurationStyle" parent="HandsFreeTimelineCurrentDurationStyle" />
 
-    <style name="CustomHandsFreeTimelineStyle" parent="HandsFreeTimelineStyle" >
+    <style name="CustomHandsFreeTimelineStyle" parent="HandsFreeTimelineStyle">
         <item name="video_duration_timeline_default_lines_color">@color/egg_blue</item>
     </style>
 
@@ -1077,5 +1107,27 @@
         <item name="android:background">@drawable/bg_hands_free_record_button</item>
         <item name="android:textColor">@color/color_selector_button_text</item>
     </style>
+    <!---->
+
+    <!-- Background mask -->
+    <style name="CustomBackgroundEffectContainerStyle" parent="BackgroundEffectContainerStyle" />
+
+    <style name="CustomBackgroundEffectHintStyle" parent="BackgroundEffectHintStyle" />
+
+    <style name="CustomBackgroundEffectEmptyViewStyle" parent="BackgroundEffectEmptyViewStyle" />
+
+    <style name="CustomBackgroundEffectPermissionsBtnStyle" parent="BackgroundEffectPermissionsBtnStyle" />
+
+    <style name="CustomBackgroundEffectGalleryListStyle" parent="BackgroundEffectGalleryListStyle" />
+
+    <style name="CustomBackgroundEffectGalleryBtnStyle" parent="BackgroundEffectGalleryBtnStyle" />
+
+    <style name="CustomBackgroundEffectGalleryThumbStyle" parent="BackgroundEffectGalleryThumbStyle" />
+
+    <style name="CustomBackgroundEffectGalleryThumbTextStyle" parent="BackgroundEffectGalleryThumbTextStyle" />
+
+    <style name="CustomBackgroundEffectGalleryThumbProgressStyle" parent="BackgroundEffectGalleryThumbProgressStyle" />
+
+    <style name="CustomBackgroundEffectGalleryBorderedImageViewStyle" parent="BackgroundEffectGalleryBorderedImageViewStyle" />
     <!---->
 </resources>
