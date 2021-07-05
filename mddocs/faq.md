@@ -133,3 +133,18 @@ The rotation button appearance can be customized by `trimmerRotateButtonStyle` t
  - after the first month the camera screen will be blurred and a full-screen watermark will be displayed
 
  Please keep your licence up to date to avoid unwanted behavior.
+
+ ### **11. I want to change the font in Video Editor**
+
+All text view styles in Video Editor SDK are inherited from the `Text` style, thus the font set in this style will be applied to all text views in Video Editor. 
+
+To apply `customFont` to Video Editor just override this style:
+
+ ```
+<style name="Text">
+    <item name="android:fontFamily">@font/customFont</item>
+</style>
+ ```
+
+Using this approach you don't have to repeatedly set the font to any other styles while customizing the Video Editor.
+
