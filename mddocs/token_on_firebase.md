@@ -41,5 +41,5 @@ class VideoEditorKoinModule : FlowEditorModule() {
 ```
 
 ### Note:
-To verify that token is ready, you can use `VideoEditorSDK.isAvailable()` before launch `VideoCreationActivity`. If method returns true - you can safely launch video editor, otherwise exception is raised.
+To verify that token is ready, you can use `VideoEditorUtils.isAvailable` before launch `VideoCreationActivity`. If method returns true - you can safely launch video editor, otherwise exception is raised.
 We recommend to follow [this guide](../README.md#Getting-Started) to finish the setup.
