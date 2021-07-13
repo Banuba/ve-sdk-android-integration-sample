@@ -136,7 +136,7 @@ The rotation button appearance can be customized by `trimmerRotateButtonStyle` t
 
  ### **11. I want to change the font in Video Editor**
 
-All text view styles in Video Editor SDK are inherited from the `Text` style, thus the font set in this style will be applied to all text views in Video Editor. 
+All text view styles in Video Editor SDK are inherited from the `Text` style, thus the font set in this style will be applied to all text views in Video Editor.
 
 To apply `customFont` to Video Editor just override this style:
 
@@ -148,3 +148,45 @@ To apply `customFont` to Video Editor just override this style:
 
 Using this approach you don't have to repeatedly set the font to any other styles while customizing the Video Editor.
 
+
+ ### **12. How to obtain GIF preview image of exported video**
+
+ Video Editor SDK allows to obtain exported video preview as a gif image.
+
+ Inside your `ExportParamsProvider` implementation create a `GifMaker.Params`:
+
+ ```kotlin
+     data class Params(
+        val destFile: File,
+        val sourceVideoRangeMs: LongRange = 0..1000L,
+        val fps: Int = 15,
+        val width: Int = 240,
+        val useDithering: Boolean = true,
+        val reverse: Boolean = true
+    )
+ ```
+
+Where
+
+ - `destFile` - is a file where gif will be stored after export
+- `sourceVideoRangeMs` - is a range of exported video that will be used to create gif image
+-  `fps` - frames per second within gif image
+- `width` - is a width of gif image in pixels
+- `useDithering` - is a flag that apply or remove dithering effect (in simple words make an image of better quality)
+- `reverse` - is a flag to reverse playback inside gif
+
+ This object should be passed into `interactivePreview()` method of `ExportManager.Params.Builder` along with the rest export data:
+
+ ```diff
+ExportManager.Params.Builder(
+    mediaResolutionProvider.provideOptimalExportVideoSize())
+                .effects(effects)
+                .fileName("export_video")
+                .videoList(videoList)
+                .destDir(exportSessionDir)
+                .musicEffects(musicEffects)
+                .extraAudioFile(extraSoundtrackUri)
+                .volumeVideo(videoVolume)
+ +              .interactivePreview(gifPreviewParams)
+                .build()
+ ```

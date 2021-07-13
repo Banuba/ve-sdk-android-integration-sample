@@ -85,6 +85,9 @@ There are bulk of **theme attributes** that should be added to the main **Video 
 - audioBrowserCameraTrackIconViewStyle
 - audioBrowserCameraTrackTitleViewStyle
 - audioBrowserCameraTrackResetBtnStyle
+- audioBrowserTrackLoadMoreStyle
+- audioBrowserTrackLoadMoreItemStyle
+- audioBrowserThrobberViewStyle
 ```
 
 **Almost all** **attributes have an appropriate style** (with the name similar to an attribute) that can be used as a default style implementation. For example, the `AudioBrowserBottomSheetStyle` can be placed under `audioBrowserBottomSheetStyle` theme attribute. 
@@ -195,3 +198,4 @@ There are a lot of string resources that are used withing audio browser:
 | audio_browser_error_dialog_retry | Retry | Text on the button that allows to retry loading tracks in case of network error
 | audio_browser_error_dialog_close | Close | Text on the button that closes dialog message in case of network error
 | permission_library_description_message | Allow to access to your storage to select an audio tracks from your device. | Message that is shown to the user before request a permission for loading tracks from the device
+| audio_browser_load_more | Load more | Text on the button that allows to request more tracks from the Mubert service

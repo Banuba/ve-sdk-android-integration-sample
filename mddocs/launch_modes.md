@@ -6,9 +6,14 @@
      VideoCreationActivity.buildIntent(
          context: Context,
          additionalExportData: Parcelable?,
-         audioTrackData: TrackData?
+         audioTrackData: TrackData?,
+         themResId: Int?,
+         cameraUIType: CameraUIType
      )
    ```
+
+    As the last parameter `CameraUIType.TYPE_1` is used. If you do not want to change camera layout type just omit this parameter
+
 2. ### To start Video Editor from Trimmer screen i.e. camera screen is skipped:
    ```kotlin
      VideoCreationActivity.buildPredefinedVideosIntent(
