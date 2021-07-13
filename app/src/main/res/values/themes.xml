@@ -40,15 +40,16 @@
              to alert dialogs shown in the video editor
              ("@null" means that there are no icons on alert dialogs -> it is default setup,
              so if you do not want to add icons just not override these attributes) -->
-        <item name="alert_camera_return_to_camera">@null</item>
         <item name="alert_camera_delete_video">@null</item>
-        <item name="alert_camera_return_to_editor">@null</item>
-        <item name="alert_camera_return_to_trimmer">@null</item>
         <item name="alert_camera_save">@null</item>
         <item name="alert_camera_reset_all">@null</item>
         <item name="alert_editor_delete_voice_record">@null</item>
         <item name="alert_editor_reset_all">@null</item>
         <item name="alert_editor_reset_effects">@null</item>
+        <item name="alert_draft_remove_icon_res">@null</item>
+        <item name="alert_draft_update_icon_res">@null</item>
+        <item name="alert_draft_restore_icon_res">@null</item>
+        <item name="alert_draft_save_icon_res">@null</item>
 
         <!--Picture in picture style-->
         <item name="pipParentStyle">@style/CustomPipParentStyle</item>
@@ -104,7 +105,11 @@
         <item name="galleryImageViewStyle">@style/CustomGalleryImageViewStyle</item>
         <item name="galleryTitleTextStyle">@style/CustomGalleryTitleTextStyle</item>
         <item name="galleryBackButtonStyle">@style/CustomGalleryBackButtonStyle</item>
+        <item name="galleryNextParentStyle">@style/CustomGalleryNextParentStyle</item>
         <item name="galleryNextButtonStyle">@style/CustomGalleryNextButtonStyle</item>
+        <item name="gallerySelectionDescriptionStyle">@style/CustomGallerySelectionDescriptionStyle
+        </item>
+        <item name="galleryDraftsButtonStyle">@style/CustomGalleryDraftsButtonStyle</item>
         <item name="galleryItemRadioButtonStyle">@style/CustomGalleryItemRadioButtonStyle</item>
         <item name="galleryItemTextStyle">@style/CustomGalleryItemTextStyle</item>
         <item name="galleryEmptyTextStyle">@style/CustomGalleryEmptyTextStyle</item>
@@ -321,6 +326,15 @@
         <item name="audioBrowserCameraTrackResetBtnStyle">
             @style/CustomAudioBrowserCameraTrackResetBtnStyle
         </item>
+        <item name="audioBrowserTrackLoadMoreStyle">
+            @style/CustomAudioBrowserTrackLoadMoreStyle
+        </item>
+        <item name="audioBrowserTrackLoadMoreItemStyle">
+            @style/CustomAudioBrowserTrackLoadMoreItemStyle
+        </item>
+        <item name="audioBrowserThrobberViewStyle">
+            @style/CustomAudioBrowserThrobberViewStyle
+        </item>
 
         <!-- Info alerts -->
         <item name="permissionsDialogContainerStyle">@style/CustomPermissionsDialogContainer</item>
@@ -375,7 +389,29 @@
         <item name="backgroundEffectGalleryBorderedImageViewStyle">
             @style/CustomBackgroundEffectGalleryBorderedImageViewStyle
         </item>
+        <!---->
 
+        <!-- Drafts -->
+        <item name="draftsParentStyle">@style/CustomDraftsParentStyle</item>
+        <item name="draftsBackButtonStyle">@style/CustomDraftsBackButtonStyle</item>
+        <item name="draftsTitleStyle">@style/CustomDraftsTitleStyle</item>
+        <item name="draftsRecyclerViewStyle">@style/CustomDraftsRecyclerViewStyle</item>
+        <item name="draftsEmptyTextStyle">@style/CustomDraftsEmptyTextStyle</item>
+        <item name="draftItemParentStyle">@style/CustomDraftItemParentStyle</item>
+        <item name="draftItemThumbnailStyle">@style/CustomDraftItemThumbnailStyle</item>
+        <item name="draftItemOptionsButtonStyle">@style/CustomDraftItemOptionsButtonStyle</item>
+        <item name="draftItemNameStyle">@style/CustomDraftItemNameStyle</item>
+        <item name="draftOptionsParentStyle">@style/CustomDraftOptionsParentStyle</item>
+        <item name="draftOptionsPreviewStyle">@style/CustomDraftOptionsPreviewStyle</item>
+        <item name="draftOptionsNameStyle">@style/CustomDraftOptionsNameStyle</item>
+        <item name="draftOptionsSubtitleStyle">@style/CustomDraftOptionsSubtitleStyle</item>
+        <item name="draftOptionsBackButtonStyle">@style/CustomDraftOptionsBackButtonStyle</item>
+        <item name="draftOptionsDividerStyle">@style/CustomDraftOptionsDividerStyle</item>
+        <item name="draftOptionsRemoveButtonStyle">@style/CustomDraftOptionsRemoveButtonStyle</item>
+        <!---->
+
+        <!-- Record button -->
+        <item name="recordButtonStyle">@style/CustomRecordButtonStyle</item>
         <!---->
     </style>
 
@@ -711,6 +747,8 @@
         <item name="overlay_color">@color/big_stone_a90</item>
     </style>
 
+    <style name="CustomGalleryDraftsButtonStyle" parent="GalleryDraftsButtonStyle" />
+
     <style name="CustomGalleryItemRadioButtonStyle" parent="GalleryItemRadioButtonStyle">
         <item name="checked_color">@color/egg_blue</item>
     </style>
@@ -747,9 +785,13 @@
         <item name="android:background">@drawable/ic_gallery_back</item>
     </style>
 
+    <style name="CustomGalleryNextParentStyle" parent="GalleryNextParentStyle" />
+
     <style name="CustomGalleryNextButtonStyle" parent="GalleryNextButtonStyle">
         <item name="android:textColor">@color/egg_blue</item>
     </style>
+
+    <style name="CustomGallerySelectionDescriptionStyle" parent="GallerySelectionDescriptionStyle" />
 
     <style name="CustomGalleryImageViewStyle" parent="GalleryImageViewStyle">
         <item name="android:layout_width">@dimen/camera_gallery_preview_size</item>
@@ -1055,6 +1097,12 @@
     <style name="CustomAudioBrowserCameraTrackTitleViewStyle" parent="AudioBrowserCameraTrackTitleViewStyle" />
 
     <style name="CustomAudioBrowserCameraTrackResetBtnStyle" parent="AudioBrowserCameraTrackResetBtnStyle" />
+
+    <style name="CustomAudioBrowserTrackLoadMoreItemStyle" parent="AudioBrowserTrackLoadMoreItemStyle" />
+
+    <style name="CustomAudioBrowserTrackLoadMoreStyle" parent="AudioBrowserTrackLoadMoreStyle" />
+
+    <style name="CustomAudioBrowserThrobberViewStyle" parent="ThrobberViewStyle" />
     <!---->
 
     <!-- Info alerts -->
@@ -1129,5 +1177,48 @@
     <style name="CustomBackgroundEffectGalleryThumbProgressStyle" parent="BackgroundEffectGalleryThumbProgressStyle" />
 
     <style name="CustomBackgroundEffectGalleryBorderedImageViewStyle" parent="BackgroundEffectGalleryBorderedImageViewStyle" />
+    <!---->
+
+    <!-- Drafts -->
+    <style name="CustomDraftsParentStyle" parent="DraftsParentStyle" />
+
+    <style name="CustomDraftsBackButtonStyle" parent="DraftsBackButtonStyle" />
+
+    <style name="CustomDraftsTitleStyle" parent="DraftsTitleStyle" />
+
+    <style name="CustomDraftsRecyclerViewStyle" parent="DraftsRecyclerViewStyle" />
+
+    <style name="CustomDraftsEmptyTextStyle" parent="DraftsEmptyTextStyle" />
+
+    <style name="CustomDraftItemParentStyle" parent="DraftItemParentStyle" />
+
+    <style name="CustomDraftItemThumbnailStyle" parent="DraftItemThumbnailStyle" />
+
+    <style name="CustomDraftItemOptionsButtonStyle" parent="DraftItemOptionsButtonStyle" />
+
+    <style name="CustomDraftItemNameStyle" parent="DraftItemNameStyle" />
+
+    <style name="CustomDraftOptionsParentStyle" parent="DraftOptionsParentStyle" />
+
+    <style name="CustomDraftOptionsPreviewStyle" parent="DraftOptionsPreviewStyle" />
+
+    <style name="CustomDraftOptionsNameStyle" parent="DraftOptionsNameStyle" />
+
+    <style name="CustomDraftOptionsSubtitleStyle" parent="DraftOptionsSubtitleStyle" />
+
+    <style name="CustomDraftOptionsBackButtonStyle" parent="DraftOptionsBackButtonStyle" />
+
+    <style name="CustomDraftOptionsDividerStyle" parent="DraftOptionsDividerStyle" />
+
+    <style name="CustomDraftOptionsRemoveButtonStyle" parent="DraftOptionsRemoveButtonStyle" />
+    <!---->
+
+    <!-- Record button -->
+    <style name="CustomRecordButtonStyle" parent="RecordButtonStyle">
+        <item name="recordButtonInnerIdleDrawable">@drawable/ic_record_button_inner_oval</item>
+        <item name="recordButtonInnerRecordingDrawable">@drawable/ic_record_button_inner_square
+        </item>
+        <item name="recordButtonCircleGradientColors">@array/progress_gradient_colors</item>
+    </style>
     <!---->
 </resources>
