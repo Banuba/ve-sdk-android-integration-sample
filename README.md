@@ -208,9 +208,20 @@ Please, find the [full example](https://github.com/Banuba/ve-sdk-android-integra
 
 ### Check Video Editor SDK availability before opening
 
-The SDK is protected by the token so its presence is a vital part of Video Editor launch. To check if the SDK is ready to use you may invoke the following method:
+The SDK is protected by the token so its presence is a vital part of Video Editor launch. To check if the SDK is ready to use you may use the following property:
 ```kotlin
-VideoEditorSDK.isAvailable()
+VideoEditorUtils.isAvailable
+```
+
+Also you can check token expiration with help of
+```kotlin
+VideoEditorUtils.isExpired
+```
+property. See [FAQ page](mddocs/faq.md#10-how-does-video-editor-work-when-token-expires) to get more details about token expiration.
+
+There are a few devices, that does't support Video Editor. To check you may use the following property:
+```kotlin
+VideoEditorUtils.isSupportsVideoEditor
 ```
 
 ### Disable Face AR SDK
