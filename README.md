@@ -44,6 +44,7 @@ Banuba [AI Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you
     + [Configure Cover preview screen](#Configure-Cover-preview-screen)
     + [Configure screens](#Configure-screens)
     + [Configure additional Video Editor SDK features](#Configure-additional-Video-Editor-SDK-features)
+- [Localization](#Localization)
 - [FAQ](#FAQ)
 - [Third party libraries](#Third-party-libraries)
 
@@ -361,6 +362,12 @@ The AI Video Editor SDK incudes the following screens:
 ### Launch Video Editor
 
 The Video Editor has multiple entry points. Please check out [guide](mddocs/launch_modes.md).
+
+### Localization
+
+To change any particular text in the Video Editor SDK just provide your custom value for string resource provided in String resources section of [every screen](#Configure-screens) (check out an example of [string resources](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/mddocs/editor_styles.md#string-resources) on editor screen). Keep ResourceId the same and change only related value.
+
+To localize Video Editor SDK follow an [official guilde](https://developer.android.com/guide/topics/resources/localization) and provide string resources for every locale in your app with the same ResourceId and translated values. 
 
 ## FAQ
 Please visit our [FAQ page](mddocs/faq.md) to find more technical answers to your questions.
