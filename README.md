@@ -23,7 +23,7 @@ Banuba [AI Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you
 - [Free Trial](#Free-Trial)
 - [Token](#Token)
 - [Connecting with AR cloud](#Connecting-with-AR-cloud)
-- [What can you customize?](#What-can-you-customize?)
+- [What can you customize?](#What-can-you-customize)
 - [Getting Started](#Getting-Started)  
     + [GitHub packages](#GitHub-packages)
     + [Add dependencies](#Add-dependencies)
