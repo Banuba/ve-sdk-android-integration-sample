@@ -382,4 +382,5 @@ Please visit our [FAQ page](mddocs/faq.md) to find more technical answers to you
 [1.0.16](mddocs/releases/1.0.16.md)\
 [1.0.16.1](mddocs/releases/1.0.16.1.md)\
 [1.0.16.2](mddocs/releases/1.0.16.2.md)\
-[1.0.16.3](mddocs/releases/1.0.16.3.md)
+[1.0.16.3](mddocs/releases/1.0.16.3.md)\
+[1.0.17](mddocs/releases/1.0.17.md)
