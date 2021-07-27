@@ -11,6 +11,7 @@ import com.banuba.sdk.cameraui.data.CameraTimerActionProvider
 import com.banuba.sdk.cameraui.data.CameraTimerStateProvider
 import com.banuba.sdk.cameraui.domain.HandsFreeTimerActionProvider
 import com.banuba.sdk.core.data.ColorFilterOrderProvider
+import com.banuba.sdk.core.domain.DraftConfig
 import com.banuba.sdk.core.domain.TrackData
 import com.banuba.sdk.core.ui.ContentFeatureProvider
 import com.banuba.sdk.ve.effects.WatermarkProvider
@@ -89,4 +90,8 @@ class VideoEditorKoinModule : FlowEditorModule() {
         single(override = true) {
             IntegrationAppColorFilterOrderProvider()
         }
+
+    override val draftConfig: BeanDefinition<DraftConfig> = factory(override = true) {
+        DraftConfig.ENABLED_ASK_TO_SAVE
+    }
 }
