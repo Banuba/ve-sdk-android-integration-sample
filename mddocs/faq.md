@@ -190,3 +190,44 @@ ExportManager.Params.Builder(
  +              .interactivePreview(gifPreviewParams)
                 .build()
  ```
+
+ ### **13. How to add other text fonts that are used in the editor screen**
+
+To add other text fonts that are used in the editor screen follow the next steps:
+
+1. Add font files to the `app/src/main/res/font/` directory;
+
+2. Add fonts names to the [**strings.xml**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/strings.xml) resource file;
+
+3. Add `font_resources.xml` with fonts array declaration to the `app/src/main/res/values/` directory. The format of `font_resources.xml` should be next one:
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="font_resources">
+        <item>@array/font_1_resource</item>    <!-- link to the font description array -->
+        <item>@array/font_N_resource</item>
+    </array>
+
+    <array name="font_1_resource">
+        <item>@string/font_1_title</item>      <!-- font name -->
+        <item>@font/font_1</item>              <!-- link to the font file -->
+    </array>
+
+    <array name="font_N_resource">
+        <item>@string/font_N_title</item>
+        <item>@font/font_N</item>
+    </array>
+</resources>
+```
+
+4. The final step is to pass your custom ```TextOnVideoTypefaceProvider``` implementation in the [DI](https://github.com/Banuba/ve-sdk-android-integration-sample#configure-di) to override the default implementation with your `font_resources.xml`:
+
+```kotlin
+override val textOnVideoTypefaceProvider: BeanDefinition<TextOnVideoTypefaceProvider> =
+    single(override = true) {
+        object : TextOnVideoTypefaceProvider {
+            override val textOnVideoTypefaceResources: List<TextOnVideoTypeface> =
+                TypefaceExtractor.extract(context = get(), R.array.font_resources)
+        }
+    }
+```
