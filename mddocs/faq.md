@@ -190,3 +190,127 @@ ExportManager.Params.Builder(
  +              .interactivePreview(gifPreviewParams)
                 .build()
  ```
+
+
+### **13. How to export in Background**
+1. Provide `BackgroundExportFlowManager` through DI: 
+
+    ```kotlin
+    override val exportFlowManager: BeanDefinition<ExportFlowManager> = single(override = true) {
+            BackgroundExportFlowManager(
+                exportDataProvider = get(),
+                editorSessionHelper = get(),
+                draftManager = get(),
+                exportNotificationManager = get(),
+                exportDir = get(named("exportDir")),
+                shouldClearSessionOnFinish = true,
+                publishManager = get()
+            )
+        }
+    ```
+
+2. Add android activity that you want to open after export into `AndroidManifest.xml` file with special intent action filter. We suggest to use "`com.banuba.sdk.ve.flow.ShowExportResult`" string that is stored inside `ExportNotificationManager.ACTION_SHOW_EXPORT_RESULT` constant:
+
+    ```kotlin
+    <activity android:name=".CustomActivity">
+        <intent-filter>
+          <action android:name="com.banuba.sdk.ve.flow.ShowExportResult" />
+          <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+    </activity>
+    ```
+
+3. Provide `ExportResultHandler` implementation. `doAction` method should start activity mentioned in step 2:
+
+    ```kotlin
+    class CustomExportResultHandler : ExportResultHandler {
+
+        override fun doAction(activity: AppCompatActivity, result: ExportResult.Success?) {
+            val intent = Intent(ExportNotificationManager.ACTION_SHOW_EXPORT_RESULT).apply {
+                result?.let { putExtra(EXTRA_EXPORTED_SUCCESS, it) }
+                addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            }
+            activity.startActivity(intent)
+        }
+    }
+    ```
+
+    **Note**: action that is passed into `Intent` constructor **must be the same** as  the action name from activity intent filter from step 2 (that's why we suggest to use our constant - `ExportNotificationManager.ACTION_SHOW_EXPORT_RESULT`.
+
+4. Inside activity from step 2 add `ExportFlowManager` **koin injection**:
+
+    ```kotlin
+    class CustomActivity: AppCompatActivity() {
+
+    	private val exportFlowManager: ExportFlowManager by inject()
+
+    }
+    ```
+
+5. Inside `onCreate()` method start to observe `resultData` `LiveData` from `ExportFlowManager` to receive export states inside your activity:
+
+    ```kotlin
+    override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+
+            
+            exportFlowManager.resultData.nonNull().observe(this) { exportResult ->
+                //todo: Do your stuff with different ExportResult objects
+            }
+    }
+    ```
+
+    **Note**: `ExportResult` is a sealed class:
+
+    ```kotlin
+    sealed class ExportResult {
+
+        object Inactive : ExportResult()
+
+        object Stopped : ExportResult()
+
+        data class Progress(
+            val preview: Uri
+        ) : ExportResult()
+
+        @Parcelize
+        data class Success(
+            val message: String,
+            val videoList: List<ExportedVideo>,
+            val preview: Uri,
+            val metaUri: Uri,
+            val additionalExportData: Parcelable? = null
+        ) : ExportResult(), Parcelable
+
+        @Parcelize
+        data class Error(val message: String) : ExportResult(), Parcelable
+    }
+    ```
+
+6. *Optional*. Provide your own `ExportNotificationManager` :
+
+    ```kotlin
+    val exportNotificationManager: BeanDefinition<ExportNotificationManager> = single(override = true) {
+            CustomExportNotificationManger(
+                context = get(),
+                notificationManager = get()
+            )
+        }
+    ```
+
+    **Note**: We provide `DefaultNotificationManager` implementation as a default, so please check out if it fits your goals. If it does you do not need to override it. 
+
+    If you do not want to show notifications at all just stub all methods in your implementation:
+
+    ```kotlin
+    class EmptyExportNotificationManger(
+        private val context: Context,
+        private val notificationManager: NotificationManager
+    ) : ExportNotificationManager {
+
+        fun showExportStartedNotification(){}
+        fun showSuccessfulExportNotification(result: ExportResult.Success){}
+        fun showFailedExportExportNotification(){}
+
+    }
+    ```
