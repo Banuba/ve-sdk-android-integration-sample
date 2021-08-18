@@ -144,6 +144,14 @@
         <item name="trimmerContentHintStyle">@style/CustomTrimmerContentHintStyle</item>
         <item name="trimmerRotateButtonStyle">@style/CustomTrimmerRotateButton</item>
         <item name="trimmerThumbHintIconStyle">@style/CustomTrimmerThumbHintIconStyle</item>
+        <item name="trimmerAspectsButtonStyle">@style/CustomTrimmerAspectsButtonStyle</item>
+        <item name="trimmerAspectsDoneButtonStyle">@style/CustomTrimmerAspectsDoneButtonStyle</item>
+        <item name="trimmerAspectsCancelButtonStyle">@style/CustomTrimmerAspectsCancelButtonStyle</item>
+        <item name="trimmerAspectsRecyclerViewStyle">@style/CustomTrimmerAspectsRecyclerViewStyle</item>
+        <item name="trimmerAspectsItemParentStyle">@style/CustomTrimmerAspectsItemParentStyle</item>
+        <item name="trimmerAspectsItemImageStyle">@style/CustomTrimmerAspectsItemImageStyle</item>
+        <item name="trimmerAspectsItemDescriptionStyle">@style/CustomTrimmerAspectsItemDescriptionStyle
+        </item>
 
         <item name="trimmer_play_control_visible">true</item>
         <item name="trimmer_icon_play">@drawable/ic_play</item>
@@ -793,10 +801,8 @@
 
     <style name="CustomGallerySelectionDescriptionStyle" parent="GallerySelectionDescriptionStyle" />
 
-    <style name="CustomGalleryImageViewStyle" parent="GalleryImageViewStyle">
-        <item name="android:layout_width">@dimen/camera_gallery_preview_size</item>
-        <item name="android:layout_height">@dimen/camera_gallery_preview_size</item>
-    </style>
+    <style name="CustomGalleryImageViewStyle" parent="GalleryImageViewStyle"/>
+
     <!---->
 
 
@@ -887,6 +893,20 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/white</item>
     </style>
+
+    <style name="CustomTrimmerAspectsButtonStyle" parent="TrimmerAspectsButtonStyle" />
+
+    <style name="CustomTrimmerAspectsDoneButtonStyle" parent="TrimmerAspectsDoneButtonStyle" />
+
+    <style name="CustomTrimmerAspectsCancelButtonStyle" parent="TrimmerAspectsCancelButtonStyle" />
+
+    <style name="CustomTrimmerAspectsRecyclerViewStyle" parent="TrimmerAspectsRecyclerViewStyle" />
+
+    <style name="CustomTrimmerAspectsItemParentStyle" parent="TrimmerAspectsItemParentStyle" />
+
+    <style name="CustomTrimmerAspectsItemImageStyle" parent="TrimmerAspectsItemImageStyle" />
+
+    <style name="CustomTrimmerAspectsItemDescriptionStyle" parent="TrimmerAspectsItemDescriptionStyle" />
     <!---->
 
 
