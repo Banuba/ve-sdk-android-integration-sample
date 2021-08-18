@@ -5,7 +5,7 @@ import androidx.core.net.toFile
 import com.banuba.sdk.core.MediaResolutionProvider
 import com.banuba.sdk.core.VideoResolution
 import com.banuba.sdk.core.media.MediaFileNameHelper.Companion.DEFAULT_SOUND_FORMAT
-import com.banuba.sdk.ve.domain.VideoList
+import com.banuba.sdk.ve.domain.VideoRangeList
 import com.banuba.sdk.ve.effects.Effects
 import com.banuba.sdk.ve.effects.WatermarkAlignment
 import com.banuba.sdk.ve.effects.WatermarkBuilder
@@ -22,7 +22,7 @@ class IntegrationAppExportParamsProvider(
 
     override fun provideExportParams(
         effects: Effects,
-        videoList: VideoList,
+        videoRangeList: VideoRangeList,
         musicEffects: List<MusicEffect>,
         videoVolume: Float
     ): List<ExportManager.Params> {
@@ -38,7 +38,7 @@ class IntegrationAppExportParamsProvider(
             ExportManager.Params.Builder(sizeProvider.provideOptimalExportVideoSize())
                 .effects(effects.withWatermark(watermarkBuilder, WatermarkAlignment.BOTTOM_RIGHT))
                 .fileName("export_default_watermark")
-                .videoList(videoList)
+                .videoRangeList(videoRangeList)
                 .destDir(exportSessionDir)
                 .musicEffects(musicEffects)
                 .extraAudioFile(extraSoundtrackUri)
@@ -47,7 +47,7 @@ class IntegrationAppExportParamsProvider(
             ExportManager.Params.Builder(sizeProvider.provideOptimalExportVideoSize())
                 .effects(effects)
                 .fileName("export_default")
-                .videoList(videoList)
+                .videoRangeList(videoRangeList)
                 .destDir(exportSessionDir)
                 .musicEffects(musicEffects)
                 .volumeVideo(videoVolume)
@@ -55,7 +55,7 @@ class IntegrationAppExportParamsProvider(
             ExportManager.Params.Builder(VideoResolution.VGA360)
                 .effects(effects.withWatermark(watermarkBuilder, WatermarkAlignment.BOTTOM_RIGHT))
                 .fileName("export_360_watermark")
-                .videoList(videoList)
+                .videoRangeList(videoRangeList)
                 .destDir(exportSessionDir)
                 .musicEffects(musicEffects)
                 .volumeVideo(videoVolume)
