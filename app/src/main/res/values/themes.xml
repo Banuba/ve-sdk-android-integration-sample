@@ -455,10 +455,18 @@
         <item name="icon_mute_mic_on">@drawable/ic_mic</item>
         <item name="icon_mute_mic_off">@drawable/ic_mic_off</item>
 
-        <item name="icon_recording_speed_x0_5">@drawable/ic_speed_0_5x</item>
-        <item name="icon_recording_speed_x1">@drawable/ic_speed_1x</item>
-        <item name="icon_recording_speed_x2">@drawable/ic_speed_2x</item>
-        <item name="icon_recording_speed_x3">@drawable/ic_speed_3x</item>
+        <item name="icon_recording_speed_x0_5">@drawable/ic_recording_speed_x0_5</item>
+        <item name="icon_recording_speed_x1">@drawable/ic_recording_speed_x1</item>
+        <item name="icon_recording_speed_x2">@drawable/ic_recording_speed_x2</item>
+        <item name="icon_recording_speed_x3">@drawable/ic_recording_speed_x3</item>
+        <item name="icon_recording_speed_x0_5_selected">@drawable/ic_recording_speed_x0_5_selected
+        </item>
+        <item name="icon_recording_speed_x1_selected">@drawable/ic_recording_speed_x1_selected
+        </item>
+        <item name="icon_recording_speed_x2_selected">@drawable/ic_recording_speed_x2_selected
+        </item>
+        <item name="icon_recording_speed_x3_selected">@drawable/ic_recording_speed_x3_selected
+        </item>
 
         <item name="icon_close">@drawable/ic_nav_close</item>
         <item name="icon_back">@drawable/ic_nav_back_arrow</item>
@@ -522,14 +530,12 @@
     <style name="CustomCameraSpeedPickerLabelStyle" parent="CameraSpeedPickerLabelStyle" />
 
     <!-- Style for the whole view that shows available recording speed options -->
-    <style name="CustomCameraSpeedPickerViewStyle" parent="CameraSpeedPickerViewStyle">
-        <item name="android:background">@color/big_stone</item>
-    </style>
+    <style name="CustomCameraSpeedPickerViewStyle" parent="CameraSpeedPickerViewStyle"/>
 
     <!-- Style for the speed option item. Speed option my be selected and unselected
          so the best approach to set background as selector -->
     <style name="CustomCameraSpeedPickerItemStyle" parent="CameraSpeedPickerItemStyle">
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/color_selector_speed_picker_text</item>
         <item name="android:background">@drawable/bg_item_speed_picker</item>
     </style>
 
