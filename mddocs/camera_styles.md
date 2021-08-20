@@ -64,7 +64,20 @@
 
 We use 3 grous for all string resources on camera screen:
 
-1. All **action buttons** may have a **text title** (its visibility is configured by *descriptionPosition* attribute of [cameraActionButtonStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L18))
+1. All **action buttons** may have a **text title**. You can adjust the size, color, font, margins, shadow, ellipsize(truncate at marquee) and position of the title text, overriding the attributes below in [CameraActionButtonStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L488).
+```xml
+<style name="CustomCameraActionButtonStyle" parent="CameraActionButtonStyle">
+    <item name="description">Custom Title</item> <!--title text value-->
+    <item name="descriptionSize">14sp</item><!--title text size-->
+    <item name="descriptionColor">color/white</item><!--title text color-->
+    <item name="descriptionMarginStart">4dp</item><!--title text margin start-->
+    <item name="descriptionMarginEnd">4dp</item><!--title text margin end-->
+    <item name="descriptionTypeface">@font/roboto</item><!--title text typeface-->
+    <item name="descriptionPosition">[left|bottom|right|none]</item><!--title text position-->
+    <item name="descriptionApplyShadow">[true|false]</item> <!--title text shadow state-->
+    <item name="descriptionApplyMarquee">[true|false]</item> <!--title text ellipsize truncate at marquee state-->
+</style>
+```
 
 2. **Notification** displayed as [Toast](https://developer.android.com/reference/android/widget/Toast) is shown at the top of the screen upon some actions. Some of them has a dynamic message that depends on additional data (i.e. parameters from config files)
 
