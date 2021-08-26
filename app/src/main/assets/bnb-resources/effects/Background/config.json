@@ -1,0 +1,13 @@
+{
+  "name": "Background",
+  "frx": {
+    "type": "3d_anim",
+    "3d_anim": {
+      "type": "vfx"
+    }
+  },
+  "recordDuration": 15,
+  "recognizer" : [
+    "background"
+  ]
+}
