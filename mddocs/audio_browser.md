@@ -115,7 +115,7 @@ Additional attributes that do not have appropriate styles are:
 - audioBrowserSubCategoryItemDividerDrawable (drawable is required)
 ```
 
-**Check out an example of audio browser styles customization in our [sample project](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L262).**
+**Check out an example of audio browser styles customization in our [sample project](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L277).**
 
 ### Step 4 (Optional)
 

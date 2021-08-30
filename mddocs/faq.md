@@ -20,7 +20,7 @@ Make sure that you include the **preview.png** file in the mask folder. It serve
 
 Slideshow is created either by selecting pictures from gallery or by making a photo on Video Editor camera screen.
 
-Every slide within slideshow can appeare with or without animations. This behavior is configured within [**videoeditor.json**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/videoeditor.json#L30) config file under ```slideshow``` section:
+Every slide within slideshow can appeare with or without animations. This behavior is configured within [**videoeditor.json**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/assets/videoeditor.json#L31) config file under ```slideshow``` section:
 ```kotlin
 "slideshow": {
     /* other slideshow related settings */
@@ -68,11 +68,11 @@ By default, the filters are listed in alphabetical order.
 To change it, use the implementation of the ```ColorFilterOrderProvider``` interface. 
 ```kotlin
 class CustomColorFilterOrder: ColorFilterOrderProvider {
-    override fun provide(): List<String> = listOf("c2", "c1")
+    override fun provide(): List<String> = listOf("egypt", "byers")
 }
 ``` 
 This will return the list of color filters with the required order. 
-Note: The name of color filter is a name of an appropriate file located in **assets/bnb-resources/luts** directory. [Example](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/bnb-resources/luts/C1.png).
+Note: The name of color filter is a name of an appropriate file located in **assets/bnb-resources/luts** directory. [Example](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/bnb-resources/luts/egypt.png).
 
 The final step is to pass your custom ```ColorFilterOrderProvider``` implementation in the [DI](https://github.com/Banuba/ve-sdk-android-integration-sample#configure-di) to override the default implementation:
 
@@ -89,7 +89,7 @@ You can control visibility of camera config information and camera preview param
     "showDebugViews": false,
     "showConfig": false
  ```
-You can control visibility of editor config. Change the following properties in  [**videoeditor.json**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/videoeditor.json#L14) config file to control:
+You can control visibility of editor config. Change the following properties in  [**videoeditor.json**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/videoeditor.json#L15) config file to control:
 ```json
     "showConfig": false
  ```
@@ -97,19 +97,19 @@ Set **false** to hide info, set **true** to show.
 
 ### **8. I want to customize gallery icon**
 
-Gallery icon is represented by AppCompatImageView. Its style placed into `galleryImageViewStyle` attribute of the main theme ([**example**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L104))
+Gallery icon is represented by AppCompatImageView. Its style placed into `galleryImageViewStyle` attribute of the main theme ([**example**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L104))
 
 **Drawable resource** of the gallery icon may vary depending on the use case:
- - in case of the very first launch, if the user **did not grant permission** to [read external storage](https://developer.android.com/reference/android/Manifest.permission#READ_EXTERNAL_STORAGE), or if the gallery on the device **is empty**, the drawable resource defined in `icon_empty_gallery` attribute of the `CameraOverlayStyle` ([**example**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L385)) will be used
+ - in case of the very first launch, if the user **did not grant permission** to [read external storage](https://developer.android.com/reference/android/Manifest.permission#READ_EXTERNAL_STORAGE), or if the gallery on the device **is empty**, the drawable resource defined in `icon_empty_gallery` attribute of the `CameraOverlayStyle` ([**example**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L469)) will be used
  - in other cases you can select what to show as a gallery icon: 
     -  **the last media file** from the device
     - **custom drawable** resource
 
 ![img](screenshots/faq1.png)
 
-**By default the last media file is used as a drawable**. You have an option to **put background** to the gallery icon by changing `icon_gallery_background` attribute of `CameraOverlayStyle` and you can **add rounded corners** to the gallery icon by changing `icon_gallery_radius` attribute of this style ([**example**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L375)).
+**By default the last media file is used as a drawable**. You have an option to **put background** to the gallery icon by changing `icon_gallery_background` attribute of `CameraOverlayStyle` and you can **add rounded corners** to the gallery icon by changing `icon_gallery_radius` attribute of this style ([**example**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L420)).
 
- **To setup custom drawable resource** instead of the last media file you have to put custom style into `galleryImageViewStyle` attribute of the main theme ([**example**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L94)) and set there `use_custom_image` to `true` and put your drawable as `android:src` attribute value
+ **To setup custom drawable resource** instead of the last media file you have to put custom style into `galleryImageViewStyle` attribute of the main theme ([**example**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L105)) and set there `use_custom_image` to `true` and put your drawable as `android:src` attribute value
 
  ### **9. How to enable video rotation on trimmer**
 
@@ -120,7 +120,7 @@ Gallery icon is represented by AppCompatImageView. Its style placed into `galler
     "supportsRotation": true
   }
  ```
-The rotation button appearance can be customized by `trimmerRotateButtonStyle` theme [**attribute**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L140) (more on trimmer screen customization [**here**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/mddocs/trimmer_styles.md)).
+The rotation button appearance can be customized by `trimmerRotateButtonStyle` theme [**attribute**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L145) (more on trimmer screen customization [**here**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/mddocs/trimmer_styles.md)).
 
 ### **10. How does video editor work when token expires?**
 

@@ -83,13 +83,22 @@
         },
         {
             "pattern": "https://developer.android.com/reference/android/Manifest.permission#READ_EXTERNAL_STORAGE"
+        },
+        {
+            "pattern": "https://developer.android.com/guide/topics/resources/localization"
+        },
+        {
+            "pattern": "https://www.mozilla.org/"
+        },
+        {
+            "pattern": "http://slashdot.org/"
+        },
+        {
+            "pattern": "http://www.reddit.com/"
         }
         
     
     ],
     "timeout": "3m",
-    "retryOn429": true,
-    "retryCount": 10,
-    "fallbackRetryDelay": "60m",
     "aliveStatusCodes": [200, 206, 429]
 }
