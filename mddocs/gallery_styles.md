@@ -5,11 +5,11 @@
 
     style defines the overview of gallery icon on the **camera screen**. By default the last media resource is used as gallery icon drawable. To show the custom icon for gallery the `use_custom_image` attribute should be changed to "true" and the custom drawable should be passed as `android:src` value. If there are no media resource on the device the icon from `icon_empty_gallery` attribute of `CameraOverlayView` style is used (if `use_custom_image` is false). 
 
-- [popupTextStyle]()
+- [popupTextStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/faafb9a67708fccec5fd30399b504fbe548cc159/app/src/main/res/values/themes.xml#L419)
 
     style for text that is shown within popup to attract the user to the Drafts feature
 
-- [popupArrowStyle]()
+- [popupArrowStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/faafb9a67708fccec5fd30399b504fbe548cc159/app/src/main/res/values/themes.xml#L420)
 
     style for the arrow image of drafts hint popup
 
@@ -101,9 +101,9 @@ Besides concrete styles there are a lot of theme attributes that allows to confi
 
     style for the item representing every draft inside the recycler view container
 
-- [draftThumbnailStyle]()
+- [draftItemThumbnailStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L401)
 
-    style for the draft preview
+  style for the draft preview
 
 - [draftItemNameStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L403)
 
