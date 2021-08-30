@@ -416,6 +416,8 @@
         <item name="draftOptionsBackButtonStyle">@style/CustomDraftOptionsBackButtonStyle</item>
         <item name="draftOptionsDividerStyle">@style/CustomDraftOptionsDividerStyle</item>
         <item name="draftOptionsRemoveButtonStyle">@style/CustomDraftOptionsRemoveButtonStyle</item>
+        <item name="popupTextStyle">@style/CustomDraftPopupTextStyle</item>
+        <item name="popupArrowStyle">@style/CustomDraftPopupArrowStyle</item>
         <!---->
 
         <!-- Record button -->
@@ -1237,6 +1239,10 @@
     <style name="CustomDraftOptionsDividerStyle" parent="DraftOptionsDividerStyle" />
 
     <style name="CustomDraftOptionsRemoveButtonStyle" parent="DraftOptionsRemoveButtonStyle" />
+
+    <style name="CustomDraftPopupTextStyle" parent="PopupTextStyle" />
+
+    <style name="CustomDraftPopupArrowStyle" parent="PopupArrowStyle" />
     <!---->
 
     <!-- Record button -->

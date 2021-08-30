@@ -101,9 +101,9 @@ Besides concrete styles there are a lot of theme attributes that allows to confi
 
     style for the item representing every draft inside the recycler view container
 
-- [draftThumbnailStyle]()
+- [draftItemThumbnailStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L401)
 
-    style for the draft preview
+  style for the draft preview
 
 - [draftItemNameStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L403)
 
