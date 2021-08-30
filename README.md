@@ -304,6 +304,14 @@ If you don't want to use Giphy, check out [guide](mddocs/sticker_loader.md) to s
 
 If you want to use the **default record button** provided by the Video Editor SDK with some color, size and animation customization, follow [this guide](mddocs/record_button_styles.md).
 
+If you want to fully change the look of the button and the animation on tap, you should provide your **custom record button** implementation. This is how it’s done:
+
+1. Create a [custom view](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/d5f0b5de02a55866a4dbd35ebb4243a36ca87585/app/src/main/java/com/banuba/example/integrationapp/videoeditor/widget/recordbutton/RecordButtonView.kt).
+
+2. Implement ```CameraRecordingAnimationProvider``` interface. Here the view created in step 1 should be provided through method ```provideView()``` within this interface. [Example](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/d5f0b5de02a55866a4dbd35ebb4243a36ca87585/app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationAppRecordingAnimationProvider.kt).
+
+3. Implement ```CameraRecordingAnimationProvider``` in the [DI](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/d5f0b5de02a55866a4dbd35ebb4243a36ca87585/app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#L81).
+
 ### Configure camera timer
 
 This will allow your users to take pictures and videos after a delay. The timer is managed by the ```CameraTimerStateProvider``` interface. Every delay is represented by the TimerEntry object: 
