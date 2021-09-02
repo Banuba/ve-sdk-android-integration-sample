@@ -4,8 +4,8 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import androidx.activity.result.contract.ActivityResultContract
-import com.banuba.sdk.veui.ui.EXTRA_EXPORTED_SUCCESS
-import com.banuba.sdk.veui.ui.ExportResult
+import com.banuba.sdk.ve.data.EXTRA_EXPORTED_SUCCESS
+import com.banuba.sdk.ve.data.ExportResult
 
 /**
  * This class represents parsing result from VideoCreationActivity

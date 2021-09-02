@@ -12,13 +12,13 @@ import com.banuba.sdk.cameraui.data.CameraTimerStateProvider
 import com.banuba.sdk.cameraui.domain.HandsFreeTimerActionProvider
 import com.banuba.sdk.core.data.ColorFilterOrderProvider
 import com.banuba.sdk.core.domain.DraftConfig
-import com.banuba.sdk.core.domain.TrackData
+import com.banuba.sdk.core.data.TrackData
 import com.banuba.sdk.core.ui.ContentFeatureProvider
 import com.banuba.sdk.ve.effects.WatermarkProvider
-import com.banuba.sdk.ve.flow.ExportFlowManager
+import com.banuba.sdk.export.data.ExportFlowManager
 import com.banuba.sdk.ve.flow.FlowEditorModule
-import com.banuba.sdk.ve.flow.export.ForegroundExportFlowManager
-import com.banuba.sdk.veui.data.ExportParamsProvider
+import com.banuba.sdk.export.data.ForegroundExportFlowManager
+import com.banuba.sdk.export.data.ExportParamsProvider
 import com.banuba.sdk.veui.domain.CoverProvider
 import org.koin.core.definition.BeanDefinition
 import org.koin.core.qualifier.named
@@ -31,23 +31,23 @@ import org.koin.core.qualifier.named
  */
 class VideoEditorKoinModule : FlowEditorModule() {
 
-    override val exportFlowManager: BeanDefinition<ExportFlowManager> = single(override = true) {
+    val exportFlowManager: BeanDefinition<ExportFlowManager> = single(override = true) {
         ForegroundExportFlowManager(
             exportDataProvider = get(),
-            editorSessionHelper = get(),
+            sessionParamsProvider = get(),
+            exportSessionHelper = get(),
             exportDir = get(named("exportDir")),
-            mediaFileNameHelper = get(),
             shouldClearSessionOnFinish = true,
             publishManager = get(),
-            draftManager = get(),
-            errorParser = get()
+            errorParser = get(),
+            mediaFileNameHelper = get()
         )
     }
 
     /**
      * Provides params for export
      * */
-    override val exportParamsProvider: BeanDefinition<ExportParamsProvider> =
+    val exportParamsProvider: BeanDefinition<ExportParamsProvider> =
         factory(override = true) {
             IntegrationAppExportParamsProvider(
                 exportDir = get(named("exportDir")),
@@ -56,7 +56,7 @@ class VideoEditorKoinModule : FlowEditorModule() {
             )
         }
 
-    override val watermarkProvider: BeanDefinition<WatermarkProvider> = factory(override = true) {
+    val watermarkProvider: BeanDefinition<WatermarkProvider> = factory(override = true) {
         IntegrationAppWatermarkProvider()
     }
 
