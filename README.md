@@ -296,9 +296,7 @@ Check out [step-by-step guide](mddocs/audio_browser.md) to use audio browser in 
 
 ### Configure stickers content  
 
-The stickers in the AI Video Editor SDK are GIFs. Adding them is as simple as adding your personal [**Giphy API**](https://developers.giphy.com/docs/api/) into the stickersApiKey parameter in [videoeditor.json](app/src/main/assets/videoeditor.json#L13) file.
-
-If you don't want to use Giphy, check out [guide](mddocs/sticker_loader.md) to set up your sticker loader.
+The stickers in the AI Video Editor SDK are GIFs. Adding them is as simple as adding your personal [**Giphy API**](https://developers.giphy.com/docs/api/) into the stickersApiKey parameter in [videoeditor.json](app/src/main/assets/videoeditor.json#L14) file.
 
 ### Configure the record button  
 
