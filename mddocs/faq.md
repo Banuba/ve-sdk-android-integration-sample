@@ -191,6 +191,7 @@ ExportManager.Params.Builder(
                 .build()
  ```
 
+
 ### **13. How to export in Background**
 1. Provide `BackgroundExportFlowManager` through DI: 
 
@@ -320,7 +321,11 @@ To add other text fonts that are used in the editor screen follow the next steps
 
 1. Add font files to the `app/src/main/res/font/` directory;
 
-2. Add fonts names to the [**strings.xml**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/strings.xml) resource file;
+2. Add fonts names to the [**strings.xml**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/strings.xml) resource file:
+```xml
+<string name="font_1_title" translatable="false">Font 1 Title</string>
+<string name="font_N_title" translatable="false">Font N Title</string>
+```
 
 3. Add `font_resources.xml` with fonts array declaration to the `app/src/main/res/values/` directory. The format of `font_resources.xml` should be next one:
 ```xml
