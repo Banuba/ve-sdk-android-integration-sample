@@ -350,6 +350,7 @@ The AI Video Editor SDK incudes the following screens:
 1. [Editor screen](mddocs/editor_styles.md)
 1. [Gallery screen](mddocs/gallery_styles.md)
 1. [Trimmer screen](mddocs/trimmer_styles.md)
+1. [Aspects screen](mddocs/aspects_styles.md)
 1. [Music Editor screen](mddocs/music_editor_styles.md)
 1. [Timeline Editor screen](mddocs/timeline_editor_styles.md)
 1. [Cover screen](mddocs/cover_styles.md)

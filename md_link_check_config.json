@@ -95,6 +95,9 @@
         },
         {
             "pattern": "http://www.reddit.com/"
+        },
+        {
+            "pattern": "https://mubert.com/"
         }
         
     
