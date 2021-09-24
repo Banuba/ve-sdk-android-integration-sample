@@ -26,7 +26,7 @@ And [**videoeditor.json**](https://github.com/Banuba/ve-sdk-android-integration-
 
 ### Step 1
 
-Add a dependency into your gradle file containing other Video Editor SDK dependencies and setup its version (the latest is 1.0.16):
+Add a dependency into your gradle file containing other Video Editor SDK dependencies and setup its version:
 
 ```kotlin
 implementation "com.banuba.sdk:ve-audio-browser-sdk:${current sdk version}"
@@ -88,6 +88,7 @@ There are bulk of **theme attributes** that should be added to the main **Video 
 - audioBrowserTrackLoadMoreStyle
 - audioBrowserTrackLoadMoreItemStyle
 - audioBrowserThrobberViewStyle
+- audioBrowserSearchCancelTextStyle
 ```
 
 **Almost all** **attributes have an appropriate style** (with the name similar to an attribute) that can be used as a default style implementation. For example, the `AudioBrowserBottomSheetStyle` can be placed under `audioBrowserBottomSheetStyle` theme attribute. 
