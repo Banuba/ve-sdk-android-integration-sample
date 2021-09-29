@@ -43,7 +43,6 @@
         <item name="alert_camera_delete_video">@null</item>
         <item name="alert_camera_save">@null</item>
         <item name="alert_camera_reset_all">@null</item>
-        <item name="alert_editor_delete_voice_record">@null</item>
         <item name="alert_editor_reset_all">@null</item>
         <item name="alert_editor_reset_effects">@null</item>
         <item name="alert_draft_remove_icon_res">@null</item>
@@ -413,7 +412,6 @@
         <item name="draftOptionsPreviewStyle">@style/CustomDraftOptionsPreviewStyle</item>
         <item name="draftOptionsNameStyle">@style/CustomDraftOptionsNameStyle</item>
         <item name="draftOptionsSubtitleStyle">@style/CustomDraftOptionsSubtitleStyle</item>
-        <item name="draftOptionsBackButtonStyle">@style/CustomDraftOptionsBackButtonStyle</item>
         <item name="draftOptionsDividerStyle">@style/CustomDraftOptionsDividerStyle</item>
         <item name="draftOptionsRemoveButtonStyle">@style/CustomDraftOptionsRemoveButtonStyle</item>
         <item name="popupTextStyle">@style/CustomDraftPopupTextStyle</item>
@@ -688,6 +686,8 @@
         <item name="text_align_center">@drawable/ic_text_align_center</item>
         <item name="text_align_start">@drawable/ic_text_align_left</item>
         <item name="text_align_end">@drawable/ic_text_align_right</item>
+        <item name="icon_edit_font">@drawable/ic_edit_text_font_selector</item>
+        <item name="icon_edit_color">@drawable/ic_edit_text_color_selector</item>
     </style>
 
     <style name="CustomEditorTextColorLabelStyle" parent="EditorTextColorLabelStyle" />
@@ -696,6 +696,7 @@
 
     <style name="CustomTypefaceSwitcherStyle" parent="EditorTypefaceSwitcherStyle">
         <item name="android:background">@drawable/bg_rounded_border</item>
+        <item name="android:textColor">@color/color_selector_item_typeface</item>
     </style>
 
     <style name="CustomEditorTextDoneStyle" parent="EditorTextDoneStyle" />
@@ -904,9 +905,13 @@
 
     <style name="CustomTrimmerAspectsButtonStyle" parent="TrimmerAspectsButtonStyle" />
 
-    <style name="CustomTrimmerAspectsDoneButtonStyle" parent="TrimmerAspectsDoneButtonStyle" />
+    <style name="CustomTrimmerAspectsDoneButtonStyle" parent="TrimmerAspectsDoneButtonStyle">
+        <item name="android:src">@drawable/ic_done</item>
+    </style>
 
-    <style name="CustomTrimmerAspectsCancelButtonStyle" parent="TrimmerAspectsCancelButtonStyle" />
+    <style name="CustomTrimmerAspectsCancelButtonStyle" parent="TrimmerAspectsCancelButtonStyle">
+        <item name="android:src">@drawable/ic_close</item>
+    </style>
 
     <style name="CustomTrimmerAspectsRecyclerViewStyle" parent="TrimmerAspectsRecyclerViewStyle" />
 
@@ -1233,8 +1238,6 @@
     <style name="CustomDraftOptionsNameStyle" parent="DraftOptionsNameStyle" />
 
     <style name="CustomDraftOptionsSubtitleStyle" parent="DraftOptionsSubtitleStyle" />
-
-    <style name="CustomDraftOptionsBackButtonStyle" parent="DraftOptionsBackButtonStyle" />
 
     <style name="CustomDraftOptionsDividerStyle" parent="DraftOptionsDividerStyle" />
 
