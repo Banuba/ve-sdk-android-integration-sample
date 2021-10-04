@@ -36,24 +36,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun openVideoEditor(pipVideo: Uri = Uri.EMPTY) {
-        val videoCreationIntent = when {
-            pipVideo != Uri.EMPTY -> VideoCreationActivity.buildPipIntent(
-                context = this,
-                // set PiP video uri
-                pictureInPictureVideo = pipVideo,
-                // setup what kind of action you want to do with VideoCreationActivity
-                // setup data that will be acceptable during export flow
-                additionalExportData = null
-            )
-            else -> VideoCreationActivity.buildIntent(
-                context = this,
-                // setup what kind of action you want to do with VideoCreationActivity
-                // setup data that will be acceptable during export flow
-                additionalExportData = null,
-                // set TrackData object if you open VideoCreationActivity with preselected music track
-                audioTrackData = null
-            )
-        }
+        val videoCreationIntent = VideoCreationActivity.startFromCamera(
+            context = this,
+            // set PiP video uri
+            pictureInPictureVideo = pipVideo,
+            // setup what kind of action you want to do with VideoCreationActivity
+            // setup data that will be acceptable during export flow
+            additionalExportData = null,
+            // set TrackData object if you open VideoCreationActivity with preselected music track
+            audioTrackData = null
+        )
         createVideoRequest.launch(videoCreationIntent)
     }
 }
