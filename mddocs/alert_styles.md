@@ -135,7 +135,6 @@ Also there is a possibility to **add custom icon** for every alert dialog type. 
 - alert_camera_delete_video
 - alert_camera_save
 - alert_camera_reset_all
-- alert_editor_delete_voice_record
 - alert_editor_reset_all
 - alert_editor_reset_effects
 - alert_draft_remove_icon_res
