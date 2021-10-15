@@ -315,15 +315,15 @@ ExportManager.Params.Builder(
     }
     ```
 
-### **14. How to change drafts configuration**
+ ### **14. How to change drafts configuration**
 
-By default drafts enabled, asks the user to save a draft before leave any VideoEditor screen. If you need to change drafts configuration you should add the code below in the `VideoEditorKoinModule`:
+ By default drafts enabled, asks the user to save a draft before leave any VideoEditor screen. If you need to change drafts configuration you should add the code below in the `VideoEditorKoinModule`:
 
-    ```kotlin
-    override val draftConfig: BeanDefinition<DraftConfig> = factory(override = true) {
-        DraftConfig.ENABLED_ASK_TO_SAVE
-    }
-    ```
+ ```kotlin
+     override val draftConfig: BeanDefinition<DraftConfig> = factory(override = true) {
+         DraftConfig.ENABLED_ASK_TO_SAVE
+     }
+ ```
 
 You can choose one of these options:
 1. `ENABLED_ASK_TO_SAVE` - drafts enabled, asks the user to save a draft
