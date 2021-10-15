@@ -315,7 +315,7 @@ ExportManager.Params.Builder(
     }
     ```
 
- ### **14. How to add other text fonts that are used in the editor screen**
+ ### **15. How to add other text fonts that are used in the editor screen**
 
 To add other text fonts that are used in the editor screen follow the next steps:
 
@@ -327,7 +327,7 @@ To add other text fonts that are used in the editor screen follow the next steps
 <string name="font_N_title" translatable="false">Font N Title</string>
 ```
 
-3. Add `font_resources.xml` with fonts array declaration to the `app/src/main/res/values/` directory. The format of `font_resources.xml` should be next one:
+3. Add `font_resources.xml` with fonts array declaration to the `app/src/main/res/values/` directory. The format of `font_resources.xml` should be the next one:
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
@@ -348,14 +348,14 @@ To add other text fonts that are used in the editor screen follow the next steps
 </resources>
 ```
 
-4. The final step is to pass your custom ```TextOnVideoTypefaceProvider``` implementation in the [DI](https://github.com/Banuba/ve-sdk-android-integration-sample#configure-di) to override the default implementation with your `font_resources.xml`:
+4. The final step is to pass your custom `font_resources` id to the `ResourcesTextOnVideoTypefaceProvider` in the [DI](https://github.com/Banuba/ve-sdk-android-integration-sample#configure-di) to override the default implementation:
 
 ```kotlin
-override val textOnVideoTypefaceProvider: BeanDefinition<TextOnVideoTypefaceProvider> =
-    single(override = true) {
-        object : TextOnVideoTypefaceProvider {
-            override val textOnVideoTypefaceResources: List<TextOnVideoTypeface> =
-                TypefaceExtractor.extract(context = get(), R.array.font_resources)
+    override val textOnVideoTypefaceProvider: BeanDefinition<TextOnVideoTypefaceProvider> =
+        single(override = true) {
+            ResourcesTextOnVideoTypefaceProvider(
+                fontsArrayResId = R.array.font_resources,
+                context = get()
+            )
         }
-    }
 ```
