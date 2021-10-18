@@ -330,3 +330,48 @@ You can choose one of these options:
 2. `ENABLED_ASK_IF_SAVE_NOT_EXPORT` - drafts enabled, asks the user to save a draft without export
 3. `ENABLED_SAVE_BY_DEFAULT` - drafts enabled, saved by default without asking the user
 4. `DISABLED` - disabled drafts
+
+ ### **15. How to add other text fonts that are used in the editor screen**
+
+To add other text fonts that are used in the editor screen follow the next steps:
+
+1. Add font files to the `app/src/main/res/font/` directory;
+
+2. Add fonts names to the [**strings.xml**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/strings.xml) resource file:
+    ```xml
+    <string name="font_1_title" translatable="false">Font 1 Title</string>
+    <string name="font_N_title" translatable="false">Font N Title</string>
+    ```
+
+3. Add `font_resources.xml` with fonts array declaration to the `app/src/main/res/values/` directory. The format of `font_resources.xml` should be the next one:
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <resources>
+        <array name="font_resources">
+            <item>@array/font_1_resource</item>    <!-- link to the font description array -->
+            <item>@array/font_N_resource</item>
+        </array>
+
+        <array name="font_1_resource">
+            <item>@string/font_1_title</item>      <!-- font name -->
+            <item>@font/font_1</item>              <!-- link to the font file -->
+        </array>
+
+        <array name="font_N_resource">
+            <item>@string/font_N_title</item>
+            <item>@font/font_N</item>
+        </array>
+    </resources>
+    ```
+
+4. The final step is to pass your custom `font_resources` id to the `ResourcesTextOnVideoTypefaceProvider` in the [DI](https://github.com/Banuba/ve-sdk-android-integration-sample#configure-di) to override the default implementation:
+
+    ```kotlin
+    override val textOnVideoTypefaceProvider: BeanDefinition<TextOnVideoTypefaceProvider> =
+        single(override = true) {
+            ResourcesTextOnVideoTypefaceProvider(
+                fontsArrayResId = R.array.font_resources,
+                context = get()
+            )
+        }
+    ```
