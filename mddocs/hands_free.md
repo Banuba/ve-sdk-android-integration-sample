@@ -6,11 +6,26 @@ Hands-Free is an advanced timer feature.
 
 It allows to setup not only delay before start recording but also desired duration of the video.
 
-Hands-Free feature uses `CameraTimeStateProvider` implementation for available delays, `CameraTimerAnimationProvider` for countdown animation and `CameraTimerActionProvider` as Hands-Free behavior itself. 
+Hands-Free feature uses `CameraTimerStateProvider` implementation for available delays, `CameraTimerAnimationProvider` for countdown animation and `CameraTimerActionProvider` as Hands-Free behavior itself. 
 
 Every chosen delay (`TimerEntry` object) from `CameraTimerStateProvider` passed as an argument into `animate()` method of `CameraTimerAnimationProvider`. 
 
 **Note**: We provide `DefaultTimerAnimationProvider` with 10-seconds timer animation. If you need either more than 10-seconds timer or another animation view you need to implement your own `CameraTimerAnimationProvider`.
+
+If you want to disable hands free feature you should remove `CameraTimerActionProvider` implementation in `VideoEditorKoinModule`.
+```diff
+-    override val cameraTimerActionProvider: BeanDefinition<CameraTimerActionProvider> =
+-        single(override = true) {
+-            HandsFreeTimerActionProvider()
+-    }
+```
+Please mind that by default turning off hands free feature enables simple countdown feature with of 3, 5, and 10 seconds. In case you'd like to turn that off, too you should remove `CameraTimerStateProvider` implementation in `VideoEditorKoinModule`.
+```diff
+-    override val cameraTimerStateProvider: BeanDefinition<CameraTimerStateProvider> =
+-       factory(override = true) {
+-           B2BTimerStateProvider()
+-       }
+```
 
 ## Implementation
 
