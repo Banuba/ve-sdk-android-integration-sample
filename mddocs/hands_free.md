@@ -10,6 +10,8 @@ Hands-Free feature uses `CameraTimeStateProvider` implementation for available d
 
 Every chosen delay (`TimerEntry` object) from `CameraTimerStateProvider` passed as an argument into `animate()` method of `CameraTimerAnimationProvider`. 
 
+**Note**: We provide `DefaultTimerAnimationProvider` with 10-seconds timer animation. If you need either more than 10-seconds timer or another animation view you need to implement your own `CameraTimerAnimationProvider`.
+
 ## Implementation
 
 ### Step 1
