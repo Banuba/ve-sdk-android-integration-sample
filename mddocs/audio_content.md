@@ -50,7 +50,7 @@ Argument **extras** contains a data that can be used in the Activity.
 Implement ContentFeatureProvider<TrackData>.
 
 ```kotlin
-class AwesomeActivityMusicProvider : ContentFeatureProvider<TrackData> {
+class AwesomeActivityMusicProvider : ContentFeatureProvider<TrackData, Fragment> {
 
     private var activityResultLauncher: ActivityResultLauncher<Intent>? = null
 
