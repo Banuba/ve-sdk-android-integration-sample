@@ -1,7 +1,23 @@
 # FAQ  
-These are the answers to the most popular questions we are asked about the Banuba AI Video Editor SDK  
+These are the answers to the most popular questions we are asked about the Banuba AI Video Editor SDK
 
-### **1. How do I start/stop recording with a tap?** 
+1. [How do I start/stop recording with a tap?](#1-how-do-i-startstop-recording-with-a-tap)
+2. [How do I add an AR mask to the app without using the AR cloud?](#2-how-do-i-add-an-ar-mask-to-the-app-without-using-the-ar-cloud)
+3. [I want to turn off animations from slideshow](#3-i-want-to-turn-off-animations-from-slideshow)
+4. [I want to start VideoEditor with a preselected audio track](#4-i-want-to-start-VideoEditor-with-a-preselected-audio-track)
+5. [How do I add LUTs to the app?](#5-how-do-i-add-luts-to-the-app)
+6. [How do I change the order of LUTs](#6-how-do-i-change-the-order-of-luts)
+7. [I want to control visibility of debug info on camera and editor screens](#7-i-want-to-control-visibility-of-debug-info-on-camera-and-editor-screens)
+8. [I want to customize gallery icon](#8-i-want-to-customize-gallery-icon)
+9. [How to enable video rotation on trimmer](#9-how-to-enable-video-rotation-on-trimmer)
+10. [How does video editor work when token expires?](#10-how-does-video-editor-work-when-token-expires)
+11. [I want to change the font in Video Editor](#11-i-want-to-change-the-font-in-video-editor)
+12. [How to obtain GIF preview image of exported video](#12-how-to-obtain-gif-preview-image-of-exported-video)
+13. [How to export in Background](#13-how-to-export-in-background)
+14. [How to change drafts configuration](#14-how-to-change-drafts-configuration)
+15. [How to add other text fonts that are used in the editor screen](#15-how-to-add-other-text-fonts-that-are-used-in-the-editor-screen)
+
+### 1. How do I start/stop recording with a tap?
 By default, the user must hold the “record” button to film and release it to stop filming.   
 
 To change that, simply set the [takePhotoOnTap](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/camera.json#L5) property to **false**.
@@ -9,14 +25,14 @@ To change that, simply set the [takePhotoOnTap](https://github.com/Banuba/ve-sdk
  "takePhotoOnTap":false
 ```
 
-### **2. How do I add an AR mask to the app without using the AR cloud?**  
+### 2. How do I add an AR mask to the app without using the AR cloud?
 If you don’t want to pull the masks from the backend, you can include them in the app itself. 
 
 To do so, name the folder with the mask files the way you want to call the mask, and place it into **assets/bnb-resources/effects** directory in the module containing the Video Editor SDK (Example).
 
 Make sure that you include the **preview.png** file in the mask folder. It serves as an icon for the mask within the app. 
 
-### **3. I want to turn off animations from slideshow**
+### 3. I want to turn off animations from slideshow
 
 Slideshow is created either by selecting pictures from gallery or by making a photo on Video Editor camera screen.
 
@@ -32,7 +48,7 @@ Here ```animate``` parameter is applicable to the slideshow created by selecting
 
 To turn off animations just **setup false for both fields**.
 
-### **4. I want to start VideoEditor with a preselected audio track**
+### 4. I want to start VideoEditor with a preselected audio track
 
 You should create an intent using the method **VideoCreationActivity.buildIntent()** where **audioTrackData** is preselected audio track.
 
@@ -55,13 +71,13 @@ data class TrackData(
 )
 ```
 
-### **5. How do I add LUTs to the app?**
+### 5. How do I add LUTs to the app?
 
 Color filters are located in the **assets/bnb-resources/luts** directory in the module with the AI Video Editor SDK. To add your own, place the files in this folder and create a drawable resource that will be used as an icon for this particular LUT. The name of the drawable resource must be the same as the graphic file in the filter’s directory.
 
 For example, this is the [bubblegum LUT](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/bnb-resources/luts/bubblegum.png) file, and this is its [drawable resource](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/drawable-hdpi/bubblegum.png).
 
-### **6. How do I change the order of LUTs?**
+### 6. How do I change the order of LUTs?
 
 By default, the filters are listed in alphabetical order. 
 
@@ -82,7 +98,7 @@ override val colorFilterOrderProvider: BeanDefinition<ColorFilterOrderProvider> 
     }
 ```
 
-### **7. I want to control visibility of debug info on camera and editor screens**
+### 7. I want to control visibility of debug info on camera and editor screens
 
 You can control visibility of camera config information and camera preview params(FPS, ISO). Change the following properties in [**camera.json**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/camera.json#L16) config file to control:
 ```json
@@ -95,7 +111,7 @@ You can control visibility of editor config. Change the following properties in 
  ```
 Set **false** to hide info, set **true** to show.
 
-### **8. I want to customize gallery icon**
+### 8. I want to customize gallery icon
 
 Gallery icon is represented by AppCompatImageView. Its style placed into `galleryImageViewStyle` attribute of the main theme ([**example**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L104))
 
@@ -111,7 +127,7 @@ Gallery icon is represented by AppCompatImageView. Its style placed into `galler
 
  **To setup custom drawable resource** instead of the last media file you have to put custom style into `galleryImageViewStyle` attribute of the main theme ([**example**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L105)) and set there `use_custom_image` to `true` and put your drawable as `android:src` attribute value
 
- ### **9. How to enable video rotation on trimmer**
+ ### 9. How to enable video rotation on trimmer
 
  To allow video rotation on trimmer you should add a following line into [**videoeditor.json**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/videoeditor.json) file under **"trimmer"** section:
  ```json
@@ -122,7 +138,7 @@ Gallery icon is represented by AppCompatImageView. Its style placed into `galler
  ```
 The rotation button appearance can be customized by `trimmerRotateButtonStyle` theme [**attribute**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L145) (more on trimmer screen customization [**here**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/mddocs/trimmer_styles.md)).
 
-### **10. How does video editor work when token expires?**
+### 10. How does video editor work when token expires?
 
 [Token](https://github.com/Banuba/ve-sdk-android-integration-sample#token) provided by sales managers has an expiration term to protect Video Editor SDK from malicious access. When the token expires the following happens:
  - video resolution will be lowered to 360p on camera, after trimmer and after export
@@ -134,7 +150,7 @@ The rotation button appearance can be customized by `trimmerRotateButtonStyle` t
 
  Please keep your licence up to date to avoid unwanted behavior.
 
- ### **11. I want to change the font in Video Editor**
+ ### 11. I want to change the font in Video Editor
 
 All text view styles in Video Editor SDK are inherited from the `Text` style, thus the font set in this style will be applied to all text views in Video Editor.
 
@@ -149,7 +165,7 @@ To apply `customFont` to Video Editor just override this style:
 Using this approach you don't have to repeatedly set the font to any other styles while customizing the Video Editor.
 
 
- ### **12. How to obtain GIF preview image of exported video**
+ ### 12. How to obtain GIF preview image of exported video
 
  Video Editor SDK allows to obtain exported video preview as a gif image.
 
@@ -192,7 +208,7 @@ ExportManager.Params.Builder(
  ```
 
 
-### **13. How to export in Background**
+### 13. How to export in Background
 1. Provide `BackgroundExportFlowManager` through DI: 
 
     ```kotlin
@@ -315,7 +331,7 @@ ExportManager.Params.Builder(
     }
     ```
 
- ### **14. How to change drafts configuration**
+ ### 14. How to change drafts configuration
 
  By default drafts enabled, asks the user to save a draft before leave any VideoEditor screen. If you need to change drafts configuration you should add the code below in the `VideoEditorKoinModule`:
 
@@ -331,7 +347,7 @@ You can choose one of these options:
 3. `ENABLED_SAVE_BY_DEFAULT` - drafts enabled, saved by default without asking the user
 4. `DISABLED` - disabled drafts
 
- ### **15. How to add other text fonts that are used in the editor screen**
+ ### 15. How to add other text fonts that are used in the editor screen
 
 To add other text fonts that are used in the editor screen follow the next steps:
 
