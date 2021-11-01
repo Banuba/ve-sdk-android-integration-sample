@@ -1,4 +1,23 @@
 # Banuba AI Video Editor SDK
+
+## Gallery screen configuration
+
+There is a "gallery" section in [**videoeditor.json**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/videoeditor.json#L36) configuration file. It has some attributes that impact on gallery screen appearance and logic.
+
+```json
+"gallery": {
+    "supportsMixMediaData": false,
+    "supportsVideo": true,
+    "supportsImage": true
+  }
+```
+- **supportsMixMediaData** - recently deprecated but mandatory flag (to be removed in the next release), it allowed to show pictures and videos together in single list without separate navigation tabs
+- **supportsVideo** - optional flag, it defines if "video" tab is on the screen (by default it has value "true")
+- **supportsImage** - optional flag, it defines if "image" tab is on the screen (by default it has value "true")
+
+**Note**. If *supportsVideo* and *supportsImage* flags both has value "false" an app will crash with an exception. We suggest to use only one of these two flags to hide corresponding navigation tab.
+
+
 ## Gallery screen styles
 
 - [galleryImageViewStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L105)
