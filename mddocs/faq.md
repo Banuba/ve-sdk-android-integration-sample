@@ -81,20 +81,21 @@ For example, this is the [bubblegum LUT](https://github.com/Banuba/ve-sdk-androi
 
 By default, the filters are listed in alphabetical order. 
 
-To change it, use the implementation of the ```ColorFilterOrderProvider``` interface. 
+To change it, use the implementation of the ```OrderProvider``` interface.
 ```kotlin
-class CustomColorFilterOrder: ColorFilterOrderProvider {
+class CustomColorFilterOrderProvider : OrderProvider {
     override fun provide(): List<String> = listOf("egypt", "byers")
 }
 ``` 
-This will return the list of color filters with the required order. 
+This will return the list of color filters with the required order.
 Note: The name of color filter is a name of an appropriate file located in **assets/bnb-resources/luts** directory. [Example](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/bnb-resources/luts/egypt.png).
 
-The final step is to pass your custom ```ColorFilterOrderProvider``` implementation in the [DI](https://github.com/Banuba/ve-sdk-android-integration-sample#configure-di) to override the default implementation:
+The final step is to pass your custom ```CustomColorFilterOrderProvider``` implementation in the [DI](https://github.com/Banuba/ve-sdk-android-integration-sample#configure-di) to override the default implementation:
 
 ```kotlin
-override val colorFilterOrderProvider: BeanDefinition<ColorFilterOrderProvider> = single(override = true) {
-        CustomColorFilterOrder()
+override val colorFilterOrderProvider: BeanDefinition<OrderProvider> =
+    single(named("colorFilterOrderProvider"), override = true) {
+        CustomColorFilterOrderProvider()
     }
 ```
 
