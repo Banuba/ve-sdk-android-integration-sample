@@ -34,6 +34,7 @@ Banuba [AI Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you
     + [Check Video Editor SDK availability before opening](#Check-Video-Editor-SDK-availability-before-opening)
      + [Disable Face AR SDK](#Disable-Face-AR-SDK)
     + [Configure export flow](#Configure-export-flow)
+    + [Configure masks and filters order](#Configure-masks-and-filters-order)
     + [Configure watermark](#Configure-watermark)
     + [Configure media content](#Configure-media-content)
     + [Configure audio content](#Configure-audio-content)
@@ -132,6 +133,7 @@ We understand that the client should have options to brand video editor to bring
 :white_check_mark: Change text styles i.e. font, color. [See details](#Configure-screens)  
 :white_check_mark: Localize and change text resources. Default locale is :us:  
 :white_check_mark: Make content you want i.e. a number of video with different resolutions  and durations, an audio file. [See details](#Configure-export-flow)  
+:white_check_mark: Masks and filters order. [See details](#Configure-masks-and-filters-order)  
 :x: Change layout  
 :x: Change screen order  
 
@@ -260,6 +262,43 @@ The end result would be four files:
 By default, they are placed in the "export" directory of external storage. To change the target folder, you should provide a custom Uri instance named **exportDir** through DI.
 
 Should you choose to export files in the background, you’d do well to change ```ExportNotificationManager```. It lets you change the notifications for any export scenario (started, finished successfully, and failed).
+
+### Configure masks and filters order
+By default, the masks and filters are listed in alphabetical order.
+
+To change it, use the implementation of the ```OrderProvider``` interface.
+
+```kotlin
+class CustomMaskOrderProvider : OrderProvider {
+    override fun provide(): List<String> = listOf("Background", "HeadphoneMusic", "AsaiLines")
+}
+```
+This will return the list of masks with the required order.
+Note: The name of mask is a name of an appropriate directory located in **assets/bnb-resources/effects** directory or received from AR cloud. [Example](https://github.com/Banuba/ve-sdk-android-integration-sample/tree/main/app/src/main/assets/bnb-resources/effects/Background).
+
+```kotlin
+class CustomColorFilterOrderProvider : OrderProvider {
+    override fun provide(): List<String> = listOf("egypt", "byers")
+}
+```
+This will return the list of color filters with the required order.
+Note: The name of color filter is a name of an appropriate file located in **assets/bnb-resources/luts** directory. [Example](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/bnb-resources/luts/egypt.png).
+
+The final step is to pass your custom ```CustomMaskOrderProvider``` and ```CustomColorFilterOrderProvider``` implementation in the [DI](https://github.com/Banuba/ve-sdk-android-integration-sample#configure-di) to override the default implementations:
+
+```kotlin
+override val maskOrderProvider: BeanDefinition<OrderProvider> =
+    single(named("maskOrderProvider"), override = true) {
+        CustomMaskOrderProvider()
+    }
+
+override val colorFilterOrderProvider: BeanDefinition<OrderProvider> =
+    single(named("colorFilterOrderProvider"), override = true) {
+        CustomColorFilterOrderProvider()
+    }
+```
+
+Note: pay attantion that ```OrderProvider``` should be named "maskOrderProvider" and "colorFilterOrderProvider" for masks and filters, respectively.
 
 ### Configure watermark  
 To use a watermark, add the ``` WatermarkProvider``` interface to your app. The image goes into the getWatermarkBitmap method. Once you’re done, rearrange the dependency watermarkProvider in [DI](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#L53). See the [example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationAppWatermarkProvider.kt) of adding a watermark here.
