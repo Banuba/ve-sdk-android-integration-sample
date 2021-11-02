@@ -131,3 +131,62 @@
 | err_file_not_supported | File is not supported | message shown as a [toast](alert_styles.md#L11) when the user is trying to use any media file (select from gallery or select as a cover) that is not supported by the Video Editor SDK
 | err_editor_network_connection_failure | Connection failed | message shown as a [toast](alert_styles.md#L11) in case of the user is trying to load more [stickers](https://github.com/Banuba/ve-sdk-android-integration-sample#configure-stickers-content) but the request is failed
 | err_editor_player_initializer | Error on player launch | message shown as a [toast](alert_styles.md#L11) in case of internal error within the Video Editor SDK
+
+
+## Effects customization
+
+Effect customization is defined by android resources with well-defined names which follow a strict scheme. 
+
+| Customization | Resource type | Resource name template | Example
+| --- | --- | --- | --- |
+| Title | string | visual_effect_{id}, time_effect_{id} | visual_effect_flash
+| Icon | drawable | ic_visual_effect_{id}, ic_time_effect_{id} | ic_time_effect_rapid
+| Color | color | visual_effect_color_{id}, time_effect_color_{id} | visual_effect_color_vhs
+
+To change appearance o the effect, you should place any android resources named according to the scheme presented above into res folder of your app. The resource depends on the item you want to customize (string for the title, drawable for the icon, color for the color on the timeline).
+
+Effects identifiers are presented in the table below:
+
+| Effect      | Type | String identifier | Default icon |
+| :---------- | :---:| :--------------:  | :----------: |
+| Acid-whip | visual | acid_whip| ![img](icons/ic_visual_effect_acid_whip.png)
+| Cathode | visual | cathode | ![img](icons/ic_visual_effect_cathode.png)
+| Flash | visual | flash | ![img](icons/ic_visual_effect_flash.png)
+| Glitch | visual | glitch | ![img](icons/ic_visual_effect_glitch.png)
+| Glitch 2 | visual | glitch2 | ![img](icons/ic_visual_effect_glitch2.png)
+| Glitch 3 | visual | glitch3 | ![img](icons/ic_visual_effect_glitch3.png)
+| Heat map | visual | heat_map | ![img](icons/ic_visual_effect_heat_map.png)
+| DSLR Kaleidoscope | visual | dslr_kaleidoscope | ![img](icons/ic_visual_effect_dslr_kaleidoscope.png)
+| Kaleidoscope | visual | kaleidoscope | ![img](icons/ic_visual_effect_kaleidoscope.png)
+| Lumiere | visual | lumiere | ![img](icons/ic_visual_effect_lumiere.png)
+| Pixel dynamic | visual | pixel_dynamic | ![img](icons/ic_visual_effect_pixel_dynamic.png)
+| Pixel static | visual | pixel_static | ![img](icons/ic_visual_effect_pixel_static.png)
+| Polaroid | visual | polaroid | ![img](icons/ic_visual_effect_polaroid.png)
+| Rave | visual | rave | ![img](icons/ic_visual_effect_rave.png)
+| Soul | visual | soul | ![img](icons/ic_visual_effect_soul.png)
+| Stars | visual | stars | ![img](icons/ic_visual_effect_stars.png)
+| Transition 1 | visual | transition1 | ![img](icons/ic_visual_effect_transition1.png)
+| Transition 2 | visual | transition2 | ![img](icons/ic_visual_effect_transition2.png)
+| Transition 3 | visual | transition3 | ![img](icons/ic_visual_effect_transition3.png)
+| Transition 4 | visual | transition4 | ![img](icons/ic_visual_effect_transition4.png)
+| TV Foam | visual | tv_foam | ![img](icons/ic_visual_effect_tv_foam.png)
+| DV Cam | visual | dv_cam | ![img](icons/ic_visual_effect_dv_cam.png)
+| VHS | visual | vhs | ![img](icons/ic_visual_effect_vhs.png)
+| VHS 2 | visual | vhs2 | ![img](icons/ic_visual_effect_vhs2.png)
+| Zoom | visual | zoom | ![img](icons/ic_visual_effect_zoom.png)
+| Zoom 2 | visual | zoom2 | ![img](icons/ic_visual_effect_zoom2.png)
+| Slow mo | time | slow_motion | ![img](icons/ic_time_effect_slow_motion.png)
+| Rapid | time | rapid | ![img](icons/ic_time_effect_rapid.png)
+
+
+**Example**
+
+To change the title of Flash visual effect to SuperFlash, you should place 
+```xml
+<string name="visual_effect_flash">SuperFlash</string>
+```
+into strings.xml file of your app.
+
+To change an icon of Rapid time effect, you should place drawable resource with the name "ic_time_effect_rapid" into drawable folder of your app.
+
+To change the color on the timeline for the VHS visual effect, place color resource with the name "visual_effect_color_vhs" into colors.xml file of your app.
