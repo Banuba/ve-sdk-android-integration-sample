@@ -35,6 +35,7 @@
   },
   "gallery": {
     "supportsMixMediaData": false,
-    "supportsMultiChoiceByLongTap": false
+    "supportsVideo": true,
+    "supportsImage": true
   }
 }
