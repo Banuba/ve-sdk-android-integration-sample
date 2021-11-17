@@ -3,6 +3,7 @@ package com.banuba.example.integrationapp.videoeditor.di
 import androidx.fragment.app.Fragment
 import com.banuba.example.integrationapp.videoeditor.export.IntegrationAppExportParamsProvider
 import com.banuba.example.integrationapp.videoeditor.impl.IntegrationAppColorFilterOrderProvider
+import com.banuba.example.integrationapp.videoeditor.impl.IntegrationAppMaskOrderProvider
 import com.banuba.example.integrationapp.videoeditor.impl.IntegrationAppWatermarkProvider
 import com.banuba.example.integrationapp.videoeditor.impl.IntegrationTimerStateProvider
 import com.banuba.sdk.arcloud.data.source.ArEffectsRepositoryProvider
@@ -10,7 +11,7 @@ import com.banuba.sdk.audiobrowser.domain.AudioBrowserMusicProvider
 import com.banuba.sdk.cameraui.data.CameraTimerActionProvider
 import com.banuba.sdk.cameraui.data.CameraTimerStateProvider
 import com.banuba.sdk.cameraui.domain.HandsFreeTimerActionProvider
-import com.banuba.sdk.core.data.ColorFilterOrderProvider
+import com.banuba.sdk.core.data.OrderProvider
 import com.banuba.sdk.core.domain.DraftConfig
 import com.banuba.sdk.core.data.TrackData
 import com.banuba.sdk.core.ui.ContentFeatureProvider
@@ -87,9 +88,14 @@ class VideoEditorKoinModule : FlowEditorModule() {
             HandsFreeTimerActionProvider()
         }
 
-    override val colorFilterOrderProvider: BeanDefinition<ColorFilterOrderProvider> =
-        single(override = true) {
+    override val colorFilterOrderProvider: BeanDefinition<OrderProvider> =
+        single(named("colorFilterOrderProvider"), override = true) {
             IntegrationAppColorFilterOrderProvider()
+        }
+
+    override val maskOrderProvider: BeanDefinition<OrderProvider> =
+        single(named("maskOrderProvider"), override = true) {
+            IntegrationAppMaskOrderProvider()
         }
 
     override val draftConfig: BeanDefinition<DraftConfig> = factory(override = true) {
