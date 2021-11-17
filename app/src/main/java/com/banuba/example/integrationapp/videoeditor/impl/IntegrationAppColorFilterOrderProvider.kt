@@ -1,8 +1,8 @@
 package com.banuba.example.integrationapp.videoeditor.impl
 
-import com.banuba.sdk.core.data.ColorFilterOrderProvider
+import com.banuba.sdk.core.data.OrderProvider
 
-class IntegrationAppColorFilterOrderProvider : ColorFilterOrderProvider {
+class IntegrationAppColorFilterOrderProvider : OrderProvider {
 
     override fun provide() = listOf(
         "egypt",
