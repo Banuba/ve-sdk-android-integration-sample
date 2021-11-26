@@ -25,6 +25,7 @@ Banuba [AI Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you
 - [Token](#Token)
 - [Connecting with AR cloud](#Connecting-with-AR-cloud)
 - [What can you customize?](#What-can-you-customize)
+- [FFmpeg build issue (**Error compressed Native Libs**)](#FFmpeg-build-issue-error-compressed-native-libs)
 - [Getting Started](#Getting-Started)  
     + [GitHub packages](#GitHub-packages)
     + [Add dependencies](#Add-dependencies)
@@ -139,6 +140,25 @@ We understand that the client should have options to brand video editor to bring
 :x: Change screen order  
 
 :exclamation: We do custom UX/UI changes as a separate contract. Please contact our [sales@banuba.com](mailto:sales@banuba.com).
+
+
+## FFmpeg build issue (**Error compressed Native Libs**)
+:exclamation: If in the Video Editor process work you see the message **"Error compressed Native Libs. Look documentation"**, then do next:
+
+1. Add the ```android.bundle.enableUncompressedNativeLibs=false``` in the ```gradle.properties```:
+
+``` gradle
+android.bundle.enableUncompressedNativeLibs=false
+```
+
+2. Add ```android:extractNativeLibs="true"``` in the ```<application>``` path of ```AndroidManifest.xml```:
+
+``` xml
+<application
+    ...
+    android:extractNativeLibs="true"
+    ...>
+```
 
 
 ## Getting Started
