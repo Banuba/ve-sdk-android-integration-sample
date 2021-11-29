@@ -851,11 +851,17 @@
 
     <style name="CustomTrimmerTimelinePlayerLineStyle" parent="TrimmerTimelinePlayerLineStyle" />
 
-    <style name="CustomTrimmerTimelineCurrentTimeTextStyle" parent="TrimmerTimelineCurrentTimeTextStyle" />
+    <style name="CustomTrimmerTimelineCurrentTimeTextStyle" parent="TrimmerTimelineCurrentTimeTextStyle">
+        <item name="android:textColor">@color/white</item>
+    </style>
 
-    <style name="CustomTrimmerTimelineTotalTimeTextStyle" parent="TrimmerTimelineTotalTimeTextStyle" />
+    <style name="CustomTrimmerTimelineTotalTimeTextStyle" parent="TrimmerTimelineTotalTimeTextStyle">
+        <item name="android:textColor">@color/white</item>
+    </style>
 
-    <style name="CustomTrimmerTimelineVideoTimeLabelStyle" parent="TrimmerTimelineVideoTimeLabelStyle" />
+    <style name="CustomTrimmerTimelineVideoTimeLabelStyle" parent="TrimmerTimelineVideoTimeLabelStyle">
+        <item name="android:textColor">@color/white</item>
+    </style>
 
     <style name="CustomTrimmerTimelineActionButtonsRecyclerStyle" parent="TrimmerTimelineActionButtonsRecyclerStyle" />
 
@@ -875,9 +881,13 @@
 
     <style name="CustomTrimmerContentBackgroundStyle"  parent="TrimmerContentBackgroundStyle" />
 
-    <style name="CustomTrimmerSingleTrimCurrentTimeTextStyle" parent="TrimmerSingleTrimCurrentTimeTextStyle" />
+    <style name="CustomTrimmerSingleTrimCurrentTimeTextStyle" parent="TrimmerSingleTrimCurrentTimeTextStyle">
+        <item name="android:textColor">@color/white</item>
+    </style>
 
-    <style name="CustomTrimmerSingleTrimTotalTimeTextStyle" parent="TrimmerSingleTrimTotalTimeTextStyle" />
+    <style name="CustomTrimmerSingleTrimTotalTimeTextStyle" parent="TrimmerSingleTrimTotalTimeTextStyle">
+        <item name="android:textColor">@color/white</item>
+    </style>
 
     <style name="CustomTrimmerActionDoneButtonStyle" parent="TrimmerActionDoneButtonStyle">
         <item name="android:src">@drawable/ic_check</item>
@@ -907,13 +917,17 @@
 
     <style name="CustomTrimmerThumbsRecyclerViewStyle" parent="TrimmerThumbsRecyclerViewStyle" />
 
-    <style name="CustomTrimmerThumbsHintTextStyle" parent="TrimmerThumbsHintTextStyle" />
+    <style name="CustomTrimmerThumbsHintTextStyle" parent="TrimmerThumbsHintTextStyle">
+        <item name="android:textColor">@color/white</item>
+    </style>
 
     <style name="CustomTrimmerThumbsItemParentStyle" parent="TrimmerThumbsItemParentStyle" />
 
     <style name="CustomTrimmerThumbsItemImageStyle" parent="TrimmerThumbsItemImageStyle" />
 
-    <style name="CustomTrimmerThumbsItemTimeTextStyle" parent="TrimmerThumbsItemTimeTextStyle" />
+    <style name="CustomTrimmerThumbsItemTimeTextStyle" parent="TrimmerThumbsItemTimeTextStyle">
+        <item name="android:textColor">@color/white</item>
+    </style>
 
     <style name="CustomTrimmerTimelineAddVideoStyle" parent="TrimmerTimelineAddVideoStyle">
         <item name="android:src">@drawable/ic_trimmer_add</item>
