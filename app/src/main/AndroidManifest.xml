@@ -31,6 +31,12 @@
             android:windowSoftInputMode="adjustResize"
             tools:replace="android:theme" />
 
+        <activity
+            android:name=".videoeditor.music.CustomAudioBrowserActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomIntegrationAppTheme"
+            android:windowSoftInputMode="adjustResize" />
+
         <!-- Allows to share exported video -->
         <provider
             android:name="androidx.core.content.FileProvider"
