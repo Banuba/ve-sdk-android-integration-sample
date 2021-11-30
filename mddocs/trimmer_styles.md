@@ -1,92 +1,136 @@
 # Banuba AI Video Editor SDK
 ## Trimmer screen styles
 
-- [trimmerStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L131)
+- [trimmerStyle](../app/src/main/res/values/themes.xml#L130)
 
     style to customize trimmer view with custom attributes. There are a lot of properties can be changed from its default color to left and right pointers drawables
-- [trimmerBackButtonStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L132)
 
-    style for the button that returns the user to the previous screen
-- [trimmerNextButtonStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L133)
+- [ic_trimmer_rotate](../app/src/main/res/drawable/ic_trimmer_rotate.xml), [ic_trimmer_remove](../app/src/main/res/drawable/ic_trimmer_remove.xml) and [ic_trimmer_trim](../app/src/main/res/drawable/ic_trimmer_trim.xml)
 
-    style for the button that starts trimming process and proceeds to the editor screen. In case of single video it called "Done" and starts trimming, in case of multi videos it called "Done" or "Next" depending on the current action:
-    - applies new time borders for the selected video and return to multi videos screen
-    - proceeds with all changes to the editor screen
-- [trimmerDurationSumTextStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L134)
+    drawables for different trimmer view actions icons
 
-    style for the top label that shows the final duration of selected videos after trimming process. Visibility of this view is defined in custom attribute - [trimmer_time_visible](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L153)
+- [trimmerTimelineActionTextStyle](../app/src/main/res/values/themes.xml#L136)
 
-- [trimmerContentViewStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L135)
+    style to customize trimmer view actions text 
 
-    style for the view that plays a role of a container for the trimmer view or the view containing list of selected videos
+- [timelinePlayerLineStyle](../app/src/main/res/values/themes.xml#L828)
 
-- [trimmerContentLabelStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L136)
+    style to customize player line style, e.g. player line color
 
-    style for the label of trimmer view (or list of videos) container
+- [bg_selectable_video_timeline](../app/src/main/res/drawable/bg_selected_video_timeline.xml)
 
-- [trimmerRotateButtonStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L145)
+    drawable for multi trimmer view border
 
-    style for the rotate button
+- [timelineVideoTimeLabelStyle](../app/src/main/res/values/themes.xml#L831)
 
-- [trimmer_icon_play](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L149) and [trimmer_icon_pause](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L150)
+    style to customize multi trimmer view time label
 
-    attributes for different playback icon states. Visibility of the playback icon itself is defined in [trimmer_play_control_visible](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L148) attribute
+- [trimmerAspectsButtonStyle](../app/src/main/res/values/themes.xml#L143)
 
-    ![img](screenshots/trimmer1.png)
-- [trimmerRecyclerStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L137)
+    style for the button that opens aspects list
 
-    style for the RecyclerView containing the list of selected videos
+- [timelineAddVideoButtonStyle](../app/src/main/res/values/themes.xml#L827)
 
-- [trimmerThumbImageStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L138)
+    style for the button that opens gallery dialog to add video 
 
-    style for the video item image within trimmer RecyclerView
+- [timelineTimeTotalTextStyle](../app/src/main/res/values/themes.xml#L830)
 
-- [trimmerThumbHintIconStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L146)
+    style to customize the total time text label for the multi trimmer view
 
-    style for the top right icon on the video thumbnail
+- [timelineTimeCurrentTextStyle](../app/src/main/res/values/themes.xml#L829)
 
-- [trimmerThumbTextStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L139)
+    style to customize the current time text label for the multi trimmer view
 
-    style for the video item duration within trimmer RecyclerView
+    ![img](screenshots/new_trimmer1.png)
 
-- [trimmerDeleteLabelStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L140)
+- [trimmer_icon_play](../app/src/main/res/values/themes.xml#L158) and [trimmer_icon_pause](../app/src/main/res/values/themes.xml#L159)
 
-    style for the text view that appears when the user dragging video from the videos list. The video should be moved over the "delete" image to be deleted
+    attributes for different playback icon states. Visibility of the playback icon itself is defined in [trimmer_play_control_visible](../app/src/main/res/values/themes.xml#L157) attribute
 
-- [trimmerDeleteCrossStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L141)
+- [trimmerActionCancelButtonStyle](../app/src/main/res/values/themes.xml#L145)
 
-    style for the image view that appears when the user dragging video from the videos list. The video should be moved over the "delete" image to be deleted 
+    style for the cancel button
 
-- [trimmerContentHintStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L144)
+- [trimmerActionDoneButtonStyle](../app/src/main/res/values/themes.xml#L144)
 
-    style for the TextView describing available action on the screen
+    style for the done button
 
-- [trimmer_icon_add_video](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L151)
+- [trimmerSingleTrimCurrentTimeTextStyle](../app/src/main/res/values/themes.xml#L141)
 
-    attribute for the drawable resource representing a button that allows to select additional videos from the gallery. Also there is a [trimmer_bg_color_add_video](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L152) attribute to define the background color of this icon
+    style to customize the current time text label for the single trimmer view
 
-    ![img](screenshots/trimmer2.png)
+- [trimmerSingleTrimTotalTimeTextStyle](../app/src/main/res/values/themes.xml#L142)
 
-- [trimmerCancelButtonStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L142)
+    style to customize the total time text label for the single trimmer view
 
-    style for the button that cancels recent changes
 
-- [trimmerDurationTimelineStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L143)
+    ![img](screenshots/new_trimmer2.png)
 
-    style for the view that represents the whole video after trimming process. This view is shown only when user is changing time borders for the video from videos list. There are a lot of custom attributes allowing to setup colors for different parts of the timeline
 
-    ![img](screenshots/trimmer3.png)
+- [trimmerThumbsItemImageStyle](../app/src/main/res/values/themes.xml#L154)
+
+    style to customize the thumbnail image, especially the background, border and corner radius 
+
+- [trimmerThumbsItemTimeTextStyle](../app/src/main/res/values/themes.xml#L155)
+
+    style to customize the thumbnail time label
+
+- [trimmerThumbsHintTextStyle](../app/src/main/res/values/themes.xml#L152)
+
+    style to customize the thumbnail hint label
+
+    ![img](screenshots/new_trimmer3.png)
+
+
+- [trimmerTimelineStyle](../app/src/main/res/values/themes.xml#L131)
+
+    style that contains other styles, such as ```timelineAddVideoButtonStyle```, ```timelinePlayerLineStyle```, ```timelineTimeCurrentTextStyle```, ```timelineTimeTotalTextStyle```, ```timelineVideoTimeLabelStyle``` and so on
+
+
+- [trimmerTimelineActionButtonsRecyclerStyle](../app/src/main/res/values/themes.xml#L133)
+    style for the RecyclerView containing the list of the action buttons
+
+- [trimmerTimelineActionParentStyle](../app/src/main/res/values/themes.xml#L134)
+
+    style to customize the action buttons layout size and margins
+
+- [trimmerTimelineActionImageStyle](../app/src/main/res/values/themes.xml#L135)
+
+    style to customize the action buttons image sizes
+
+
+- [trimmerParentStyle](../app/src/main/res/values/themes.xml#L137)
+
+    style to customize the trimmer video item layout parameters, background, clickable and focusable attributes
+
+- [trimmerVideoContainerStyle](../app/src/main/res/values/themes.xml#L138)
+
+    style to customize the trimmer video item margins
+
+- [trimmerPlayButtonStyle](../app/src/main/res/values/themes.xml#L139)
+
+    style to customize the trimmer play button layout parameters and background
+
+- [trimmerContentBackgroundStyle](../app/src/main/res/values/themes.xml#L140)
+
+    style to customize the trimmer video item background
+
+- [trimmerThumbsRecyclerViewStyle](../app/src/main/res/values/themes.xml#L151)
+
+    style fot the RecyclerView containing the list of thumbnails
+
+- [trimmerThumbsItemParentStyle](../app/src/main/res/values/themes.xml#L153)
+
+    style to customize the thumbnail item layout parameters, clickable and focusable attributes
 
 
 ## String resources
 
 | ResourceId        |      Value      |   Description |
 | ------------- | :----------- | :------------- |
-| trimmer_drag_hint | Drag to delete | hint that is shown to the user when he is long pressing on the video thumbnail in multitrimmer mode. Related TextView is customized in ```trimmerDeleteLabelStyle```
-| trimmer_duration_format_normal | %1$s sec | label that is shown on the top of the trimmer screen, represents the duration of the single video (if in trimmer mode) or of all selected videos (if in multitrimmer mode). Realated TextView is customized in ```trimmerDurationSumTextStyle```
-| trimmer_duration_format_exceed | Max length %1$s sec | label that is shown on the top of the trimmer screen in case of the sum of all selected videos exceeds the ```maxVideoDuration``` parameter in [videoeditor.json](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/videoeditor.json#L4) file. Realated TextView is customized in ```trimmerDurationSumTextStyle```
-| trimmer_content_label_single | Trimmer | label of the trimmer when selected one video. Related TextView is customized in ```trimmerContentLabelStyle```
-| trimmer_content_label_multi | Multitrimmer | label of the trimmer when selected several videos. Related TextView is customized in ```trimmerContentLabelStyle```
-| trimmer_content_hint | Use long press to change the order or remove | message shown on the multitrim inside the view customized by the `trimmerContentHintStyle`
+| trimmer_action_rotate | Rotate | label that is shown under the rotate action icon
+| trimmer_action_delete | Delete | label that is shown under the delete action icon
+| trimmer_action_trim | Trim | label that is shown under the trim action icon
+| trimmer_drag_hint | Drag to swap | hint that is shown to the user when he is long pressing on the video thumbnail in multitrimmer mode. Related TextView is customized in ```trimmerThumbsHintTextStyle```
 | err_trimmer_invalid_duration | Video duration should be between %1$d and %2$d seconds | error message shown as a [toast](alert_styles.md#L11). Here placeholders are values from ```minVideoDuration``` and ```maxVideoDuration``` parameters in [videoeditor.json](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/videoeditor.json#L3) file
 | err_trimmer_internal | Error while making video | error message shown as a [toast](alert_styles.md#L11) if an undefined exception appeared during trimming video

@@ -19,7 +19,7 @@
 | androidx.room:room-runtime | 2.3.0 |
 | com.airbnb.android:lottie | 3.5.0 |
 | com.github.bumptech.glide:glide | 4.12.0 |
-| com.google.android.exoplayer:exoplayer | 2.14.1 |
+| com.google.android.exoplayer:exoplayer | 2.16.0 |
 | com.google.android.material:material | 1.4.0 |
 | com.google.firebase:firebase-database-ktx | 20.0.0 |
 | com.squareup.moshi:moshi-kotlin | 1.12.0 |
