@@ -2,7 +2,7 @@
   "minVideoDuration": 3000,
   "maxVideoDuration": 60000,
   "minChunkVideoDuration": 1000,
-  "takePhotoOnTap": true,
+  "takePhotoOnTap": false,
   "supportsMultiRecords": true,
   "supportsFlashlight": true,
   "supportsSpeedRecording": true,
