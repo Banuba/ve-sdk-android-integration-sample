@@ -165,7 +165,8 @@ android.bundle.enableUncompressedNativeLibs=false
 ### GitHub packages
 GitHub packages are used to download the latest Video Editor SDK modules. You will also need them to receive new AI Video Editor SDK versions.
 GitHub packages are set up for trial.
-Note: pay attention that for getting access and downloading the Video Editor SDK modules you need to use the credentials, see the [build.gradle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/build.gradle#L20) for more details.
+
+**Note**: pay attention that for getting access and downloading the Video Editor SDK modules you need to use the credentials, see the [build.gradle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/build.gradle#L20) for more details.
 
 
 ### Add dependencies
