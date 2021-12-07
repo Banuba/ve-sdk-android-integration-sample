@@ -417,7 +417,8 @@ The AI Video Editor SDK incudes the following screens:
 1. [Music Editor screen](mddocs/music_editor_styles.md)
 1. [Timeline Editor screen](mddocs/timeline_editor_styles.md)
 1. [Cover screen](mddocs/cover_styles.md)
-1. [Alert Dialogs](mddocs/alert_styles.md)  
+1. [Alert Dialogs](mddocs/alert_styles.md)
+1. [Picture in picture](mddocs/pip_configuration.md)
 
 ### Configure additional Video Editor SDK features
 
