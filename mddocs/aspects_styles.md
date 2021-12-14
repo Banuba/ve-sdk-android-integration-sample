@@ -72,8 +72,9 @@ override val editorVideoScaleType: BeanDefinition<VideoScaleType>=
 }
 ```
 <p align="center">
-    <img src="screenshots/aspects3.png" alt="Screenshot" width="24%" height="auto" class="docs-screenshot"/>&nbsp;
+    <img src="screenshots/aspects3.png" alt="Screenshot" width="20%" height="auto" class="docs-screenshot"/>&nbsp;
 </p>
+
 ```kotlin
 override val editorVideoScaleType: BeanDefinition<VideoScaleType>=
     factory(named("editorVideoScaleType"), override = true){
@@ -81,5 +82,5 @@ override val editorVideoScaleType: BeanDefinition<VideoScaleType>=
 }
 ```
 <p align="center">
-    <img src="screenshots/aspects4.png" alt="Screenshot" width="24%" height="auto" class="docs-screenshot"/>&nbsp;
+    <img src="screenshots/aspects4.png" alt="Screenshot" width="20%" height="auto" class="docs-screenshot"/>&nbsp;
 </p>
