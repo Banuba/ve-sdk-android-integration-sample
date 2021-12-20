@@ -16,6 +16,7 @@ These are the answers to the most popular questions we are asked about the Banub
 13. [How to export in Background](#13-how-to-export-in-background)
 14. [How to change drafts configuration](#14-how-to-change-drafts-configuration)
 15. [How to add other text fonts that are used in the editor screen](#15-how-to-add-other-text-fonts-that-are-used-in-the-editor-screen)
+16. [How to change exported video codec configuration](#16-how-to-change-exported-video-codec-configuration)
 
 ### 1. How do I start/stop recording with a tap?
 By default, the user must hold the “record” button to film and release it to stop filming.   
@@ -392,3 +393,18 @@ To add other text fonts that are used in the editor screen follow the next steps
             )
         }
     ```
+
+### 16. How to change exported video codec configuration
+
+By default for exported video the `HEVC` codec is enabled. If you need to change codec configuration you should add the code below in the `VideoEditorKoinModule`:
+
+```kotlin
+    val codecConfiguration: BeanDefinition<CodecConfiguration> = single(override = true) {
+        CodecConfiguration.AVC_PROFILES
+    }
+```
+
+You can choose one of these options:
+1. `HEVC` - H265 codec enabled
+2. `AVC_PROFILES` - H264 codec with profiles enabled
+3. `BASELINE` - H264 codec without profiles enabled
