@@ -141,7 +141,7 @@ Also you should override you `IntegrationAppExportParamsProvider` in your own `V
 ```kotlin
 class VideoEditorKoinModule : FlowEditorModule() {
 		...
-		/**
+    /**
      * Provides params for export
      * */
     override val exportParamsProvider: BeanDefinition<ExportParamsProvider> =
@@ -152,5 +152,21 @@ class VideoEditorKoinModule : FlowEditorModule() {
                 watermarkBuilder = get()
             )
         }
+}
+```
+
+## Save videos in gallery
+
+`ForegroundExportFlowManager` and `BackgroundExportFlowManager` requires `PublishManager` dependency. Pass `publishManager = get()` with your `PublishManager` interface implementation to provide your own custom realization. With `PublishManager` you can save your videos in native gallery. The `PublishManager` interface contains only one method `publish` which takes `ExportedVideo` as input. The `publish` should implement saving videos in any place where you want.
+
+```kotlin
+class VideoEditorKoinModule : FlowEditorModule() {
+        ...
+    /**
+     * Publishes exported videos
+     */
+    val publishManager: BeanDefinition<PublishManager> = single(override = true) {
+        CustomPublishManager(/* any necessary parameters */)
+    }
 }
 ```
