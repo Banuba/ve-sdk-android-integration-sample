@@ -408,3 +408,21 @@ You can choose one of these options:
 1. `HEVC` - H265 codec enabled
 2. `AVC_PROFILES` - H264 codec with profiles enabled
 3. `BASELINE` - H264 codec without profiles enabled
+
+### 17. How can I get a track data of the audio used in my video after export?
+
+You can get track data after export using `getExportedMusicEffect` method of `ExportBundleHelper` object. Just pass into the `getExportedMusicEffect` the `additionalExportData` paramete of `ExportResult.Success` object. In the result you get `List<MusicEffectExportData>` where `MusicEffectExportData` is:
+
+```kotlin
+    @Parcelize
+    data class MusicEffectExportData(
+        val title: String,
+        val type: MusicEffectType,
+        val uri: Uri
+    ) : Parcelable
+```
+
+`MusicEffectType` contains next values:
+1. `TRACK` - audio tracks that were added on  the `Editor` screen
+2. `VOICE` - voice record track that was added on the `Editor` screen
+3. `CAMERA_TRACK` - an audio track that was added on the `Camera` screen
