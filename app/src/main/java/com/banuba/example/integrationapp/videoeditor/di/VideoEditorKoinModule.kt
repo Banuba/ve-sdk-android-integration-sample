@@ -12,14 +12,14 @@ import com.banuba.sdk.cameraui.data.CameraTimerActionProvider
 import com.banuba.sdk.cameraui.data.CameraTimerStateProvider
 import com.banuba.sdk.cameraui.domain.HandsFreeTimerActionProvider
 import com.banuba.sdk.core.data.OrderProvider
-import com.banuba.sdk.core.domain.DraftConfig
 import com.banuba.sdk.core.data.TrackData
+import com.banuba.sdk.core.domain.DraftConfig
 import com.banuba.sdk.core.ui.ContentFeatureProvider
-import com.banuba.sdk.ve.effects.WatermarkProvider
 import com.banuba.sdk.export.data.ExportFlowManager
-import com.banuba.sdk.ve.flow.FlowEditorModule
-import com.banuba.sdk.export.data.ForegroundExportFlowManager
 import com.banuba.sdk.export.data.ExportParamsProvider
+import com.banuba.sdk.export.data.ForegroundExportFlowManager
+import com.banuba.sdk.ve.effects.WatermarkProvider
+import com.banuba.sdk.ve.flow.FlowEditorModule
 import com.banuba.sdk.veui.domain.CoverProvider
 import org.koin.core.definition.BeanDefinition
 import org.koin.core.qualifier.named
@@ -41,7 +41,8 @@ class VideoEditorKoinModule : FlowEditorModule() {
             shouldClearSessionOnFinish = true,
             publishManager = get(),
             errorParser = get(),
-            mediaFileNameHelper = get()
+            mediaFileNameHelper = get(),
+            exportBundleProvider = get()
         )
     }
 
