@@ -4,7 +4,7 @@ These are the answers to the most popular questions we are asked about the Banub
 1. [How do I start/stop recording with a tap?](#1-how-do-i-startstop-recording-with-a-tap)
 2. [How do I add an AR mask to the app without using the AR cloud?](#2-how-do-i-add-an-ar-mask-to-the-app-without-using-the-ar-cloud)
 3. [I want to turn off animations from slideshow](#3-i-want-to-turn-off-animations-from-slideshow)
-4. [I want to start VideoEditor with a preselected audio track](#4-i-want-to-start-VideoEditor-with-a-preselected-audio-track)
+4. [I want to start VideoEditor with a preselected audio track](#4-i-want-to-start-videoEditor-with-a-preselected-audio-track)
 5. [How do I add LUTs to the app?](#5-how-do-i-add-luts-to-the-app)
 6. [How do I change the order of LUTs](#6-how-do-i-change-the-order-of-luts)
 7. [I want to control visibility of debug info on camera and editor screens](#7-i-want-to-control-visibility-of-debug-info-on-camera-and-editor-screens)
@@ -17,6 +17,8 @@ These are the answers to the most popular questions we are asked about the Banub
 14. [How to change drafts configuration](#14-how-to-change-drafts-configuration)
 15. [How to add other text fonts that are used in the editor screen](#15-how-to-add-other-text-fonts-that-are-used-in-the-editor-screen)
 16. [How to change exported video codec configuration](#16-how-to-change-exported-video-codec-configuration)
+17. [How can I get a track data of the audio used in my video after export?](#17-how-can-i-get-a-track-data-of-the-audio-used-in-my-video-after-export)
+18. [Optimizing app size](#18-optimizing-app-size)
 
 ### 1. How do I start/stop recording with a tap?
 By default, the user must hold the “record” button to film and release it to stop filming.   
@@ -426,3 +428,10 @@ You can get track data after export using `getExportedMusicEffect` method of `Ex
 1. `TRACK` - audio tracks that were added on  the `Editor` screen
 2. `VOICE` - voice record track that was added on the `Editor` screen
 3. `CAMERA_TRACK` - an audio track that was added on the `Camera` screen
+
+### 18. Optimizing app size
+
+The easiest way to gain immediate app size savings when publishing to Google Play is by uploading your app as an [**Android App Bundle**](https://developer.android.com/guide/app-bundle), which is a new upload format that includes all your app’s compiled code and resources. Google Play’s new app serving model then uses your app bundle to generate and serve optimized APKs for each user’s device configuration, so they download only the code and resources they need to run your app.
+
+As a result, the final size of our library for one of the platform types (`armeabi-v7a`,` arm64-v8a`, `x86`,` x86_64`) will be **24-26 MB** less than indicated in the documentation
+
