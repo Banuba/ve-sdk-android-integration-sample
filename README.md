@@ -76,8 +76,8 @@ If you want to use the Video Editor SDK for a short video app like TikTok, the [
 
 | Options | Mb      | Note |
 | -------- | --------- | ----- |
-| :white_check_mark: Face AR SDK  | 80.5 | AR effect sizes are not included. AR effect takes 1-3 MB in average.
-| :x: Face AR SDK | 51.3  | no AR effects  |  
+| :white_check_mark: Face AR SDK  | 74.3 | AR effect sizes are not included. AR effect takes 1-3 MB in average.
+| :x: Face AR SDK | 43.2  | no AR effects  |  
 
 You can either include the filters in the app or have users download them from the [AR cloud](#Configure-AR-cloud) to decrease the app size.
 
