@@ -7,6 +7,7 @@ import com.banuba.sdk.audiobrowser.di.AudioBrowserKoinModule
 import com.banuba.sdk.effectplayer.adapter.BanubaEffectPlayerKoinModule
 import com.banuba.sdk.export.di.VeExportKoinModule
 import com.banuba.sdk.gallery.di.GalleryKoinModule
+import com.banuba.sdk.playback.di.VePlaybackSdkKoinModule
 import com.banuba.sdk.token.storage.di.TokenStorageKoinModule
 import com.banuba.sdk.ve.di.VeSdkKoinModule
 import org.koin.android.ext.koin.androidContext
@@ -23,6 +24,7 @@ class IntegrationKotlinApp : Application() {
             modules(
                 VeSdkKoinModule().module,
                 VeExportKoinModule().module,
+                VePlaybackSdkKoinModule().module,
                 AudioBrowserKoinModule().module, // use this module only if you bought it
                 ArCloudKoinModule().module,
                 TokenStorageKoinModule().module,
