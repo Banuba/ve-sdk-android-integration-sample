@@ -30,4 +30,14 @@
          context: Context
      )
    ```
+4. ### To Start Video editor from Editor screen:
+   ```kotlin
+     VideoCreationActivity.startFromEditor(
+         context: Context,
+         predefinedVideos: Array<Uri>,
+         additionalExportData: Parcelable? = null,
+         audioTrackData: TrackData? = null
+     )
+   ```
+
 ## Check out an [**example**](../app/src/main/java/com/banuba/example/integrationapp/MainActivity.kt#L38)
