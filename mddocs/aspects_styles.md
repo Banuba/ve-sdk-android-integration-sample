@@ -66,7 +66,7 @@ In this example there is **no aspects icon** on trimmer screen and **all videos 
 
 :exclamation: If you want to display video without black lines override `videoDrawParams` property in EditorKoinModule.
 ```kotlin
-override val videoDrawParams: BeanDefinition<VideoDrawParams> = factory(override = true) {
+val videoDrawParams: BeanDefinition<VideoDrawParams> = factory(override = true) {
     VideoDrawParams(
         scaleType = VideoScaleType.Center,
         normalizedCropRect = RectF(0F, 0F, 1F, 1F)
@@ -75,7 +75,7 @@ override val videoDrawParams: BeanDefinition<VideoDrawParams> = factory(override
 ```
 Default value is:
 ```kotlin
-override val videoDrawParams: BeanDefinition<VideoDrawParams> = factory(override = true) {
+val videoDrawParams: BeanDefinition<VideoDrawParams> = factory(override = true) {
     VideoDrawParams(
         scaleType = VideoScaleType.Fit(VideoBackgroundType.Black),
         normalizedCropRect = RectF(0F, 0F, 1F, 1F)
