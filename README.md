@@ -287,6 +287,8 @@ By default, they are placed in the "export" directory of external storage. To ch
 
 Should you choose to export files in the background, you’d do well to change ```ExportNotificationManager```. It lets you change the notifications for any export scenario (started, finished successfully, and failed).
 
+:exclamation: If you set ```shouldClearSessionOnFinish``` in ```ExportFlowManager``` to true, you should clear ```VideoCreationActivity``` from backstack. Otherwise crash will be raised.
+
 ### Configure masks and filters order
 By default, the masks and filters are listed in alphabetical order.
 
