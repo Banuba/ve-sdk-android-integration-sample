@@ -64,6 +64,25 @@ override val aspectsProvider: BeanDefinition<AspectsProvider> = single(override 
 
 In this example there is **no aspects icon** on trimmer screen and **all videos will be resized to 4x5 aspect ratio** by default besides the way they were added (from gallery or recorded on camera).
 
+:exclamation: If you want to display video without black lines override `videoDrawParams` property in EditorKoinModule.
+```kotlin
+override val videoDrawParams: BeanDefinition<VideoDrawParams> = factory(override = true) {
+    VideoDrawParams(
+        scaleType = VideoScaleType.Center,
+        normalizedCropRect = RectF(0F, 0F, 1F, 1F)
+    )
+}
+```
+Default value is:
+```kotlin
+override val videoDrawParams: BeanDefinition<VideoDrawParams> = factory(override = true) {
+    VideoDrawParams(
+        scaleType = VideoScaleType.Fit(VideoBackgroundType.Black),
+        normalizedCropRect = RectF(0F, 0F, 1F, 1F)
+    )
+}
+```
+
 :exclamation:If you want to display 9x16 video at Editor screen with original size override editorVideoScaleType property in EditorKoinModule. By default, the video will be scaled to fill black lines and some of the parts will be not visible at the editor.
 ```kotlin
 override val editorVideoScaleType: BeanDefinition<VideoScaleType>=
