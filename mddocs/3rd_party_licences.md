@@ -1,9 +1,9 @@
 # Banuba AI Video Editor SDK
 ## Third party libraries
 
-### **GNU Lesser General Public Licence version 2.1 or later**
+### **GNU Lesser General Public Licence version 3.0 or later**
 
-This library is free software and is governed by GNU Lesser General Public License, version 2.1, available at [https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html](https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html).
+This library is free software and is governed by GNU Lesser General Public License, version 3.0, available at https://www.gnu.org/licenses/lgpl-3.0.en.html.
 
 | Name | Link | Copyright info |
 | --- | --- | --- |
