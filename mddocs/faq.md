@@ -435,3 +435,30 @@ The easiest way to gain immediate app size savings when publishing to Google Pla
 
 As a result, the final size of our library for one of the platform types (`armeabi-v7a`,` arm64-v8a`, `x86`,` x86_64`) will be **24-26 MB** less than indicated in the documentation
 
+### 19. How do I specify the video file saving directory?
+
+By default, they are placed in the "export" directory of external storage. To change the target folder, you should provide a custom Uri instance named exportDir through DI. For example, 
+to change the title of destination directory to "my_awesome_directory", provide the Uri instance below:
+
+```kotlin
+single(named("exportDir"), override = true) {
+            get<Context>().getExternalFilesDir("")?.toUri()
+                ?.buildUpon()
+                ?.appendPath("my_awesome_directory")
+                ?.build() ?: throw NullPointerException("exportDir should not be null!")
+        }
+```
+
+### 20. How do I change the duration of the image display in a slideshow?
+
+Use the ```slideShowSourceDurationMs``` parameter in [videoeditor.json](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/videoeditor.json#L32) file:
+
+```json
+{
+   "slideshow": {
+      /* other slideshow related settings */
+      "slideShowSourceDurationMs": 3000
+   }
+}
+```
+
