@@ -219,24 +219,24 @@ ExportManager.Params.Builder(
         }
     ```
 
-2. Add android activity that you want to open after export into `AndroidManifest.xml` file with special intent action filter. We suggest to use "`com.banuba.sdk.ve.flow.ShowExportResult`" string that is stored inside `ExportNotificationManager.ACTION_SHOW_EXPORT_RESULT` constant:
+2. Add android activity that you want to open after export into `AndroidManifest.xml` file with special intent action filter. We suggest to use **applicationId** as a part of intent action name to make it unique among other possible intent actions:
 
     ```kotlin
     <activity android:name=".CustomActivity">
         <intent-filter>
-          <action android:name="com.banuba.sdk.ve.flow.ShowExportResult" />
+          <action android:name="${applicationId}.ShowExportResult" />
           <category android:name="android.intent.category.DEFAULT" />
         </intent-filter>
     </activity>
     ```
 
-3. Provide `ExportResultHandler` implementation. `doAction` method should start activity mentioned in step 2:
+3. Provide `ExportResultHandler` implementation. `doAction` method should start activity mentioned in step 2 with the same intent action name as mentioned in AndroidManifest:
 
     ```kotlin
     class CustomExportResultHandler : ExportResultHandler {
 
         override fun doAction(activity: AppCompatActivity, result: ExportResult.Success?) {
-            val intent = Intent(ExportNotificationManager.ACTION_SHOW_EXPORT_RESULT).apply {
+            val intent = Intent("${activity.packageName}.ShowExportResult").apply {
                 result?.let { putExtra(EXTRA_EXPORTED_SUCCESS, it) }
                 addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             }
@@ -245,7 +245,7 @@ ExportManager.Params.Builder(
     }
     ```
 
-    **Note**: action that is passed into `Intent` constructor **must be the same** as  the action name from activity intent filter from step 2 (that's why we suggest to use our constant - `ExportNotificationManager.ACTION_SHOW_EXPORT_RESULT`.
+    **Note**: action that is passed into `Intent` constructor **must be the same** as  the action name from activity intent filter from step 2.
 
 4. Inside activity from step 2 add `ExportFlowManager` **koin injection**:
 
@@ -297,33 +297,46 @@ ExportManager.Params.Builder(
     }
     ```
 
-6. *Optional*. Provide your own `ExportNotificationManager` :
+6. *Optional*. Provide `ExportNotificationManager` to manage notifications about exporting process state.
 
-    ```kotlin
-    val exportNotificationManager: BeanDefinition<ExportNotificationManager> = single(override = true) {
-            CustomExportNotificationManger(
-                context = get(),
-                notificationManager = get()
-            )
-        }
-    ```
+    Here you have 3 options:
 
-    **Note**: We provide `DefaultNotificationManager` implementation as a default, so please check out if it fits your goals. If it does you do not need to override it. 
+    - Remove notifications by providing implementation with stubbed methods:
 
-    If you do not want to show notifications at all just stub all methods in your implementation:
-
-    ```kotlin
-    class EmptyExportNotificationManger(
-        private val context: Context,
-        private val notificationManager: NotificationManager
-    ) : ExportNotificationManager {
+        ```kotlin
+        class EmptyExportNotificationManger() : ExportNotificationManager {
 
         fun showExportStartedNotification(){}
         fun showSuccessfulExportNotification(result: ExportResult.Success){}
         fun showFailedExportExportNotification(){}
 
-    }
-    ```
+        }
+        ```
+
+        Do not forget to provide this implementation through DI:
+
+        ```kotlin
+            val exportNotificationManager: BeanDefinition<ExportNotificationManager> = single(override = true) {
+            EmptyExportNotificationManager()
+        }
+        ```
+
+    - Configure provided default implementation. 
+        
+        In this case you just need to override or translate following android resources:
+         
+         - R.string.export.notification_started - for message about started export
+         - R.string.export_notification_success - for message about succeeded export
+         - R.string.export_notification_fail - for message about failed export
+         - R.drawable.ic_export_notification - for notification icon in system bar
+
+    - Provide custom implementation with your own logic through DI:
+
+        ```kotlin
+        val exportNotificationManager: BeanDefinition<ExportNotificationManager> = single(override = true) {
+            CustomExportNotificationManger()
+        }
+        ```
 
  ### How to change drafts configuration
 
