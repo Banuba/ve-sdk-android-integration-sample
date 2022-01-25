@@ -191,9 +191,9 @@ Note the [CustomIntegrationAppTheme](app/src/main/res/values/themes.xml#L14) lin
 ### Add config files  
 There are several files in the Video Editor SDK that allow you to modify its parameters. All of them go into the Android **assets** folder.
 - The [**camera config file**](mddocs/config_camera.md) lets you change the min/max duration of the video, turn the flashlight on and off, etc. 
+- The [**videoeditor config file**](mddocs/config_videoeditor.md) lets you modify editor, trimmer, and gallery screens. 
 - [music_editor.json](app/src/main/assets/music_editor.json) allows you to change the audio editor screen, e.g. the number of timelines or tracks allowed.
 - [object_editor.json](app/src/main/assets/object_editor.json) contains properties that you can customize on the editor screen.
-- [videoeditor.json](app/src/main/assets/videoeditor.json) lets you modify the editor, trimmer, and gallery screens. Note: please keep in mind that *minVideoDuration* and *maxVideoDuration* in this and [camera.json](app/src/main/assets/camera.json) should be the same.
 
 ### Configure DI 
 You can override the behavior of the video editor in your app with DI libraries and tools (we use [Koin](https://insert-koin.io/), for example).  
