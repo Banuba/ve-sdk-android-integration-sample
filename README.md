@@ -21,7 +21,6 @@ Banuba [AI Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you
 - [Supported media formats](#Supported-media-formats)
 - [Camera recording video quality params](#Camera-recording-video-quality-params)
 - [Export video quality params](#Export-video-quality-params)
-- [Free Trial](#Free-Trial)
 - [Token](#Token)
 - [Connecting with AR cloud](#Connecting-with-AR-cloud)
 - [What can you customize?](#What-can-you-customize)
@@ -109,12 +108,6 @@ See the **default bitrate (kb/s)** for exported video (without audio) in the tab
 | 360p(360 x 640) | 480p(480 x 854) | HD(720 x 1280) | FHD(1080 x 1920) |
 | --------------- | --------------- | -------------- | ---------------- |
 |             1200|             2000|            4000|              6400|
-
-## Free Trial
-
-You should start with getting a trial token. It will grant you **14 days** to freely play around with the AI Video Editor SDK and test its entire functionality the way you see fit.
-
-There is nothing complicated about it - [contact us](https://www.banuba.com/video-editor-sdk#form) or send an email to sales@banuba.com and we will send it to you. We can also send you a sample app so you can see how it works “under the hood”.
 
 ## Token 
 We offer а free 14-days trial for you could thoroughly test and assess Video Editor SDK functionality in your app. To get access to your trial, please, get in touch with us by [filling a form](https://www.banuba.com/video-editor-sdk) on our website. Our sales managers will send you the trial token.
