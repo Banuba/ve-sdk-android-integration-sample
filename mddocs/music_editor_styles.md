@@ -81,7 +81,7 @@
 
 - [musicEditorTrimViewStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L206)
 
-    style for the view that is used to trim music effects. This style is applied to the bottom sheet dialog and all children views configuration are available through custom attributes 
+    style for the view that is used to trim music effects and to apply voice effects. This style is applied to the bottom sheet dialog and all children views configuration are available through custom attributes 
 
 - [musicEditorTrimmerStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L207)
 
@@ -91,9 +91,11 @@
 
     style for the custom view laying behind the trimmer view. It is similar to [musicEditorTimelineSoundWaveStyle](music_editor_styles.md#L16) and has its own custom attributes as well
 
+    ![img](screenshots/musiceditor5.png)
+
 - [musicEditorEqualizerRecyclerStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L212)
 
-    style for the RecyclerView containing voice recording effects. This view is shown **only while trimming voice recordings**
+    style for the RecyclerView containing voice recording effects. This view is shown while applying effects over the voice recording
 
 - [musicEditorEqualizerItemStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L215)
 
@@ -101,9 +103,10 @@
 
 - [musicEditorEqualizerThrobberStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L216)
 
-    style for the circle progress view that is shown over the voice effect item while this effect is being applied
+    style for the circle progress view that is shown over the voice effect item while this effect is being prepared (very short time after click on item and before the item become bigger, i.e. selected)
 
-    ![img](screenshots/musiceditor5.png)
+![img](screenshots/musiceditor6.png)
+
 
 Music Editor screen also has some theme attributes that define background of some views:
 
@@ -111,6 +114,7 @@ Music Editor screen also has some theme attributes that define background of som
 - [music_editor_timeline_background](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L223) - background of [timeline view](music_editor_styles.md#L8)
 - [music_editor_playback_controller_bg](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L224) - background of control panel on music editor screen
 - [music_editor_action_container_bg](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L225) - background of action buttons container
+
 
 ## String resources
 
