@@ -31,6 +31,7 @@ Banuba [AI Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you
     + [Step 3: Add Activity](#Step-3-Add-Activity)
     + [Step 4: Add config files](#Step-4-Add-config-files)
     + [Step 5: Configure DI](#Step-5-Configure-DI)
+    + [Step 6: Launch Video Editor](#Step-6-Launch-Video-Editor)
  - [Customization](#Customization)
     + [Disable Face AR SDK](#Disable-Face-AR-SDK)
     + [Configure export flow](#Configure-export-flow)
@@ -263,7 +264,7 @@ startKoin {
 }
 ```
 
-You can use Java in your Android project. In this case you can start Koin in this way
+You can use Java in your Android project. In this case you can start Koin in this way:
 ``` java
  startKoin(new GlobalContext(), koinApplication -> {
             androidContext(koinApplication, this);
@@ -272,6 +273,29 @@ You can use Java in your Android project. In this case you can start Koin in thi
         });
 ```
 Please, find the [full example](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/IntegrationJavaApp.java#L22) of Java Application class.
+
+### Step 6: Launch Video Editor
+To start Video Editor from camera:
+```kotlin
+val videoCreationIntent = VideoCreationActivity.startFromCamera(
+    context = context
+)
+startActivity(videoCreationIntent)
+```
+You can use Java in your Android project. In this case you can create intent to start Video Editor from camera in this way:
+``` java
+Intent videoCreationIntent = VideoCreationActivity.startFromCamera(
+    context,
+    Uri.EMPTY,
+    null,
+    null,
+    null,
+    CameraUIType.TYPE_1
+);
+startActivity(videoCreationIntent)
+```
+
+More information about how to launch Video Editor you can fing [here](mddocs/launch_modes.md)
 
 
 ## Customization
