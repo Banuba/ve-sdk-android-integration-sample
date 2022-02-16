@@ -25,15 +25,14 @@ Banuba [AI Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you
 - [Connecting with AR cloud](#Connecting-with-AR-cloud)
 - [What can you customize?](#What-can-you-customize)
 - [FFmpeg build issue (**Error compressed Native Libs**)](#FFmpeg-build-issue-error-compressed-native-libs)
-- [Getting Started](#Getting-Started)  
-    + [GitHub packages](#GitHub-packages)
-    + [Add dependencies](#Add-dependencies)
-    + [Add Activity](#Add-Activity)
-    + [Add config files](#Add-config-files)
-    + [Configure DI](#Configure-DI)
-    + [Configure and start Video Editor SDK in Android Java project](#Configure-and-start-Video-Editor-SDK-in-Android-Java-project)
-    + [Check Video Editor SDK availability before opening](#Check-Video-Editor-SDK-availability-before-opening)
-     + [Disable Face AR SDK](#Disable-Face-AR-SDK)
+- [Integration](#Integration)
+    + [Step 1: GitHub packages](#Step-1-GitHub-packages)
+    + [Step 2: Add dependencies](#Step-2-Add-dependencies)
+    + [Step 3: Add Activity](#Step-3-Add-Activity)
+    + [Step 4: Add config files](#Step-4-Add-config-files)
+    + [Step 5: Configure DI](#Step-5-Configure-DI)
+ - [Customization](#Customization)
+    + [Disable Face AR SDK](#Disable-Face-AR-SDK)
     + [Configure export flow](#Configure-export-flow)
     + [Configure masks and filters order](#Configure-masks-and-filters-order)
     + [Configure watermark](#Configure-watermark)
@@ -46,7 +45,8 @@ Banuba [AI Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you
     + [Configure Cover preview screen](#Configure-Cover-preview-screen)
     + [Configure screens](#Configure-screens)
     + [Configure additional Video Editor SDK features](#Configure-additional-Video-Editor-SDK-features)
-- [Localization](#Localization)
+    + [Check Video Editor SDK availability before opening](#Check-Video-Editor-SDK-availability-before-opening)
+    + [Localization](#Localization)
 - [FAQ](mddocs/faq.md)
 - [Third party libraries](#Third-party-libraries)
 
@@ -155,18 +155,66 @@ android.bundle.enableUncompressedNativeLibs=false
 ```
 
 
-## Getting Started
-### GitHub packages
+## Integration
+### Step 1: GitHub packages
 GitHub packages are used to download the latest Video Editor SDK modules. You will also need them to receive new AI Video Editor SDK versions.
 GitHub packages are set up for trial.
 
-**Note**: pay attention that for getting access and downloading the Video Editor SDK modules you need to use the credentials, see the [build.gradle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/build.gradle#L20) for more details.
+**Note**: pay attention that for getting access and downloading the Video Editor SDK modules you need to use the credentials(**banubaRepoUser** and **banubaRepoPassword**), see the [build.gradle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/build.gradle#L20) for more details.
+
+```groovy
+...
+
+allprojects {
+    repositories {
+        ...
+
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/Banuba/banuba-ve-sdk")
+            credentials {
+                username = banubaRepoUser
+                password = banubaRepoPassword
+            }
+        }
+        maven {
+            name = "ARCloudPackages"
+            url = uri("https://maven.pkg.github.com/Banuba/banuba-ar")
+            credentials {
+                username = banubaRepoUser
+                password = banubaRepoPassword
+            }
+        }
+
+        ...
+    }
+}
+```
 
 
-### Add dependencies
+### Step 2: Add dependencies
 Please, specify a list of dependencies as in [app/build.gradle](app/build.gradle#L36) file to integrate AI Video Editor SDK.
 
-### Add Activity  
+```groovy
+    implementation "com.banuba.sdk:camera-sdk:${banubaSdkVersion}"
+    implementation "com.banuba.sdk:camera-ui-sdk:${banubaSdkVersion}"
+    implementation "com.banuba.sdk:core-sdk:${banubaSdkVersion}"
+    implementation "com.banuba.sdk:core-ui-sdk:${banubaSdkVersion}"
+    implementation "com.banuba.sdk:ve-flow-sdk:${banubaSdkVersion}"
+    implementation "com.banuba.sdk:ve-timeline-sdk:${banubaSdkVersion}"
+    implementation "com.banuba.sdk:ve-sdk:${banubaSdkVersion}"
+    implementation "com.banuba.sdk:ve-ui-sdk:${banubaSdkVersion}"
+    implementation "com.banuba.sdk:ve-gallery-sdk:${banubaSdkVersion}"
+    implementation "com.banuba.sdk:ve-effects-sdk:${banubaSdkVersion}"
+    implementation "com.banuba.sdk:effect-player-adapter:${banubaSdkVersion}"
+    implementation "com.banuba.sdk:ar-cloud:${banubaSdkVersion}"
+    implementation "com.banuba.sdk:ve-audio-browser-sdk:${banubaSdkVersion}"
+    implementation "com.banuba.sdk:banuba-token-storage-sdk:${banubaSdkVersion}"
+    implementation "com.banuba.sdk:ve-export-sdk:${banubaSdkVersion}"
+    implementation "com.banuba.sdk:ve-playback-sdk:${banubaSdkVersion}"
+```  
+
+### Step 3: Add Activity  
 To manage the main screens - camera, gallery, trimmer, editor, and export - you need to add the VideoCreationActivity to [AndroidManifest.xml](app/src/main/AndroidManifest.xml#L25). Each screen is implemented as a [Fragment](https://developer.android.com/guide/fragments).
 
 ``` xml
@@ -181,14 +229,14 @@ Once it’s done, you’ll be able to launch the video editor.
 
 Note the [CustomIntegrationAppTheme](app/src/main/res/values/themes.xml#L14) line in the code. Use this theme for changing icons, colors, and other screen elements to customize the app.
 
-### Add config files  
+### Step 4: Add config files  
 There are several files in the Video Editor SDK that allow you to modify its parameters. All of them go into the Android **assets** folder.
 - The [**camera config file**](mddocs/config_camera.md) lets you change the min/max duration of the video, turn the flashlight on and off, etc. 
 - The [**videoeditor config file**](mddocs/config_videoeditor.md) lets you modify editor, trimmer, and gallery screens. 
 - [music_editor.json](app/src/main/assets/music_editor.json) allows you to change the audio editor screen, e.g. the number of timelines or tracks allowed.
 - [object_editor.json](app/src/main/assets/object_editor.json) contains properties that you can customize on the editor screen.
 
-### Configure DI 
+### Step 5: Configure DI 
 You can override the behavior of the video editor in your app with DI libraries and tools (we use [Koin](https://insert-koin.io/), for example).  
 First, you need to create your own implementation of FlowEditorModule. 
 ``` kotlin
@@ -207,7 +255,7 @@ class VideoEditorKoinModule : FlowEditorModule() {
 ```  
 You will need to override several properties to customize the video editor for your application. Please, take a look at the [full example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt).
 
-Once you’ve overridden the properties that you need, initialize the Koin module in your  [Application.onCreate](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/IntegrationKotlinApp.kt#L16) method.
+Once you’ve overridden the properties that you need, initialize the Koin module in your [Application.onCreate](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/IntegrationKotlinApp.kt#L16) method.
 ``` kotlin
 startKoin {
     androidContext(this@IntegrationApp)        
@@ -215,7 +263,6 @@ startKoin {
 }
 ```
 
-### Configure and start Video Editor SDK in Android Java project
 You can use Java in your Android project. In this case you can start Koin in this way
 ``` java
  startKoin(new GlobalContext(), koinApplication -> {
@@ -226,24 +273,8 @@ You can use Java in your Android project. In this case you can start Koin in thi
 ```
 Please, find the [full example](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/IntegrationJavaApp.java#L22) of Java Application class.
 
-### Check Video Editor SDK availability before opening
 
-The SDK is protected by the token so its presence is a vital part of Video Editor launch. To check if the SDK is ready to use you may use the following property:
-```kotlin
-VideoEditorUtils.isAvailable
-```
-
-Also you can check token expiration with help of
-```kotlin
-VideoEditorUtils.isExpired
-```
-property. See [FAQ page](mddocs/faq.md#10-how-does-video-editor-work-when-token-expires) to get more details about token expiration.
-
-There are a few devices, that does't support Video Editor. To check you may use the following property:
-```kotlin
-VideoEditorUtils.isSupportsVideoEditor
-```
-
+## Customization
 ### Disable Face AR SDK
 You can use AI Video Editor SDK without Face AR SDK. Please follow these changes to make it.
  
@@ -422,6 +453,24 @@ The AI Video Editor SDK incudes the following screens:
 ### Launch Video Editor
 
 The Video Editor has multiple entry points. Please check out [guide](mddocs/launch_modes.md).
+
+### Check Video Editor SDK availability before opening
+
+The SDK is protected by the token so its presence is a vital part of Video Editor launch. To check if the SDK is ready to use you may use the following property:
+```kotlin
+VideoEditorUtils.isAvailable
+```
+
+Also you can check token expiration with help of
+```kotlin
+VideoEditorUtils.isExpired
+```
+property. See [FAQ page](mddocs/faq.md#10-how-does-video-editor-work-when-token-expires) to get more details about token expiration.
+
+There are a few devices, that does't support Video Editor. To check you may use the following property:
+```kotlin
+VideoEditorUtils.isSupportsVideoEditor
+```
 
 ### Localization
 
