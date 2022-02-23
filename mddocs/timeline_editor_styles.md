@@ -28,7 +28,8 @@ Almost all views are **the same** as in [Music Editor screen](music_editor_style
 
 - [stickersSearchViewStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L244)
 
-    style for the SearchView while adding sticker effect. A lot of custom attributes are intended to customize search icon, hint color, cursor and other items
+    style for the SearchView while adding sticker effect. A lot of custom attributes are intended to customize search icon, hint color, cursor and other items. 
+    <br />GIPHY doesn't charge for their content. The one thing they do require is attribution. Also, there is no commercial aspect to the current version of the product (no advertisements, etc.) We suggest to use **"Search GIPHY"** text as a search hint inside editor_search_hint attribute of this style. 
 - [stickersRetryTitleTextStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L245)
 
     style for the TextView that is shown in case of absent internet connection appearing during stickers searching
@@ -49,7 +50,6 @@ Some string resources (i.e. button titles) are common with the music editor scre
 | ResourceId        |      Value      |   Description |
 | ------------- | :----------- | :------------- |
 | stickers_empty_list | No stickers found | message that is shown while the user is searching [stickers](https://github.com/Banuba/ve-sdk-android-integration-sample#configure-stickers-content) and has no result
-| stickers_search_hint | Search GIPHY | hint shown on the search view on the screen that provides [stickers](https://github.com/Banuba/ve-sdk-android-integration-sample#configure-stickers-content). The text appearance of this view is define in ```stickersSearchViewStyle```. <br />GIPHY doesn't charge for their content. The one thing they do require is attribution. Also, there is no commercial aspect to the current version of the product (no advertisements, etc.) To use it, please, add **"Search GIPHY"** text attribution to the search bar.
 | stickers_search_cancel | Cancel | text on the button on the right of the search view on [stickers](https://github.com/Banuba/ve-sdk-android-integration-sample#configure-stickers-content) screen
 | connection_view_title | Connection failed | message that is shown in case of network error while [stickers](https://github.com/Banuba/ve-sdk-android-integration-sample#configure-stickers-content) are being loaded. The text appearance is defined in ```stickersRetryTitleTextStyle```
 | connection_view_message | Please check connection\nand retry | hint that is shown in case of network error while [stickers](https://github.com/Banuba/ve-sdk-android-integration-sample#configure-stickers-content) are being loaded. The text appearance is defined in ```stickersRetryMessageTextStyle```
