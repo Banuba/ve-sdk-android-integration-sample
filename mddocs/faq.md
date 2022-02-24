@@ -20,6 +20,7 @@ These are the answers to the most popular questions we are asked about the Banub
 - [Optimizing app size](#optimizing-app-size)
 - [How do I specify the video file saving directory?](#how-do-I-specify-the-video-file-saving-directory)
 - [How do I change the duration of the image display in a slideshow?](#how-do-I-change-the-duration-of-the-image-display-in-a-slideshow)
+- [How do I change the launguage (how do I add new locale support)](#how-do-I-change-the-launguage-how-do-I-add-new-locale-support)
 
 ### How do I start/stop recording with a tap?
 By default, the user must hold the “record” button to film and release it to stop filming.   
@@ -465,3 +466,14 @@ Use the ```slideShowSourceDurationMs``` parameter in [videoeditor.json](https://
 }
 ```
 
+### How do I change the launguage (how do I add new locale support)?
+
+There is no special language switching mechanism in the Video Editor SDK (VE SDK).
+
+Out of the box, the VE SDK includes support for two locales: English (default) and Russian. If you need to support any other locales, you can do it according to the standard Android way. See how [Create locale directories and resource files](https://developer.android.com/training/basics/supporting-devices/languages#CreateDirs) for more details. After adding a new locale resource file into your application with integrated VE SDK, you need to re-define the VE SDK strings keys with new locale string values.
+To do that you need to add all needed string keys in the new locale `strings.xml` file. You can find the main VE SDK string keys you need in the [Configure screens](https://github.com/Banuba/ve-sdk-android-integration-sample#configure-screens) doc page. E.g. string keys of the Editor screen you can find [here](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/mddocs/editor_styles.md#string-resources).
+The newly added locale will be applied after the device language is changed by system settings.
+
+If you need to change language programmatically in your application, see the next links how it can be done:
+[one](https://www.geeksforgeeks.org/how-to-change-the-whole-app-language-in-android-programmatically/),
+[two](https://medium.com/swlh/android-app-specific-language-change-programmatically-using-kotlin-d650a5392220)
