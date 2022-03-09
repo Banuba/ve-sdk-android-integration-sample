@@ -1,7 +1,0 @@
-{
-  "objectMaxVisibleTimelineCount": 4,
-  "objectInitialTimelineCount": 2,
-  "objectEffectDefaultDurationMs": 2000,
-  "objectEffectMinDurationMs": 100,
-  "vibrateObjectEffectActionDurationMs": 2
-}
