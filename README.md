@@ -230,14 +230,7 @@ Once it’s done, you’ll be able to launch the video editor.
 
 Note the [CustomIntegrationAppTheme](app/src/main/res/values/themes.xml#L14) line in the code. Use this theme for changing icons, colors, and other screen elements to customize the app.
 
-### Step 4: Add config files  
-There are several files in the Video Editor SDK that allow you to modify its parameters. All of them go into the Android **assets** folder.
-- The [**camera config file**](mddocs/config_camera.md) lets you change the min/max duration of the video, turn the flashlight on and off, etc. 
-- The [**videoeditor config file**](mddocs/config_videoeditor.md) lets you modify editor, trimmer, and gallery screens. 
-- [music_editor.json](app/src/main/assets/music_editor.json) allows you to change the audio editor screen, e.g. the number of timelines or tracks allowed.
-- [object_editor.json](app/src/main/assets/object_editor.json) contains properties that you can customize on the editor screen.
-
-### Step 5: Configure DI 
+### Step 4: Configure DI 
 You can override the behavior of the video editor in your app with DI libraries and tools (we use [Koin](https://insert-koin.io/), for example).  
 First, you need to create your own implementation of FlowEditorModule. 
 ``` kotlin
@@ -273,6 +266,23 @@ You can use Java in your Android project. In this case you can start Koin in thi
         });
 ```
 Please, find the [full example](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/IntegrationJavaApp.java#L22) of Java Application class.
+
+### Step 5: Override config classes (Optional)  
+There are several classes in the Video Editor SDK that allow you to modify its parameters and behavior. They are:
+- [**CameraConfig**](mddocs/config_camera.md) lets you setup camera related parameters (min/max recording duration, flashlight, etc.). 
+- [**EditorConfig**](mddocs/config_videoeditor.md) lets you modify editor, trimmer, and gallery screens. 
+- [**MusicEditorConfig**](mddocs/config_music_editor.md) allows you to change the audio editor screen, e.g. the number of timelines or tracks allowed.
+- [**ObjectEditorConfig**](mddocs/config_object_editor.md) allows you to change text and gif editor screens, e.g. the number of timelines or effects allowed
+- [**MubertApiConfig**](mddocs/config_mubert_api.md) - optional config class available only in case you plugged in **audio-browser-sdk** module allows to configure music tracks network requests
+
+If you want to customize some of these classes, provide them with just those properties you need to change. For example, to change only max recording duration on the camera screen, provide the following instance:
+```kotlin
+single(override = true) {
+            CameraConfig(
+                maxRecordedTotalVideoDurationMs = 40_000
+            )
+        }
+```
 
 ### Step 6: Launch Video Editor
 To start Video Editor from camera:
