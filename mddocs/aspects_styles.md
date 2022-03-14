@@ -49,13 +49,15 @@
 ```kotlin
 override val aspectsProvider: BeanDefinition<AspectsProvider> = single(override = true) {
     object : AspectsProvider {
+
+        override var availableAspects: List<AspectSettings> = listOf(
+            EditorAspectSettings.`4_5`
+        )
+
         override fun provide(): AspectsProvider.AspectsData {
-            val allAspects = listOf(
-                EditorAspectSettings.`4_5`
-             )
             return AspectsProvider.AspectsData(
-                allAspects = allAspects,
-                default = allAspects.first()
+                allAspects = availableAspects,
+                default = availableAspects.first()
             )
         }
     }
@@ -64,11 +66,22 @@ override val aspectsProvider: BeanDefinition<AspectsProvider> = single(override 
 
 In this example there is **no aspects icon** on trimmer screen and **all videos will be resized to 4x5 aspect ratio** by default besides the way they were added (from gallery or recorded on camera).
 
-:exclamation: If you want to display video without black lines override `videoDrawParams` property in EditorKoinModule.
+Besides AspectsProvider that provides aspects for selection on trimmer screen there is ``AspectRatioProvider`` interface which provides the default aspect ratio for post processing screens (also if the video editor is started from the editor screen) and for export. By default 9:16 is used but you can configure any aspect you want by providing it through DI, for example:
+```kotlin
+        single<AspectRatioProvider>(override = true) {
+            object : AspectRatioProvider {
+                override fun provide(): AspectRatio {
+                    return AspectRatio(4.0/5)
+                }
+            }
+        }
+```
+
+:exclamation: If you want to display video without black lines provide the following ```VideoDrawParams``` through DI:
 ```kotlin
 val videoDrawParams: BeanDefinition<VideoDrawParams> = factory(override = true) {
     VideoDrawParams(
-        scaleType = VideoScaleType.Center,
+        scaleType = VideoScaleType.CenterCrop,
         normalizedCropRect = RectF(0F, 0F, 1F, 1F)
     )
 }
@@ -77,17 +90,16 @@ Default value is:
 ```kotlin
 val videoDrawParams: BeanDefinition<VideoDrawParams> = factory(override = true) {
     VideoDrawParams(
-        scaleType = VideoScaleType.Fit(VideoBackgroundType.Black),
+        scaleType = VideoScaleType.CenterInside(VideoBackgroundType.Black),
         normalizedCropRect = RectF(0F, 0F, 1F, 1F)
     )
 }
 ```
 
-:exclamation:If you want to display 9x16 video at Editor screen with original size override editorVideoScaleType property in EditorKoinModule. By default, the video will be scaled to fill black lines and some of the parts will be not visible at the editor.
+:exclamation:To configure video scaling on the editor screen during playback provide ```PlayerScaleType``` through DI. To ensure that the video will be fully shown - use ```CENTER_INSIDE``` (keep in mind that if device and video resolutions are different black lines will appear), to fill the screen - use ```FIT_SCREEN_HEIGHT``` (it fills the screen only if video has aspect ratio 9:16)
 ```kotlin
-override val editorVideoScaleType: BeanDefinition<VideoScaleType>=
-    factory(named("editorVideoScaleType"), override = true) {
-         VideoScaleType.FIT
+    factory<PlayerScaleType>(named("editorVideoScaleType"), override = true) {
+         PlayerScaleType.CENTER_INSIDE
 }
 ```
 <p align="center">
@@ -95,9 +107,8 @@ override val editorVideoScaleType: BeanDefinition<VideoScaleType>=
 </p>
 
 ```kotlin
-override val editorVideoScaleType: BeanDefinition<VideoScaleType>=
-    factory(named("editorVideoScaleType"), override = true){
-         VideoScaleType.CENTER
+    factory<PlayerScaleType>(named("editorVideoScaleType"), override = true){
+         PlayerScaleType.FIT_SCREEN_HEIGHT
 }
 ```
 <p align="center">
