@@ -529,4 +529,5 @@ To localize Video Editor SDK follow an [official guilde](https://developer.andro
 [1.0.18.1](https://www.notion.so/vebanuba/1-0-18-1-ce0a7e6011e74e0488fc8b74d3713965)\
 [1.19.0](https://vebanuba.notion.site/1-19-3c52973c27e54faa874c6e0f6ce8eceb)\
 [1.20.0](https://vebanuba.notion.site/1-20-0e78026eed384b1f98cf556f037ef777)\
-[1.21.0](https://vebanuba.notion.site/1-21-e615d464c62f4f01bbf76953eb0da642)
+[1.21.0](https://vebanuba.notion.site/1-21-e615d464c62f4f01bbf76953eb0da642)\
+[1.22.0](https://www.notion.so/vebanuba/1-22-1a07b21041e74d32a3582ca311ecbd48)
