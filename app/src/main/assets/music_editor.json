@@ -1,7 +1,0 @@
-{
-  "minAudioDurationMs": 100,
-  "minVoiceRecordingDurationMs": 100,
-  "musicTimelineCount": 4,
-  "maxTracks": 10,
-  "vibrateMusicEffectActionDurationMs": 2
-}
