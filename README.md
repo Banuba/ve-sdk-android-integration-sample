@@ -268,8 +268,8 @@ You can use Java in your Android project. In this case you can start Koin in thi
 Please, find the [full example](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/IntegrationJavaApp.java#L22) of Java Application class.
 
 ### Step 5: Override config classes (Optional)  
-There are several classes in the Video Editor SDK that allow you to modify its parameters and behavior. They are:
-- [**CameraConfig**](mddocs/config_camera.md) lets you setup camera related parameters (min/max recording duration, flashlight, etc.). 
+There are several classes in the Video Editor SDK that allow you to modify its parameters and behavior:
+- [**CameraConfig**](mddocs/config_camera.md) lets you setup camera specific parameters (min/max recording duration, flashlight, etc.). 
 - [**EditorConfig**](mddocs/config_videoeditor.md) lets you modify editor, trimmer, and gallery screens. 
 - [**MusicEditorConfig**](mddocs/config_music_editor.md) allows you to change the audio editor screen, e.g. the number of timelines or tracks allowed.
 - [**ObjectEditorConfig**](mddocs/config_object_editor.md) allows you to change text and gif editor screens, e.g. the number of timelines or effects allowed
