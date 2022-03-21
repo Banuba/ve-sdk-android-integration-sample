@@ -23,15 +23,6 @@ Sections and theirs properties are described below:
 | **showEditorConfig** | true/false | setups the button called "Show config" that opens a helper view with all videoeditor.json properties over the Editor screen. *Do not forget to setup false for production build*.
 | **supportsTrimRecordedVideo** | true/false | defines if the camera recordings should go through the Trimmer screen before Editor screen. *False* means that the Editor screen opens right after Camera, *true* means that the Trimmer screen opens after Camera.
 
-There is also "interactions" object in editor section which defines if certain interaction effect is available on the Editor screen. *Please take into account that interaction effects are under development and **are not production ready yet***.
-
-| Property | Available values | Description |
-| ------------- | :------------: | :------------- |
-| **questisupportsInteractionQuestionon** | true/false | defines if interactive question is available
-| **supportsInteractionQuiz** | true/false | defines if interactive quiz is available
-| **supportsInteractionInterest** | true/false | defines if interactive interest is available
-| **supportsInteractionPoll** | true/false | defines if interactive poll is available
-
 ## **"trimmer"**
 
 | Property | Available values | Description |
