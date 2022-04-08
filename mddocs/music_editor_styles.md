@@ -25,10 +25,12 @@
 
     style for the ImageView representing an icon for action button. Drawables for all action buttons in music editor are configured in custom theme attributes:
     - [music_editor_icon_tracks](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L227) - to open music track selection
-    - [music_editor_icon_effects](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L228) - to open music effect selection. Recently deprecated
     - [music_editor_icon_track_recording](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L229) - to show voice recording screen
+    - [music_editor_icon_track_effects](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L234) - to open voice recording effects selection
     - [music_editor_icon_track_edit](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L230) - to open music trimmer for the selected music track
     - [music_editor_icon_track_delete](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L232) - to delete selected music track
+
+![img](screenshots/musiceditor1_1.png)
 
 - [musicEditorActionButtonTextStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L168)
 
@@ -121,8 +123,8 @@ Music Editor screen also has some theme attributes that define background of som
 | ResourceId        |      Value      |   Description |
 | ------------- | :----------- | :------------- |
 | action_add_music_track | Tracks | title of the button to add tracks on the timeline
-| action_add_music_effect | Effects | title of the button to add voice effects on the voice recording
 | action_add_voice_recording | Record | title of the button to add voice recording to the timeline
+| action_effects | Effects | title of the button to add voice effects on the voice recording
 | action_edit | Edit | title of the button to edit music effect (or object effect if applies on the timeline screen)
 | action_delete | Delete | title of the button to delete selected music effect (or object effect if applies on the timeline screen)
 | edit_track_volume_title | Volume | text label shown together with the value when volume of the music effect and video change
