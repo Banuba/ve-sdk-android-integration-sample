@@ -450,17 +450,16 @@ Besides the delay itself, you can customize the icon for it. See the example [he
 More advanced timer settings are available with [**Hands-Free feature**](mddocs/hands_free.md).
 
 ### Configure Cover preview screen
-If you want to manage Cover preview screen you need to override CoverProvider property in [DI](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#L83).
+If you want to manage Cover preview screen you need to override CoverProvider property in [DI](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/IntegrationKoinModule.kt#L86).
 ``` kotlin
-override val coverProvider: BeanDefinition<CoverProvider> = single(override = true) {
+single<CoverProvider>(override = true) {
     CoverProvider.EXTENDED
 }
 ```
 There are 3 modes:
 ``` kotlin
  enum class CoverProvider {
-    SIMPLE,     // enable cover screen with simple UI
-    EXTENDED,   // enable cover screen with extended UI
+    EXTENDED,   // enable cover screen
     NONE        // disable cover screen
 }
 ```
