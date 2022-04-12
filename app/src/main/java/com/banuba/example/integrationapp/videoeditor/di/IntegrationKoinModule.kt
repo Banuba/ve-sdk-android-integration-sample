@@ -8,7 +8,6 @@ import com.banuba.example.integrationapp.videoeditor.export.ExportVideoResolutio
 import com.banuba.example.integrationapp.videoeditor.export.IntegrationAppExportParamsProvider
 import com.banuba.example.integrationapp.videoeditor.impl.*
 import com.banuba.sdk.arcloud.data.source.ArEffectsRepositoryProvider
-import com.banuba.sdk.audiobrowser.domain.AudioBrowserMusicProvider
 import com.banuba.sdk.cameraui.data.CameraTimerActionProvider
 import com.banuba.sdk.cameraui.data.CameraTimerStateProvider
 import com.banuba.sdk.cameraui.data.CameraTimerUpdateProvider
@@ -84,7 +83,7 @@ class IntegrationKoinModule {
         single<ContentFeatureProvider<TrackData, Fragment>>(
             named("musicTrackProvider")
         ) {
-            AudioBrowserMusicProvider()
+            ExternalMusicProvider()
         }
 
         single<CoverProvider> {
