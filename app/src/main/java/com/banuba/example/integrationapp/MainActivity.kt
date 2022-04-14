@@ -52,6 +52,8 @@ class MainActivity : AppCompatActivity() {
             infoTextView.text =
                 "Video editor requires a token. \nPlease, follow the steps described in our Github: $TOKEN_URL "
             infoTextView.visible()
+            btnVideoEditor.isEnabled = false
+            btnPiPVideoEditor.isEnabled = false
         }
     }
 
