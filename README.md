@@ -419,7 +419,16 @@ Check out [step-by-step guide](mddocs/audio_browser.md) to use audio browser in 
 
 ### Configure stickers content  
 
-The stickers in the AI Video Editor SDK are GIFs. Adding them is as simple as adding your personal [**Giphy API**](https://developers.giphy.com/docs/api/) into the stickersApiKey parameter in [videoeditor.json](app/src/main/assets/videoeditor.json#L14) file.
+The stickers in the AI Video Editor SDK are GIFs. Adding them is as simple as adding your personal [**Giphy API**](https://developers.giphy.com/docs/api/) into the **stickersApiKey** parameter in [DI](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/IntegrationKoinModule.kt#L112).
+
+``` kotlin
+single(override = true) {
+    EditorConfig(
+        ...
+        stickersApiKey = "<-- Paste Giphy key here to load gif images -->"
+    )
+}
+```
 
 GIPHY doesn't charge for their content. The one thing they do require is attribution. Also, there is no commercial aspect to the current version of the product (no advertisements, etc.) To use it, please, add **"Search GIPHY"** text attribution to the search bar.
 
