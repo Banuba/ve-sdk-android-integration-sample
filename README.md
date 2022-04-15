@@ -305,7 +305,7 @@ Intent videoCreationIntent = VideoCreationActivity.startFromCamera(
 startActivity(videoCreationIntent)
 ```
 
-More information about how to launch Video Editor you can fing [here](mddocs/launch_modes.md)
+More information about how to launch Video Editor you can find [here](mddocs/launch_modes.md)
 
 
 ## Customization
@@ -382,7 +382,7 @@ override val colorFilterOrderProvider: BeanDefinition<OrderProvider> =
     }
 ```
 
-Note: pay attantion that ```OrderProvider``` should be named "maskOrderProvider" and "colorFilterOrderProvider" for masks and filters, respectively.
+Note: pay attention that ```OrderProvider``` should be named "maskOrderProvider" and "colorFilterOrderProvider" for masks and filters, respectively.
 
 ### Configure watermark  
 To use a watermark, add the ``` WatermarkProvider``` interface to your app. The image goes into the getWatermarkBitmap method. Once you’re done, rearrange the dependency watermarkProvider in [DI](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#L53). See the [example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationAppWatermarkProvider.kt) of adding a watermark here.
@@ -467,7 +467,7 @@ There are 3 modes:
 ### Configure screens
 You can use the Android themes and styles to change the screens in the mobile Video Editor SDK. You can also change the language and text.
 
-The AI Video Editor SDK incudes the following screens:
+The AI Video Editor SDK includes the following screens:
 1. [Camera screen](mddocs/camera_styles.md)
 1. [Editor screen](mddocs/editor_styles.md)
 1. [Gallery screen](mddocs/gallery_styles.md)
@@ -482,6 +482,7 @@ The AI Video Editor SDK incudes the following screens:
 ### Configure additional Video Editor SDK features
 
 1. [Background separation](mddocs/background_mask.md)
+1. [Transition effects](mddocs/transitions_styles.md)
 
 ### Launch Video Editor
 
@@ -500,7 +501,7 @@ VideoEditorUtils.isExpired
 ```
 property. See [FAQ page](mddocs/faq.md#10-how-does-video-editor-work-when-token-expires) to get more details about token expiration.
 
-There are a few devices, that does't support Video Editor. To check you may use the following property:
+There are a few devices, that doesn't support Video Editor. To check you may use the following property:
 ```kotlin
 VideoEditorUtils.isSupportsVideoEditor
 ```
