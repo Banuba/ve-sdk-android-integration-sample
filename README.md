@@ -247,7 +247,7 @@ class VideoEditorKoinModule : FlowEditorModule() {
     ...
 }
 ```  
-You will need to override several properties to customize the video editor for your application. Please, take a look at the [full example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt).
+You will need to override several properties to customize the video editor for your application. Please, take a look at the [full example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/IntegrationKoinModule.kt).
 
 Once you’ve overridden the properties that you need, initialize the Koin module in your [Application.onCreate](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/IntegrationKotlinApp.kt#L16) method.
 ``` kotlin
@@ -385,7 +385,7 @@ override val colorFilterOrderProvider: BeanDefinition<OrderProvider> =
 Note: pay attantion that ```OrderProvider``` should be named "maskOrderProvider" and "colorFilterOrderProvider" for masks and filters, respectively.
 
 ### Configure watermark  
-To use a watermark, add the ``` WatermarkProvider``` interface to your app. The image goes into the getWatermarkBitmap method. Once you’re done, rearrange the dependency watermarkProvider in [DI](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#L53). See the [example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationAppWatermarkProvider.kt) of adding a watermark here.
+To use a watermark, add the ``` WatermarkProvider``` interface to your app. The image goes into the getWatermarkBitmap method. Once you’re done, rearrange the dependency watermarkProvider in [DI](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/IntegrationKoinModule.kt#L64). See the [example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationAppWatermarkProvider.kt) of adding a watermark here.
 
 ### Configure media content
 
@@ -538,4 +538,4 @@ To localize Video Editor SDK follow an [official guilde](https://developer.andro
 [1.19.0](https://vebanuba.notion.site/1-19-3c52973c27e54faa874c6e0f6ce8eceb)\
 [1.20.0](https://vebanuba.notion.site/1-20-0e78026eed384b1f98cf556f037ef777)\
 [1.21.0](https://vebanuba.notion.site/1-21-e615d464c62f4f01bbf76953eb0da642)\
-[1.22.0](https://www.notion.so/vebanuba/1-22-1a07b21041e74d32a3582ca311ecbd48)
+[1.22.0](https://vebanuba.notion.site/1-22-1a07b21041e74d32a3582ca311ecbd48)
