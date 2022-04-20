@@ -38,7 +38,7 @@ To customize this screen there are following attributes in the main theme:
 - **trimmerTransitionItemParentStyle** - for the container of the single transition 
 - **trimmerTransitionItemThumbStyle** - for the selectable thumb
 - **trimmerTransitionsItemImageStyle** - for the picture inside the thumb
-- **trimmerTransitionsItemDescriptionStyle** - for the transition title
+- **trimmerTransitionsItemTitleStyle** - for the transition title
 
 ![img](screenshots/transitions_2.png)
 
@@ -94,7 +94,7 @@ Transition effects are not being played if the closest video (either to the left
 | --- | --- | --- |
 | trimmerTimelineStyle | timelineTransitionIconBg | transition effect can be playable or unplayable, so the transition icon background should have two states
 | trimmerTransitionsItemThumbStyle | background | transitions can be selected and unselected, so as theirs thumbs
-| trimmerTransitionsItemDescriptionStyle | textColor | transitions can be selected and unselected, so as theirs titles
+| trimmerTransitionsItemTitleStyle | textColor | transitions can be selected and unselected, so as theirs titles
 | ic_transition_thumb_{id} | drawable | transitions can be selected and unselected, so as theirs icons on the thumb
 | ic_transition_{id} | drawable | transition effect can be playable or unplayable, so the transition icon should have two states 
 
