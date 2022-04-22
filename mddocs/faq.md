@@ -25,10 +25,7 @@ These are the answers to the most popular questions we are asked about the Banub
 ### How do I start/stop recording with a tap?
 By default, the user must hold the “record” button to film and release it to stop filming.   
 
-To change that, simply set the [takePhotoOnTap](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/camera.json#L5) property to **false**.
-``` json
- "takePhotoOnTap":false
-```
+To change that, simply set the `takePhotoOnTap` property inside [**CameraConfig**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/mddocs/config_camera.md) class to **false**.
 
 ### How do I add an AR mask to the app without using the AR cloud?
 If you don’t want to pull the masks from the backend, you can include them in the app itself. 
@@ -41,15 +38,7 @@ Make sure that you include the **preview.png** file in the mask folder. It serve
 
 Slideshow is created either by selecting pictures from gallery or by making a photo on Video Editor camera screen.
 
-Every slide within slideshow can appeare with or without animations. This behavior is configured within [**videoeditor.json**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/assets/videoeditor.json#L31) config file under ```slideshow``` section:
-```kotlin
-"slideshow": {
-    /* other slideshow related settings */
-    "animate": true,
-    "animateTakenPhotos": true
-  }
-```
-Here ```animate``` parameter is applicable to the slideshow created by selecting pictures from the gallery and ```animateTakenPhotos``` is for making photo use case.
+Every slide within slideshow can appear with or without animations. This behavior is configured within [**EditorConfig**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/mddocs/config_videoeditor.md#slideshow) class under ```slideshow``` section:
 
 To turn off animations just **setup false for both fields**.
 
@@ -106,16 +95,9 @@ override val colorFilterOrderProvider: BeanDefinition<OrderProvider> =
 
 ### I want to control visibility of debug info on camera and editor screens
 
-You can control visibility of camera config information and camera preview params(FPS, ISO). Change the following properties in [**camera.json**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/camera.json#L16) config file to control:
-```json
-    "showDebugViews": false,
-    "showConfig": false
- ```
-You can control visibility of editor config. Change the following properties in  [**videoeditor.json**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/videoeditor.json#L15) config file to control:
-```json
-    "showConfig": false
- ```
-Set **false** to hide info, set **true** to show.
+You can control visibility of camera config information and camera preview params(FPS, ISO). Change `showCameraInfoAndPerformance` property in [**CameraConfig**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/mddocs/config_camera.md) class.
+
+You can control visibility of editor config. Change `showEditorConfig` property in  [**EditorConfig**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/mddocs/config_videoeditor.md) class.
 
 ### I want to customize gallery icon
 
@@ -455,13 +437,14 @@ single(named("exportDir"), override = true) {
 
 ### How do I change the duration of the image display in a slideshow?
 
-Use the ```slideShowSourceDurationMs``` parameter in [videoeditor.json](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/videoeditor.json#L32) file:
+Use the ```slideShowSourceVideoDurationMs``` parameter in [EditorConfig](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/mddocs/config_videoeditor.md) class:
 
-```json
+```kotlin
 {
-   "slideshow": {
-      /* other slideshow related settings */
-      "slideShowSourceDurationMs": 3000
+   single<EditorConfig>(override = true) {
+      EditorConfig(
+         slideShowSourceVideoDurationMs = 3000
+      )
    }
 }
 ```
