@@ -10,20 +10,6 @@ The module supports integration with [Mubert](https://mubert.com/) API.
 
 ## Implementation
 
-### Step 0
-
-Before starting integration make sure that [**camera.json**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/camera.json) file has a parameter:
-
-```kotlin
-"supportsExternalMusic": true
-```
-
-And [**videoeditor.json**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/videoeditor.json) file has a parameter:
-
-```kotlin
-"supportsMusicMixer": true
-```
-
 ### Step 1
 
 Add a dependency into your gradle file containing other Video Editor SDK dependencies and setup its version:
@@ -152,25 +138,7 @@ NOTE:  name "mubert_api_key"  is mandatory.
 
 ### Step 2
 
-Create a **mubert_api.json** file with your specific requirements for Mubert service. Place  **mubert_api.json** file into `assets` folder of your app.
-
-```kotlin
-{
-  "generatedTrackDurationSec": 30,
-  "generatedTrackBitrate": 128,
-  "generatedTrackIntencity": "high",
-  "generatedTrackFormat": "mp3",
-  "generatedTracksAmount": 5
-}
-```
-
-Config parameters are follows:
-
-- **generatedTrackDurationSec** - generated audio track duration in seconds
-- **generatedTrackBitrate** - possible bitrates are: 32, 96, 128, 192, 256, 320
-- **generatedTrackIntencity** - can be low, medium, high. high - is recommended.
-- **generatedTrackFormat** - mp3
-- **generatedTracksAmount** - how much audio tracks should be generated at a time (**NOTE: the more tracks you want the more time it takes to generate all of them**)
+Customize a [**MubertApiConfig**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/mddocs/config_mubert_api.md) with your specific requirements for the Mubert service.
 
 ## Localization
 There are a lot of string resources that are used withing audio browser:
