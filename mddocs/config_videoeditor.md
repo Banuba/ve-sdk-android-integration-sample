@@ -20,7 +20,7 @@ Sections and theirs properties are described below:
 | **supportsTextOnVideo** | true/false | defines if text effects are available on the Editor screen
 | **textOnVideoMaxSymbols** | -1 or Number > 0 | setups the maximum symbols available for the text effect. Value "-1" means no limit. By default -1 is applied.
 | **stickersApiKey** | String | containes your own Giphy key for downloading stickers from the network. It also defines if stickers are available on the Editor screen (they are unavailable if this property is absent or empty). If you are using a TRIAL license key, to enable the use of a trial Giphy key, enter **"trial"**.
-| **showEditorConfig** | true/false | setups the button called "Show config" that opens a helper view with all videoeditor.json properties over the Editor screen. *Do not forget to setup false for production build*.
+| **showEditorConfig** | true/false | setups the button called "Show config" that opens a helper view with all `EditorConfig` properties. *Do not forget to setup false for production build*.
 | **supportsTrimRecordedVideo** | true/false | defines if the camera recordings should go through the Trimmer screen before Editor screen. *False* means that the Editor screen opens right after Camera, *true* means that the Trimmer screen opens after Camera.
 
 ## **"trimmer"**

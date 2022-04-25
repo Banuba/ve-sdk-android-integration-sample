@@ -1,107 +1,115 @@
 {
-    "ignorePatterns": [
-        {
-            "pattern": "10.0.4.(?:[4-9]|10)*."
-        },
-        {
-            "pattern": "^(http|https)://localhost"
-        },
-        {
-            "pattern": "https://github.com/google/ExoPlayer"
-        },
-        {
-            "pattern": "https://github.com/bumptech/glide"
-        },
-        {
-            "pattern": "https://github.com/Kotlin/kotlinx.coroutines"
-        },
-        {
-            "pattern": "https://developer.android.com/jetpack/androidx"
-        },
-        {
-            "pattern": "https://github.com/FFmpeg/FFmpeg/tree/n3.4.1"
-        },
-        {
-            "pattern": "https://developer.android.com/guide/fragments"
-        },
-        {
-            "pattern": "https://developer.android.com/guide/components/activities/intro-activities"
-        },
-        {
-            "pattern": "https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/IntegrationKotlinApp.kt"
-        },
-        {
-            "pattern": "https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/IntegrationJavaApp.java"
-        },
-        {
-            "pattern": "https://developer.android.com/reference/android/app/Activity"
-        },
-        {
-            "pattern": "../static/img/logo.svg"
-        },
-        {
-            "pattern": "https://github.com/tanersener/mobile-ffmpeg"
-        }, 
-        {
-            "pattern": "https://github.com/jedisct1/libsodium"
-        }, 
-        {
-            "pattern": "https://github.com/jedisct1/libsodium/blob/master/AUTHORS"
-        }, 
-        {
-            "pattern": "https://github.com/nlohmann/json"
-        }, 
-        {
-            "pattern": "https://github.com/koral--/android-gif-drawable"
-        }, 
-        {
-            "pattern": "https://github.com/square/leakcanary"
-        }, 
-        {
-            "pattern": "https://github.com/square/okhttp"
-        }, 
-        {
-            "pattern": "https://github.com/square/retrofit"
-        }, 
-        {
-            "pattern": "https://github.com/square/okio"
-        }, 
-        {
-            "pattern": "https://github.com/google/flatbuffers"
-        }, 
-        {
-            "pattern": "https://github.com/google/guava"
-        }, 
-        {
-            "pattern": "https://github.com/InsertKoinIO/koin"
-        }, 
-        {
-            "pattern": "https://github.com/airbnb/lottie-android"
-        },
-        {
-            "pattern": "https://developer.android.com/reference/android/widget/Toast"
-        },
-        {
-            "pattern": "https://developer.android.com/reference/android/Manifest.permission#READ_EXTERNAL_STORAGE"
-        },
-        {
-            "pattern": "https://developer.android.com/guide/topics/resources/localization"
-        },
-        {
-            "pattern": "https://www.mozilla.org/"
-        },
-        {
-            "pattern": "http://slashdot.org/"
-        },
-        {
-            "pattern": "http://www.reddit.com/"
-        },
-        {
-            "pattern": "https://mubert.com/"
-        }
-        
-    
-    ],
-    "timeout": "3m",
-    "aliveStatusCodes": [200, 206, 429]
+  "ignorePatterns": [
+    {
+      "pattern": "10.0.4.(?:[4-9]|10)*."
+    },
+    {
+      "pattern": "^(http|https)://localhost"
+    },
+    {
+      "pattern": "https://github.com/google/ExoPlayer"
+    },
+    {
+      "pattern": "https://github.com/bumptech/glide"
+    },
+    {
+      "pattern": "https://github.com/Kotlin/kotlinx.coroutines"
+    },
+    {
+      "pattern": "https://developer.android.com/jetpack/androidx"
+    },
+    {
+      "pattern": "https://github.com/FFmpeg/FFmpeg/tree/n3.4.1"
+    },
+    {
+      "pattern": "https://developer.android.com/guide/fragments"
+    },
+    {
+      "pattern": "https://developer.android.com/guide/components/activities/intro-activities"
+    },
+    {
+      "pattern": "https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/IntegrationKotlinApp.kt"
+    },
+    {
+      "pattern": "https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/IntegrationJavaApp.java"
+    },
+    {
+      "pattern": "https://developer.android.com/reference/android/app/Activity"
+    },
+    {
+      "pattern": "../static/img/logo.svg"
+    },
+    {
+      "pattern": "https://github.com/tanersener/mobile-ffmpeg"
+    },
+    {
+      "pattern": "https://github.com/jedisct1/libsodium"
+    },
+    {
+      "pattern": "https://github.com/jedisct1/libsodium/blob/master/AUTHORS"
+    },
+    {
+      "pattern": "https://github.com/nlohmann/json"
+    },
+    {
+      "pattern": "https://github.com/koral--/android-gif-drawable"
+    },
+    {
+      "pattern": "https://github.com/square/leakcanary"
+    },
+    {
+      "pattern": "https://github.com/square/okhttp"
+    },
+    {
+      "pattern": "https://github.com/square/retrofit"
+    },
+    {
+      "pattern": "https://github.com/square/okio"
+    },
+    {
+      "pattern": "https://github.com/google/flatbuffers"
+    },
+    {
+      "pattern": "https://github.com/google/guava"
+    },
+    {
+      "pattern": "https://github.com/InsertKoinIO/koin"
+    },
+    {
+      "pattern": "https://github.com/airbnb/lottie-android"
+    },
+    {
+      "pattern": "https://developer.android.com/reference/android/widget/Toast"
+    },
+    {
+      "pattern": "https://developer.android.com/reference/android/Manifest.permission#READ_EXTERNAL_STORAGE"
+    },
+    {
+      "pattern": "https://developer.android.com/guide/topics/resources/localization"
+    },
+    {
+      "pattern": "https://www.mozilla.org/"
+    },
+    {
+      "pattern": "http://slashdot.org/"
+    },
+    {
+      "pattern": "http://www.reddit.com/"
+    },
+    {
+      "pattern": "https://mubert.com/"
+    },
+    {
+      "pattern": "https://developer.android.com/guide/app-bundle"
+    },
+    {
+      "pattern": "https://developer.android.com/training/basics/supporting-devices/languages#CreateDirs"
+    }
+  ],
+  "timeout": "3m",
+  "aliveStatusCodes": [
+    200,
+    206,
+    429
+  ]
 }
