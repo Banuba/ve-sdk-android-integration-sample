@@ -113,9 +113,10 @@ See the **default bitrate (kb/s)** for exported video (without audio) in the tab
 ## Token 
 We offer а free 14-days trial for you could thoroughly test and assess Video Editor SDK functionality in your app. To get access to your trial, please, get in touch with us by [filling a form](https://www.banuba.com/video-editor-sdk) on our website. Our sales managers will send you the trial token.
 
-Video editor token should be put [here](app/src/main/res/values/strings.xml#L6).\
-Also you can load token from [Firebase](https://firebase.google.com/docs/database/android/start). [Check](mddocs/token_on_firebase.md) to configure firebase.\
-There is an opportunity to load token from any Remote Server. [Check](mddocs/token_on_remote_server.md) to configure such case.
+There are three options where to put your token:
+- Inside the app: read [here](app/src/main/res/values/strings.xml#L6).
+- In the Firebase (what will allow your users not to update the app every time the token is updated): [Firebase setup guide](https://firebase.google.com/docs/database/android/start), [SDK configuration](mddocs/token_on_firebase.md) for Firebase.
+- In the remote server: [SDK configuration](mddocs/token_on_remote_server.md) for this case.
 
 ## Connecting with AR cloud
 
