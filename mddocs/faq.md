@@ -21,6 +21,7 @@ These are the answers to the most popular questions we are asked about the Banub
 - [How do I specify the video file saving directory?](#how-do-I-specify-the-video-file-saving-directory)
 - [How do I change the duration of the image display in a slideshow?](#how-do-I-change-the-duration-of-the-image-display-in-a-slideshow)
 - [How do I change the launguage (how do I add new locale support)](#how-do-I-change-the-launguage-how-do-I-add-new-locale-support)
+- [How do I disable the video (FX) effects?](#how-do-i-disable-the-video-fx-effects)
 
 ### How do I start/stop recording with a tap?
 By default, the user must hold the “record” button to film and release it to stop filming.   
@@ -460,3 +461,18 @@ The newly added locale will be applied after the device language is changed by s
 If you need to change language programmatically in your application, see the next links how it can be done:
 [one](https://www.geeksforgeeks.org/how-to-change-the-whole-app-language-in-android-programmatically/),
 [two](https://medium.com/swlh/android-app-specific-language-change-programmatically-using-kotlin-d650a5392220)
+
+### How do I disable the video (FX) effects?
+The allowed video effects are included into the token, but they can be disabled manually by customer.
+
+To do it, pass your custom implementation of the ```EnabledEffectsProvider``` interface in the [DI](https://github.com/Banuba/ve-sdk-android-integration-sample#configure-di) to override the default implementation:
+```kotlin
+single(named("fxEffectsProvider"), override = true) {
+    EnabledEffectsProvider {
+        listOf("acid_whip", "soul", "zoom")
+    }
+}
+```
+This will return the list of enabled video effects.
+
+**Note**: To get all video effects names list use ```DefaultEnabledFxEffectsProvider().provide()``` method.
