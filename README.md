@@ -48,6 +48,7 @@ Banuba [AI Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you
     + [Configure additional Video Editor SDK features](#Configure-additional-Video-Editor-SDK-features)
     + [Check Video Editor SDK availability before opening](#Check-Video-Editor-SDK-availability-before-opening)
     + [Localization](#Localization)
+- [Analytics](#Analytics)
 - [FAQ](mddocs/faq.md)
 - [Third party libraries](#Third-party-libraries)
 
@@ -520,6 +521,55 @@ VideoEditorUtils.isSupportsVideoEditor
 To change any particular text in the Video Editor SDK just provide your custom value for string resource provided in String resources section of [every screen](#Configure-screens) (check out an example of [string resources](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/mddocs/editor_styles.md#string-resources) on editor screen). Keep ResourceId the same and change only related value.
 
 To localize Video Editor SDK follow an [official guilde](https://developer.android.com/guide/topics/resources/localization) and provide string resources for every locale in your app with the same ResourceId and translated values. 
+
+### Analytics
+
+The SDK generates simple metadata analytics in JSON file that you can use in your application.
+You need to make sure that analytics collection is enabled in your token.
+
+Analytics data is provided as a JSON string and can be extracted from ```ExportResult.Success``` object (which is a normal result of successfully exported video) in the following way:
+```kotlin
+//"exportResult" is an instance of ExportResult.Success object
+val outputBundle = exportResult.additionalExportData.getBundle(ExportBundleProvider.Keys.EXTRA_EXPORT_OUTPUT_INFO)
+val analytics = outputBundle?.getString(ExportBundleProvider.Keys.EXTRA_EXPORT_ANALYTICS_DATA)
+```
+Use ```ExportBundleProvider.Keys``` constants to parse analytics data string.
+
+Output example:
+```JSON
+{
+   "video_duration":16.384,
+   "video_resolutions":[
+      "1280x720"
+   ],
+   "camera_effects":[
+   ],
+   "post_processing_effects":[
+      "mask:2_5D_HeadphoneMusic",
+      "fx:dv_cam",
+      "fx:cathode",
+      "fx:acid_whip",
+      "time:rapid"
+   ],
+   "video_count":2,
+   "video_sources":[
+      {
+         "title":"2022-04-10T12-56-11.362",
+         "type":"camera",
+         "duration":9795,
+         "startTime":0,
+         "endTime":9.795
+      },
+      {
+         "title":"video",
+         "type":"gallery",
+         "duration":8366,
+         "startTime":9.795,
+         "endTime":18.161
+      }
+   ]
+}
+```
 
 ## Third party libraries
 
