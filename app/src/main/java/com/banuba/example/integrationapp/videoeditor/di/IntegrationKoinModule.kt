@@ -2,17 +2,22 @@ package com.banuba.example.integrationapp.videoeditor.di
 
 import androidx.fragment.app.Fragment
 import com.banuba.android.sdk.ve.timeline.`object`.data.ObjectEditorConfig
+import com.banuba.example.integrationapp.videoeditor.export.ExportVideoResolutionProvider
 import com.banuba.example.integrationapp.videoeditor.export.IntegrationAppExportParamsProvider
 import com.banuba.example.integrationapp.videoeditor.impl.IntegrationAppColorFilterOrderProvider
 import com.banuba.example.integrationapp.videoeditor.impl.IntegrationAppMaskOrderProvider
 import com.banuba.example.integrationapp.videoeditor.impl.IntegrationAppWatermarkProvider
+import com.banuba.example.integrationapp.videoeditor.impl.IntegrationCameraTimerUpdateProvider
 import com.banuba.example.integrationapp.videoeditor.impl.IntegrationTimerStateProvider
 import com.banuba.sdk.arcloud.data.source.ArEffectsRepositoryProvider
 import com.banuba.sdk.audiobrowser.domain.AudioBrowserMusicProvider
 import com.banuba.sdk.cameraui.data.CameraTimerActionProvider
 import com.banuba.sdk.cameraui.data.CameraTimerStateProvider
+import com.banuba.sdk.cameraui.data.CameraTimerUpdateProvider
 import com.banuba.sdk.cameraui.domain.HandsFreeTimerActionProvider
 import com.banuba.sdk.core.AspectRatio
+import com.banuba.sdk.core.HardwareClassProvider
+import com.banuba.sdk.core.VideoResolution
 import com.banuba.sdk.core.data.OrderProvider
 import com.banuba.sdk.core.data.TrackData
 import com.banuba.sdk.core.domain.AspectRatioProvider
@@ -21,7 +26,7 @@ import com.banuba.sdk.core.ui.ContentFeatureProvider
 import com.banuba.sdk.export.data.ExportFlowManager
 import com.banuba.sdk.export.data.ExportParamsProvider
 import com.banuba.sdk.export.data.ForegroundExportFlowManager
-import com.banuba.sdk.ve.effects.WatermarkProvider
+import com.banuba.sdk.ve.effects.watermark.WatermarkProvider
 import com.banuba.sdk.veui.data.EditorConfig
 import com.banuba.sdk.veui.domain.CoverProvider
 import org.koin.core.qualifier.named
@@ -121,5 +126,18 @@ class IntegrationKoinModule {
             )
         }
 
+        single<ExportVideoResolutionProvider> {
+            val hardwareClass = get<HardwareClassProvider>().provideHardwareClass()
+            object : ExportVideoResolutionProvider {
+                override var videoResolution: VideoResolution = hardwareClass.optimalResolution
+            }
+        }
+
+        single<CameraTimerUpdateProvider>(override = true) {
+            IntegrationCameraTimerUpdateProvider(
+                audioPlayer = get(),
+                context = get()
+            )
+        }
     }
 }
