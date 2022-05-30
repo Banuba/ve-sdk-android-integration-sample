@@ -339,6 +339,18 @@
         <item name="audioBrowserThrobberViewStyle">
             @style/CustomAudioBrowserThrobberViewStyle
         </item>
+        <item name="audioBrowserConnectionErrorTitle">
+            @style/CustomAudioBrowserConnectionErrorTitleStyle
+        </item>
+        <item name="audioBrowserConnectionErrorMessage">
+            @style/CustomAudioBrowserConnectionErrorMessageStyle
+        </item>
+        <item name="audioBrowserConnectionErrorBtn">
+            @style/CustomAudioBrowserConnectionErrorBtnStyle
+        </item>
+        <item name="audioBrowserConnectionErrorSpinner">
+            @style/CustomAudioBrowserConnectionErrorSpinner
+        </item>
 
         <!-- Info alerts -->
         <item name="permissionsDialogContainerStyle">@style/CustomPermissionsDialogContainer</item>
@@ -1183,6 +1195,14 @@
     <style name="CustomAudioBrowserTrackLoadMoreStyle" parent="AudioBrowserTrackLoadMoreStyle" />
 
     <style name="CustomAudioBrowserThrobberViewStyle" parent="ThrobberViewStyle" />
+
+    <style name="CustomAudioBrowserConnectionErrorTitleStyle" parent="AudioBrowserConnectionErrorTitleStyle" />
+
+    <style name="CustomAudioBrowserConnectionErrorMessageStyle" parent="AudioBrowserConnectionErrorMessageStyle" />
+
+    <style name="CustomAudioBrowserConnectionErrorBtnStyle" parent="AudioBrowserConnectionErrorBtnStyle" />
+
+    <style name="CustomAudioBrowserConnectionErrorSpinner" parent="AudioBrowserConnectionErrorSpinner" />
     <!---->
 
     <!-- Info alerts -->
