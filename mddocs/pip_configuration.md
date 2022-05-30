@@ -16,7 +16,7 @@ VideoCreationActivity.startFromCamera(
 
 ## PIP Configuration
 
-Picture in picture supports four modes: ```Floating```, ```TopBottom```, ```React```, ```LeftRight```. You can customize the order of these modes and which of them will be available. Override ```PipLayoutProvider``` in the [DI](https://github.com/Banuba/ve-sdk-android-integration-sample#configure-di) layer to achieve this:
+Picture in picture supports four modes: ```Floating```, ```TopBottom```, ```React```, ```LeftRight```. You can customize the order of these modes and which of them will be available. Override ```PipLayoutProvider``` in the [DI](https://github.com/Banuba/ve-sdk-android-integration-sample#Step-4-Configure-DI) layer to achieve this:
 
 ```kotlin
 override val pipLayoutProvider: BeanDefinition<PipLayoutProvider> = single(override = true) {
@@ -47,7 +47,7 @@ override val pipLayoutProvider: BeanDefinition<PipLayoutProvider> = single(overr
 
 ## Example
 
-If you need only ```React``` and ```Floating``` modes and ```React``` needs to launch first, then the overridden ```PipLayoutProvider``` will look like this:
+If you need only ```React``` and ```LeftRight``` modes and ```React``` needs to launch first, then the overridden ```PipLayoutProvider``` will look like this:
 
 ```kotlin
 override val pipLayoutProvider: BeanDefinition<PipLayoutProvider> = single(override = true) {
@@ -63,13 +63,57 @@ override val pipLayoutProvider: BeanDefinition<PipLayoutProvider> = single(overr
                     physicalScreenSize = screenSize,
                     topOffsetPx = context.dimen(R.dimen.pip_react_top_offset) + insetsOffset
                 ),
-                EditorPipLayoutSettings.Floating(
-                    context = context,
-                    physicalScreenSize = screenSize,
-                    topOffsetPx = context.dimen(R.dimen.pip_floating_top_offset) + insetsOffset
+                EditorPipLayoutSettings.LeftRight(
+                        isCameraAlignLeft = true,
+                        excludeActions = listOf(EditorPipLayoutAction.SwitchHorizontal)
                 )
             )
         }
     }
 }
+```
+
+
+Also you can choose default camera align for every mode and exclude actions for every mode: 
+
+```kotlin
+...
+    return listOf(
+        EditorPipLayoutSettings.Floating(
+            ...,
+            excludeActions = listOf(
+                EditorPipLayoutAction.SwitchVertical,
+                EditorPipLayoutAction.Square,
+                EditorPipLayoutAction.Round
+            ),
+            isCameraAlignTop = false
+        ),
+        EditorPipLayoutSettings.TopBottom(
+            excludeActions = listOf(
+                EditorPipLayoutAction.SwitchVertical,
+                EditorPipLayoutAction.Original,
+                EditorPipLayoutAction.Centered
+            ),
+            isCameraAlignTop = false
+        ),
+        EditorPipLayoutSettings.React(
+            ...,
+            excludeActions = listOf(
+                EditorPipLayoutAction.SwitchVertical,
+                EditorPipLayoutAction.Square,
+                EditorPipLayoutAction.Round,
+                EditorPipLayoutAction.Centered,
+                EditorPipLayoutAction.Original
+            ),
+            isCameraMain = false
+        ),
+        EditorPipLayoutSettings.LeftRight(
+            excludeActions = listOf(
+                EditorPipLayoutAction.SwitchHorizontal,
+                EditorPipLayoutAction.Original,
+                EditorPipLayoutAction.Centered
+            ),
+            isCameraAlignLeft = false
+        )
+    )
 ```
