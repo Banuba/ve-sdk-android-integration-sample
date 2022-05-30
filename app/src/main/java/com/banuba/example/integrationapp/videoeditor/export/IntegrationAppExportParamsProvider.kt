@@ -4,15 +4,14 @@ import android.net.Uri
 import androidx.core.net.toFile
 import com.banuba.sdk.core.VideoResolution
 import com.banuba.sdk.core.media.MediaFileNameHelper.Companion.DEFAULT_SOUND_FORMAT
+import com.banuba.sdk.export.data.ExportParams
 import com.banuba.sdk.export.data.ExportParamsProvider
-import com.banuba.sdk.export.data.ExportVideoResolutionProvider
 import com.banuba.sdk.ve.domain.VideoRangeList
 import com.banuba.sdk.ve.effects.Effects
-import com.banuba.sdk.ve.effects.WatermarkAlignment
-import com.banuba.sdk.ve.effects.WatermarkBuilder
 import com.banuba.sdk.ve.effects.music.MusicEffect
+import com.banuba.sdk.ve.effects.watermark.WatermarkAlignment
+import com.banuba.sdk.ve.effects.watermark.WatermarkBuilder
 import com.banuba.sdk.ve.ext.withWatermark
-import com.banuba.sdk.ve.processing.ExportManager
 
 class IntegrationAppExportParamsProvider(
     private val exportDir: Uri,
@@ -25,7 +24,7 @@ class IntegrationAppExportParamsProvider(
         videoRangeList: VideoRangeList,
         musicEffects: List<MusicEffect>,
         videoVolume: Float
-    ): List<ExportManager.Params> {
+    ): List<ExportParams> {
         val exportSessionDir = exportDir.toFile().apply {
             deleteRecursively()
             mkdirs()
@@ -35,7 +34,7 @@ class IntegrationAppExportParamsProvider(
             .build()
 
         return listOf(
-            ExportManager.Params.Builder(sizeProvider.videoResolution)
+            ExportParams.Builder(sizeProvider.videoResolution)
                 .effects(effects.withWatermark(watermarkBuilder, WatermarkAlignment.BOTTOM_RIGHT))
                 .fileName("export_default_watermark")
                 .videoRangeList(videoRangeList)
@@ -44,7 +43,7 @@ class IntegrationAppExportParamsProvider(
                 .extraAudioFile(extraSoundtrackUri)
                 .volumeVideo(videoVolume)
                 .build(),
-            ExportManager.Params.Builder(sizeProvider.videoResolution)
+            ExportParams.Builder(sizeProvider.videoResolution)
                 .effects(effects)
                 .fileName("export_default")
                 .videoRangeList(videoRangeList)
@@ -52,7 +51,7 @@ class IntegrationAppExportParamsProvider(
                 .musicEffects(musicEffects)
                 .volumeVideo(videoVolume)
                 .build(),
-            ExportManager.Params.Builder(VideoResolution.Exact.VGA360)
+            ExportParams.Builder(VideoResolution.Exact.VGA360)
                 .effects(effects.withWatermark(watermarkBuilder, WatermarkAlignment.BOTTOM_RIGHT))
                 .fileName("export_360_watermark")
                 .videoRangeList(videoRangeList)

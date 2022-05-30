@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.banuba.example.integrationapp.videoeditor.IntegrationAppExportVideoContract
+import com.banuba.sdk.cameraui.data.PipConfig
 import com.banuba.sdk.core.ui.ext.visible
 import com.banuba.sdk.token.storage.provider.TokenProvider
 import com.banuba.sdk.ve.flow.VideoCreationActivity
@@ -60,8 +61,11 @@ class MainActivity : AppCompatActivity() {
     private fun openVideoEditor(pipVideo: Uri = Uri.EMPTY) {
         val videoCreationIntent = VideoCreationActivity.startFromCamera(
             context = this,
-            // set PiP video uri
-            pictureInPictureVideo = pipVideo,
+            // set PiP video configuration
+            pictureInPictureConfig = PipConfig(
+                video = pipVideo,
+                openPipSettings = false
+            ),
             // setup what kind of action you want to do with VideoCreationActivity
             // setup data that will be acceptable during export flow
             additionalExportData = null,
