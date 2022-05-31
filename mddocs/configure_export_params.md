@@ -1,6 +1,6 @@
 # Configure export params
 
-If you need to change export output you should override `ExportParamsProvider` class which contains only one method `provideExportParams`. This method should return list of `ExportManager.Params`, where every item of this list is configurations for one export video. Therefore, if the list contains 3 items, after exporting you will get 3 videos, where each video will be created according to the set configurations. 
+If you need to change export output you should override `ExportParamsProvider` class which contains only one method `provideExportParams`. This method should return list of `ExportParams`, where every item of this list is configurations for one export video. Therefore, if the list contains 3 items, after exporting you will get 3 videos, where each video will be created according to the set configurations.
 
 ## Implement ExportParamsProvider class
 
@@ -15,10 +15,10 @@ class IntegrationAppExportParamsProvider(
 
     override fun provideExportParams(
         effects: Effects,
-        videoList: VideoList,
+        videoRangeList: VideoRangeList,
         musicEffects: List<MusicEffect>,
         videoVolume: Float
-    ): List<ExportManager.Params> {
+    ): List<ExportParams> {
         val exportSessionDir = exportDir.toFile().apply {
             deleteRecursively()
             mkdirs()
@@ -28,27 +28,27 @@ class IntegrationAppExportParamsProvider(
             .build()
 
         return listOf(
-            ExportManager.Params.Builder(sizeProvider.provideOptimalExportVideoSize())
+            ExportParams.Builder(sizeProvider.provideOptimalExportVideoSize())
                 .effects(effects.withWatermark(watermarkBuilder, WatermarkAlignment.BOTTOM_RIGHT))
                 .fileName("export_default_watermark")
-                .videoList(videoList)
+                .videoRangeList(videoRangeList)
                 .destDir(exportSessionDir)
                 .musicEffects(musicEffects)
                 .extraAudioFile(extraSoundtrackUri)
                 .volumeVideo(videoVolume)
                 .build(),
-            ExportManager.Params.Builder(sizeProvider.provideOptimalExportVideoSize())
+            ExportParams.Builder(sizeProvider.provideOptimalExportVideoSize())
                 .effects(effects)
                 .fileName("export_default")
-                .videoList(videoList)
+                .videoRangeList(videoRangeList)
                 .destDir(exportSessionDir)
                 .musicEffects(musicEffects)
                 .volumeVideo(videoVolume)
                 .build(),
-            ExportManager.Params.Builder(VideoResolution.VGA360)
+            ExportParams.Builder(VideoResolution.Exact.VGA360)
                 .effects(effects.withWatermark(watermarkBuilder, WatermarkAlignment.BOTTOM_RIGHT))
                 .fileName("export_360_watermark")
-                .videoList(videoList)
+                .videoRangeList(videoRangeList)
                 .destDir(exportSessionDir)
                 .musicEffects(musicEffects)
                 .volumeVideo(videoVolume)
@@ -57,15 +57,15 @@ class IntegrationAppExportParamsProvider(
     }
 ```
 
-After export based on list on `ExportManager.Params` from `IntegrationAppExportParamsProvider` we get three videos:
+After export based on list on `ExportParams` from `IntegrationAppExportParamsProvider` we get three videos:
 
 1. Optimized video file with watermark located in the lower right corner of the screen
 
     ```kotlin
-    ExportManager.Params.Builder(sizeProvider.provideOptimalExportVideoSize())
+    ExportParams.Builder(sizeProvider.provideOptimalExportVideoSize())
                     .effects(effects.withWatermark(watermarkBuilder, WatermarkAlignment.BOTTOM_RIGHT))
                     .fileName("export_default_watermark")
-                    .videoList(videoList)
+                    .videoRangeList(videoRangeList)
                     .destDir(exportSessionDir)
                     .musicEffects(musicEffects)
                     .extraAudioFile(extraSoundtrackUri)
@@ -76,10 +76,10 @@ After export based on list on `ExportManager.Params` from `IntegrationAppExportP
 2. Same file as above but without a watermark
 
     ```kotlin
-    ExportManager.Params.Builder(sizeProvider.provideOptimalExportVideoSize())
+    ExportParams.Builder(sizeProvider.provideOptimalExportVideoSize())
                     .effects(effects)
                     .fileName("export_default")
-                    .videoList(videoList)
+                    .videoRangeList(videoRangeList)
                     .destDir(exportSessionDir)
                     .musicEffects(musicEffects)
                     .volumeVideo(videoVolume)
@@ -89,17 +89,17 @@ After export based on list on `ExportManager.Params` from `IntegrationAppExportP
 3. Low-res exported video with watermark located in the lower right corner of the screen
 
     ```kotlin
-    ExportManager.Params.Builder(VideoResolution.VGA360)
+    ExportParams.Builder(VideoResolution.Exact.VGA360)
                     .effects(effects.withWatermark(watermarkBuilder, WatermarkAlignment.BOTTOM_RIGHT))
                     .fileName("export_360_watermark")
-                    .videoList(videoList)
+                    .videoRangeList(videoRangeList)
                     .destDir(exportSessionDir)
                     .musicEffects(musicEffects)
                     .volumeVideo(videoVolume)
                     .build()
     ```
 
-You can customize each video separately. For this you should use `ExportManager.Params.Builder`. The builder contains only one required parameter this is `resolution`, the rest of the parameters are optional. `ExportManager.Params` 's class includes:
+You can customize each video separately. For this you should use `ExportParams.Builder`. The builder contains only one required parameter this is `resolution`, the rest of the parameters are optional. `ExportParams` 's class includes:
 
 - `fileName(fileName: String)` - it is necessary to transfer name of exported video.
 - `effects(effects: Effects)` - it is necessary to transfer the effects that are used on the video. If you want add watermark (there is no watermark on the video by default) on your video you should call method `withWatermark` for effects like this:
