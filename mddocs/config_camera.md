@@ -25,3 +25,6 @@ To serve this purpose CameraConfig class has following properties:
 | **banubaColorEffectsAssetsPath** | String | setups the name of the folder *within assets/bnb-resources* directory to store color filters (i.e. "filters")
 | **banubaMasksAssetsPath** | String | setups the name of the folder *within assets/bnb-resources* directory to store AR masks (i.e. "masks")
 | **banubaMaskBeauty** | String | setups the name of the folder *within the AR masks directory* for the mask that is used for Beautification effect (i.e. "Beauty")
+| **supportsSwitchFacing** | true/false | defines if switching camera facing is available.
+| **supportsAudioRateEqualsVideoSpeed** | true/false | determines if the audio playback speed is equal to the video recording speed.
+| **supportsGallery** | true/false | defines if there is a gallery icon on the camera screen.
