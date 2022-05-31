@@ -75,6 +75,10 @@ There are bulk of **theme attributes** that should be added to the main **Video 
 - audioBrowserTrackLoadMoreItemStyle
 - audioBrowserThrobberViewStyle
 - audioBrowserSearchCancelTextStyle
+- audioBrowserConnectionErrorTitle
+- audioBrowserConnectionErrorMessage
+- audioBrowserConnectionErrorBtn
+- audioBrowserConnectionErrorSpinner
 ```
 
 **Almost all** **attributes have an appropriate style** (with the name similar to an attribute) that can be used as a default style implementation. For example, the `AudioBrowserBottomSheetStyle` can be placed under `audioBrowserBottomSheetStyle` theme attribute. 
@@ -159,6 +163,7 @@ There are a lot of string resources that are used withing audio browser:
 | audio_browser_error_license_expired | The license expired | Error message from the Mubert API
 | audio_browser_error_license_access | Access denied, check license access type | Error message from the Mubert API
 | audio_browser_error_license_api_version | Access denied, check license API version | Error message from the Mubert API
+| audio_browser_error_license_wrong_key | Mubert key is missing. In order to get it contact Banuba rep. | Error message when Mubert key is not set
 | audio_browser_hint_search_categories | Search by categories | Hint for the categories search
 | audio_browser_hint_search_sub_categories | Search by groups | Hint for the sub-categroies search
 | audio_browser_hint_search_tracks | Search by tracks | Hint for tracks search
@@ -167,4 +172,8 @@ There are a lot of string resources that are used withing audio browser:
 | audio_browser_error_dialog_retry | Retry | Text on the button that allows to retry loading tracks in case of network error
 | audio_browser_error_dialog_close | Close | Text on the button that closes dialog message in case of network error
 | permission_library_description_message | Allow to access to your storage to select an audio tracks from your device. | Message that is shown to the user before request a permission for loading tracks from the device
-| audio_browser_load_more | Load more | Text on the button that allows to request more tracks from the Mubert service
+| not_supported_audio_browser | Default music browser is not included in your package. You can plugin your own music | Message that is shown to the user when music browser is not included in your token
+| audio_browser_connection_error_title | No internet connection | Error message that is shown to the user when there is no internet connection
+| audio_browser_connection_error_message | Please, check your connection and try again. | Error message that is shown to the user when there are connection problems
+| audio_browser_connection_error_btn | Retry | Text on the button that allows to retry loading tracks in case of network error
+| audio_browser_connection_error_toast | No internet connection | Error message that is shown to the user when there is no internet connection
