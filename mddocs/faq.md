@@ -169,14 +169,13 @@ Where
 - `useDithering` - is a flag that apply or remove dithering effect (in simple words make an image of better quality)
 - `reverse` - is a flag to reverse playback inside gif
 
- This object should be passed into `interactivePreview()` method of `ExportManager.Params.Builder` along with the rest export data:
+ This object should be passed into `interactivePreview()` method of `ExportParams` along with the rest export data:
 
  ```diff
-ExportManager.Params.Builder(
-    mediaResolutionProvider.provideOptimalExportVideoSize())
+ExportParams.Builder(sizeProvider.videoResolution)
                 .effects(effects)
                 .fileName("export_video")
-                .videoList(videoList)
+                .videoRangeList(videoRangeList)
                 .destDir(exportSessionDir)
                 .musicEffects(musicEffects)
                 .extraAudioFile(extraSoundtrackUri)
@@ -269,7 +268,6 @@ ExportManager.Params.Builder(
 
         @Parcelize
         data class Success(
-            val message: String,
             val videoList: List<ExportedVideo>,
             val preview: Uri,
             val metaUri: Uri,
@@ -277,7 +275,7 @@ ExportManager.Params.Builder(
         ) : ExportResult(), Parcelable
 
         @Parcelize
-        data class Error(val message: String) : ExportResult(), Parcelable
+        data class Error(val type: ExportError) : ExportResult(), Parcelable
     }
     ```
 

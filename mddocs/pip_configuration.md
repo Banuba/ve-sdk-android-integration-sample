@@ -1,16 +1,16 @@
 # Picture in picture
 
 Picture in picture mode is optional for the AI Video Editor SDK and would be disabled if it is not included in your token.
-To Start Video editor in PIP mode pass `pictureInPictureVideo` instead of default value in ```startFromCamera``` method (check out an [**example**](../app/src/main/java/com/banuba/example/integrationapp/MainActivity.kt#L38)):
+To Start Video editor in PIP mode pass `pictureInPictureConfig` parameter instead of default value in ```startFromCamera``` method (check out an [**example**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/MainActivity.kt#L65)):
 
 ```kotlin
 VideoCreationActivity.startFromCamera(
-    context: Context,
-    pictureInPictureVideo: Uri = Uri.EMPTY,
-    additionalExportData: Parcelable? = null,
-    audioTrackData: TrackData? = null,
-    themResId: Int? = null,
-    cameraUIType: CameraUIType = CameraUIType.TYPE_1
+    context = this,
+    // set PiP video configuration
+    pictureInPictureConfig = PipConfig(
+        video = Uri.EMPTY, // PiP video Uri
+        openPipSettings = false
+    )
 )
 ```
 
