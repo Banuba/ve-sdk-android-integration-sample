@@ -128,7 +128,7 @@ You can customize each video separately. For this you should use `ExportParams.B
     }
     ```
 
-- `videoList(videoList: VideoList)` - to transfer the videos that are used for creating export video
+- `videoRangeList(videoRangeList: VideoRangeList)` - to transfer the videos that are used for creating export video
 - `musicEffects(musicEffects: List<MusicEffect>)` - to transfer the music effects that are used on the video
 - `destDir(destDir: File)` -  to transfer the file in which the exported video should be saved
 - `extraAudioFile(extraAudioTrack: Uri)` - to transfer the uri in which the exported extra audio file should be saved
