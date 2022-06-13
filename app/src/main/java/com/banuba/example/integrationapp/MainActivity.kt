@@ -3,6 +3,7 @@ package com.banuba.example.integrationapp
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.util.Pair
 import android.util.Size
 import androidx.activity.result.contract.ActivityResultContracts
@@ -145,6 +146,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        com.banuba.sdk.ve.processing.FFmpeg(context = this).execute(emptyArray()).run {
+            waitFor()
+            Log.d("FFmpeg", errorStream.reader().readText())
+        }
 
         btnVideoEditor.setOnClickListener {
             openVideoEditor()
