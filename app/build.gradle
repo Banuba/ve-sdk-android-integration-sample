@@ -46,7 +46,8 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
     // Banuba Video Editor SDK dependencies
-    def banubaSdkVersion = '1.23.0'
+    def banubaSdkVersion = '1.23.1'
+    implementation "com.banuba.sdk:ffmpeg:4.4"
     implementation "com.banuba.sdk:camera-sdk:${banubaSdkVersion}"
     implementation "com.banuba.sdk:camera-ui-sdk:${banubaSdkVersion}"
     implementation "com.banuba.sdk:core-sdk:${banubaSdkVersion}"
