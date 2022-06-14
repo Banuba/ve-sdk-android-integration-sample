@@ -22,7 +22,7 @@ These are the answers to the most popular questions we are asked about the Banub
 - [How do I change the duration of the image display in a slideshow?](#how-do-I-change-the-duration-of-the-image-display-in-a-slideshow)
 - [How do I change the launguage (how do I add new locale support)](#how-do-I-change-the-launguage-how-do-I-add-new-locale-support)
 - [How do I disable the video (FX) effects?](#how-do-i-disable-the-video-fx-effects)
-- [How to use different FFmpeg build](#how-to-use-different-ffmpeg-build)
+- [How do I integrate custom FFmpeg dependency in app?](#how-to-integrate-custom-ffmpeg-dependency)
 
 ### How do I start/stop recording with a tap?
 By default, the user must hold the “record” button to film and release it to stop filming.   
@@ -476,5 +476,5 @@ This will return the list of enabled video effects.
 
 **Note**: To get all video effects names list use ```DefaultEnabledFxEffectsProvider().provide()``` method.
 
-### How to use different FFmpeg build
-Check out [step-by-step guide](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/mddocs/ffmpeg_dependency.md) to use your FFmpeg build.
+### How to integrate custom FFmpeg dependency.
+Check out [step-by-step guide](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/mddocs/ffmpeg_dependency.md) to integrate custom FFmpeg dependency.

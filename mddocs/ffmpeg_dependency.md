@@ -1,19 +1,23 @@
 # How to use different FFmpeg build
 
-## If you want to use your custom build of the FFmpeg libraries, follow the next steps:
+:exclamation: Banuba VE SDK uses FFmpeg 4.4.\
+**It is highly required to use the same version of your custom FFmpeg dependency to keep VE SDK stable.**\
+**Additionally, your dependency must include mp3blame library.**
+
+## Please follow these guidelines to integrate custom FFmpeg dependency in your app:
 
 ### Step 1
 
-Remove the com.banuba.sdk:ffmpeg dependency
+Remove Banuba FFmpeg dependency
 ```groovy
-implementation "com.banuba.sdk:ffmpeg:$VERSION"
+implementation "com.banuba.sdk:ffmpeg:4.4"
 ```
 
 ### Step 2
 
-Add your own FFmpeg dependency. For example:
+Add your custom FFmpeg dependency in app/build.gradle. For example:
 ```groovy
-implementation 'com.arthenica:ffmpeg-kit-full:$VERSION'
+implementation 'com.arthenica:ffmpeg-kit-full:4.4.LTS'
 ```
 
 ### Step 3
@@ -29,5 +33,3 @@ com.banuba.sdk.ve.processing.FFmpeg(context = this).execute(emptyArray()).run {
 The output should contains information about version of FFmpeg libraries
 
 Here is an example of the PR sample for this steps: [PR sample](https://github.com/Banuba/ve-sdk-android-integration-sample/pull/187)
-
-:exclamation: Your version of libraries should be the same as com.banuba.sdk:ffmpeg dependency version. Also your build should include the mp3lame library.
