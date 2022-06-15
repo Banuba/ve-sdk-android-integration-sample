@@ -91,7 +91,7 @@ There is nothing complicated about it - [contact us](https://www.banuba.com/vide
 ## Supported media formats
 | Audio      | Video      | Images      |
 | ---------- | ---------  | ----------- |
-|.aac, .mp3, .wav<br>.ogg, .m4a |.mp4, .mov | .jpg, .gif, .heic, .png,<br>.nef, .cr2, .jpeg, .raf, .bmp
+|.aac, .mp3, .wav<br>.ogg, .m4a, .flac |.mp4, .mov | .jpg, .gif, .heic, .png,<br>.nef, .cr2, .jpeg, .raf, .bmp
 
 ## Camera recording video quality params
 | Recording speed | 360p(360 x 640) | 480p(480 x 854) | HD(720 x 1280) | FHD(1080 x 1920) |
