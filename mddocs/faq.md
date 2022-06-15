@@ -46,15 +46,14 @@ To turn off animations just **setup false for both fields**.
 
 ### I want to start VideoEditor with a preselected audio track
 
-You should create an intent using the method **VideoCreationActivity.buildIntent()** where **audioTrackData** is preselected audio track.
+To open Video Editor SDK you should create an intent by utilizing any avilable function inside **VideoCreationActivity**: **startFromCamera()**, **startFromTrimmer()** or **startFromEditor()**. All these functions have an argument called **audioTrackData** where you should pass preselected audio track or null (by default). For example, to open an SDK from the camera screen with the track use the code snippet below:
 
 ```kotlin
 startActivity(
-    VideoCreationActivity.buildIntent(
-       context,
-       cameraMode,
-       audioTrackData
-    )
+    VideoCreationActivity.startFromCamera(
+                context = applicationContext,
+                audioTrackData = preselectedTrackData
+            )
 )
 ```
 **audioTrackData** is an object of TrackData class
