@@ -99,6 +99,10 @@
             @style/CustomEditorPlaybackControllerDoneStyle
         </item>
         <item name="editorTextColorItemBackground">@drawable/bg_checkable_color</item>
+        <item name="editorTrimButtonStyle">@style/CustomEditorTrimButtonStyle</item>
+        <item name="editorBackPopupStyle">@style/CustomEditorBackPopupStyle</item>
+        <item name="editorDiscardChangesButtonStyle">@style/CustomEditorDiscardChangesButtonStyle</item>
+        <item name="editorUpdateDraftButtonStyle">@style/CustomEditorUpdateDraftButtonStyle</item>
 
         <!--Gallery-->
         <item name="galleryImageViewStyle">@style/CustomGalleryImageViewStyle</item>
@@ -108,7 +112,6 @@
         <item name="galleryNextButtonStyle">@style/CustomGalleryNextButtonStyle</item>
         <item name="gallerySelectionDescriptionStyle">@style/CustomGallerySelectionDescriptionStyle
         </item>
-        <item name="galleryDraftsButtonStyle">@style/CustomGalleryDraftsButtonStyle</item>
         <item name="galleryItemRadioButtonStyle">@style/CustomGalleryItemRadioButtonStyle</item>
         <item name="galleryItemTextStyle">@style/CustomGalleryItemTextStyle</item>
         <item name="galleryEmptyTextStyle">@style/CustomGalleryEmptyTextStyle</item>
@@ -417,14 +420,10 @@
         <item name="draftItemThumbnailStyle">@style/CustomDraftItemThumbnailStyle</item>
         <item name="draftItemOptionsButtonStyle">@style/CustomDraftItemOptionsButtonStyle</item>
         <item name="draftItemNameStyle">@style/CustomDraftItemNameStyle</item>
-        <item name="draftOptionsParentStyle">@style/CustomDraftOptionsParentStyle</item>
-        <item name="draftOptionsPreviewStyle">@style/CustomDraftOptionsPreviewStyle</item>
-        <item name="draftOptionsNameStyle">@style/CustomDraftOptionsNameStyle</item>
-        <item name="draftOptionsSubtitleStyle">@style/CustomDraftOptionsSubtitleStyle</item>
-        <item name="draftOptionsDividerStyle">@style/CustomDraftOptionsDividerStyle</item>
-        <item name="draftOptionsRemoveButtonStyle">@style/CustomDraftOptionsRemoveButtonStyle</item>
-        <item name="popupTextStyle">@style/CustomDraftPopupTextStyle</item>
-        <item name="popupArrowStyle">@style/CustomDraftPopupArrowStyle</item>
+        <item name="draftItemDurationStyle">@style/CustomDraftItemDurationStyle</item>
+        <item name="draftOptionsPopupStyle">@style/CustomDraftOptionsPopupStyle</item>
+        <item name="draftOptionsEditButtonStyle">@style/CustomDraftOptionsEditButtonStyle</item>
+        <item name="draftOptionsDeleteButtonStyle">@style/CustomDraftOptionsDeleteButtonStyle</item>
         <!---->
 
         <!-- Record button -->
@@ -752,6 +751,14 @@
         <item name="android:padding">12dp</item>
     </style>
 
+    <style name="CustomEditorTrimButtonStyle" parent="EditorTrimButtonStyle" />
+
+    <style name="CustomEditorBackPopupStyle" parent="EditorBackPopupStyle" />
+
+    <style name="CustomEditorDiscardChangesButtonStyle" parent="EditorDiscardChangesButtonStyle" />
+
+    <style name="CustomEditorUpdateDraftButtonStyle" parent="EditorUpdateDraftButtonStyle" />
+
     <!--Stickers Styles-->
     <style name="CustomStickersRetryTitleTextStyle" />
 
@@ -772,8 +779,6 @@
     <style name="CustomGalleryAlbumBlurViewStyle" parent="GalleryAlbumBlurViewStyle">
         <item name="overlay_color">@color/big_stone_a90</item>
     </style>
-
-    <style name="CustomGalleryDraftsButtonStyle" parent="GalleryDraftsButtonStyle" />
 
     <style name="CustomGalleryItemRadioButtonStyle" parent="GalleryItemRadioButtonStyle">
         <item name="checked_color">@color/egg_blue</item>
@@ -1298,21 +1303,13 @@
 
     <style name="CustomDraftItemNameStyle" parent="DraftItemNameStyle" />
 
-    <style name="CustomDraftOptionsParentStyle" parent="DraftOptionsParentStyle" />
+    <style name="CustomDraftItemDurationStyle" parent="DraftItemDurationStyle" />
 
-    <style name="CustomDraftOptionsPreviewStyle" parent="DraftOptionsPreviewStyle" />
+    <style name="CustomDraftOptionsPopupStyle" parent="DraftOptionsPopupStyle"/>
 
-    <style name="CustomDraftOptionsNameStyle" parent="DraftOptionsNameStyle" />
+    <style name="CustomDraftOptionsEditButtonStyle" parent="DraftOptionsEditButtonStyle" />
 
-    <style name="CustomDraftOptionsSubtitleStyle" parent="DraftOptionsSubtitleStyle" />
-
-    <style name="CustomDraftOptionsDividerStyle" parent="DraftOptionsDividerStyle" />
-
-    <style name="CustomDraftOptionsRemoveButtonStyle" parent="DraftOptionsRemoveButtonStyle" />
-
-    <style name="CustomDraftPopupTextStyle" parent="PopupTextStyle" />
-
-    <style name="CustomDraftPopupArrowStyle" parent="PopupArrowStyle" />
+    <style name="CustomDraftOptionsDeleteButtonStyle" parent="DraftOptionsDeleteButtonStyle" />
     <!---->
 
     <!-- Record button -->
