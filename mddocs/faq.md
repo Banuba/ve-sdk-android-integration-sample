@@ -386,7 +386,7 @@ To add other text fonts that are used in the editor screen follow the next steps
 By default for exported video the `HEVC` codec is enabled. If you need to change codec configuration you should add the code below in the `VideoEditorKoinModule`:
 
 ```kotlin
-    val codecConfiguration: BeanDefinition<CodecConfiguration> = single(override = true) {
+    single(override = true) {
         CodecConfiguration.AVC_PROFILES
     }
 ```
