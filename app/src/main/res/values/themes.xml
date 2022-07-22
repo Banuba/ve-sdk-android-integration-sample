@@ -365,12 +365,8 @@
 
         <!--Hands free-->
         <item name="handsFreeBottomSheetStyle">@style/CustomHandsFreeBottomSheetStyle</item>
-        <item name="handsFreeTimerLabelStyle">@style/CustomHandsFreeTimerLabelStyle</item>
         <item name="handsFreeTimerPickerStyle">@style/CustomHandsFreeTimerPickerStyle</item>
         <item name="handsFreeTimerItemStyle">@style/CustomHandsFreeTimerItemStyle</item>
-        <item name="handsFreeTimerDividerStyle">@style/CustomHandsFreeTimerDividerStyle</item>
-        <item name="handsFreeTimelineLabelStyle">@style/CustomHandsFreeTimelineLabelStyle</item>
-        <item name="handsFreeTimelineSwitchStyle">@style/CustomHandsFreeTimelineSwitchStyle</item>
         <item name="handsFreeTimelineHintStyle">@style/CustomHandsFreeTimelineHintStyle</item>
         <item name="handsFreeTimelineRangeDurationStyle">
             @style/CustomHandsFreeTimelineRangeDurationStyle
@@ -421,6 +417,7 @@
         <item name="draftItemOptionsButtonStyle">@style/CustomDraftItemOptionsButtonStyle</item>
         <item name="draftItemNameStyle">@style/CustomDraftItemNameStyle</item>
         <item name="draftItemDurationStyle">@style/CustomDraftItemDurationStyle</item>
+        <item name="draftColumnsNumber">2</item>
         <item name="draftOptionsPopupStyle">@style/CustomDraftOptionsPopupStyle</item>
         <item name="draftOptionsEditButtonStyle">@style/CustomDraftOptionsEditButtonStyle</item>
         <item name="draftOptionsDeleteButtonStyle">@style/CustomDraftOptionsDeleteButtonStyle</item>
@@ -476,7 +473,7 @@
         <item name="icon_recording_speed_x3_selected">@drawable/ic_recording_speed_x3_selected
         </item>
 
-        <item name="icon_close">@drawable/ic_nav_close</item>
+        <item name="icon_timer">@drawable/ic_stopwatch_off</item>
         <item name="icon_back">@drawable/ic_nav_back_arrow</item>
 
         <item name="icon_pip_on">@drawable/ic_pip_on</item>
@@ -494,8 +491,6 @@
         <!-- as a default gallery icon view has a rectangle shape.
              If you setup "icon_gallery_background" as an oval, you should add radius here -->
         <item name="icon_gallery_radius">24dp</item>
-
-        <item name="camera_margin_to_record_button">64dp</item>
 
         <item name="camera_gradient_top">@android:color/transparent</item>
         <item name="camera_gradient_bottom">@android:color/transparent</item>
@@ -654,6 +649,9 @@
         <item name="editor_gradient_top">@color/transparent</item>
         <item name="editor_gradient_bottom">@color/transparent</item>
         <item name="editor_effects_parent_view_background">@color/black</item>
+
+        <item name="editor_icon_close">@drawable/ic_editor_close</item>
+        <item name="editor_icon_trim">@drawable/ic_trim</item>
     </style>
 
     <style name="CustomEditorActionsStyle" parent="EditorActionsStyle">
@@ -751,7 +749,13 @@
         <item name="android:padding">12dp</item>
     </style>
 
-    <style name="CustomEditorTrimButtonStyle" parent="EditorTrimButtonStyle" />
+    <style name="CustomEditorTrimButtonStyle" parent="EditorTrimButtonStyle">
+        <item name="descriptionPosition">left</item>
+        <item name="descriptionSize">16sp</item>
+        <item name="descriptionColor">@color/white</item>
+        <item name="descriptionMarginEnd">12dp</item>
+        <item name="descriptionAlignment">textEnd</item>
+    </style>
 
     <style name="CustomEditorBackPopupStyle" parent="EditorBackPopupStyle" />
 
@@ -1226,8 +1230,6 @@
         <item name="android:background">@drawable/bg_hands_free_dialog</item>
     </style>
 
-    <style name="CustomHandsFreeTimerLabelStyle" parent="HandsFreeTimerLabelStyle" />
-
     <style name="CustomHandsFreeTimerPickerStyle" parent="HandsFreeTimerPickerStyle">
         <item name="android:background">@drawable/bg_hands_free_timer_parent</item>
     </style>
@@ -1235,15 +1237,6 @@
     <style name="CustomHandsFreeTimerItemStyle" parent="HandsFreeTimerItemStyle">
         <item name="android:background">@drawable/bg_item_timer_entry</item>
         <item name="android:textColor">@color/color_selector_timer_entry_text</item>
-    </style>
-
-    <style name="CustomHandsFreeTimerDividerStyle" parent="HandsFreeTimerDividerStyle" />
-
-    <style name="CustomHandsFreeTimelineLabelStyle" parent="HandsFreeTimelineLabelStyle" />
-
-    <style name="CustomHandsFreeTimelineSwitchStyle" parent="HandsFreeTimelineSwitchStyle">
-        <item name="thumbTint">@color/color_selector_switch_thumb</item>
-        <item name="trackTint">@color/color_selector_switch_track</item>
     </style>
 
     <style name="CustomHandsFreeTimelineHintStyle" parent="HandsFreeTimelineHintStyle" />
@@ -1313,11 +1306,6 @@
     <!---->
 
     <!-- Record button -->
-    <style name="CustomRecordButtonStyle" parent="RecordButtonStyle">
-        <item name="recordButtonInnerIdleDrawable">@drawable/ic_record_button_inner_oval</item>
-        <item name="recordButtonInnerRecordingDrawable">@drawable/ic_record_button_inner_square
-        </item>
-        <item name="recordButtonCircleGradientColors">@array/progress_gradient_colors</item>
-    </style>
+    <style name="CustomRecordButtonStyle" parent="RecordButtonStyle" />
     <!---->
 </resources>

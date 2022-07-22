@@ -27,55 +27,55 @@ val draftsHelper: DraftsHelper by inject()
 
 ## Drafts screen styles
 
-- [draftsBackButtonStyle](../app/src/main/res/values/themes.xml#L415)
+- [draftsBackButtonStyle](../app/src/main/res/values/themes.xml#L411)
 
     style for the back button on drafts screen
 
-- [draftsTitleStyle](../app/src/main/res/values/themes.xml#L416)
+- [draftsTitleStyle](../app/src/main/res/values/themes.xml#L412)
 
     style for the title of drafts screen
 
-- [draftsRecyclerViewStyle](../app/src/main/res/values/themes.xml#L417)
+- [draftsRecyclerViewStyle](../app/src/main/res/values/themes.xml#L413)
 
     style for the view containing all drafts
 
-- [draftsParentStyle](../app/src/main/res/values/themes.xml#L414)
+- [draftsParentStyle](../app/src/main/res/values/themes.xml#L410)
 
     style for the item representing every draft inside the recycler view container
 
-- [draftItemThumbnailStyle](../app/src/main/res/values/themes.xml#L420)
+- [draftItemThumbnailStyle](../app/src/main/res/values/themes.xml#L416)
 
   style for the draft preview
 
-- [draftItemNameStyle](../app/src/main/res/values/themes.xml#L422)
+- [draftItemNameStyle](../app/src/main/res/values/themes.xml#L418)
 
     style for the name of the draft
 
-- [draftItemDurationStyle](../app/src/main/res/values/themes.xml#L423)
+- [draftItemDurationStyle](../app/src/main/res/values/themes.xml#L419)
 
     style for the duration of the draft
 
-- [draftItemOptionsButtonStyle](../app/src/main/res/values/themes.xml#L421)
+- [draftItemOptionsButtonStyle](../app/src/main/res/values/themes.xml#L417)
 
     style for the button that opens available options for the current draft
 
 ![img](screenshots/drafts3.png)
 
-- [draftOptionsPopupStyle](../app/src/main/res/values/themes.xml#L424)
+- [draftOptionsPopupStyle](../app/src/main/res/values/themes.xml#L421)
 
     style for the options popup of the draft
 
-- [draftOptionsEditButtonStyle](../app/src/main/res/values/themes.xml#L425)
+- [draftOptionsEditButtonStyle](../app/src/main/res/values/themes.xml#L422)
 
     style for the edit button of the options popup of the draft
 
-- [draftOptionsDeleteButtonStyle](../app/src/main/res/values/themes.xml#L426)
+- [draftOptionsDeleteButtonStyle](../app/src/main/res/values/themes.xml#L423)
 
     style for the delete button of the options popup of the draft
 
 ![img](screenshots/drafts4.png)
 
-- [draftsEmptyTextStyle](../app/src/main/res/values/themes.xml#L418)
+- [draftsEmptyTextStyle](../app/src/main/res/values/themes.xml#L414)
 
     style for the view that is shown in case of absent drafts
 
