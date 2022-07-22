@@ -14,10 +14,10 @@ There is a "gallery" section in [**EditorConfig**](./config_videoeditor.md#galle
 
 - [galleryBackButtonStyle](../app/src/main/res/values/themes.xml#L110)
 
-    style for the button placed on the top left corner of the screen. This icon has **two states:** if some files are already selected in the gallery and if nothing is selected. Both states have different drawables that are configured into `VideoCreationTheme` [attributes](../app/src/main/res/values/themes.xml#L816):
+    style for the button placed on the top left corner of the screen. This icon has **two states:** if some files are already selected in the gallery and if nothing is selected. Both states have different drawables that are configured into `VideoCreationTheme` [attributes](../app/src/main/res/values/themes.xml#L825):
 
-    - `ic_back` -  nothing is selected → **get back to the previous screen**
-    - `ic_cross` - some files are selected → **clear selection** 
+    - `ic_nav_back_arrow` -  nothing is selected → **get back to the previous screen**
+    - `ic_nav_close` - some files are selected → **clear selection**
 
     ![img](screenshots/gallery5.png)
 

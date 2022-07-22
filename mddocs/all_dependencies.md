@@ -28,10 +28,10 @@
 | com.squareup.okhttp3:okhttp | 4.9.1 |
 | com.squareup.retrofit2:converter-moshi | 2.9.0 |
 | com.squareup.retrofit2:retrofit | 2.9.0 |
-| io.insert-koin:koin-android | 2.2.3 |
-| io.insert-koin:koin-androidx-viewmodel | 2.2.3 |
+| io.insert-koin:koin-android | 3.2.0 |
 | org.apache.commons:commons-math3 | 3.6.1 |
 | org.jetbrains.kotlin:kotlin-stdlib-jdk7 | 1.6.20 |
+| org.jetbrains.kotlin:kotlin-reflect | 1.6.20 |
 | org.jetbrains.kotlinx:kotlinx-coroutines-android | 1.6.0 |
 | org.jetbrains.kotlinx:kotlinx-coroutines-core | 1.6.0 |
-| pl.droidsonroids.gif:android-gif-drawable | 1.2.20 |
+| pl.droidsonroids.gif:android-gif-drawable | 1.2.24 |
