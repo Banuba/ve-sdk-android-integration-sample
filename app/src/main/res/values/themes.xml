@@ -1254,7 +1254,7 @@
     </style>
 
     <style name="CustomHandsFreeTimerItemStyle" parent="HandsFreeTimerItemStyle">
-        <item name="android:background">@drawable/bg_item_timer_entry</item>
+        <item name="android:background">@drawable/bg_item_timer_entry_custom</item>
         <item name="android:textColor">@color/color_selector_timer_entry_text</item>
     </style>
 
