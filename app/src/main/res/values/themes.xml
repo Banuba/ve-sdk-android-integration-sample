@@ -30,6 +30,7 @@
         <item name="cameraSpeedPickerItemStyle">@style/CustomCameraSpeedPickerItemStyle</item>
         <item name="actionableEffectTitleStyle">@style/CustomActionableEffectTitleStyle</item>
         <item name="checkableEffectTitleStyle">@style/CustomCheckableEffectTitleStyle</item>
+        <item name="cameraRecordModeTabLayoutStyle">@style/CustomCameraRecordModeTabLayoutStyle</item>
 
         <!-- Wait dialog style -->
         <item name="throbberViewStyle">@style/CustomThrobberViewStyle</item>
@@ -550,6 +551,8 @@
     <style name="CustomActionableEffectTitleStyle" parent="ActionableEffectTitleStyle" />
 
     <style name="CustomCheckableEffectTitleStyle" parent="CheckableEffectTitleStyle" />
+
+    <style name="CustomCameraRecordModeTabLayoutStyle" parent="CameraRecordModeTabLayoutStyle" />
 
     <!-- Style for the appearance of "icon_remove_last_piece" defined in CameraOverlayStyle -->
     <style name="CustomCameraRemoveLastPieceButtonStyle" parent="CameraRemoveLastPieceButtonStyle" />
