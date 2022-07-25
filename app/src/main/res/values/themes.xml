@@ -1256,19 +1256,28 @@
     <style name="CustomHandsFreeTimerItemStyle" parent="HandsFreeTimerItemStyle">
         <item name="android:background">@drawable/bg_item_timer_entry</item>
         <item name="android:textColor">@color/color_selector_timer_entry_text</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
     </style>
 
-    <style name="CustomHandsFreeTimelineHintStyle" parent="HandsFreeTimelineHintStyle" />
+    <style name="CustomHandsFreeTimelineHintStyle" parent="HandsFreeTimelineHintStyle" >
+        <item name="android:fontFamily">@font/roboto_bold</item>
+    </style>
 
-    <style name="CustomHandsFreeTimelineRangeDurationStyle" parent="HandsFreeTimelineRangeDurationStyle" />
+    <style name="CustomHandsFreeTimelineRangeDurationStyle" parent="HandsFreeTimelineRangeDurationStyle" >
+        <item name="android:fontFamily">@font/roboto_bold</item>
+    </style>
 
-    <style name="CustomHandsFreeTimelineCurrentDurationStyle" parent="HandsFreeTimelineCurrentDurationStyle" />
+    <style name="CustomHandsFreeTimelineCurrentDurationStyle" parent="HandsFreeTimelineCurrentDurationStyle" >
+        <item name="android:fontFamily">@font/roboto_bold</item>
+    </style>
 
     <style name="CustomHandsFreeTimelineStyle" parent="HandsFreeTimelineStyle">
+        <item name="android:fontFamily">@font/roboto_bold</item>
         <item name="video_duration_timeline_default_lines_color">@color/egg_blue</item>
     </style>
 
     <style name="CustomHandsFreeRecordButtonStyle" parent="HandsFreeRecordButtonStyle">
+        <item name="android:fontFamily">@font/roboto_bold</item>
         <item name="android:background">@drawable/bg_hands_free_record_button</item>
         <item name="android:textColor">@color/color_selector_button_text</item>
     </style>
