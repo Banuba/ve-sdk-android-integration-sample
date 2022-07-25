@@ -3,6 +3,7 @@ package com.banuba.example.integrationapp.videoeditor.export
 import android.net.Uri
 import androidx.core.net.toFile
 import com.banuba.sdk.core.VideoResolution
+import com.banuba.sdk.core.ext.toPx
 import com.banuba.sdk.core.media.MediaFileNameHelper.Companion.DEFAULT_SOUND_FORMAT
 import com.banuba.sdk.export.data.ExportParams
 import com.banuba.sdk.export.data.ExportParamsProvider
@@ -35,7 +36,7 @@ class IntegrationAppExportParamsProvider(
 
         return listOf(
             ExportParams.Builder(sizeProvider.videoResolution)
-                .effects(effects.withWatermark(watermarkBuilder, WatermarkAlignment.BOTTOM_RIGHT))
+                .effects(effects.withWatermark(watermarkBuilder, WatermarkAlignment.BottomRight(marginRightPx = 16.toPx)))
                 .fileName("export_default_watermark")
                 .videoRangeList(videoRangeList)
                 .destDir(exportSessionDir)
@@ -52,7 +53,7 @@ class IntegrationAppExportParamsProvider(
                 .volumeVideo(videoVolume)
                 .build(),
             ExportParams.Builder(VideoResolution.Exact.VGA360)
-                .effects(effects.withWatermark(watermarkBuilder, WatermarkAlignment.BOTTOM_RIGHT))
+                .effects(effects.withWatermark(watermarkBuilder, WatermarkAlignment.BottomRight(marginRightPx = 16.toPx)))
                 .fileName("export_360_watermark")
                 .videoRangeList(videoRangeList)
                 .destDir(exportSessionDir)

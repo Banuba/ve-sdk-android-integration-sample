@@ -30,6 +30,7 @@
         <item name="cameraSpeedPickerItemStyle">@style/CustomCameraSpeedPickerItemStyle</item>
         <item name="actionableEffectTitleStyle">@style/CustomActionableEffectTitleStyle</item>
         <item name="checkableEffectTitleStyle">@style/CustomCheckableEffectTitleStyle</item>
+        <item name="cameraRecordModeTabLayoutStyle">@style/CustomCameraRecordModeTabLayoutStyle</item>
 
         <!-- Wait dialog style -->
         <item name="throbberViewStyle">@style/CustomThrobberViewStyle</item>
@@ -99,6 +100,10 @@
             @style/CustomEditorPlaybackControllerDoneStyle
         </item>
         <item name="editorTextColorItemBackground">@drawable/bg_checkable_color</item>
+        <item name="editorTrimButtonStyle">@style/CustomEditorTrimButtonStyle</item>
+        <item name="editorBackPopupStyle">@style/CustomEditorBackPopupStyle</item>
+        <item name="editorDiscardChangesButtonStyle">@style/CustomEditorDiscardChangesButtonStyle</item>
+        <item name="editorUpdateDraftButtonStyle">@style/CustomEditorUpdateDraftButtonStyle</item>
 
         <!--Gallery-->
         <item name="galleryImageViewStyle">@style/CustomGalleryImageViewStyle</item>
@@ -108,7 +113,6 @@
         <item name="galleryNextButtonStyle">@style/CustomGalleryNextButtonStyle</item>
         <item name="gallerySelectionDescriptionStyle">@style/CustomGallerySelectionDescriptionStyle
         </item>
-        <item name="galleryDraftsButtonStyle">@style/CustomGalleryDraftsButtonStyle</item>
         <item name="galleryItemRadioButtonStyle">@style/CustomGalleryItemRadioButtonStyle</item>
         <item name="galleryItemTextStyle">@style/CustomGalleryItemTextStyle</item>
         <item name="galleryEmptyTextStyle">@style/CustomGalleryEmptyTextStyle</item>
@@ -123,6 +127,9 @@
         <item name="gallery_item_corner_radius">4dp</item>
         <item name="gallery_item_margin">2dp</item>
         <item name="gallery_album_divider_color">@color/catskill_white</item>
+
+        <item name="previewActionButtonStyle">@style/CustomPreviewActionButtonStyle</item>
+        <item name="previewContainerStyle">@style/CustomPreviewContainerStyle</item>
         <!---->
 
 
@@ -362,12 +369,8 @@
 
         <!--Hands free-->
         <item name="handsFreeBottomSheetStyle">@style/CustomHandsFreeBottomSheetStyle</item>
-        <item name="handsFreeTimerLabelStyle">@style/CustomHandsFreeTimerLabelStyle</item>
         <item name="handsFreeTimerPickerStyle">@style/CustomHandsFreeTimerPickerStyle</item>
         <item name="handsFreeTimerItemStyle">@style/CustomHandsFreeTimerItemStyle</item>
-        <item name="handsFreeTimerDividerStyle">@style/CustomHandsFreeTimerDividerStyle</item>
-        <item name="handsFreeTimelineLabelStyle">@style/CustomHandsFreeTimelineLabelStyle</item>
-        <item name="handsFreeTimelineSwitchStyle">@style/CustomHandsFreeTimelineSwitchStyle</item>
         <item name="handsFreeTimelineHintStyle">@style/CustomHandsFreeTimelineHintStyle</item>
         <item name="handsFreeTimelineRangeDurationStyle">
             @style/CustomHandsFreeTimelineRangeDurationStyle
@@ -417,14 +420,11 @@
         <item name="draftItemThumbnailStyle">@style/CustomDraftItemThumbnailStyle</item>
         <item name="draftItemOptionsButtonStyle">@style/CustomDraftItemOptionsButtonStyle</item>
         <item name="draftItemNameStyle">@style/CustomDraftItemNameStyle</item>
-        <item name="draftOptionsParentStyle">@style/CustomDraftOptionsParentStyle</item>
-        <item name="draftOptionsPreviewStyle">@style/CustomDraftOptionsPreviewStyle</item>
-        <item name="draftOptionsNameStyle">@style/CustomDraftOptionsNameStyle</item>
-        <item name="draftOptionsSubtitleStyle">@style/CustomDraftOptionsSubtitleStyle</item>
-        <item name="draftOptionsDividerStyle">@style/CustomDraftOptionsDividerStyle</item>
-        <item name="draftOptionsRemoveButtonStyle">@style/CustomDraftOptionsRemoveButtonStyle</item>
-        <item name="popupTextStyle">@style/CustomDraftPopupTextStyle</item>
-        <item name="popupArrowStyle">@style/CustomDraftPopupArrowStyle</item>
+        <item name="draftItemDurationStyle">@style/CustomDraftItemDurationStyle</item>
+        <item name="draftColumnsNumber">2</item>
+        <item name="draftOptionsPopupStyle">@style/CustomDraftOptionsPopupStyle</item>
+        <item name="draftOptionsEditButtonStyle">@style/CustomDraftOptionsEditButtonStyle</item>
+        <item name="draftOptionsDeleteButtonStyle">@style/CustomDraftOptionsDeleteButtonStyle</item>
         <!---->
 
         <!-- Record button -->
@@ -477,7 +477,7 @@
         <item name="icon_recording_speed_x3_selected">@drawable/ic_recording_speed_x3_selected
         </item>
 
-        <item name="icon_close">@drawable/ic_nav_close</item>
+        <item name="icon_timer">@drawable/ic_stopwatch_off</item>
         <item name="icon_back">@drawable/ic_nav_back_arrow</item>
 
         <item name="icon_pip_on">@drawable/ic_pip_on</item>
@@ -496,8 +496,6 @@
              If you setup "icon_gallery_background" as an oval, you should add radius here -->
         <item name="icon_gallery_radius">24dp</item>
 
-        <item name="camera_margin_to_record_button">64dp</item>
-
         <item name="camera_gradient_top">@android:color/transparent</item>
         <item name="camera_gradient_bottom">@android:color/transparent</item>
 
@@ -507,7 +505,9 @@
     <!-- Style for the music icon placed on top of the camera screen.
          If "icon_music_screen_position" in CameraOverlayStyle selected as "left"
          this style is not applied -->
-    <style name="CustomCameraMusicTopIconStyle" parent="CameraMusicTopIconStyle" />
+    <style name="CustomCameraMusicTopIconStyle" parent="CameraMusicTopIconStyle">
+        <item name="subtitleAvailable">true</item>
+    </style>
 
     <!-- Style for appearance of icons defined in CameraOverlayStyle -->
     <style name="CustomCameraActionButtonStyle" parent="CameraActionButtonStyle" />
@@ -551,6 +551,8 @@
     <style name="CustomActionableEffectTitleStyle" parent="ActionableEffectTitleStyle" />
 
     <style name="CustomCheckableEffectTitleStyle" parent="CheckableEffectTitleStyle" />
+
+    <style name="CustomCameraRecordModeTabLayoutStyle" parent="CameraRecordModeTabLayoutStyle" />
 
     <!-- Style for the appearance of "icon_remove_last_piece" defined in CameraOverlayStyle -->
     <style name="CustomCameraRemoveLastPieceButtonStyle" parent="CameraRemoveLastPieceButtonStyle" />
@@ -655,6 +657,9 @@
         <item name="editor_gradient_top">@color/transparent</item>
         <item name="editor_gradient_bottom">@color/transparent</item>
         <item name="editor_effects_parent_view_background">@color/black</item>
+
+        <item name="editor_icon_close">@drawable/ic_editor_close</item>
+        <item name="editor_icon_trim">@drawable/ic_trim</item>
     </style>
 
     <style name="CustomEditorActionsStyle" parent="EditorActionsStyle">
@@ -752,6 +757,20 @@
         <item name="android:padding">12dp</item>
     </style>
 
+    <style name="CustomEditorTrimButtonStyle" parent="EditorTrimButtonStyle">
+        <item name="descriptionPosition">left</item>
+        <item name="descriptionSize">16sp</item>
+        <item name="descriptionColor">@color/white</item>
+        <item name="descriptionMarginEnd">12dp</item>
+        <item name="descriptionAlignment">textEnd</item>
+    </style>
+
+    <style name="CustomEditorBackPopupStyle" parent="EditorBackPopupStyle" />
+
+    <style name="CustomEditorDiscardChangesButtonStyle" parent="EditorDiscardChangesButtonStyle" />
+
+    <style name="CustomEditorUpdateDraftButtonStyle" parent="EditorUpdateDraftButtonStyle" />
+
     <!--Stickers Styles-->
     <style name="CustomStickersRetryTitleTextStyle" />
 
@@ -772,8 +791,6 @@
     <style name="CustomGalleryAlbumBlurViewStyle" parent="GalleryAlbumBlurViewStyle">
         <item name="overlay_color">@color/big_stone_a90</item>
     </style>
-
-    <style name="CustomGalleryDraftsButtonStyle" parent="GalleryDraftsButtonStyle" />
 
     <style name="CustomGalleryItemRadioButtonStyle" parent="GalleryItemRadioButtonStyle">
         <item name="checked_color">@color/egg_blue</item>
@@ -820,6 +837,10 @@
     <style name="CustomGallerySelectionDescriptionStyle" parent="GallerySelectionDescriptionStyle" />
 
     <style name="CustomGalleryImageViewStyle" parent="GalleryImageViewStyle"/>
+
+    <style name="CustomPreviewActionButtonStyle" parent="PreviewActionButtonStyle" />
+
+    <style name="CustomPreviewContainerStyle" parent="PreviewContainerStyle" />
 
     <!---->
 
@@ -1221,8 +1242,6 @@
         <item name="android:background">@drawable/bg_hands_free_dialog</item>
     </style>
 
-    <style name="CustomHandsFreeTimerLabelStyle" parent="HandsFreeTimerLabelStyle" />
-
     <style name="CustomHandsFreeTimerPickerStyle" parent="HandsFreeTimerPickerStyle">
         <item name="android:background">@drawable/bg_hands_free_timer_parent</item>
     </style>
@@ -1230,15 +1249,6 @@
     <style name="CustomHandsFreeTimerItemStyle" parent="HandsFreeTimerItemStyle">
         <item name="android:background">@drawable/bg_item_timer_entry</item>
         <item name="android:textColor">@color/color_selector_timer_entry_text</item>
-    </style>
-
-    <style name="CustomHandsFreeTimerDividerStyle" parent="HandsFreeTimerDividerStyle" />
-
-    <style name="CustomHandsFreeTimelineLabelStyle" parent="HandsFreeTimelineLabelStyle" />
-
-    <style name="CustomHandsFreeTimelineSwitchStyle" parent="HandsFreeTimelineSwitchStyle">
-        <item name="thumbTint">@color/color_selector_switch_thumb</item>
-        <item name="trackTint">@color/color_selector_switch_track</item>
     </style>
 
     <style name="CustomHandsFreeTimelineHintStyle" parent="HandsFreeTimelineHintStyle" />
@@ -1298,29 +1308,16 @@
 
     <style name="CustomDraftItemNameStyle" parent="DraftItemNameStyle" />
 
-    <style name="CustomDraftOptionsParentStyle" parent="DraftOptionsParentStyle" />
+    <style name="CustomDraftItemDurationStyle" parent="DraftItemDurationStyle" />
 
-    <style name="CustomDraftOptionsPreviewStyle" parent="DraftOptionsPreviewStyle" />
+    <style name="CustomDraftOptionsPopupStyle" parent="DraftOptionsPopupStyle"/>
 
-    <style name="CustomDraftOptionsNameStyle" parent="DraftOptionsNameStyle" />
+    <style name="CustomDraftOptionsEditButtonStyle" parent="DraftOptionsEditButtonStyle" />
 
-    <style name="CustomDraftOptionsSubtitleStyle" parent="DraftOptionsSubtitleStyle" />
-
-    <style name="CustomDraftOptionsDividerStyle" parent="DraftOptionsDividerStyle" />
-
-    <style name="CustomDraftOptionsRemoveButtonStyle" parent="DraftOptionsRemoveButtonStyle" />
-
-    <style name="CustomDraftPopupTextStyle" parent="PopupTextStyle" />
-
-    <style name="CustomDraftPopupArrowStyle" parent="PopupArrowStyle" />
+    <style name="CustomDraftOptionsDeleteButtonStyle" parent="DraftOptionsDeleteButtonStyle" />
     <!---->
 
     <!-- Record button -->
-    <style name="CustomRecordButtonStyle" parent="RecordButtonStyle">
-        <item name="recordButtonInnerIdleDrawable">@drawable/ic_record_button_inner_oval</item>
-        <item name="recordButtonInnerRecordingDrawable">@drawable/ic_record_button_inner_square
-        </item>
-        <item name="recordButtonCircleGradientColors">@array/progress_gradient_colors</item>
-    </style>
+    <style name="CustomRecordButtonStyle" parent="RecordButtonStyle" />
     <!---->
 </resources>

@@ -48,6 +48,9 @@ class MainActivity : AppCompatActivity() {
         btnPiPVideoEditor.setOnClickListener {
             createVideoWithPiPRequest.launch("video/*")
         }
+        btnDraftsVideoEditor.setOnClickListener {
+            openVideoEditorWithDrafts()
+        }
 
         if (tokenProvider.getToken().isEmpty()) {
             infoTextView.text =
@@ -73,5 +76,9 @@ class MainActivity : AppCompatActivity() {
             audioTrackData = null
         )
         createVideoRequest.launch(videoCreationIntent)
+    }
+
+    private fun openVideoEditorWithDrafts() {
+        createVideoRequest.launch(VideoCreationActivity.startFromDrafts(this))
     }
 }
