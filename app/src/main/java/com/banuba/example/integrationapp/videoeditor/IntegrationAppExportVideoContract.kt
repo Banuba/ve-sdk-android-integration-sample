@@ -14,7 +14,7 @@ import com.banuba.sdk.export.utils.EXTRA_EXPORTED_SUCCESS
  * to the video created in VideoCreationActivity
  */
 
-class IntegrationAppExportVideoContract: ActivityResultContract<Intent, ExportResult?>() {
+class IntegrationAppExportVideoContract: ActivityResultContract<Intent?, ExportResult?>() {
 
     override fun createIntent(context: Context, input: Intent?): Intent {
         check(input != null) {
