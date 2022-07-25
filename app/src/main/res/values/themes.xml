@@ -1265,7 +1265,8 @@
     <style name="CustomHandsFreeTimelineCurrentDurationStyle" parent="HandsFreeTimelineCurrentDurationStyle" />
 
     <style name="CustomHandsFreeTimelineStyle" parent="HandsFreeTimelineStyle">
-        <item name="video_duration_timeline_default_lines_color">@color/egg_blue</item>
+        <item name="video_duration_timeline_default_lines_color">@color/red</item>
+        <item name="video_duration_timeline_default_background_color">@color/yellow</item>
     </style>
 
     <style name="CustomHandsFreeRecordButtonStyle" parent="HandsFreeRecordButtonStyle">
