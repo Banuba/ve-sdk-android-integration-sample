@@ -434,6 +434,10 @@
         <item name="draftOptionsDeleteButtonStyle">@style/CustomDraftOptionsDeleteButtonStyle</item>
         <!---->
 
+        <!-- Alerts -->
+        <item name="alertNegativeBtnStyle">@style/CustomAlertNegativeBtnStyle</item>
+        <item name="alertPositiveBtnStyle">@style/CustomAlertPositiveButtonStyle</item>
+
         <!-- Record button -->
         <item name="recordButtonStyle">@style/CustomRecordButtonStyle</item>
         <!---->
@@ -1327,4 +1331,17 @@
     <!-- Record button -->
     <style name="CustomRecordButtonStyle" parent="RecordButtonStyle" />
     <!---->
+
+    <!-- Alert dialog buttons -->
+    <style name="CustomAlertNegativeBtnStyle" parent="AlertNegativeButtonStyle">
+        <item name="android:background">@drawable/bg_alert_negative_button</item>
+    </style>
+
+
+    <style name="CustomAlertPositiveButtonStyle" parent="AlertPositiveButtonStyle">
+        <item name="android:background">@drawable/bg_alert_positive_button</item>
+    </style>
+
+    <!---->
+
 </resources>
