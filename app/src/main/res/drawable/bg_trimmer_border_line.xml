@@ -3,6 +3,6 @@
     android:shape="rectangle">
     <stroke
         android:width="@dimen/timeline_music_selection_rect_width"
-        android:color="@color/violet_red" />
+        android:color="@color/yellow" />
     <corners android:radius="6dp" />
 </shape>

@@ -937,12 +937,13 @@
     </style>
 
     <style name="CustomTrimmerViewStyle" parent="TrimmerViewStyle">
-        <item name="trimmer_default_color">@color/violet_red</item>
-        <item name="trimmer_wrong_color">@color/violet_red</item>
+        <item name="trimmer_default_color">@color/yellow</item>
+        <item name="trimmer_wrong_color">@color/yellow</item>
         <item name="trimmer_left_pointer">@drawable/ic_timeline_left_pointer</item>
         <item name="trimmer_right_pointer">@drawable/ic_timeline_right_pointer</item>
         <item name="trimmer_border_line">@drawable/bg_trimmer_border_line</item>
     </style>
+
 
     <style name="CustomTrimmerAspectsButtonStyle" parent="TrimmerAspectsButtonStyle" />
 
