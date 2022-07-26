@@ -594,4 +594,5 @@ Output example:
 [1.22.0](https://vebanuba.notion.site/1-22-1a07b21041e74d32a3582ca311ecbd48)\
 [1.22.2](https://vebanuba.notion.site/1-22-2-71790ea2448c4292a869627d94c17969)\
 [1.23.0](https://vebanuba.notion.site/1-23-e81b53452ac840e5a25b4e5b3c96839f)\
-[1.23.1](https://vebanuba.notion.site/1-23-1-5c2b5918389c40d1b7d868011443cfe5)
+[1.23.1](https://vebanuba.notion.site/1-23-1-5c2b5918389c40d1b7d868011443cfe5)\
+[1.24.0](https://vebanuba.notion.site/1-24-5b97696e0eae4fbca36b71ac6d8a05be)
