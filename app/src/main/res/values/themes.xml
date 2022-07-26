@@ -760,8 +760,12 @@
     </style>
 
     <style name="CustomEditorPlaybackControllerDoneStyle" parent="EditorPlaybackControllerDoneStyle">
-        <item name="android:src">@drawable/ic_done</item>
+        <item name="android:drawableStart">@android:color/transparent</item>
+        <item name="android:text">Done</item>
+        <item name="android:textColor">@color/yellow</item>
         <item name="android:padding">12dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
     </style>
 
     <style name="CustomEditorTrimButtonStyle" parent="EditorTrimButtonStyle">
