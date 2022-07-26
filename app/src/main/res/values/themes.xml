@@ -658,8 +658,8 @@
         <item name="editor_gradient_bottom">@color/transparent</item>
         <item name="editor_effects_parent_view_background">@color/black</item>
 
-        <item name="editor_icon_close">@drawable/ic_editor_close</item>
-        <item name="editor_icon_trim">@drawable/ic_trim</item>
+        <item name="editor_icon_close">@drawable/ic_close</item>
+        <item name="editor_icon_trim">@drawable/ic_trimmer_trim</item>
     </style>
 
     <style name="CustomEditorActionsStyle" parent="EditorActionsStyle">
