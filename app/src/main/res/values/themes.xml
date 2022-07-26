@@ -929,11 +929,13 @@
     </style>
 
     <style name="CustomTrimmerActionDoneButtonStyle" parent="TrimmerActionDoneButtonStyle">
-        <item name="android:src">@drawable/ic_check</item>
+        <item name="android:drawableStart">@android:color/transparent</item>
+        <item name="android:text">Done</item>
+        <item name="android:textColor">@color/yellow</item>
     </style>
 
     <style name="CustomTrimmerActionCancelButtonStyle" parent="TrimmerActionCancelButtonStyle">
-        <item name="android:src">@drawable/ic_navigation_exit</item>
+        <item name="android:drawableStart">@drawable/ic_navigation_exit</item>
     </style>
 
     <style name="CustomTrimmerViewStyle" parent="TrimmerViewStyle">
