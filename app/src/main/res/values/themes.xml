@@ -916,7 +916,10 @@
 
     <style name="CustomTrimmerVideoContainerStyle" parent="TrimmerVideoContainerStyle" />
 
-    <style name="CustomTrimmerPlayButtonStyle"  parent="TrimmerPlayButtonStyle" />
+    <style name="CustomTrimmerPlayButtonStyle"  parent="TrimmerPlayButtonStyle">
+        <item name="layout_constraintVertical_bias">1.0</item>
+        <item name="layout_goneMarginBottom">18dp</item>
+    </style>
 
     <style name="CustomTrimmerContentBackgroundStyle"  parent="TrimmerContentBackgroundStyle" />
 
