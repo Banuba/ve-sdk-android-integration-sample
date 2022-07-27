@@ -76,7 +76,7 @@
         <item name="editorNextButtonStyle">@style/CustomEditorNextButtonStyle</item>
         <item name="editorTextActionsStyle">@style/CustomEditorTextActionsStyle</item>
         <item name="editorTextColorLabelStyle">@style/CustomEditorTextColorLabelStyle</item>
-        <item name="editorTextColorBackground">@null</item>
+        <item name="editorTextColorBackground">@color/darkPink</item>
         <item name="editorTextEditorInputStyle">@style/CustomEditorTextEditorInputStyle</item>
         <item name="editorTypefaceSwitcherStyle">@style/CustomTypefaceSwitcherStyle</item>
         <item name="editorTextDoneStyle">@style/CustomEditorTextDoneStyle</item>
