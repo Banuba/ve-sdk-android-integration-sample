@@ -112,3 +112,14 @@ In case if a TextView that are shown on camera has no string resource mentioned 
 
 All alert messages shown on the camera screen that require user's action are described in [Alert dialogs](alert_styles.md) section.
 
+## Colour resources
+We use this colour resources for styling record button
+```xml
+<resources>
+    ...
+    <color name="rec_btn_idle_state_color">#FFCA00</color>
+    <color name="rec_btn_video_recording_state_color">#FD0005</color>
+    <color name="rec_btn_photo_capturing_timer_state_color">#FFFFFF</color>
+    <color name="rec_btn_ring_color">#FFFFFF</color>
+</resources>
+```
