@@ -100,12 +100,6 @@ Groups described above are showcasted on the screenshot along with some string r
 | control_description_mask | Mask | title for the icon to open AR masks
 | message_record_first_video | Record at least %1$s | message shown in case user tries to proceed with the video shorter than ```minVideoDuration``` parameter from [CameraConfig](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/mddocs/config_camera.md)
 | message_record_video_duration | {0,choice,0#{0} second\|1#{0} seconds\|2#{0} seconds\|3#{0} seconds\|4#{0} seconds\|4&lt;{0} seconds} | special string that defines the string value of the placeholder from ```message_record_first_video``` string (i.e. "1 second" or "3 seconds").  In this string only the selected words should be translated: {0,choice,0#{0} **second**\|1#{0} **seconds**\|2#{0} **seconds**\|3#{0} **seconds**\|4#{0} **seconds**\|4&lt;{0} **seconds**}. Other formatting should remain the same for every locale
-| notification_beautifier_on | Beautification on | message shown when beautification effect is applied
-| notification_beautifier_off | Beautification off | message shown when beautification effect is no longer applied
-| notification_flash_on | Light! | message shown when the flashlight is being turned on
-| notification_timer_on | Timer %1$d seconds is on | message shown when one of the TimerEntry was selected (placeholder is a TimerEntry value in seconds)
-| notification_timer_off | Timer is off | message shown when the timer is being turned off
-| notification_speed_changed | Recording speed %1$s | message shown when the speed of recording changes
 | err_no_space_left | Not enough disk space | message widely used in Video Editor SDK and informing that there is not space to effort further operations
 | err_no_time_left | Max video length %1$.1f sec | message shown in case of user tries to record video longer than the ```maxVideoDuration``` parameter from [CameraConfig](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/mddocs/config_camera.md) class
 | err_no_space_left_recording | Running out of disk space. Recording is canceled. | message shown in case the phone is running out of space during video recording
