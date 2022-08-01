@@ -38,16 +38,12 @@
 - [cameraEffectsRecyclerStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L27)
 
     style applied to RecyclerView containing visual effects list
-- [cameraSpeedPickerLabelStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L28)
-
-    style is applied to the recording speed options label. By default the label is not visible so this style can be omitted
 - [cameraSpeedPickerViewStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L29)
 
     style is applied to custom recording speed options container
 - [cameraSpeedPickerItemStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L30)
 
     style is applied to TextView representing every recording speed option within container
-
 - [checkableEffectTitleStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L32)
 
     style is used to set text appearance of "checkable" effects (applied/removed by selection) title. This type of effects includes:
@@ -58,6 +54,7 @@
     The other effects type - "actionable" - defined in [editor styles](editor_styles.md#L57)
 
     ![img](screenshots/camera2.png)
+    ![img](screenshots/camera4.png)
 
 
 ## String resources
