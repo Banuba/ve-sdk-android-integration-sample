@@ -123,3 +123,4 @@ We use this colour resources for styling record button
     <color name="rec_btn_ring_color">#FFFFFF</color>
 </resources>
 ```
+ ![img](screenshots/camera3.png)
