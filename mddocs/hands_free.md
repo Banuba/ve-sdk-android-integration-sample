@@ -46,12 +46,8 @@ Customize Hands Free appearance by overriding default [styles](https://github.co
 Hands-Free is customized by [main theme attributes](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L347) like any other Video Editor SDK screens.
 
  - **handsFreeBottomSheetStyle** - style for the background of Hands Free feature
- - **handsFreeTimerLabelStyle** - style for the label of timer options
  - **handsFreeTimerPickerStyle** - style for the parent view containing timer options
  - **handsFreeTimerItemStyle** - style for every item within timer options container
- - **handsFreeTimerDividerStyle** - style for the divider that separates timer options and timeline settings
- - **handsFreeTimelineLabelStyle** - style for the label of timeline options
- - **handsFreeTimelineSwitchStyle** - style for the switcher that enables hands-free configurations
  - **handsFreeTimelineHintStyle** - style for the timeline hint
  - **handsFreeTimelineRangeDurationStyle** - style for the time labels that define min and max available video duration
  - **handsFreeTimelineCurrentDurationStyle** - style for the time label that define the video recording duration recently configured
