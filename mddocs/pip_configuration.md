@@ -52,8 +52,8 @@ factory {
     )
 }
 ```
-```muteInPipMode = true```  microphone will be disabled by default
--```muteInPipMode = false```  microphone will be enabled by default
+- ```muteInPipMode = true```  microphone will be disabled by default
+- ```muteInPipMode = false```  microphone will be enabled by default
 ## Example
 
 If you need only ```React``` and ```LeftRight``` modes and ```React``` needs to launch first, then the overridden ```PipLayoutProvider``` will look like this:
