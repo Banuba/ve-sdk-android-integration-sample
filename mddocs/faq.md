@@ -498,11 +498,12 @@ factory {
     )
 }
 ```
-muteInNormalMode = true  microphone will be disabled by default
-muteInNormalMode = false  microphone will be enabled by default
-
-muteInPipMode = true  microphone will be disabled by default in PIP mode
-muteInPipMode = false  microphone will be enabled by default in PIP mode
-
-muteWithAudioTrack = true  microphone will be disabled by default when audio track is added 
-muteWithAudioTrack = false  microphone will be enabled by default when audio track is added 
+- muteInNormalMode
+    - muteInNormalMode = true  microphone will be disabled by default
+    - muteInNormalMode = false  microphone will be enabled by default
+- muteInPipMode
+    - muteInPipMode = true  microphone will be disabled by default in PIP mode
+    - muteInPipMode = false  microphone will be enabled by default in PIP mode
+- muteWithAudioTrack
+    - muteWithAudioTrack = true  microphone will be disabled by default when audio track is added 
+    - muteWithAudioTrack = false  microphone will be enabled by default when audio track is added 
