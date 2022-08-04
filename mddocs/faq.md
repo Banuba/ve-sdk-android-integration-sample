@@ -480,3 +480,29 @@ This will return the list of enabled video effects.
 Check out [step-by-step guide](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/mddocs/ffmpeg_dependency.md) to integrate custom FFmpeg dependency.
 
 ### How to configure default state of microphone at camera screen?
+If you want to configure default state of microphone at camera screen you can use CameraMuteMicConfig class.
+```kotlin
+data class CameraMuteMicConfig(
+    val muteInNormalMode: Boolean = false,
+    val muteInPipMode: Boolean = true,
+    val muteWithAudioTrack: Boolean = true
+)
+```
+Add the following to the IntegrationKoinModule class:
+```kotlin
+factory {
+    CameraMuteMicConfig(
+        muteInNormalMode = false,
+        muteInPipMode = true, 
+        muteWithAudioTrack = true 
+    )
+}
+```
+muteInNormalMode = true  microphone will be disabled by default
+muteInNormalMode = false  microphone will be enabled by default
+
+muteInPipMode = true  microphone will be disabled by default in PIP mode
+muteInPipMode = false  microphone will be enabled by default in PIP mode
+
+muteWithAudioTrack = true  microphone will be disabled by default when audio track is added 
+muteWithAudioTrack = false  microphone will be enabled by default when audio track is added 
