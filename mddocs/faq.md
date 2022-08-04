@@ -499,7 +499,7 @@ factory {
 }
 ```
 - **muteInNormalMode**
-    - true - disabled by default
+    - ```kotlin true``` - disabled by default
     - false - enabled by default
 - **muteInPipMode**
     - true - disabled by default in PIP mode
