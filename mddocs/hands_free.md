@@ -10,7 +10,7 @@ Hands-Free feature uses `CameraTimerStateProvider` implementation for available 
 
 Every chosen delay (`TimerEntry` object) from `CameraTimerStateProvider` passed as an argument into `animate()` method of `CameraTimerAnimationProvider`. 
 
-**Note**: We provide `DefaultTimerAnimationProvider` with 10-seconds timer animation. If you need either more than 10-seconds timer or another animation view you need to implement your own `CameraTimerAnimationProvider`.
+**Note**: We provide `DefaultCameraTimerAnimationProvider` with 10-seconds timer animation. If you need either more than 10-seconds timer or another animation view you need to implement your own `CameraTimerAnimationProvider`.
 
 If you want to disable hands free feature you should remove `CameraTimerActionProvider` implementation in `VideoEditorKoinModule`.
 ```diff
