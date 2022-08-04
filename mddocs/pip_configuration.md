@@ -44,7 +44,16 @@ override val pipLayoutProvider: BeanDefinition<PipLayoutProvider> = single(overr
     }
 }
 ```
-
+Add the following to the ```IntegrationKoinModule``` class:
+```kotlin
+factory {
+    CameraMuteMicConfig(
+        muteInPipMode = true
+    )
+}
+```
+```muteInPipMode = true```  microphone will be disabled by default
+```muteInPipMode = false```  microphone will be enabled by default
 ## Example
 
 If you need only ```React``` and ```LeftRight``` modes and ```React``` needs to launch first, then the overridden ```PipLayoutProvider``` will look like this:
