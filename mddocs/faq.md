@@ -499,11 +499,11 @@ factory {
 }
 ```
 - **muteInNormalMode**
-    - ```kotlin true``` - disabled by default
-    - false - enabled by default
+    - ```true``` - disabled by default
+    - ```false``` - enabled by default
 - **muteInPipMode**
-    - true - disabled by default in PIP mode
-    - false - enabled by default in PIP mode
+    - ```true``` - disabled by default in PIP mode
+    - ```false``` - enabled by default in PIP mode
 - **muteWithAudioTrack**
-    - true - default when audio track is added 
-    - false - enabled by default when audio track is added 
+    - ```true``` - default when audio track is added 
+    - ```false``` - enabled by default when audio track is added 
