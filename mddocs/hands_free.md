@@ -60,8 +60,5 @@ Hands-Free is customized by [main theme attributes](https://github.com/Banuba/ve
 
 | ResourceId        |      Value      |   Description |
 | ------------- | :----------- | :------------- |
-| hands_free_timer_label | Countdown | label of timer options
-| hands_free_timer_off | Off | text representing that the timer is off 
-| hands_free_timeline_label | Hands-free video mode | label of timeline options
 | hands_free_timeline_hint | Drag to set video duration: | text of the timeline hint
 | hands_free_record_button_text | start recording | label of the recording button
