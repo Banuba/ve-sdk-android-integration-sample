@@ -23,9 +23,9 @@
     ![img](screenshots/camera1.png)
 
     If you want to customize your camera screen with the **music icon on the top** of the screen you should:
-    - setup [cameraMusicTopIconStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L19) - special style that defines appearance of music icon in case it is placed on the top of the camera screen (if the music icon is placed on the left side the cameraActionButtonStyle is applied to it, so this attribute can be omitted).**subtitleAvailable** attribute is responsible for displaying of soundtrack name in two lines. There are two possible values for this attribute:
-        - **true** : soundtrack name and artist display in **two** lines;
-        - **false**: soundtrack name and artist display in **one** lines.
+    - setup [cameraMusicTopIconStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L19) - special style that defines appearance of music icon in case it is placed on the top of the camera screen (if the music icon is placed on the left side the cameraActionButtonStyle is applied to it, so this attribute can be omitted). **subtitleAvailable** attribute is responsible for displaying of soundtrack name in two lines. There are two possible values for this attribute:
+        - **true** : soundtrack name and artist display in **two** lines
+        - **false** : soundtrack name and artist display in **one** lines
     - in `CameraOverlayStyle` sibling set attribute [icon_music_screen_position](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L264) to `top`
 
     ![img](screenshots/camera1_music_top.png)
