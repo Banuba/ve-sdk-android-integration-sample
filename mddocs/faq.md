@@ -23,6 +23,7 @@ These are the answers to the most popular questions we are asked about the Banub
 - [How do I change the launguage (how do I add new locale support)](#how-do-I-change-the-launguage-how-do-I-add-new-locale-support)
 - [How do I disable the video (FX) effects?](#how-do-i-disable-the-video-fx-effects)
 - [How do I integrate custom FFmpeg dependency in app?](#how-to-integrate-custom-ffmpeg-dependency)
+- [How to configure default state of microphone at camera screen?](#how-to-configure-default-state-of-microphone-at-camera-screen)
 
 ### How do I start/stop recording with a tap?
 By default, the user must hold the “record” button to film and release it to stop filming.   
@@ -477,3 +478,5 @@ This will return the list of enabled video effects.
 
 ### How to integrate custom FFmpeg dependency.
 Check out [step-by-step guide](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/mddocs/ffmpeg_dependency.md) to integrate custom FFmpeg dependency.
+
+### How to configure default state of microphone at camera screen?
