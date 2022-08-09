@@ -510,12 +510,11 @@ factory {
     - ```true``` - default when audio track is added 
     - ```false``` - enabled by default when audio track is added 
 
-### Switcher Photo / Video configuration
+### Switcher Photo/Video configuration
 Regarding Photo / Video functionality camera could be setup with set of options 
 - Only Photo
 - Only Video
-- Photo and Video
-It depends on ```availableModes``` of overridden ```CameraRecordingModesProvider``` object: 
+- Photo and Video  It depends on ```availableModes``` of overridden ```CameraRecordingModesProvider``` object: 
 ```kotlin
 single<CameraRecordingModesProvider> {
     object : CameraRecordingModesProvider {
