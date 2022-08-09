@@ -514,7 +514,8 @@ factory {
 Regarding Photo / Video functionality camera could be setup with set of options 
 - Only Photo
 - Only Video
-- Photo and Video <br/>
+- Photo and Video
+
 It depends on ```availableModes``` of overridden ```CameraRecordingModesProvider``` object: 
 ```kotlin
 single<CameraRecordingModesProvider> {
