@@ -529,3 +529,4 @@ sealed class RecordMode {
     object Photo : RecordMode()
 }
 ```
+!!!Set should not be empty, or it lead to crash at start of application!!!
