@@ -63,7 +63,8 @@ startActivity(
 data class TrackData(
     val id: UUID,
     val title: String,
-    val localUri: Uri
+    val localUri: Uri,
+    val artist: String? = null
 )
 ```
 
