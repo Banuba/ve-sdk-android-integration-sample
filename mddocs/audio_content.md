@@ -133,8 +133,9 @@ Create an instance of TrackData when the user is ready to apply this audio track
 val trackData = TrackData(
         UUID.randomUUID(),
         "My awesome track",
-        audioTrackUri // Uri of the audio track on local storage
+        audioTrackUri, // Uri of the audio track on local storage
         // file:///data/user/0/<package>/files/<any folder>/awesome.wav
+        "Awesome Artist"
     )
 ```
 
@@ -143,7 +144,8 @@ val trackData = TrackData(
 data class TrackData(
     val id: UUID,
     val title: String,
-    val localUri: Uri
+    val localUri: Uri,
+    val artist: String? = null
 ) : Parcelable
 ```
 
