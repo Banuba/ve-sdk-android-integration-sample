@@ -24,7 +24,7 @@ These are the answers to the most popular questions we are asked about the Banub
 - [How do I disable the video (FX) effects?](#how-do-i-disable-the-video-fx-effects)
 - [How do I integrate custom FFmpeg dependency in app?](#how-to-integrate-custom-ffmpeg-dependency)
 - [How to configure default state of microphone at camera screen?](#how-to-configure-default-state-of-microphone-at-camera-screen)
-- [Switcher Photo / Video configuration](#switcher-photo-video-configuration)
+- [Switcher Photo / Video configuration](#switcher-photovideo-configuration)
 
 ### How do I start/stop recording with a tap?
 By default, the user must hold the “record” button to film and release it to stop filming.   
