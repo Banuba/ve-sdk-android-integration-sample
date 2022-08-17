@@ -1,7 +1,5 @@
 # Transition effects
 
-**Feature is upcoming in 1.23 release.**
-
 ## Overview
 
 Transitions are visual effects applying to the segue between two videos.
