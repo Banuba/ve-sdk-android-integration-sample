@@ -495,6 +495,7 @@ The AI Video Editor SDK includes the following screens:
 
 1. [Background separation](mddocs/background_mask.md)
 1. [Transition effects](mddocs/transitions_styles.md)
+1. [Sharing screen](mddocs/sharing_screen_styles.md)
 
 ### Launch Video Editor
 
