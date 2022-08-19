@@ -30,16 +30,22 @@ plugins {
 Configure dependencies in DI layer.
 
 ```kotlin
-class VideoEditorKoinModule : FlowEditorModule() {
+class VideoEditorKoinModule {
 
+    val module = module {
     ...
+        single {
+            TokenType.FIREBASE
+        }
 
-   val firebaseTargetUrl: BeanDefinition<String> = single(named("firebaseVeSdkTargetUrl"), override = true) {
-        "Your firebase database URL"
+        single(named("firebaseVeSdkTargetUrl")) {
+            "Your firebase database URL"
+        }
+    ...
     }
 }
 ```
 
 ### Note:
-To verify that token is ready, you can use `VideoEditorUtils.isAvailable` before launch `VideoCreationActivity`. If method returns true - you can safely launch video editor, otherwise exception is raised.
-We recommend to follow [this guide](../README.md#Getting-Started) to finish the setup.
+To verify that token is ready, you can use `VideoEditorLicenceUtils.isSupportsVeSdk` before launch `VideoCreationActivity`. If method returns true - you can safely launch video editor, otherwise exception is raised.
+We recommend to follow [this guide](../README.md#integration) to finish the setup.
