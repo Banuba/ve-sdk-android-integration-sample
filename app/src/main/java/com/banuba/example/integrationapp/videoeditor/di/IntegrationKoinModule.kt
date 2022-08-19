@@ -1,14 +1,12 @@
 package com.banuba.example.integrationapp.videoeditor.di
 
+import android.app.Activity
 import androidx.fragment.app.Fragment
 import com.banuba.android.sdk.ve.timeline.`object`.data.ObjectEditorConfig
+import com.banuba.example.integrationapp.MainActivity
 import com.banuba.example.integrationapp.videoeditor.export.ExportVideoResolutionProvider
 import com.banuba.example.integrationapp.videoeditor.export.IntegrationAppExportParamsProvider
-import com.banuba.example.integrationapp.videoeditor.impl.IntegrationAppColorFilterOrderProvider
-import com.banuba.example.integrationapp.videoeditor.impl.IntegrationAppMaskOrderProvider
-import com.banuba.example.integrationapp.videoeditor.impl.IntegrationAppWatermarkProvider
-import com.banuba.example.integrationapp.videoeditor.impl.IntegrationCameraTimerUpdateProvider
-import com.banuba.example.integrationapp.videoeditor.impl.IntegrationTimerStateProvider
+import com.banuba.example.integrationapp.videoeditor.impl.*
 import com.banuba.sdk.arcloud.data.source.ArEffectsRepositoryProvider
 import com.banuba.sdk.audiobrowser.domain.AudioBrowserMusicProvider
 import com.banuba.sdk.cameraui.data.CameraTimerActionProvider
@@ -25,10 +23,12 @@ import com.banuba.sdk.core.domain.DraftConfig
 import com.banuba.sdk.core.ui.ContentFeatureProvider
 import com.banuba.sdk.export.data.ExportFlowManager
 import com.banuba.sdk.export.data.ExportParamsProvider
+import com.banuba.sdk.export.data.ExportResult
 import com.banuba.sdk.export.data.ForegroundExportFlowManager
 import com.banuba.sdk.ve.effects.watermark.WatermarkProvider
 import com.banuba.sdk.veui.data.EditorConfig
 import com.banuba.sdk.veui.domain.CoverProvider
+import com.banuba.sdk.veui.ui.sharing.SharingActionHandler
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
@@ -137,6 +137,22 @@ class IntegrationKoinModule {
                 audioPlayer = get(),
                 context = get()
             )
+        }
+
+        single<SharingActionHandler> {
+            object : SharingActionHandler {
+                override fun onBack(activity: Activity) {
+                    if (activity is MainActivity) {
+                        activity.hideSharingScreen()
+                    }
+                }
+
+                override fun onClose(activity: Activity, result: ExportResult.Success?) {
+                    if (activity is MainActivity) {
+                        activity.hideSharingScreen()
+                    }
+                }
+            }
         }
     }
 }
