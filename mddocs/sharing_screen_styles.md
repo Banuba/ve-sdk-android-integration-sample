@@ -1,7 +1,5 @@
 # Sharing screen
 
-**Feature is available since 1.24.2**
-
 ## Overview
 
 Sharing screen is an **optional** screen which can be added to the application in order to add Facebook sharing flow just after video export.
