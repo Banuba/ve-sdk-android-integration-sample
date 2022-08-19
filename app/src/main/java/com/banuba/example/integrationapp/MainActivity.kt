@@ -10,11 +10,15 @@ import androidx.appcompat.app.AppCompatActivity
 import com.banuba.example.integrationapp.videoeditor.IntegrationAppExportVideoContract
 import com.banuba.sdk.cameraui.data.PipConfig
 import com.banuba.sdk.core.ext.obtainReadFileDescriptor
+import com.banuba.sdk.core.ui.ext.replaceFragment
 import com.banuba.sdk.core.ui.ext.visible
+import com.banuba.sdk.core.ui.ext.visibleOrGone
 import com.banuba.sdk.token.storage.provider.TokenProvider
 import com.banuba.sdk.ve.flow.VideoCreationActivity
 import com.banuba.sdk.ve.processing.SlideShowManager
 import com.banuba.sdk.ve.processing.SlideShowTask
+import com.banuba.sdk.veui.ext.popFragmentByTag
+import com.banuba.sdk.veui.ui.sharing.VideoSharingFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.core.qualifier.named
 import org.koin.java.KoinJavaComponent.inject
@@ -25,6 +29,12 @@ class MainActivity : AppCompatActivity() {
     companion object {
         private const val TOKEN_URL =
             "https://github.com/Banuba/ve-sdk-android-integration-sample#token"
+
+        /**
+         * Place here Facebook app id which is used to share exported video
+         * across the facebook apps (fb reels, fb stories, instagram stories)
+         */
+        private const val FB_APP_ID = ""
     }
 
     private val tokenProvider: TokenProvider by inject(
@@ -36,6 +46,16 @@ class MainActivity : AppCompatActivity() {
         registerForActivityResult(IntegrationAppExportVideoContract()) { exportResult ->
             exportResult?.let {
                 //handle ExportResult object
+                if (FB_APP_ID.isNotEmpty()) {
+                    val sharingScreen = VideoSharingFragment.newInstance(it, FB_APP_ID)
+                    toggleSharingScreen(visible = true)
+                    supportFragmentManager.replaceFragment(
+                        fragment = sharingScreen,
+                        tag = VideoSharingFragment.TAG,
+                        containerId = R.id.shareScreenContainer,
+                        addToBackStack = true
+                    )
+                }
             }
         }
 
@@ -148,6 +168,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun hideSharingScreen() {
+        if (supportFragmentManager.popFragmentByTag(VideoSharingFragment.TAG)) {
+            toggleSharingScreen(visible = false)
+        }
+    }
+
     private fun openVideoEditor(pipVideo: Uri = Uri.EMPTY) {
         val videoCreationIntent = VideoCreationActivity.startFromCamera(
             context = this,
@@ -176,5 +202,13 @@ class MainActivity : AppCompatActivity() {
                 videos.toTypedArray()
             )
         )
+    }
+
+    private fun toggleSharingScreen(visible: Boolean) {
+        shareScreenContainer.visibleOrGone(visible)
+        btnVideoEditor.visibleOrGone(!visible)
+        btnPiPVideoEditor.visibleOrGone(!visible)
+        btnDraftsVideoEditor.visibleOrGone(!visible)
+        btnSlideShowVideoEditor.visibleOrGone(!visible)
     }
 }

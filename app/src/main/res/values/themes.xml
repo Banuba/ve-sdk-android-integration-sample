@@ -1,11 +1,18 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme -->
     <style name="Theme.IntegrationApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <item name="colorPrimary">@color/egg_blue</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorSecondary">@color/violet_red</item>
         <item name="colorOnSecondary">@color/black</item>
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
+
+        <!-- Sharing screen attributes -->
+        <item name="video_sharing_background">@color/shark</item>
+        <item name="videoSharingCloseButtonStyle">@style/VideoSharingCloseButtonStyle</item>
+        <item name="videoSharingTitleTextStyle">@style/VideoSharingTitleTextStyle</item>
+        <item name="videoSharingSubTitleTextAppearance">@style/VideoSharingSubTitleTextAppearance
+        </item>
     </style>
 
     <!-- To customize video editor according to your app style you should
@@ -758,7 +765,7 @@
     </style>
 
     <style name="CustomEditorTrimButtonStyle" parent="EditorTrimButtonStyle">
-        <item name="descriptionPosition">left</item>
+        <item name="descriptionPosition">start</item>
         <item name="descriptionSize">16sp</item>
         <item name="descriptionColor">@color/white</item>
         <item name="descriptionMarginEnd">12dp</item>
@@ -902,7 +909,7 @@
     <style name="CustomTrimmerTimelineActionImageStyle" parent="TrimmerTimelineActionImageStyle" />
 
     <style name="CustomTrimmerTimelineActionTextStyle" parent="TrimmerTimelineActionTextStyle">
-        <item name="android:textColor">@color/egg_blue</item>
+        <item name="android:textColor">@color/color_selector_trimmer_action</item>
     </style>
 
     <style name="CustomTrimmerParentStyle" parent="TrimmerParentStyle" />
