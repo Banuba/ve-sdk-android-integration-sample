@@ -46,29 +46,28 @@ object CustomRemoteTokenMapper : RemoteTokenMapper {
 Configure dependencies in DI layer.
 
 ```kotlin
-class VideoEditorKoinModule : FlowEditorModule() {
+class VideoEditorKoinModule {
 
+    val module = module {
     ...
+        single {
+            TokenType.REMOTE
+        }
 
-    val remoteTokenUrl: BeanDefinition<String> =
-        single(named("remoteTokenUrl"), override = true) {
+        single(named("remoteTokenUrl")) {
             "http://<remote_server_url>"
         }
 
-    val remoteTokenRetrofitClass: BeanDefinition<*> =
-        single(named("remoteTokenRetrofitClass"), override = true) {
+        single<Class<*>>(named("remoteTokenRetrofitClass")) {
             CustomRemoteTokenApi::class.java
         }
 
-    val remoteTokenMapper: BeanDefinition<RemoteTokenMapper> =
-        single(named("remoteTokenMapper"), override = true) {
+        single<RemoteTokenMapper>(named("remoteTokenMapper")) {
             CustomRemoteTokenMapper
         }
-
-    val customTokenProvider: BeanDefinition<TokenProvider> =
-        single(named("banubaTokenProvider"), override = true, createdAtStart = true) {
-            get(named("remoteTokenProvider"))
-        }
+    ...
+    }
+    ...
 }
 ```
 
@@ -83,5 +82,5 @@ If you use [ResponseBody](https://square.github.io/okhttp/4.x/okhttp/okhttp3/-re
 Currently used ```okHttpVersion``` in the AI Video Editor SDK you can find on [all used dependencies](all_dependencies.md).
 
 ### Note:
-To verify that token is ready, you can use `VideoEditorUtils.isAvailable` before launch `VideoCreationActivity`. If method returns true - you can safely launch video editor, otherwise exception is raised.
-We recommend to follow [this guide](../README.md#Getting-Started) to finish the setup.
+To verify that token is ready, you can use `VideoEditorLicenceUtils.isSupportsVeSdk` before launch `VideoCreationActivity`. If method returns true - you can safely launch video editor, otherwise exception is raised.
+We recommend to follow [this guide](../README.md#integration) to finish the setup.

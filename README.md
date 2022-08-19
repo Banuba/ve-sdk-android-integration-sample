@@ -505,14 +505,14 @@ The Video Editor has multiple entry points. Please check out [guide](mddocs/laun
 
 The SDK is protected by the token so its presence is a vital part of Video Editor launch. To check if the SDK is ready to use you may use the following property:
 ```kotlin
-VideoEditorUtils.isAvailable
+VideoEditorLicenceUtils.isSupportsVeSdk
 ```
 
-Also you can check token expiration with help of
+Also you can check token expiration with help of:
 ```kotlin
-VideoEditorUtils.isExpired
+EditorLicenseManager.isTokenExpired()
 ```
-property. See [FAQ page](mddocs/faq.md#10-how-does-video-editor-work-when-token-expires) to get more details about token expiration.
+property. See [FAQ page](mddocs/faq.md#how-does-video-editor-work-when-token-expires) to get more details about token expiration.
 
 There are a few devices, that doesn't support Video Editor. To check you may use the following property:
 ```kotlin
