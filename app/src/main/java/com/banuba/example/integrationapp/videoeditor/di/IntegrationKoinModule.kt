@@ -1,6 +1,7 @@
 package com.banuba.example.integrationapp.videoeditor.di
 
 import android.app.Activity
+import android.util.Size
 import androidx.fragment.app.Fragment
 import com.banuba.android.sdk.ve.timeline.`object`.data.ObjectEditorConfig
 import com.banuba.example.integrationapp.MainActivity
@@ -12,6 +13,8 @@ import com.banuba.sdk.audiobrowser.domain.AudioBrowserMusicProvider
 import com.banuba.sdk.cameraui.data.CameraTimerActionProvider
 import com.banuba.sdk.cameraui.data.CameraTimerStateProvider
 import com.banuba.sdk.cameraui.data.CameraTimerUpdateProvider
+import com.banuba.sdk.cameraui.data.EditorPipLayoutSettings
+import com.banuba.sdk.cameraui.data.PipLayoutProvider
 import com.banuba.sdk.cameraui.domain.HandsFreeTimerActionProvider
 import com.banuba.sdk.core.AspectRatio
 import com.banuba.sdk.core.HardwareClassProvider
@@ -29,6 +32,7 @@ import com.banuba.sdk.ve.effects.watermark.WatermarkProvider
 import com.banuba.sdk.veui.data.EditorConfig
 import com.banuba.sdk.veui.domain.CoverProvider
 import com.banuba.sdk.veui.ui.sharing.SharingActionHandler
+import com.banuba.sdk.veui.ui.trimmer.TrimmerActionsProvider
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
@@ -115,7 +119,16 @@ class IntegrationKoinModule {
 
         single<EditorConfig> {
             EditorConfig(
-                minTotalVideoDurationMs = 1500
+                minTotalVideoDurationMs = 1500,
+
+                // configs below will hide all icons on the editor screen
+                editorSupportsTimeEffects = false,
+                editorSupportsVisualEffects = false,
+                editorBanubaColorEffectsAssetsPath = null,
+                supportsTextOnVideo = false,
+//                editorSupportsMaskEffects = false, // will be available in version 2.25.0
+                stickersApiKey = "",
+                editorSupportsMusicMixer = false,
             )
         }
 
@@ -151,6 +164,23 @@ class IntegrationKoinModule {
                     if (activity is MainActivity) {
                         activity.hideSharingScreen()
                     }
+                }
+            }
+        }
+
+        single<TrimmerActionsProvider> {
+            IntegrationTrimmerActionsProvider()
+        }
+
+        single<PipLayoutProvider> {
+            object : PipLayoutProvider {
+                override fun provide(
+                    insetsOffset: Int,
+                    screenSize: Size
+                ): List<EditorPipLayoutSettings> {
+                    return listOf(
+                        EditorPipLayoutSettings.LeftRight()
+                    )
                 }
             }
         }
