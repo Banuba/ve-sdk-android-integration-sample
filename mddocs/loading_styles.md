@@ -27,7 +27,7 @@ NOTE: To change just a single parameter (i.e. background or textSize), inherit y
 
 ![img](screenshots/loading1.png)
 
-**You should not setup text directly in TextView styles for title and description** because the loading screen is used in different cases (for uploading and export) and the static text may not be siutable for both situation and will be confusing.
+**You should not setup text directly in TextView styles for title and description** because the loading screen is used in different cases (for uploading and export) and the static text may not be suitable for both situation and will be confusing.
 
 To localize or to change the text displayed on the title and on the description you can override the following string resources:
 
@@ -49,7 +49,7 @@ If you want to provide your own loading screen you should follow the next steps:
                 doOnCancel: () -> Unit = {}
             )
 
-            fun hide()
+            fun hide(fragmentManager: FragmentManager)
 
             fun publishProgress(@IntRange(from = 0, to = 100) progress: Int)
     }
