@@ -34,4 +34,4 @@
 | org.jetbrains.kotlin:kotlin-reflect | 1.6.20 |
 | org.jetbrains.kotlinx:kotlinx-coroutines-android | 1.6.0 |
 | org.jetbrains.kotlinx:kotlinx-coroutines-core | 1.6.0 |
-| pl.droidsonroids.gif:android-gif-drawable | 1.2.24 |
+| com.google.oboe:oboe | 1.6.1 |

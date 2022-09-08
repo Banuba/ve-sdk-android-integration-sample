@@ -3,7 +3,6 @@ package com.banuba.example.integrationapp
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
-import android.util.Pair
 import android.util.Size
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -15,8 +14,9 @@ import com.banuba.sdk.core.ui.ext.visible
 import com.banuba.sdk.core.ui.ext.visibleOrGone
 import com.banuba.sdk.token.storage.provider.TokenProvider
 import com.banuba.sdk.ve.flow.VideoCreationActivity
-import com.banuba.sdk.ve.processing.SlideShowManager
-import com.banuba.sdk.ve.processing.SlideShowTask
+import com.banuba.sdk.ve.slideshow.SlideShowScaleMode
+import com.banuba.sdk.ve.slideshow.SlideShowSource
+import com.banuba.sdk.ve.slideshow.SlideShowTask
 import com.banuba.sdk.veui.ext.popFragmentByTag
 import com.banuba.sdk.veui.ui.sharing.VideoSharingFragment
 import kotlinx.android.synthetic.main.activity_main.*
@@ -106,15 +106,20 @@ class MainActivity : AppCompatActivity() {
     private fun buildSlideshowFromFile(source: Uri, folder: File): Uri {
         val slideshowFromFile = File(folder, "slideshowFromFile.mp4").apply { createNewFile() }
         return obtainReadFileDescriptor(source)?.let {
-            val params = SlideShowManager.Params.Builder(
+            val params = SlideShowTask.Params.create(
+                context = this,
                 size = Size(1280, 768),
-                slides = listOf(Pair(it, 3000))
+                destFile = slideshowFromFile,
+                sources = listOf(
+                    SlideShowSource.File(
+                        source = source,
+                        durationMs = 3000
+                    )
+                ),
+                animationEnabled = true,
+                debugEnabled = true,
+                scaleMode = SlideShowScaleMode.SCALE_BALANCED
             )
-                .destFile(slideshowFromFile)
-                .animationEnabled(true)
-                .debugEnabled(true)
-                .scaleMode(SlideShowManager.SlideShowScaleMode.SCALE_BALANCED)
-                .build()
             SlideShowTask.makeVideo(params)
             Uri.fromFile(slideshowFromFile)
         } ?: Uri.EMPTY
@@ -130,14 +135,20 @@ class MainActivity : AppCompatActivity() {
         val bitmap = assets.open("image_sample.jpeg").run {
             BitmapFactory.decodeStream(this)
         }
-        val params = SlideShowManager.Params.Builder(
+        val params = SlideShowTask.Params.create(
+            context = this,
             size = Size(1280, 768),
-            picture = Pair(bitmap, 3000)
+            destFile = slideshowFromBitmap,
+            sources = listOf(
+                SlideShowSource.Picture(
+                    source = bitmap,
+                    durationMs = 3000
+                )
+            ),
+            animationEnabled = true,
+            debugEnabled = false,
+            scaleMode = SlideShowScaleMode.SCALE_BALANCED
         )
-            .destFile(slideshowFromBitmap)
-            .animationEnabled(true)
-            .debugEnabled(false)
-            .build()
         SlideShowTask.makeVideo(params)
         return Uri.fromFile(slideshowFromBitmap)
     }
