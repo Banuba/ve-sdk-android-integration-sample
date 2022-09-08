@@ -230,7 +230,7 @@ To manage the main screens - camera, gallery, trimmer, editor, and export - you 
 
 Once it’s done, you’ll be able to launch the video editor.  
 
-Note the [CustomIntegrationAppTheme](app/src/main/res/values/themes.xml#L14) line in the code. Use this theme for changing icons, colors, and other screen elements to customize the app.
+Note the [CustomIntegrationAppTheme](app/src/main/res/values/themes.xml#L21) line in the code. Use this theme for changing icons, colors, and other screen elements to customize the app.
 
 ### Step 4: Configure DI 
 You can override the behavior of the video editor in your app with DI libraries and tools (we use [Koin](https://insert-koin.io/), for example).  
