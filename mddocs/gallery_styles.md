@@ -6,13 +6,13 @@ There is a "gallery" section in [**EditorConfig**](./config_videoeditor.md#galle
 
 ## Gallery screen styles
 
-- [galleryImageViewStyle](../app/src/main/res/values/themes.xml#L109)
+- [galleryImageViewStyle](../app/src/main/res/values/themes.xml#L116)
 
     style defines the overview of gallery icon on the **camera screen**. By default the last media resource is used as gallery icon drawable. To show the custom icon for gallery the `use_custom_image` attribute should be changed to "true" and the custom drawable should be passed as `android:src` value. If there are no media resource on the device the icon from `icon_empty_gallery` attribute of `CameraOverlayView` style is used (if `use_custom_image` is false). 
 
     ![img](screenshots/gallery4.png)
 
-- [galleryBackButtonStyle](../app/src/main/res/values/themes.xml#L111)
+- [galleryBackButtonStyle](../app/src/main/res/values/themes.xml#L118)
 
     style for the button placed on the top left corner of the screen. This icon has **two states:** if some files are already selected in the gallery and if nothing is selected. Both states have different drawables that are configured into `VideoCreationTheme` [attributes](../app/src/main/res/values/themes.xml#L828):
 
@@ -21,60 +21,60 @@ There is a "gallery" section in [**EditorConfig**](./config_videoeditor.md#galle
 
     ![img](screenshots/gallery5.png)
 
-- [galleryTitleTextStyle](../app/src/main/res/values/themes.xml#L110)
+- [galleryTitleTextStyle](../app/src/main/res/values/themes.xml#L117)
 
     style for the gallery screen title (screen title equals to the selected media album)
 
-- [galleryItemRadioButtonStyle](../app/src/main/res/values/themes.xml#L116)
+- [galleryItemRadioButtonStyle](../app/src/main/res/values/themes.xml#L123)
 
     style for the radio button that is used to define selected resource. It has a bulk of custom attributes to customize internal colors 
-- [galleryItemTextStyle](../app/src/main/res/values/themes.xml#L117)
+- [galleryItemTextStyle](../app/src/main/res/values/themes.xml#L124)
 
     style for the TextView that shows duration for video resources
 
-- [galleryTabLayoutStyle](../app/src/main/res/values/themes.xml#L122)
+- [galleryTabLayoutStyle](../app/src/main/res/values/themes.xml#L129)
 
     style for the tab layout used for video and image tabs 
 
-- [galleryTabTextColors](../app/src/main/res/values/themes.xml#L123)
+- [galleryTabTextColors](../app/src/main/res/values/themes.xml#L130)
 
     attribute holds the text colors for different states of tabs
 
-- [galleryNextParentStyle](../app/src/main/res/values/themes.xml#L112)
+- [galleryNextParentStyle](../app/src/main/res/values/themes.xml#L119)
 
     style for the bottom view that containes selection info and next button
 
-- [galleryNextButtonStyle](../app/src/main/res/values/themes.xml#L113)
+- [galleryNextButtonStyle](../app/src/main/res/values/themes.xml#L120)
 
     style for the button that appears during selection to proceed with selected resources
 
-- [gallerySelectionDescriptionStyle](../app/src/main/res/values/themes.xml#L114)
+- [gallerySelectionDescriptionStyle](../app/src/main/res/values/themes.xml#L121)
 
     style for the description of selected files
 
     ![img](screenshots/gallery6.png)
 
-- [galleryEmptyTextStyle](../app/src/main/res/values/themes.xml#L118)
+- [galleryEmptyTextStyle](../app/src/main/res/values/themes.xml#L125)
 
     style for the title and description views that are shown in case of empty gallery
-- [galleryAlbumBlurViewStyle](../app/src/main/res/values/themes.xml#L119)
+- [galleryAlbumBlurViewStyle](../app/src/main/res/values/themes.xml#L126)
 
     style for the custom view that is used to apply blur effect as a background for albums list. It can have custom tint via "overlay_color" attribute
-- [galleryAlbumTitleTextStyle](../app/src/main/res/values/themes.xml#L120)
+- [galleryAlbumTitleTextStyle](../app/src/main/res/values/themes.xml#L127)
 
     style for the album title
-- [galleryAlbumDescTextStyle](../app/src/main/res/values/themes.xml#L121)
+- [galleryAlbumDescTextStyle](../app/src/main/res/values/themes.xml#L128)
 
     style for the album description
 
     ![img](screenshots/gallery7.png)
 
 Besides concrete styles there are a lot of theme attributes that allows to configure gallery screen:
-- [galleryColumnsNumber](../app/src/main/res/values/themes.xml#L125) - setup how much columns the gallery screen shows
-- [gallery_bg_color](../app/src/main/res/values/themes.xml#L126) - background color for gallery screen
-- [gallery_item_corner_radius](../app/src/main/res/values/themes.xml#L127) - setup corner radius for every gallery item
-- [gallery_item_margin](../app/src/main/res/values/themes.xml#L128) - setup margins between items in gallery (applied in all directions)
-- [gallery_album_divider_color](../app/src/main/res/values/themes.xml#L129) - divider color in the albums list
+- [galleryColumnsNumber](../app/src/main/res/values/themes.xml#L132) - setup how much columns the gallery screen shows
+- [gallery_bg_color](../app/src/main/res/values/themes.xml#L133) - background color for gallery screen
+- [gallery_item_corner_radius](../app/src/main/res/values/themes.xml#L134) - setup corner radius for every gallery item
+- [gallery_item_margin](../app/src/main/res/values/themes.xml#L135) - setup margins between items in gallery (applied in all directions)
+- [gallery_album_divider_color](../app/src/main/res/values/themes.xml#L136) - divider color in the albums list
 
 ## String resources
 

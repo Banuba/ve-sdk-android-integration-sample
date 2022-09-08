@@ -3,7 +3,7 @@
 
 - [cameraOverlayStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L17)
 
-    style is intended to **setup action button icons**, customize relative position and appearance of music, gallery, switch camera icons. Icons drawables customized by using custom attributes of this style (for instance, [icon_mask_on](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L205) and [icon_mask_off](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L206) setup drawables for icons related to applied AR mask effect)  
+    style is intended to **setup action button icons**, customize relative position and appearance of music, gallery, switch camera icons. Icons drawables customized by using custom attributes of this style (for instance, [icon_mask_on](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L445) and [icon_mask_off](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L446) setup drawables for icons related to applied AR mask effect)
 - [cameraActionButtonStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L18)
 
     style defines action buttons appearance
@@ -26,7 +26,7 @@
     - setup [cameraMusicTopIconStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L19) - special style that defines appearance of music icon in case it is placed on the top of the camera screen (if the music icon is placed on the left side the cameraActionButtonStyle is applied to it, so this attribute can be omitted). **subtitleAvailable** attribute is responsible for displaying of soundtrack name in two lines. There are two possible values for this attribute:
         - **true** : soundtrack name and artist display in **two** lines
         - **false** : soundtrack name and artist display in **one** lines
-    - in `CameraOverlayStyle` sibling set attribute [icon_music_screen_position](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L264) to `top`
+    - in `CameraOverlayStyle` sibling set attribute [icon_music_screen_position](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L459) to `top`
 
     ![img](screenshots/camera1_music_top.png)
 
