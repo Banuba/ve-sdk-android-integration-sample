@@ -1,9 +1,538 @@
 {
-  "name": "YandexBeautyEffects",
-  "frx": {
-    "type": "3d_anim",
-    "3d_anim": {
-      "type": "vfx"
-    }
-  }
+    "assets": {
+        "attachments": {
+            "ComposerRT_color": {
+                "type": "color"
+            },
+            "EffectRT0_color": {
+                "type": "color"
+            },
+            "EffectRT0_depth": {
+                "clear": [
+                    1.0
+                ],
+                "type": "depth"
+            },
+            "EffectRT1_color": {
+                "type": "color"
+            },
+            "EffectRT1_depth": {
+                "clear": [
+                    1.0
+                ],
+                "type": "depth"
+            },
+            "EffectRT2_color": {
+                "type": "color"
+            },
+            "EffectRT2_depth": {
+                "clear": [
+                    1.0
+                ],
+                "type": "depth"
+            },
+            "finalColorFilterRT_color": {
+                "type": "color"
+            }
+        },
+        "faces": {
+            "face0": {
+                "index": 0,
+                "mesh": "!glfx_FACE"
+            }
+        },
+        "images": {
+            "rbrow_nn": {
+                "type": "segmentation_mask",
+                "active": true,
+                "recognizer_feature_name": "right_brow"
+            },
+            "lbrow_nn": {
+                "type": "segmentation_mask",
+                "active": true,
+                "recognizer_feature_name": "left_brow"
+            },
+            "camera_image": {
+                "algorithm": "camera_composer",
+                "type": "procedural_texture"
+            },
+            "eyelashes.png": {
+                "file_name": "images/eyelashes.png",
+                "type": "texture"
+            },
+            "eyes_low.png": {
+                "file_name": "images/eyes_low.png",
+                "type": "texture"
+            },
+            "lips": {
+                "active": true,
+                "recognizer_feature_name": "lips",
+                "type": "segmentation_mask"
+            },
+            "lips_shining": {
+                "active": true,
+                "recognizer_feature_name": "lips_shining",
+                "type": "segmentation_mask"
+            },
+            "lut.png": {
+                "file_name": "images/lut.png",
+                "type": "texture"
+            },
+            "makeUP_BaseColor.png": {
+                "file_name": "images/makeUP_BaseColor.png",
+                "type": "texture"
+            },
+            "null_image.png": {
+                "file_name": "images/null_image.png",
+                "type": "texture"
+            },
+            "null_lut.png": {
+                "file_name": "images/null_lut.png",
+                "type": "texture"
+            },
+            "preview.png": {
+                "file_name": "images/preview.png",
+                "type": "texture"
+            },
+            "redmask_new_3.png": {
+                "file_name": "images/redmask_new_3.png",
+                "type": "texture"
+            },
+            "soft3.png": {
+                "file_name": "images/soft3.png",
+                "type": "texture"
+            }
+        },
+        "materials": {
+            "$builtin$materials/copy_pixels.-1": {
+                "parameters": {},
+                "samplers": [
+                    {
+                        "image": "camera_image",
+                        "name": "tex_src"
+                    }
+                ],
+                "state": {
+                    "backfaces": true,
+                    "blend": "off",
+                    "colorwrite": true,
+                    "ztest": false,
+                    "zwrite": false
+                }
+            },
+            "$builtin$materials/copy_pixels.0": {
+                "parameters": {},
+                "samplers": [
+                    {
+                        "image": "ComposerRT_color",
+                        "name": "tex_src"
+                    }
+                ],
+                "state": {
+                    "backfaces": true,
+                    "blend": "off",
+                    "colorwrite": true,
+                    "ztest": false,
+                    "zwrite": false
+                }
+            },
+            "$builtin$materials/copy_pixels.1": {
+                "parameters": {},
+                "samplers": [
+                    {
+                        "image": "EffectRT0_color",
+                        "name": "tex_src"
+                    }
+                ],
+                "state": {
+                    "backfaces": true,
+                    "blend": "off",
+                    "colorwrite": true,
+                    "ztest": false,
+                    "zwrite": false
+                }
+            },
+            "shaders/rbrow": {
+                "samplers": [
+                    {
+                        "name": "s_bg",
+                        "image": "EffectRT0_color"
+                    },
+                    {
+                        "name": "s_segmentation_mask",
+                        "image": "rbrow_nn"
+                    }
+                ],
+                "state": {
+                    "blend": "alpha",
+                    "backfaces": true,
+                    "colorwrite": true,
+                    "ztest": false,
+                    "zwrite": false
+                }
+            },
+            "shaders/lbrow": {
+                "samplers": [
+                    {
+                        "name": "s_bg",
+                        "image": "EffectRT0_color"
+                    },
+                    {
+                        "name": "s_segmentation_mask",
+                        "image": "lbrow_nn"
+                    }
+                ],
+                "state": {
+                    "blend": "alpha",
+                    "backfaces": true,
+                    "colorwrite": true,
+                    "ztest": false,
+                    "zwrite": false
+                }
+            },
+            "shaders/Q0": {
+                "built_in_samplers": [],
+                "samplers": [
+                    {
+                        "image": "lips",
+                        "name": "glfx_LIPS_MASK"
+                    },
+                    {
+                        "image": "lips_shining",
+                        "name": "glfx_LIPS_SHINE_MASK"
+                    },
+                    {
+                        "image": "camera_image",
+                        "name": "glfx_BACKGROUND"
+                    }
+                ],
+                "state": {
+                    "backfaces": true,
+                    "blend": "alpha",
+                    "colorwrite": true,
+                    "ztest": false,
+                    "zwrite": false
+                }
+            },
+            "shaders/finalColorFilter.fsh": {
+                "samplers": [
+                    {
+                        "image": "EffectRT1_color",
+                        "name": "s_src"
+                    },
+                    {
+                        "image": "lut.png",
+                        "name": "lookupTexture"
+                    }
+                ],
+                "state": {
+                    "backfaces": true,
+                    "blend": "off",
+                    "colorwrite": true,
+                    "ztest": false,
+                    "zwrite": false
+                }
+            },
+            "shaders/mat_eyelash": {
+                "built_in_samplers": [
+                    "bnb_BONES",
+                    "bnb_MORPH"
+                ],
+                "samplers": [
+                    {
+                        "image": "eyelashes.png",
+                        "name": "tex_diffuse"
+                    },
+                    {
+                        "name": "bnb_BONES"
+                    },
+                    {
+                        "name": "bnb_MORPH"
+                    }
+                ],
+                "state": {
+                    "backfaces": false,
+                    "blend": "alpha",
+                    "colorwrite": true,
+                    "ztest": true,
+                    "zwrite": true
+                }
+            },
+            "shaders/retouch": {
+                "built_in_samplers": [],
+                "lagacy_onface_flag": true,
+                "samplers": [
+                    {
+                        "image": "redmask_new_3.png",
+                        "name": "selection_tex"
+                    },
+                    {
+                        "image": "eyes_low.png",
+                        "name": "lookupTexEyes"
+                    },
+                    {
+                        "image": "makeUP_BaseColor.png",
+                        "name": "tex_normalMakeup"
+                    },
+                    {
+                        "image": "soft3.png",
+                        "name": "tex_softLight"
+                    },
+                    {
+                        "image": "EffectRT0_color",
+                        "name": "glfx_BACKGROUND"
+                    }
+                ],
+                "state": {
+                    "backfaces": false,
+                    "blend": "off",
+                    "colorwrite": true,
+                    "ztest": true,
+                    "zwrite": true
+                }
+            }
+        },
+        "media": {
+            "frx": {
+                "type": "video"
+            }
+        },
+        "meshes": {
+            "!glfx_FACE": "$builtin$meshes/face.stream:0",
+            "camera_surface": "$builtin$meshes/fs_tri",
+            "eyelash.bsm2": "meshes/eyelash.bsm2",
+            "female.bsm2": "meshes/female.bsm2",
+            "quad.bsm2": "meshes/quad.bsm2"
+        },
+        "morphs": {
+            "morph0": {
+                "mesh": "female.bsm2",
+                "type": "mesh"
+            }
+        }
+    },
+    "components": {
+        "!glfx_UPDATE_BG0": {
+            "materials": [
+                "$builtin$materials/copy_pixels.1"
+            ],
+            "mesh": "camera_surface",
+            "type": "mesh_instance"
+        },
+        "ComposerRT_copy": {
+            "materials": [
+                "$builtin$materials/copy_pixels.0"
+            ],
+            "mesh": "camera_surface",
+            "type": "mesh_instance"
+        },
+        "composer_camera_copy": {
+            "materials": [
+                "$builtin$materials/copy_pixels.-1"
+            ],
+            "mesh": "camera_surface",
+            "type": "mesh_instance"
+        },
+        "face_tracker:0": {
+            "face": "face0",
+            "type": "face_tracker"
+        },
+        "finalColorFilter": {
+            "materials": [
+                "shaders/finalColorFilter.fsh"
+            ],
+            "mesh": "camera_surface",
+            "type": "mesh_instance"
+        },
+        "internal_morph__": {
+            "morph": "morph0",
+            "type": "face_morphing"
+        },
+        "brows_surface": {
+            "materials": ["shaders/lbrow", "shaders/rbrow"],
+            "mesh": "quad.bsm2",
+            "type": "mesh_instance"
+        }
+    },
+    "entities": {
+        "!glfx_UPDATE_BG0": {
+            "components": [
+                "!glfx_UPDATE_BG0"
+            ],
+            "layer": "!glfx_UPDATE_BG0"
+        },
+        "ComposerRT_copy_append_to_root__": {
+            "components": [
+                "ComposerRT_copy"
+            ],
+            "layer": "ComposerRT_copy"
+        },
+        "composer_camera_copy": {
+            "components": [
+                "composer_camera_copy"
+            ],
+            "layer": "camera_copy"
+        },
+        "face_tracker0": {
+            "components": [
+                "face_tracker:0"
+            ]
+        },
+        "finalColorFilter_append_to_root__": {
+            "components": "finalColorFilter",
+            "layer": "finalColorFilter"
+        },
+        "internal_morph": {
+            "components": [
+                "internal_morph__"
+            ],
+            "layer": "internal_face_morph__"
+        },
+        "brows_surface": {
+            "components": [
+                "brows_surface"
+            ],
+            "layer": "brows"
+        },
+        "spawn_entity0": {
+            "add_to_legacy_entities_list": true,
+            "layers": [
+
+                "retouch"
+            ]
+        },
+        "spawn_entity10": {
+            "add_to_legacy_entities_list": true,
+            "layers": [
+                "mat_eyelash"
+            ]
+        },
+        "spawn_entity11": {
+            "add_to_legacy_entities_list": true,
+            "layers": [
+                "Q0"
+            ]
+        }
+    },
+    "global_params": [
+        "js_face",
+        "js_color",
+        "params",
+        "nn_params",
+        "brows_color",
+        "face_color",
+        "lips_blur"
+    ],
+    "hierarchy": {
+        "face_tracker0": [
+            "internal_morph",
+            "spawn_entity0",
+            "spawn_entity10",
+            "spawn_entity11",
+            "brows_surface"
+        ],
+        "root": [
+            "face_tracker0",
+            "composer_camera_copy",
+            "ComposerRT_copy_append_to_root__",
+            "!glfx_UPDATE_BG0",
+            "finalColorFilter_append_to_root__"
+        ]
+    },
+    "layers": {
+        "!glfx_UPDATE_BG0": {},
+        "!glfx_UPDATE_BG1": {},
+        "!glfx_UPDATE_BG2": {},
+        "ComposerRT_copy": {},
+        "Q0": {},
+        "camera_copy": {},
+        "composer_pre": {},
+        "finalColorFilter": {},
+        "internal_face_morph__": {},
+        "mat_eyelash": {},
+        "retouch": {},
+        "brows": {}
+    },
+    "main_camera": {
+        "adjust_znear": 150
+    },
+    "render_list": {
+        "default": [
+            {
+                "layer": "camera_copy",
+                "render_target": "ComposerRT"
+            },
+            {
+                "layer": "ComposerRT_copy",
+                "render_target": "EffectRT0"
+            },
+           
+            {
+                "layer": "internal_face_morph__",
+                "render_target": "EffectRT0"
+            },
+            {
+                "layer": "Q0",
+                "render_target": "EffectRT0",
+                "sub_geometries": [
+                    "Q0"
+                ]
+            },
+            {
+                "layer": "!glfx_UPDATE_BG0",
+                "render_target": "EffectRT1"
+            },
+            {
+                "layer": "retouch",
+                "render_target": "EffectRT1",
+                "sub_geometries": [
+                    "retouch"
+                ]
+            },
+            {
+                "layer": "mat_eyelash",
+                "render_target": "EffectRT1",
+                "sub_geometries": [
+                    "mat_eyelash"
+                ]
+            },
+            {
+                "layer": "brows",
+                "render_target": "EffectRT1"
+            },
+            {
+                "layer": "finalColorFilter",
+                "render_target": "finalColorFilterRT"
+            }
+        ]
+    },
+    "render_targets": {
+        "ComposerRT": [
+            "ComposerRT_color"
+        ],
+        "EffectRT0": [
+            "EffectRT0_color",
+            "EffectRT0_color"
+        ],
+        "EffectRT1": [
+            "EffectRT1_color",
+            "EffectRT1_depth"
+
+        ],
+        "EffectRT2": [
+            "EffectRT2_color",
+            "EffectRT2_color"
+
+        ],
+        "finalColorFilterRT": [
+            "finalColorFilterRT_color"
+        ]
+    },
+    "scene": "WhooshBeautyFemale",
+    "script": {
+        "entry_point": "config.js",
+        "type": "legacy"
+    },
+    "support360": false,
+    "type": "mask"
 }
