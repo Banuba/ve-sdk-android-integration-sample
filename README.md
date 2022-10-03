@@ -600,4 +600,4 @@ Output example:
 [1.24.0](https://vebanuba.notion.site/1-24-5b97696e0eae4fbca36b71ac6d8a05be)\
 [1.24.1](https://vebanuba.notion.site/1-24-1-c6a58469dc5140bc95ad4cc78061a332)\
 [1.24.2](https://vebanuba.notion.site/1-24-2-fffb57ad78b246af9a0903be8626967a)\
-[1.25.0](https://vebanuba.notion.site/1-25-0-9240af0c9b694bc596d8326dd38b7c17)
+[1.25.0](https://www.notion.so/vebanuba/1-25-0-9240af0c9b694bc596d8326dd38b7c17)\
