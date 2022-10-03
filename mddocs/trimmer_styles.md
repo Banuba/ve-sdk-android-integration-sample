@@ -1,7 +1,7 @@
 # Banuba AI Video Editor SDK
 ## Trimmer screen styles
 
-- [trimmerStyle](../app/src/main/res/values/themes.xml#L130)
+- [trimmerStyle](../app/src/main/res/values/themes.xml#L144)
 
     style to customize trimmer view with custom attributes. There are a lot of properties can be changed from its default color to left and right pointers drawables
 
@@ -9,11 +9,11 @@
 
     drawables for different trimmer view actions icons
 
-- [trimmerTimelineActionTextStyle](../app/src/main/res/values/themes.xml#L136)
+- [trimmerTimelineActionTextStyle](../app/src/main/res/values/themes.xml#L149)
 
     style to customize trimmer view actions text 
 
-- [timelinePlayerLineStyle](../app/src/main/res/values/themes.xml#L828)
+- [timelinePlayerLineStyle](../app/src/main/res/values/themes.xml#L1016)
 
     style to customize player line style, e.g. player line color
 
@@ -21,45 +21,45 @@
 
     drawable for multi trimmer view border
 
-- [timelineVideoTimeLabelStyle](../app/src/main/res/values/themes.xml#L831)
+- [timelineVideoTimeLabelStyle](../app/src/main/res/values/themes.xml#L878)
 
     style to customize multi trimmer view time label
 
-- [trimmerAspectsButtonStyle](../app/src/main/res/values/themes.xml#L143)
+- [trimmerAspectsButtonStyle](../app/src/main/res/values/themes.xml#L156)
 
     style for the button that opens aspects list
 
-- [timelineAddVideoButtonStyle](../app/src/main/res/values/themes.xml#L827)
+- [timelineAddVideoButtonStyle](../app/src/main/res/values/themes.xml#L874)
 
     style for the button that opens gallery dialog to add video 
 
-- [timelineTimeTotalTextStyle](../app/src/main/res/values/themes.xml#L830)
+- [timelineTimeTotalTextStyle](../app/src/main/res/values/themes.xml#L877)
 
     style to customize the total time text label for the multi trimmer view
 
-- [timelineTimeCurrentTextStyle](../app/src/main/res/values/themes.xml#L829)
+- [timelineTimeCurrentTextStyle](../app/src/main/res/values/themes.xml#L876)
 
     style to customize the current time text label for the multi trimmer view
 
     ![img](screenshots/new_trimmer1.png)
 
-- [trimmer_icon_play](../app/src/main/res/values/themes.xml#L158) and [trimmer_icon_pause](../app/src/main/res/values/themes.xml#L159)
+- [trimmer_icon_play](../app/src/main/res/values/themes.xml#L174) and [trimmer_icon_pause](../app/src/main/res/values/themes.xml#L172)
 
-    attributes for different playback icon states. Visibility of the playback icon itself is defined in [trimmer_play_control_visible](../app/src/main/res/values/themes.xml#L157) attribute
+    attributes for different playback icon states. Visibility of the playback icon itself is defined in [trimmer_play_control_visible](../app/src/main/res/values/themes.xml#L170) attribute
 
-- [trimmerActionCancelButtonStyle](../app/src/main/res/values/themes.xml#L145)
+- [trimmerActionCancelButtonStyle](../app/src/main/res/values/themes.xml#L158)
 
     style for the cancel button
 
-- [trimmerActionDoneButtonStyle](../app/src/main/res/values/themes.xml#L144)
+- [trimmerActionDoneButtonStyle](../app/src/main/res/values/themes.xml#L157)
 
     style for the done button
 
-- [trimmerSingleTrimCurrentTimeTextStyle](../app/src/main/res/values/themes.xml#L141)
+- [trimmerSingleTrimCurrentTimeTextStyle](../app/src/main/res/values/themes.xml#L154)
 
     style to customize the current time text label for the single trimmer view
 
-- [trimmerSingleTrimTotalTimeTextStyle](../app/src/main/res/values/themes.xml#L142)
+- [trimmerSingleTrimTotalTimeTextStyle](../app/src/main/res/values/themes.xml#L155)
 
     style to customize the total time text label for the single trimmer view
 
@@ -67,59 +67,59 @@
     ![img](screenshots/new_trimmer2.png)
 
 
-- [trimmerThumbsItemImageStyle](../app/src/main/res/values/themes.xml#L154)
+- [trimmerThumbsItemImageStyle](../app/src/main/res/values/themes.xml#L167)
 
     style to customize the thumbnail image, especially the background, border and corner radius 
 
-- [trimmerThumbsItemTimeTextStyle](../app/src/main/res/values/themes.xml#L155)
+- [trimmerThumbsItemTimeTextStyle](../app/src/main/res/values/themes.xml#L168)
 
     style to customize the thumbnail time label
 
-- [trimmerThumbsHintTextStyle](../app/src/main/res/values/themes.xml#L152)
+- [trimmerThumbsHintTextStyle](../app/src/main/res/values/themes.xml#L165)
 
     style to customize the thumbnail hint label
 
     ![img](screenshots/new_trimmer3.png)
 
 
-- [trimmerTimelineStyle](../app/src/main/res/values/themes.xml#L131)
+- [trimmerTimelineStyle](../app/src/main/res/values/themes.xml#L145)
 
     style that contains other styles, such as ```timelineAddVideoButtonStyle```, ```timelinePlayerLineStyle```, ```timelineTimeCurrentTextStyle```, ```timelineTimeTotalTextStyle```, ```timelineVideoTimeLabelStyle``` and so on
 
 
-- [trimmerTimelineActionButtonsRecyclerStyle](../app/src/main/res/values/themes.xml#L133)
+- [trimmerTimelineActionButtonsRecyclerStyle](../app/src/main/res/values/themes.xml#L146)
     style for the RecyclerView containing the list of the action buttons
 
-- [trimmerTimelineActionParentStyle](../app/src/main/res/values/themes.xml#L134)
+- [trimmerTimelineActionParentStyle](../app/src/main/res/values/themes.xml#L147)
 
     style to customize the action buttons layout size and margins
 
-- [trimmerTimelineActionImageStyle](../app/src/main/res/values/themes.xml#L135)
+- [trimmerTimelineActionImageStyle](../app/src/main/res/values/themes.xml#L148)
 
     style to customize the action buttons image sizes
 
 
-- [trimmerParentStyle](../app/src/main/res/values/themes.xml#L137)
+- [trimmerParentStyle](../app/src/main/res/values/themes.xml#L150)
 
     style to customize the trimmer video item layout parameters, background, clickable and focusable attributes
 
-- [trimmerVideoContainerStyle](../app/src/main/res/values/themes.xml#L138)
+- [trimmerVideoContainerStyle](../app/src/main/res/values/themes.xml#L151)
 
     style to customize the trimmer video item margins
 
-- [trimmerPlayButtonStyle](../app/src/main/res/values/themes.xml#L139)
+- [trimmerPlayButtonStyle](../app/src/main/res/values/themes.xml#L152)
 
     style to customize the trimmer play button layout parameters and background
 
-- [trimmerContentBackgroundStyle](../app/src/main/res/values/themes.xml#L140)
+- [trimmerContentBackgroundStyle](../app/src/main/res/values/themes.xml#L153)
 
     style to customize the trimmer video item background
 
-- [trimmerThumbsRecyclerViewStyle](../app/src/main/res/values/themes.xml#L151)
+- [trimmerThumbsRecyclerViewStyle](../app/src/main/res/values/themes.xml#L164)
 
     style fot the RecyclerView containing the list of thumbnails
 
-- [trimmerThumbsItemParentStyle](../app/src/main/res/values/themes.xml#L153)
+- [trimmerThumbsItemParentStyle](../app/src/main/res/values/themes.xml#L166)
 
     style to customize the thumbnail item layout parameters, clickable and focusable attributes
 

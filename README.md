@@ -230,7 +230,7 @@ To manage the main screens - camera, gallery, trimmer, editor, and export - you 
 
 Once it’s done, you’ll be able to launch the video editor.  
 
-Note the [CustomIntegrationAppTheme](app/src/main/res/values/themes.xml#L14) line in the code. Use this theme for changing icons, colors, and other screen elements to customize the app.
+Note the [CustomIntegrationAppTheme](app/src/main/res/values/themes.xml#L21) line in the code. Use this theme for changing icons, colors, and other screen elements to customize the app.
 
 ### Step 4: Configure DI 
 You can override the behavior of the video editor in your app with DI libraries and tools (we use [Koin](https://insert-koin.io/), for example).  
@@ -490,6 +490,7 @@ The AI Video Editor SDK includes the following screens:
 1. [Alert Dialogs](mddocs/alert_styles.md)
 1. [Picture in picture](mddocs/pip_configuration.md)
 1. [Drafts screen](mddocs/drafts_styles.md)
+1. [Media progress screen](mddocs/media_progress_styles.md)
 
 ### Configure additional Video Editor SDK features
 
@@ -598,4 +599,5 @@ Output example:
 [1.23.1](https://vebanuba.notion.site/1-23-1-5c2b5918389c40d1b7d868011443cfe5)\
 [1.24.0](https://vebanuba.notion.site/1-24-5b97696e0eae4fbca36b71ac6d8a05be)\
 [1.24.1](https://vebanuba.notion.site/1-24-1-c6a58469dc5140bc95ad4cc78061a332)\
-[1.24.2](https://vebanuba.notion.site/1-24-2-fffb57ad78b246af9a0903be8626967a)
+[1.24.2](https://vebanuba.notion.site/1-24-2-fffb57ad78b246af9a0903be8626967a)\
+[1.25.0](https://www.notion.so/vebanuba/1-25-0-9240af0c9b694bc596d8326dd38b7c17)\

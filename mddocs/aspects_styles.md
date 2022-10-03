@@ -1,33 +1,33 @@
 # Banuba AI Video Editor SDK
 ## Aspects screen styles
 
-- [trimmerAspectsButtonStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L147)
+- [trimmerAspectsButtonStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L156)
 
     style for the button that opens aspects list
 
     ![img](screenshots/aspects1.png)
 
-- [trimmerAspectsDoneButtonStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L148)
+- [trimmerAspectsDoneButtonStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L157)
 
     style for the button that applies selected aspect
 
-- [trimmerAspectsCancelButtonStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L149)
+- [trimmerAspectsCancelButtonStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L158)
 
     style for the button that returns the user to the previous screen
 
-- [trimmerAspectsRecyclerViewStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L150)
+- [trimmerAspectsRecyclerViewStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L159)
 
     style for the view containing all aspects
 
-- [trimmerAspectsItemParentStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L151)
+- [trimmerAspectsItemParentStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L160)
 
     style for the view containing single aspect
 
-- [trimmerAspectsItemImageStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L152)
+- [trimmerAspectsItemImageStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L161)
 
     style for the image for single aspect
 
-- [trimmerAspectsItemDescriptionStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L153)
+- [trimmerAspectsItemDescriptionStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/themes.xml#L162)
 
     style for the description text for single aspect
 

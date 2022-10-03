@@ -437,6 +437,14 @@
         <!-- Record button -->
         <item name="recordButtonStyle">@style/CustomRecordButtonStyle</item>
         <!---->
+
+        <!-- Loading -->
+        <item name="loadingScreenParentViewStyle">@style/CustomLoadingScreenParentViewStyle</item>
+        <item name="loadingScreenTitleStyle">@style/CustomLoadingScreenTitleViewStyle</item>
+        <item name="loadingScreenDescStyle">@style/CustomLoadingScreenDescriptionViewStyle</item>
+        <item name="loadingScreenProgressStyle">@style/CustomLoadingScreenProgressStyle</item>
+        <item name="loadingScreenCancelBtnStyle">@style/CustomLoadingScreenCancelButtonStyle</item>
+        <!---->
     </style>
 
     <!-- CameraOverlayStyle setup icons for Camera screen.
@@ -1326,5 +1334,17 @@
 
     <!-- Record button -->
     <style name="CustomRecordButtonStyle" parent="RecordButtonStyle" />
+    <!---->
+
+    <!-- Loading -->
+    <style name="CustomLoadingScreenParentViewStyle" parent="LoadingScreenParentViewStyle" />
+
+    <style name="CustomLoadingScreenTitleViewStyle" parent="LoadingScreenTitleViewStyle" />
+
+    <style name="CustomLoadingScreenDescriptionViewStyle" parent="LoadingScreenDescriptionViewStyle" />
+
+    <style name="CustomLoadingScreenProgressStyle" parent="LoadingScreenProgressStyle" />
+
+    <style name="CustomLoadingScreenCancelButtonStyle" parent="LoadingScreenCancelButtonStyle" />
     <!---->
 </resources>
