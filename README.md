@@ -490,7 +490,7 @@ The AI Video Editor SDK includes the following screens:
 1. [Alert Dialogs](mddocs/alert_styles.md)
 1. [Picture in picture](mddocs/pip_configuration.md)
 1. [Drafts screen](mddocs/drafts_styles.md)
-1. [Loading Dialog](mddocs/loading_dialog_styles.md)
+1. [Media progress screen](mddocs/media_progress_styles.md)
 
 ### Configure additional Video Editor SDK features
 

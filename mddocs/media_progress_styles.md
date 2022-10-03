@@ -1,9 +1,9 @@
 # Banuba AI Video Editor SDK
-## Loading dialog styles
+## Media progress screen
 
 - [loadingScreenParentViewStyle](../app/src/main/res/values/themes.xml#L442)
 
-    style for the root Constraint layout that represents loading dialog
+    style for the root Constraint layout that represents
 - [loadingScreenTitleStyle](../app/src/main/res/values/themes.xml#L443)
     
     style for the loading dialog title
@@ -17,11 +17,11 @@
 
     style for the loading dialog cancel button
 
-    ![img](screenshots/loading_dialog.png)
+    ![img](screenshots/media_progress_screen.png)
 
 ## String resources
 
-**Pay attention** that some strings on the loading dialog are defined in the styles. To localize these strings firstly create string resources and setup them into styles under `android:text` attribute.
+**Pay attention** that some strings on the screen are defined in the styles. To localize these strings firstly create string resources and setup them into styles under `android:text` attribute.
 
 | ResourceId        |      Value      |   Description |
 | ------------- | :----------- | :------------- |
