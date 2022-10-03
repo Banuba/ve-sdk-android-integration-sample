@@ -122,7 +122,6 @@
 | editor_next | Next | text on the button defined in ```editorNextButtonStyle```. Also used on the [trimmer screen](trimmer_styles.md#L10) for the view defined in ```trimmerNextButtonStyle```
 | editor_done | Done | text on the button defined in ```editorTextDoneStyle```. Also used on the [cover screen](cover_styles.md#L4) for the view defined in ```extendedCoverNextButtonStyle```
 | editor_cancel | Cancel | text that is used on the [trimmer screen](trimmer_styles.md#L50) for the view defined in ```trimmerCancelButtonStyle``` and on the [cover screen](cover_styles.md#L7) for the view defined in ```extendedCoverCancelButtonStyle```
-| editor_exporting | Exporting | text that is shown on the [throbber](alert_styles.md#L25) when export process was started. The text appearance is customized by the ```waitDialogTextStyle```
 | editor_effect_hint | Press and hold | hint that is shown on visual effects editor telling the user how the effect can be applied. The view itself is customized in ```editorApplyEffectHintStyle```
 | editor_effect_undo | Undo | text on the button that allows to remove recently added effect. View is defined in ```editorUndoButtonStyle```
 | font_regular_title | Regular | title of the normal text appearance for the text effects. The view is defined in ```editorTypefaceSwitcherStyle```

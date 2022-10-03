@@ -1,4 +1,12 @@
-uniform sampler2D lookupTexture;
+#include <bnb/glsl.frag>
+#include <bnb/lut.glsl>
+
+BNB_IN(0) vec2 var_uv;
+
+BNB_DECLARE_SAMPLER_2D(0, 1, s_src);
+
+
+BNB_DECLARE_SAMPLER_2D(2, 3, lookupTexture);
 
 vec4 finalColorFilter(vec4 orgColor)
 {
@@ -15,9 +23,15 @@ vec4 finalColorFilter(vec4 orgColor)
     
     float b1w = bValue - mulB.x;
     
-    vec3 sampled1 = texture2D(lookupTexture, lookup.zx).rgb;
-    vec3 sampled2 = texture2D(lookupTexture, lookup.wy).rgb;
+    vec3 sampled1 = BNB_TEXTURE_2D(BNB_SAMPLER_2D(lookupTexture), lookup.zx).rgb;
+    vec3 sampled2 = BNB_TEXTURE_2D(BNB_SAMPLER_2D(lookupTexture), lookup.wy).rgb;
     
     vec3 res = mix(sampled1, sampled2, b1w);
     return vec4(res, orgColor.a);
+}
+
+
+void main()
+{
+    bnb_FragColor = finalColorFilter(BNB_TEXTURE_2D(BNB_SAMPLER_2D(s_src), var_uv));
 }
