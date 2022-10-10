@@ -661,7 +661,9 @@
 
     <style name="CustomPipLayoutItemParentStyle" parent="PipLayoutItemParentStyle" />
 
-    <style name="CustomPipLayoutItemImageStyle" parent="PipLayoutItemImageStyle" />
+    <style name="CustomPipLayoutItemImageStyle" parent="PipLayoutItemImageStyle" >
+        <item name="bordered_image_border_drawable">@drawable/bg_pip_icon_border</item>
+    </style>
 
     <style name="CustomPipLayoutItemTextStyle" parent="PipLayoutItemTextStyle" />
 
