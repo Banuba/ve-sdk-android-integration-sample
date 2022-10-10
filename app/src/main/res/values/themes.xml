@@ -374,6 +374,12 @@
         </item>
         <!---->
 
+        <!-- Reset dialog -->
+        <item name="resetDialogStartOverBtnStyle">@style/CustomResetDialogStartOverBtnStyle</item>
+        <item name="resetDialogResetBtnStyle">@style/CustomResetDialogResetBtnStyle</item>
+        <item name="resetDialogCancelBtnStyle">@style/CustomResetDialogCancelBtnStyle</item>
+        <!---->
+
         <!--Hands free-->
         <item name="handsFreeBottomSheetStyle">@style/CustomHandsFreeBottomSheetStyle</item>
         <item name="handsFreeTimerPickerStyle">@style/CustomHandsFreeTimerPickerStyle</item>
@@ -1348,5 +1354,17 @@
     <style name="CustomLoadingScreenProgressStyle" parent="LoadingScreenProgressStyle" />
 
     <style name="CustomLoadingScreenCancelButtonStyle" parent="LoadingScreenCancelButtonStyle" />
+    <!---->
+
+    <!-- Reset dialog -->
+    <style name="CustomResetDialogStartOverBtnStyle" parent="ResetDialogStartOverBtnStyle" >
+        <item name="android:background">@color/egg_blue</item>
+    </style>
+    <style name="CustomResetDialogResetBtnStyle" parent="ResetDialogResetBtnStyle" >
+        <item name="android:background">@color/violet_red</item>
+    </style>
+    <style name="CustomResetDialogCancelBtnStyle" parent="ResetDialogCancelBtnStyle" >
+        <item name="android:background">@color/violet_red_20</item>
+    </style>
     <!---->
 </resources>
