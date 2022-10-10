@@ -482,8 +482,8 @@
         <item name="icon_color_on">@drawable/ic_filters_on</item>
         <item name="icon_color_off">@drawable/ic_filters</item>
 
-        <item name="icon_mute_mic_on">@drawable/ic_mic</item>
-        <item name="icon_mute_mic_off">@drawable/ic_mic_off</item>
+        <item name="icon_mute_mic_on">@drawable/ic_mute</item>
+        <item name="icon_mute_mic_off">@drawable/ic_unmute</item>
 
         <item name="icon_recording_speed_x0_5">@drawable/ic_recording_speed_x0_5</item>
         <item name="icon_recording_speed_x1">@drawable/ic_recording_speed_x1</item>
