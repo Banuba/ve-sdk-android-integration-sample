@@ -16,6 +16,14 @@ function setBgVideo(path){
 
 }
 
+function setBgTextureByFd(fd){
+    Background.textureImageByFd(fd);
+}
+
+function setBgVideoByFd(fd){
+    Background.textureVideoByFd(fd, false, true);
+}
+
 function rotateBg(angle){
     Background.rotation(angle);
 }
