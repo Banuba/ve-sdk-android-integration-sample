@@ -1,5 +1,33 @@
 ## Banuba Video Editor SDK on Android
 
+## Releases
+[1.0.15.1](releases/1.0.15.1.md)\
+[1.0.16](releases/1.0.16.md)\
+[1.0.16.1](releases/1.0.16.1.md)\
+[1.0.16.2](releases/1.0.16.2.md)\
+[1.0.16.3](releases/1.0.16.3.md)\
+[1.0.17](releases/1.0.17.md)\
+[1.0.17.1](https://vebanuba.notion.site/1-0-17-1-5a1533ef2cfe48ec85d191f3cc7ae3a5)\
+[1.0.18](https://vebanuba.notion.site/1-0-18-a08aad0fac724c358b78823abbaadc8e)\
+[1.0.18.1](https://www.notion.so/vebanuba/1-0-18-1-ce0a7e6011e74e0488fc8b74d3713965)\
+[1.19.0](https://vebanuba.notion.site/1-19-3c52973c27e54faa874c6e0f6ce8eceb)\
+[1.20.0](https://vebanuba.notion.site/1-20-0e78026eed384b1f98cf556f037ef777)\
+[1.21.0](https://vebanuba.notion.site/1-21-e615d464c62f4f01bbf76953eb0da642)\
+[1.22.0](https://vebanuba.notion.site/1-22-1a07b21041e74d32a3582ca311ecbd48)\
+[1.22.2](https://vebanuba.notion.site/1-22-2-71790ea2448c4292a869627d94c17969)\
+[1.23.0](https://vebanuba.notion.site/1-23-e81b53452ac840e5a25b4e5b3c96839f)\
+[1.23.1](https://vebanuba.notion.site/1-23-1-5c2b5918389c40d1b7d868011443cfe5)\
+[1.24.0](https://vebanuba.notion.site/1-24-5b97696e0eae4fbca36b71ac6d8a05be)\
+[1.24.1](https://vebanuba.notion.site/1-24-1-c6a58469dc5140bc95ad4cc78061a332)\
+[1.24.2](https://vebanuba.notion.site/1-24-2-fffb57ad78b246af9a0903be8626967a)\
+[1.25.0](https://www.notion.so/vebanuba/1-25-0-9240af0c9b694bc596d8326dd38b7c17)\
+[1.25.1](https://www.notion.so/vebanuba/1-25-1-56105d73bcfb4d468a6ce6ea960ab13a)\
+[1.26.0](https://www.notion.so/vebanuba/1-26-0-a13cea95a22940b7bf7ec14ab80cfbcb)\
+[1.26.0.1](https://www.notion.so/vebanuba/1-26-0-1-97c4631d568e4111b2ca3982f141bbcf)\
+[1.26.1](https://www.notion.so/vebanuba/1-26-1-10615b7836ff422bae7ba629894fd300)\
+[1.26.2](https://www.notion.so/vebanuba/1-26-2-49f2bc0c102e498fa0e25e6d067aec67)
+
+## Integration
 - [Requirements](#Requirements)
 - [Dependencies](#Dependencies)
 - [Video Editor SDK size](#Video-Editor-SDK-size)
@@ -560,26 +588,3 @@ Output example:
 ## Third party libraries
 
 [View](3rd_party_licences.md) information about third party libraries
-
-## Migration guides
-
-[1.0.15.1](releases/1.0.15.1.md)\
-[1.0.16](releases/1.0.16.md)\
-[1.0.16.1](releases/1.0.16.1.md)\
-[1.0.16.2](releases/1.0.16.2.md)\
-[1.0.16.3](releases/1.0.16.3.md)\
-[1.0.17](releases/1.0.17.md)\
-[1.0.17.1](https://vebanuba.notion.site/1-0-17-1-5a1533ef2cfe48ec85d191f3cc7ae3a5)\
-[1.0.18](https://vebanuba.notion.site/1-0-18-a08aad0fac724c358b78823abbaadc8e)\
-[1.0.18.1](https://www.notion.so/vebanuba/1-0-18-1-ce0a7e6011e74e0488fc8b74d3713965)\
-[1.19.0](https://vebanuba.notion.site/1-19-3c52973c27e54faa874c6e0f6ce8eceb)\
-[1.20.0](https://vebanuba.notion.site/1-20-0e78026eed384b1f98cf556f037ef777)\
-[1.21.0](https://vebanuba.notion.site/1-21-e615d464c62f4f01bbf76953eb0da642)\
-[1.22.0](https://vebanuba.notion.site/1-22-1a07b21041e74d32a3582ca311ecbd48)\
-[1.22.2](https://vebanuba.notion.site/1-22-2-71790ea2448c4292a869627d94c17969)\
-[1.23.0](https://vebanuba.notion.site/1-23-e81b53452ac840e5a25b4e5b3c96839f)\
-[1.23.1](https://vebanuba.notion.site/1-23-1-5c2b5918389c40d1b7d868011443cfe5)\
-[1.24.0](https://vebanuba.notion.site/1-24-5b97696e0eae4fbca36b71ac6d8a05be)\
-[1.24.1](https://vebanuba.notion.site/1-24-1-c6a58469dc5140bc95ad4cc78061a332)\
-[1.24.2](https://vebanuba.notion.site/1-24-2-fffb57ad78b246af9a0903be8626967a)\
-[1.25.0](https://www.notion.so/vebanuba/1-25-0-9240af0c9b694bc596d8326dd38b7c17)\

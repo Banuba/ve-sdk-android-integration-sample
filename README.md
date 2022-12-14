@@ -29,10 +29,10 @@ Feel free to [contact us](https://www.banuba.com/video-editor-sdk#form) if you h
 ### Start SDK
 :exclamation: __The token **IS REQUIRED** to run sample and an integration in your app.__ 
 
-1. Clone repository
-2. Open the project in IDE
-3. [Add token](app/src/main/res/values/strings.xml#L6)
-4. Run application in IDE
+1. Clone the repository
+2. Open the project in your IDE
+3. [Add your token](app/src/main/res/values/strings.xml#L6)
+4. Run sample application in your IDE
 
 ### Integration guide
 Follow Android [Integration Guide](mddocs/integration.md) to integrate and customize Video Editor SDK into your Android project.
