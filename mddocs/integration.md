@@ -123,7 +123,7 @@ Before you commit to a license, you are free to test all the features of the SDK
 We will get back to you with the trial token.
 You can store the token within the app.
 
-Feel free to [contact us](https://www.banuba.com/video-editor-sdk#form) if you have any questions.
+Feel free to [contact us](https://www.banuba.com/faq/kb-tickets/new) if you have any questions.
 There are three options where to put your token:
 - Inside the app: read [here](app/src/main/res/values/strings.xml#L6).
 - In the Firebase (what will allow your users not to update the app every time the token is updated): [Firebase setup guide](https://firebase.google.com/docs/database/android/start), [SDK configuration](token_on_firebase.md) for Firebase.
