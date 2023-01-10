@@ -16,24 +16,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/infoTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:autoLink="web"
-        android:gravity="center"
-        android:textSize="16sp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnVideoEditor"
-        android:layout_width="wrap_content"
+        android:layout_width="240dp"
         android:layout_height="wrap_content"
-        android:text="Open Video Editor"
+        android:text="Open Video Editor - Default"
+        android:textSize="11sp"
         app:layout_constraintBottom_toTopOf="@+id/btnPiPVideoEditor"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -43,10 +31,11 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnPiPVideoEditor"
-        android:layout_width="wrap_content"
+        android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Open Video Editor with PiP"
+        android:text="Open Video Editor - PiP"
+        android:textSize="11sp"
         app:layout_constraintBottom_toTopOf="@+id/btnDraftsVideoEditor"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -56,10 +45,11 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnDraftsVideoEditor"
-        android:layout_width="wrap_content"
+        android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Open Video Editor with Drafts"
+        android:text="Open Video Editor - Drafts"
+        android:textSize="11sp"
         app:layout_constraintBottom_toTopOf="@+id/btnSlideShowVideoEditor"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -69,14 +59,31 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnSlideShowVideoEditor"
-        android:layout_width="wrap_content"
+        android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Open Video Editor with SlideShow"
+        android:text="Open Video Editor - SlideShow"
+        android:textSize="11sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnDraftsVideoEditor"
         app:layout_constraintVertical_bias="0" />
+
+    <TextView
+        android:id="@+id/licenseStateView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:textColor="@color/violet_red"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
