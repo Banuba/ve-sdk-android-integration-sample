@@ -34,7 +34,6 @@
 - [Supported media formats](#Supported-media-formats)
 - [Camera recording video quality params](#Camera-recording-video-quality-params)
 - [Export video quality params](#Export-video-quality-params)
-- [Token](#Token)
 - [Connecting with AR cloud](#Connecting-with-AR-cloud)
 - [What can you customize?](#What-can-you-customize)
 - [FFmpeg build issue (**Error compressed Native Libs**)](#FFmpeg-build-issue-error-compressed-native-libs)
@@ -117,17 +116,6 @@ See the **default bitrate (kb/s)** for exported video (without audio) in the tab
 | 360p(360 x 640) | 480p(480 x 854) | HD(720 x 1280) | FHD(1080 x 1920) |
 | --------------- | --------------- | -------------- | ---------------- |
 |             1200|             2000|            4000|              6400|
-
-## Token
-Before you commit to a license, you are free to test all the features of the SDK for free. The trial period lasts 14 days. To start it, [send us a message](https://www.banuba.com/video-editor-sdk#form).  
-We will get back to you with the trial token.
-You can store the token within the app.
-
-Feel free to [contact us](https://www.banuba.com/faq/kb-tickets/new) if you have any questions.
-There are three options where to put your token:
-- Inside the app: read [here](app/src/main/res/values/strings.xml#L6).
-- In the Firebase (what will allow your users not to update the app every time the token is updated): [Firebase setup guide](https://firebase.google.com/docs/database/android/start), [SDK configuration](token_on_firebase.md) for Firebase.
-- In the remote server: [SDK configuration](token_on_remote_server.md) for this case.
 
 ## Connecting with AR cloud
 

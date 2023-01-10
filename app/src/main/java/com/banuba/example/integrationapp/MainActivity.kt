@@ -3,6 +3,7 @@ package com.banuba.example.integrationapp
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.util.Size
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -13,7 +14,6 @@ import com.banuba.sdk.core.ext.obtainReadFileDescriptor
 import com.banuba.sdk.core.ui.ext.replaceFragment
 import com.banuba.sdk.core.ui.ext.visible
 import com.banuba.sdk.core.ui.ext.visibleOrGone
-import com.banuba.sdk.token.storage.license.BanubaVideoEditor
 import com.banuba.sdk.ve.flow.VideoCreationActivity
 import com.banuba.sdk.ve.slideshow.SlideShowScaleMode
 import com.banuba.sdk.ve.slideshow.SlideShowSource
@@ -27,9 +27,6 @@ import java.io.File
 class MainActivity : AppCompatActivity() {
 
     companion object {
-        private const val TOKEN_URL =
-            "https://github.com/Banuba/ve-sdk-android-integration-sample#token"
-
         /**
          * Place here Facebook app id which is used to share exported video
          * across the facebook apps (fb reels, fb stories, instagram stories)
@@ -155,20 +152,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        /**
-         * VIDEO EDITOR TOKEN
-         * Please contact Banuba https://www.banuba.com/video-editor-sdk to get this token
-         */
-        val banubaToken = ""
-
-        if (BanubaVideoEditor.initialize(banubaToken)) {
-            // Token is ok
-        } else {
-            // You cannot use Video Editor SDK
-            // Token is truncated or malformed.
+        val videoEditor = (application as IntegrationKotlinApp).videoEditor
+        if (videoEditor == null) {
+            licenseStateView.visible()
+            licenseStateView.text = IntegrationKotlinApp.ERR_SDK_NOT_INITIALIZED
+            return
         }
 
-        BanubaVideoEditor.getLicenseState{ isValid ->
+        // Might take up to 1 sec in the worst case.
+        // Please optimize use of this function in your project to bring the best user experience
+        videoEditor.getLicenseState { isValid ->
             if(isValid) {
                 // ✅ License is active, all good
                 // You can show button that opens Video Editor or
@@ -186,12 +179,15 @@ class MainActivity : AppCompatActivity() {
                     createVideoFromImageRequest.launch("image/*")
                 }
             } else {
-                // ❌ License is either revoked or expired
-                infoTextView.text =
-                    "Video editor requires a token. \nPlease, follow the steps described in our Github: $TOKEN_URL "
-                infoTextView.visible()
+                // ❌ Use of Video Editor is restricted. License is revoked or expired.
+                licenseStateView.text = IntegrationKotlinApp.ERR_LICENSE_REVOKED
+                Log.w(IntegrationKotlinApp.TAG, IntegrationKotlinApp.LICENSE_TOKEN)
+
+                licenseStateView.visible()
                 btnVideoEditor.isEnabled = false
                 btnPiPVideoEditor.isEnabled = false
+                btnDraftsVideoEditor.isEnabled = false
+                btnSlideShowVideoEditor.isEnabled = false
             }
         }
     }

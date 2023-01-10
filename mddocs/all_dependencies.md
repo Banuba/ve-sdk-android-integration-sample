@@ -21,7 +21,6 @@
 | com.github.bumptech.glide:glide | 4.12.0 |
 | com.google.android.exoplayer:exoplayer | 2.16.0 |
 | com.google.android.material:material | 1.5.0 |
-| com.google.firebase:firebase-database-ktx | 20.0.0 |
 | com.squareup.moshi:moshi-kotlin | 1.13.0 |
 | com.squareup.moshi:moshi-kotlin-codegen | 1.13.0 |
 | com.squareup.okhttp3:logging-interceptor | 4.9.1 |

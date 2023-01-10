@@ -31,7 +31,7 @@ Feel free to [contact us](https://www.banuba.com/faq/kb-tickets/new) if you have
 
 1. Clone the repository
 2. Open the project in your IDE
-3. [Add your token](app/src/main/java/com/banuba/example/integrationapp/MainActivity.kt#162)
+3. [Add your token](app/src/main/java/com/banuba/example/integrationapp/IntegrationKotlinApp.kt#26)
 4. Run sample application in your IDE
 
 ### Integration guide
