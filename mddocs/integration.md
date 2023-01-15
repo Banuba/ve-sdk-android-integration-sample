@@ -1,6 +1,6 @@
 ## Banuba Video Editor SDK on Android
 
-## Integration
+## Integration 
 - [Getting started](#Getting-started)
     + [Step 1: GitHub packages](#Step-1-GitHub-packages)
     + [Step 2: Add dependencies](#Step-2-Add-dependencies)
@@ -25,7 +25,6 @@
 - [Banuba Face AR SDK](https://www.banuba.com/facear-sdk/face-filters). **Optional**. *Video Editor SDK disables Face AR for devices with CPU armv7l(8 cores) and armv8(working in 32bit mode)*.
 
 [Please see all used dependencies](all_dependencies.md)
-
 
 ## Getting started 
 :exclamation: __The token **IS REQUIRED** to run sample and an integration in your app.__
@@ -196,7 +195,6 @@ android.bundle.enableUncompressedNativeLibs=false
     android:extractNativeLibs="true"
     ...>
 ```
-
 
 ## Customizations
 ## What can you customize?

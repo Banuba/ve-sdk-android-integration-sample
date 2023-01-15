@@ -3,16 +3,17 @@ package com.banuba.example.integrationapp
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.util.Size
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.banuba.example.integrationapp.videoeditor.IntegrationAppExportVideoContract
 import com.banuba.sdk.cameraui.data.PipConfig
 import com.banuba.sdk.core.ext.obtainReadFileDescriptor
 import com.banuba.sdk.core.ui.ext.replaceFragment
 import com.banuba.sdk.core.ui.ext.visible
 import com.banuba.sdk.core.ui.ext.visibleOrGone
-import com.banuba.sdk.token.storage.provider.TokenProvider
 import com.banuba.sdk.ve.flow.VideoCreationActivity
 import com.banuba.sdk.ve.slideshow.SlideShowScaleMode
 import com.banuba.sdk.ve.slideshow.SlideShowSource
@@ -20,27 +21,18 @@ import com.banuba.sdk.ve.slideshow.SlideShowTask
 import com.banuba.sdk.veui.ext.popFragmentByTag
 import com.banuba.sdk.veui.ui.sharing.VideoSharingFragment
 import kotlinx.android.synthetic.main.activity_main.*
-import org.koin.core.qualifier.named
-import org.koin.java.KoinJavaComponent.inject
+import kotlinx.coroutines.launch
 import java.io.File
 
 class MainActivity : AppCompatActivity() {
 
     companion object {
-        private const val TOKEN_URL =
-            "https://github.com/Banuba/ve-sdk-android-integration-sample#token"
-
         /**
          * Place here Facebook app id which is used to share exported video
          * across the facebook apps (fb reels, fb stories, instagram stories)
          */
         private const val FB_APP_ID = ""
     }
-
-    private val tokenProvider: TokenProvider by inject(
-        TokenProvider::class.java,
-        named("banubaTokenProvider")
-    )
 
     private val createVideoRequest =
         registerForActivityResult(IntegrationAppExportVideoContract()) { exportResult ->
@@ -92,10 +84,13 @@ class MainActivity : AppCompatActivity() {
      *    PipMode, Trimmer, Editor screens.
      */
     private fun createSlideShowVideo(sourceUri: Uri) {
-        val externalSlideshowDir = File(getExternalFilesDir(null), "slideshow").apply { mkdirs() }
-        val slideshowFromFile = buildSlideshowFromFile(sourceUri, externalSlideshowDir)
-        val slideshowFromBitmap = buildSlideshowFromBitmap(externalSlideshowDir)
-        openVideoEditorWithSlideShow(listOf(slideshowFromFile, slideshowFromBitmap))
+        lifecycleScope.launch {
+            val externalSlideshowDir =
+                File(getExternalFilesDir(null), "slideshow").apply { mkdirs() }
+            val slideshowFromFile = buildSlideshowFromFile(sourceUri, externalSlideshowDir)
+            val slideshowFromBitmap = buildSlideshowFromBitmap(externalSlideshowDir)
+            openVideoEditorWithSlideShow(listOf(slideshowFromFile, slideshowFromBitmap))
+        }
     }
 
     /**
@@ -103,7 +98,7 @@ class MainActivity : AppCompatActivity() {
      * from image file Uri. It is just an example.
      * You should create video from within background thread!
      */
-    private fun buildSlideshowFromFile(source: Uri, folder: File): Uri {
+    private suspend fun buildSlideshowFromFile(source: Uri, folder: File): Uri {
         val slideshowFromFile = File(folder, "slideshowFromFile.mp4").apply { createNewFile() }
         return obtainReadFileDescriptor(source)?.let {
             val params = SlideShowTask.Params.create(
@@ -130,7 +125,7 @@ class MainActivity : AppCompatActivity() {
      * from a Bitmap. It is just an example.
      * You should create video from within background thread!
      */
-    private fun buildSlideshowFromBitmap(folder: File): Uri {
+    private suspend fun buildSlideshowFromBitmap(folder: File): Uri {
         val slideshowFromBitmap = File(folder, "slideshowFromBitmap.mp4").apply { createNewFile() }
         val bitmap = assets.open("image_sample.jpeg").run {
             BitmapFactory.decodeStream(this)
@@ -157,25 +152,43 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        btnVideoEditor.setOnClickListener {
-            openVideoEditor()
-        }
-        btnPiPVideoEditor.setOnClickListener {
-            createVideoWithPiPRequest.launch("video/*")
-        }
-        btnDraftsVideoEditor.setOnClickListener {
-            openVideoEditorWithDrafts()
-        }
-        btnSlideShowVideoEditor.setOnClickListener {
-            createVideoFromImageRequest.launch("image/*")
+        val videoEditor = (application as IntegrationKotlinApp).videoEditor
+        if (videoEditor == null) {
+            licenseStateView.visible()
+            licenseStateView.text = IntegrationKotlinApp.ERR_SDK_NOT_INITIALIZED
+            return
         }
 
-        if (tokenProvider.getToken().isEmpty()) {
-            infoTextView.text =
-                "Video editor requires a token. \nPlease, follow the steps described in our Github: $TOKEN_URL "
-            infoTextView.visible()
-            btnVideoEditor.isEnabled = false
-            btnPiPVideoEditor.isEnabled = false
+        // Might take up to 1 sec in the worst case.
+        // Please optimize use of this function in your project to bring the best user experience
+        videoEditor.getLicenseState { isValid ->
+            if(isValid) {
+                // ✅ License is active, all good
+                // You can show button that opens Video Editor or
+                // Start Video Editor right away
+                btnVideoEditor.setOnClickListener {
+                    openVideoEditor()
+                }
+                btnPiPVideoEditor.setOnClickListener {
+                    createVideoWithPiPRequest.launch("video/*")
+                }
+                btnDraftsVideoEditor.setOnClickListener {
+                    openVideoEditorWithDrafts()
+                }
+                btnSlideShowVideoEditor.setOnClickListener {
+                    createVideoFromImageRequest.launch("image/*")
+                }
+            } else {
+                // ❌ Use of Video Editor is restricted. License is revoked or expired.
+                licenseStateView.text = IntegrationKotlinApp.ERR_LICENSE_REVOKED
+                Log.w(IntegrationKotlinApp.TAG, IntegrationKotlinApp.LICENSE_TOKEN)
+
+                licenseStateView.visible()
+                btnVideoEditor.isEnabled = false
+                btnPiPVideoEditor.isEnabled = false
+                btnDraftsVideoEditor.isEnabled = false
+                btnSlideShowVideoEditor.isEnabled = false
+            }
         }
     }
 

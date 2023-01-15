@@ -1,10 +1,6 @@
 <resources>
     <string name="app_name">Banuba VE SDK Integration sample</string>
 
-    <!-- VIDEO EDITOR TOKEN -->
-    <!-- Please contact Banuba https://www.banuba.com/video-editor-sdk to get this token -->
-    <string name="banuba_token"><!-- PUT VIDEO EDITOR TOKEN HERE --></string>
-
     <!-- AUDIO BROWSER MUBERT -->
     <string name="mubert_api_key">PUT YOUR PERSONAL MUBERT KEY</string>
 </resources>
