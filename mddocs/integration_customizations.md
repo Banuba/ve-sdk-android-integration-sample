@@ -1,22 +1,39 @@
-## Customizations
+## Video Editor SDK customizations guide
 
-- [Customization](#Customization)
-    + [Disable Face AR SDK](#Disable-Face-AR-SDK)
-    + [Configure export flow](#Configure-export-flow)
-    + [Configure masks and filters order](#Configure-masks-and-filters-order)
-    + [Configure watermark](#Configure-watermark)
-    + [Configure media content](#Configure-media-content)
-    + [Configure audio content](#Configure-audio-content)
-    + [Configure audio browser](#Configure-audio-browser)
-    + [Configure stickers content](#Configure-stickers-content)
-    + [Configure the record button](#Configure-the-record-button)
-    + [Configure camera timer](#Configure-camera-timer)
-    + [Configure Cover preview screen](#Configure-Cover-preview-screen)
-    + [Configure screens](#Configure-screens)
-    + [Configure additional Video Editor SDK features](#Configure-additional-Video-Editor-SDK-features)
-    + [Check Video Editor SDK availability before opening](#Check-Video-Editor-SDK-availability-before-opening)
-    + [Localization](#Localization)
-    + [Analytics](#Analytics)
+- [Configurations](#Configurations)
+- [Disable Face AR SDK](#Disable-Face-AR-SDK)
+- [Configure export media](integration_export_media.md)
+- [Configure masks and filters order](#Configure-masks-and-filters-order)
+- [Configure watermark](#Configure-watermark)
+- [Configure media content](#Configure-media-content)
+- [Configure audio content](#Configure-audio-content)
+- [Configure audio browser](#Configure-audio-browser)
+- [Configure stickers content](#Configure-stickers-content)
+- [Configure the record button](#Configure-the-record-button)
+- [Configure camera timer](#Configure-camera-timer)
+- [Configure Cover preview screen](#Configure-Cover-preview-screen)
+- [Configure screens](#Configure-screens)
+- [Configure additional Video Editor SDK features](#Configure-additional-Video-Editor-SDK-features)
+- [Check Video Editor SDK availability before opening](#Check-Video-Editor-SDK-availability-before-opening)
+- [Localization](#Localization)
+- [Analytics](#Analytics)
+
+### Configurations
+There are several classes in the Video Editor SDK that allow you to modify its parameters and behavior:
+- [**CameraConfig**](config_camera.md) lets you setup camera specific parameters (min/max recording duration, flashlight, etc.).
+- [**EditorConfig**](config_videoeditor.md) lets you modify editor, trimmer, and gallery screens.
+- [**MusicEditorConfig**](config_music_editor.md) allows you to change the audio editor screen, e.g. the number of timelines or tracks allowed.
+- [**ObjectEditorConfig**](config_object_editor.md) allows you to change text and gif editor screens, e.g. the number of timelines or effects allowed
+- [**MubertApiConfig**](config_mubert_api.md) - optional config class available only in case you plugged in **audio-browser-sdk** module allows to configure music tracks network requests
+
+If you want to customize some of these classes, provide them with just those properties you need to change. For example, to change only max recording duration on the camera screen, provide the following instance:
+```kotlin
+single(override = true) {
+            CameraConfig(
+                maxRecordedTotalVideoDurationMs = 40_000
+            )
+        }
+```
 
 ### Disable Face AR SDK
 You can use AI Video Editor SDK without Face AR SDK. Please follow these changes to make it.
@@ -39,22 +56,6 @@ And also remove dependency ```com.banuba.sdk:effect-player-adapter``` from [app/
     implementation "com.banuba.sdk:ar-cloud-sdk:${banubaSdkVersion}"
 ```
 
-### Configure export flow
-The Video Editor SDK exports recordings as .mp4 files. There are many ways you can customize this flow to better integrate it into your app.
-
-To change export output, start with the ```ExportParamsProvider``` interface. It contains one method - ```provideExportParams()``` that returns ```List<ExportManager.Params>```. Each item on this list relates to one of the videos in the output and their configuration. Please check out [guide](configure_export_params.md) to configure ExportParams. See the example [here](app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportParamsProvider.kt).
-
-The end result would be four files:
-
-- Optimized video file (resolution will be calculated automatically);
-- Same file as above but without a watermark;
-- Low-res version of the watermarked file.
-
-By default, they are placed in the "export" directory of external storage. To change the target folder, you should provide a custom Uri instance named **exportDir** through DI.
-
-Should you choose to export files in the background, you’d do well to change ```ExportNotificationManager```. It lets you change the notifications for any export scenario (started, finished successfully, and failed).
-
-:exclamation: If you set ```shouldClearSessionOnFinish``` in ```ExportFlowManager``` to true, you should clear ```VideoCreationActivity``` from backstack. Otherwise crash will be raised.
 
 ### Configure masks and filters order
 By default, the masks and filters are listed in alphabetical order.
