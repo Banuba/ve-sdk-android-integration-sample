@@ -1,5 +1,43 @@
-# Banuba AI Video Editor SDK
-## Third party libraries
+## Dependencies and Licenses
+
+### Dependencies
+| Name      | Version   |
+| --------- | --------  |
+| androidx.activity:activity-ktx | 1.2.3 |
+| androidx.annotation:annotation | 1.2.0 |
+| androidx.appcompat:appcompat | 1.4.1 |
+| androidx.constraintlayout:constraintlayout | 2.0.4 |
+| androidx.core:core-ktx | 1.7.0 |
+| androidx.exifinterface:exifinterface | 1.3.2 |
+| androidx.fragment:fragment-ktx | 1.3.5 |
+| androidx.lifecycle:lifecycle-livedata-ktx | 2.4.1 |
+| androidx.lifecycle:lifecycle-runtime-ktx | 2.4.1 |
+| androidx.lifecycle:lifecycle-service | 2.4.1 |
+| androidx.lifecycle:lifecycle-viewmodel-ktx | 2.4.1 |
+| androidx.localbroadcastmanager:localbroadcastmanager | 1.0.0 |
+| androidx.recyclerview:recyclerview | 1.2.1 |
+| androidx.room:room-compiler | 2.4.2 |
+| androidx.room:room-ktx | 2.4.2 |
+| androidx.room:room-runtime | 2.4.2 |
+| com.airbnb.android:lottie | 3.5.0 |
+| com.github.bumptech.glide:glide | 4.12.0 |
+| com.google.android.exoplayer:exoplayer | 2.16.0 |
+| com.google.android.material:material | 1.5.0 |
+| com.squareup.moshi:moshi-kotlin | 1.13.0 |
+| com.squareup.moshi:moshi-kotlin-codegen | 1.13.0 |
+| com.squareup.okhttp3:logging-interceptor | 4.9.1 |
+| com.squareup.okhttp3:okhttp | 4.9.1 |
+| com.squareup.retrofit2:converter-moshi | 2.9.0 |
+| com.squareup.retrofit2:retrofit | 2.9.0 |
+| io.insert-koin:koin-android | 3.2.0 |
+| org.apache.commons:commons-math3 | 3.6.1 |
+| org.jetbrains.kotlin:kotlin-stdlib-jdk7 | 1.6.20 |
+| org.jetbrains.kotlin:kotlin-reflect | 1.6.20 |
+| org.jetbrains.kotlinx:kotlinx-coroutines-android | 1.6.0 |
+| org.jetbrains.kotlinx:kotlinx-coroutines-core | 1.6.0 |
+| com.google.oboe:oboe | 1.6.1 |
+
+## 3rd party licenses
 
 ### **GNU Lesser General Public Licence version 3.0 or later**
 
@@ -59,3 +97,4 @@ Redistribution and use in source and binary forms, with or without modification,
 ### Face AR SDK
 
 [View](https://docs.banuba.com/face-ar-sdk/overview/3rd_licenses) third party libraries for Banuba Face AR SDK
+

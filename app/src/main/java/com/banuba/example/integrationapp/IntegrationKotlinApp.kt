@@ -59,9 +59,9 @@ class IntegrationKotlinApp : Application() {
                 TokenStorageKoinModule().module,
                 VeUiSdkKoinModule().module,
                 VeFlowKoinModule().module,
-                IntegrationKoinModule().module,
                 GalleryKoinModule().module,
-                BanubaEffectPlayerKoinModule().module
+                BanubaEffectPlayerKoinModule().module,
+                IntegrationKoinModule().module,
             )
         }
     }
