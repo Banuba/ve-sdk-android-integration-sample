@@ -1,4 +1,4 @@
-package com.banuba.example.integrationapp.videoeditor
+package com.banuba.example.integrationapp
 
 import android.app.Activity
 import android.content.Context
@@ -8,17 +8,14 @@ import com.banuba.sdk.export.data.ExportResult
 import com.banuba.sdk.export.utils.EXTRA_EXPORTED_SUCCESS
 
 /**
- * This class represents parsing result from VideoCreationActivity
- *
- * ExportResult is an object that holds all necessary data related
- * to the video created in VideoCreationActivity
+ * Custom implementation for handling export result from VideoCreationActivity of Banuba Video Editor SDK
  */
 
-class IntegrationAppExportVideoContract: ActivityResultContract<Intent?, ExportResult?>() {
+class CustomExportResultVideoContract: ActivityResultContract<Intent?, ExportResult?>() {
 
     override fun createIntent(context: Context, input: Intent?): Intent {
         check(input != null) {
-            "Can not create Intent to create video"
+            "Can not create Intent for video creation"
         }
         return input
     }

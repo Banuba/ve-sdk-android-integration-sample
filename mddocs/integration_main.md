@@ -4,7 +4,7 @@
 - [Add dependencies](#Add-dependencies)
 - [Update AndroidManifest](#Update-AndroidManifest)
 - [Add resources](#Add-resources)
-- [Configure dependencies](#Configure-dependencies)
+- [Add module](#Add-module)
 - [Start sdk](#Start-sdk)
 - [Customizations](#Customizations)
 - [Troubleshooting](#Troubleshooting)
@@ -13,8 +13,15 @@
 - [Releases](#Releases)
 
 ### Prerequisite
-:exclamation: The license token **IS REQUIRED** to run sample and an integration into your app.  
-Please follow [Installation](../README.md#Installation) guide if the license token is not set.
+:exclamation: The license token **IS REQUIRED** to run Video Editor SDK in your app.  
+Check [Installation](../README.md#Installation) guide if the license token is not set.
+
+To initialize Banuba Video Editor SDK with the license token use 
+``` kotlin
+val videoEditorSDK = BanubaVideoEditor.initialize(LICENSE_TOKEN)
+```
+instance ```videoEditorSDK``` is ```null``` in case if license is incorrect i.e. empty, truncated.
+If ```videoEditorSDK``` is not ```null``` you can proceed.
 
 ### Add dependencies
 GitHub packages is used for getting Android Video Editor SDK modules.
@@ -113,78 +120,93 @@ Please make sure all these resources are provided in your project.
 
 3. [values](../app/src/main/res/values) to use colors and themes. Theme ```VideoCreationTheme``` and its styles use resources in **drawable** and **color** directories.
 
-### Configure dependencies
+### Add module
 Custom behavior of Video Editor SDK in your app is implemented by using dependency injection framework [Koin](https://insert-koin.io/).  
-First, create new class for your configurations.
-``` kotlin
-class CustomVideoEditorModule {
 
-}
-```
-
-Next, add Koin ```module``` declaration 
+First, create new class for implementing integration of Video Editor SDK. 
 ``` kotlin
-class CustomVideoEditorModule {
-  val module = module {
-     ...
-  }
-}
-```
-The following [sample implementation](../app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/IntegrationKoinModule.kt) 
-demonstrates a list of configurations required for the launch.  
-
-Finally, initialize Koin dependencies in [Application class](../app/src/main/java/com/banuba/example/integrationapp/IntegrationKotlinApp.kt#L47) 
-by adding ```CustomVideoEditorModule``` to the list of required modules.
-``` kotlin
-class IntegrationKotlinApp : Application() {
-  override fun onCreate() {
-     ...
-     initVideoEditorDependencies()
-  }
+class VideoEditorModule {
   
-  private fun initVideoEditorDependencies() {
+}
+```
+Next, add new class ```SampleIntegrationKoinModule``` for initializing Video Editor SDK modules and add Koin ```module``` declaration 
+``` kotlin
+class VideoEditorModule {
+   ...
+   private class SampleIntegrationKoinModule {
+      val module = module {
+         ...
+      }
+   } 
+}
+```
+
+Next, add method to initialize Video Editor SDK modules and add ```SampleIntegrationKoinModule``` to the list of modules.
+``` kotlin
+fun initialize(applicationContext: Context) {
         startKoin {
-            androidContext(this@IntegrationKotlinApp)
+            androidContext(applicationContext)
             allowOverride(true)
 
-            // Keep order of modules
+            // pass the customized Koin module that implements required dependencies. Keep order of modules
             modules(
                 VeSdkKoinModule().module,
                 VeExportKoinModule().module,
                 VePlaybackSdkKoinModule().module,
-                AudioBrowserKoinModule().module,
+                AudioBrowserKoinModule().module, // use this module only if you bought it
                 ArCloudKoinModule().module,
                 TokenStorageKoinModule().module,
                 VeUiSdkKoinModule().module,
                 VeFlowKoinModule().module,
                 GalleryKoinModule().module,
                 BanubaEffectPlayerKoinModule().module,
-                CustomVideoEditorModule().module // NEW CREATED MODULE 
+                
+                SampleIntegrationKoinModule().module,
             )
         }
-}
+    }
 ```
-[Check out Java implementation](../app/src/main/java/com/banuba/example/integrationapp/IntegrationJavaApp.java) if your project uses Java.
 
-Please follow [Customizations](#Customizations) to know more about configurations.
+[VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L90) 
+demonstrates a list of dependencies and configurations required for the launch.  
+
+Finally, initialize ```VideoEditorModule```  in [Application class](../app/src/main/java/com/banuba/example/integrationapp/SampleApp.kt#L31).
+``` kotlin
+VideoEditorModule().initialize(this@SampleApp)
+```
 
 ### Configure media export
 Video Editor SDK allows to export a number of media files to meet your requirements.
 Implement ```ExportParamsProvider``` and provide ```List<ExportParams>``` where every ```ExportParams``` is a media file i.e. video or audio -
-[See example](../app/src/main/java/com/banuba/example/integrationapp/videoeditor/export/IntegrationAppExportParamsProvider.kt).
+[See example](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L208).
 
 Use ```ExportParams.Builder.fileName()``` method to provide custom media file name.  
 
 Follow [export media guide](integration_export_media.md) to know more about exporting media content.
 
 ### Start SDK
+Before start Video Editor SDK we strongly recommend checking your license state.
+
+```kotlin
+videoEditorSDK.getLicenseState { isValid ->
+   if (isValid) {
+      // ✅ License is active, all good
+      // Start Video Editor SDK
+   } else {
+      // ❌ Use of Video Editor is restricted. License is revoked or expired.
+   }
+}
+```
+:exclamation: Certain screen will appear if you start Video Editor SDK with revoked or expired license.  
+
+   
 Video Editor SDK supports multiple entry points:
 1. Camera screen
 2. Drafts screen
 3. Trimmer screen
 4. Video editing screen
 
-For example, the following [implementation](../app/src/main/java/com/banuba/example/integrationapp/MainActivity.kt#202) starts Video Editor from camera screen. 
+For example, the following [implementation](../app/src/main/java/com/banuba/example/integrationapp/MainActivity.kt#201) starts Video Editor from camera screen. 
 ```kotlin
  val createVideoRequest =
     registerForActivityResult(IntegrationAppExportVideoContract()) { exportResult ->

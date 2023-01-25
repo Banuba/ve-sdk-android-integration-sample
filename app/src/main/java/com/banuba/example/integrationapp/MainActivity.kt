@@ -8,7 +8,6 @@ import android.util.Size
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.banuba.example.integrationapp.videoeditor.IntegrationAppExportVideoContract
 import com.banuba.sdk.cameraui.data.PipConfig
 import com.banuba.sdk.core.ext.obtainReadFileDescriptor
 import com.banuba.sdk.core.ui.ext.replaceFragment
@@ -35,7 +34,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private val createVideoRequest =
-        registerForActivityResult(IntegrationAppExportVideoContract()) { exportResult ->
+        registerForActivityResult(CustomExportResultVideoContract()) { exportResult ->
             exportResult?.let {
                 //handle ExportResult object
                 if (FB_APP_ID.isNotEmpty()) {
@@ -152,10 +151,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val videoEditor = (application as IntegrationKotlinApp).videoEditor
+        val videoEditor = (application as SampleApp).videoEditor
         if (videoEditor == null) {
             licenseStateView.visible()
-            licenseStateView.text = IntegrationKotlinApp.ERR_SDK_NOT_INITIALIZED
+            licenseStateView.text = SampleApp.ERR_SDK_NOT_INITIALIZED
             return
         }
 
@@ -180,8 +179,8 @@ class MainActivity : AppCompatActivity() {
                 }
             } else {
                 // ❌ Use of Video Editor is restricted. License is revoked or expired.
-                licenseStateView.text = IntegrationKotlinApp.ERR_LICENSE_REVOKED
-                Log.w(IntegrationKotlinApp.TAG, IntegrationKotlinApp.LICENSE_TOKEN)
+                licenseStateView.text = SampleApp.ERR_LICENSE_REVOKED
+                Log.w(SampleApp.TAG, SampleApp.LICENSE_TOKEN)
 
                 licenseStateView.visible()
                 btnVideoEditor.isEnabled = false
