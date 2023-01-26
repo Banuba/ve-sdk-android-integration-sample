@@ -1,5 +1,6 @@
 package com.banuba.example.integrationapp
 
+import android.content.Intent
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
@@ -7,12 +8,14 @@ import android.util.Log
 import android.util.Size
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.FileProvider
 import androidx.lifecycle.lifecycleScope
 import com.banuba.sdk.cameraui.data.PipConfig
 import com.banuba.sdk.core.ext.obtainReadFileDescriptor
 import com.banuba.sdk.core.ui.ext.replaceFragment
 import com.banuba.sdk.core.ui.ext.visible
 import com.banuba.sdk.core.ui.ext.visibleOrGone
+import com.banuba.sdk.export.data.ExportResult
 import com.banuba.sdk.ve.flow.VideoCreationActivity
 import com.banuba.sdk.ve.slideshow.SlideShowScaleMode
 import com.banuba.sdk.ve.slideshow.SlideShowSource
@@ -46,6 +49,23 @@ class MainActivity : AppCompatActivity() {
                         containerId = R.id.shareScreenContainer,
                         addToBackStack = true
                     )
+                } else {
+                    if (exportResult is ExportResult.Success) {
+                        val videoUri = exportResult.videoList.getOrNull(0)
+
+                        videoUri?.let {
+                            val intent = Intent(Intent.ACTION_VIEW).apply {
+                                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                                val uri = FileProvider.getUriForFile(
+                                    applicationContext,
+                                    "$packageName.provider",
+                                    File(videoUri.sourceUri.encodedPath ?: "")
+                                )
+                                setDataAndType(uri, "video/mp4")
+                            }
+                            startActivity(intent)
+                        }
+                    }
                 }
             }
         }
