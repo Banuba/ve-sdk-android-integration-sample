@@ -107,9 +107,8 @@
     }
   ],
   "timeout": "3m",
-  "aliveStatusCodes": [
-    200,
-    206,
-    429
-  ]
+  "retryOn429": true,
+  "retryCount": 10,
+  "fallbackRetryDelay": "60m",
+  "aliveStatusCodes": [200, 206, 429]
 }
