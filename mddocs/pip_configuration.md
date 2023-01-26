@@ -1,7 +1,7 @@
 # Picture in picture
 
 Picture in picture mode is optional for the AI Video Editor SDK and would be disabled if it is not included in your token.
-To Start Video editor in PIP mode pass `pictureInPictureConfig` parameter instead of default value in ```startFromCamera``` method (check out an [**example**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/java/com/banuba/example/integrationapp/MainActivity.kt#L65)):
+To Start Video editor in PIP mode pass `pictureInPictureConfig` parameter instead of default value in ```startFromCamera``` method (check out an [**example**](../app/src/main/java/com/banuba/example/integrationapp/MainActivity.kt#L65)):
 
 ```kotlin
 VideoCreationActivity.startFromCamera(
@@ -16,7 +16,7 @@ VideoCreationActivity.startFromCamera(
 
 ## PIP Configuration
 
-Picture in picture supports four modes: ```Floating```, ```TopBottom```, ```React```, ```LeftRight```. You can customize the order of these modes and which of them will be available. Override ```PipLayoutProvider``` in the [DI](https://github.com/Banuba/ve-sdk-android-integration-sample#Step-4-Configure-DI) layer to achieve this:
+Picture in picture supports four modes: ```Floating```, ```TopBottom```, ```React```, ```LeftRight```. You can customize the order of these modes and which of them will be available. Override ```PipLayoutProvider``` in the ```VideoEditorModule``` to achieve this:
 
 ```kotlin
 override val pipLayoutProvider: BeanDefinition<PipLayoutProvider> = single(override = true) {

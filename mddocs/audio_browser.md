@@ -20,7 +20,7 @@ implementation "com.banuba.sdk:ve-audio-browser-sdk:${current sdk version}"
 
 ### Step 2
 
-Add the Audio Browser Koin module to the video editor module. The video editor Koin module should be configured according to **[Configuring DI](https://github.com/Banuba/ve-sdk-android-integration-sample#configure-di)** guide.
+Add the Audio Browser Koin module to the video editor module.
 
 ```kotlin
 startKoin {
@@ -106,7 +106,7 @@ Additional attributes that do not have appropriate styles are:
 - audioBrowserSubCategoryItemDividerDrawable (drawable is required)
 ```
 
-**Check out an example of audio browser styles customization in our [sample project](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L277).**
+**Check out an example of audio browser styles customization in our [sample project](../app/src/main/res/values/themes.xml#L277).**
 
 ### Step 4 (Optional)
 
@@ -142,7 +142,7 @@ NOTE:  name "mubert_api_key"  is mandatory.
 
 ### Step 2
 
-Customize a [**MubertApiConfig**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/mddocs/config_mubert_api.md) with your specific requirements for the Mubert service.
+Customize a [**MubertApiConfig**](config_mubert_api.md) with your specific requirements for the Mubert service.
 
 ## Localization
 There are a lot of string resources that are used withing audio browser:

@@ -29,7 +29,7 @@ These are the answers to the most popular questions we are asked about the Banub
 ### How do I start/stop recording with a tap?
 By default, the user must hold the “record” button to film and release it to stop filming.   
 
-To change that, simply set the `takePhotoOnTap` property inside [**CameraConfig**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/mddocs/config_camera.md) class to **false**.
+To change that, simply set the `takePhotoOnTap` property inside [**CameraConfig**](config_camera.md) class to **false**.
 
 ### How do I add an AR mask to the app without using the AR cloud?
 If you don’t want to pull the masks from the backend, you can include them in the app itself. 
@@ -42,7 +42,7 @@ Make sure that you include the **preview.png** file in the mask folder. It serve
 
 Slideshow is created either by selecting pictures from gallery or by making a photo on Video Editor camera screen.
 
-Every slide within slideshow can appear with or without animations. This behavior is configured within [**EditorConfig**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/mddocs/config_videoeditor.md#slideshow) class under ```slideshow``` section:
+Every slide within slideshow can appear with or without animations. This behavior is configured within [**EditorConfig**](config_videoeditor.md#slideshow) class under ```slideshow``` section:
 
 To turn off animations just **setup false for both fields**.
 
@@ -73,7 +73,7 @@ data class TrackData(
 
 Color filters are located in the **assets/bnb-resources/luts** directory in the module with the AI Video Editor SDK. To add your own, place the files in this folder and create a drawable resource that will be used as an icon for this particular LUT. The name of the drawable resource must be the same as the graphic file in the filter’s directory.
 
-For example, this is the [lux LUT](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/bnb-resources/luts/lux.png) file, and this is its [drawable resource](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/drawable-hdpi/lux.png).
+For example, this is the [lux LUT](../app/src/main/assets/bnb-resources/luts/lux.png) file, and this is its [drawable resource](../app/src/main/res/drawable-hdpi/lux.png).
 
 ### How do I change the order of LUTs?
 
@@ -86,9 +86,9 @@ class CustomColorFilterOrderProvider : OrderProvider {
 }
 ``` 
 This will return the list of color filters with the required order.
-Note: The name of color filter is a name of an appropriate file located in **assets/bnb-resources/luts** directory. [Example](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/bnb-resources/luts/egypt.png).
+Note: The name of color filter is a name of an appropriate file located in **assets/bnb-resources/luts** directory. [Example](../app/src/main/assets/bnb-resources/luts/egypt.png).
 
-The final step is to pass your custom ```CustomColorFilterOrderProvider``` implementation in the [DI](https://github.com/Banuba/ve-sdk-android-integration-sample#configure-di) to override the default implementation:
+The final step is to pass your custom ```CustomColorFilterOrderProvider``` implementation in the ```VideoEditorModule``` to override the default implementation:
 
 ```kotlin
 override val colorFilterOrderProvider: BeanDefinition<OrderProvider> =
@@ -99,29 +99,29 @@ override val colorFilterOrderProvider: BeanDefinition<OrderProvider> =
 
 ### I want to control visibility of debug info on camera and editor screens
 
-You can control visibility of camera config information and camera preview params(FPS, ISO). Change `showCameraInfoAndPerformance` property in [**CameraConfig**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/mddocs/config_camera.md) class.
+You can control visibility of camera config information and camera preview params(FPS, ISO). Change `showCameraInfoAndPerformance` property in [**CameraConfig**](config_camera.md) class.
 
-You can control visibility of editor config. Change `showEditorConfig` property in  [**EditorConfig**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/mddocs/config_videoeditor.md) class.
+You can control visibility of editor config. Change `showEditorConfig` property in  [**EditorConfig**](config_videoeditor.md) class.
 
 ### I want to customize gallery icon
 
-Gallery icon is represented by AppCompatImageView. Its style placed into `galleryImageViewStyle` attribute of the main theme ([**example**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L104))
+Gallery icon is represented by AppCompatImageView. Its style placed into `galleryImageViewStyle` attribute of the main theme ([**example**](../app/src/main/res/values/themes.xml#L104))
 
 **Drawable resource** of the gallery icon may vary depending on the use case:
- - in case of the very first launch, if the user **did not grant permission** to [read external storage](https://developer.android.com/reference/android/Manifest.permission#READ_EXTERNAL_STORAGE), or if the gallery on the device **is empty**, the drawable resource defined in `icon_empty_gallery` attribute of the `CameraOverlayStyle` ([**example**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L469)) will be used
+ - in case of the very first launch, if the user **did not grant permission** to [read external storage](https://developer.android.com/reference/android/Manifest.permission#READ_EXTERNAL_STORAGE), or if the gallery on the device **is empty**, the drawable resource defined in `icon_empty_gallery` attribute of the `CameraOverlayStyle` ([**example**](../app/src/main/res/values/themes.xml#L469)) will be used
  - in other cases you can select what to show as a gallery icon: 
     -  **the last media file** from the device
     - **custom drawable** resource
 
 ![img](screenshots/faq1.png)
 
-**By default the last media file is used as a drawable**. You have an option to **put background** to the gallery icon by changing `icon_gallery_background` attribute of `CameraOverlayStyle` and you can **add rounded corners** to the gallery icon by changing `icon_gallery_radius` attribute of this style ([**example**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L420)).
+**By default the last media file is used as a drawable**. You have an option to **put background** to the gallery icon by changing `icon_gallery_background` attribute of `CameraOverlayStyle` and you can **add rounded corners** to the gallery icon by changing `icon_gallery_radius` attribute of this style ([**example**](../app/src/main/res/values/themes.xml#L420)).
 
- **To setup custom drawable resource** instead of the last media file you have to put custom style into `galleryImageViewStyle` attribute of the main theme ([**example**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L105)) and set there `use_custom_image` to `true` and put your drawable as `android:src` attribute value
+ **To setup custom drawable resource** instead of the last media file you have to put custom style into `galleryImageViewStyle` attribute of the main theme ([**example**](../app/src/main/res/values/themes.xml#L105)) and set there `use_custom_image` to `true` and put your drawable as `android:src` attribute value
 
 ### How does video editor work when token expires?
 
-[Token](https://github.com/Banuba/ve-sdk-android-integration-sample#token) provided by sales managers has an expiration term to protect Video Editor SDK from malicious access. When the token expires the following happens:
+[License](../README.md#License) provided by sales managers has an expiration term to protect Video Editor SDK from malicious access. When the token expires the following happens:
  - video resolution will be lowered to 360p on camera, after trimmer and after export
  - Banuba watermark is applied to every exported video
 
@@ -345,7 +345,7 @@ To add other text fonts that are used in the editor screen follow the next steps
 
 1. Add font files to the `app/src/main/res/font/` directory;
 
-2. Add fonts names to the [**strings.xml**](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/res/values/strings.xml) resource file:
+2. Add fonts names to the [**strings.xml**](../app/src/main/res/values/strings.xml) resource file:
     ```xml
     <string name="font_1_title" translatable="false">Font 1 Title</string>
     <string name="font_N_title" translatable="false">Font N Title</string>
@@ -372,7 +372,7 @@ To add other text fonts that are used in the editor screen follow the next steps
     </resources>
     ```
 
-4. The final step is to pass your custom `font_resources` id to the `ResourcesTextOnVideoTypefaceProvider` in the [DI](https://github.com/Banuba/ve-sdk-android-integration-sample#configure-di) to override the default implementation:
+4. The final step is to pass your custom `font_resources` id to the `ResourcesTextOnVideoTypefaceProvider` in the ```VideoEditorModule``` to override the default implementation:
 
     ```kotlin
     override val textOnVideoTypefaceProvider: BeanDefinition<TextOnVideoTypefaceProvider> =
@@ -439,7 +439,7 @@ single(named("exportDir"), override = true) {
 
 ### How do I change the duration of the image display in a slideshow?
 
-Use the ```slideShowSourceVideoDurationMs``` parameter in [EditorConfig](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/mddocs/config_videoeditor.md) class:
+Use the ```slideShowSourceVideoDurationMs``` parameter in [EditorConfig](config_videoeditor.md) class:
 
 ```kotlin
 {
@@ -456,7 +456,7 @@ Use the ```slideShowSourceVideoDurationMs``` parameter in [EditorConfig](https:/
 There is no special language switching mechanism in the Video Editor SDK (VE SDK).
 
 Out of the box, the VE SDK includes support for two locales: English (default) and Russian. If you need to support any other locales, you can do it according to the standard Android way. See how [Create locale directories and resource files](https://developer.android.com/training/basics/supporting-devices/languages#CreateDirs) for more details. After adding a new locale resource file into your application with integrated VE SDK, you need to re-define the VE SDK strings keys with new locale string values.
-To do that you need to add all needed string keys in the new locale `strings.xml` file. You can find the main VE SDK string keys you need in the [Configure screens](https://github.com/Banuba/ve-sdk-android-integration-sample#configure-screens) doc page. E.g. string keys of the Editor screen you can find [here](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/mddocs/editor_styles.md#string-resources).
+To do that you need to add all needed string keys in the new locale `strings.xml` file. You can find the main VE SDK string keys you need in the [Configure screens](integration_customizations.md#configure-screens) doc page. E.g. string keys of the Editor screen you can find [here](editor_styles.md#string-resources).
 The newly added locale will be applied after the device language is changed by system settings.
 
 If you need to change language programmatically in your application, see the next links how it can be done:
@@ -466,7 +466,7 @@ If you need to change language programmatically in your application, see the nex
 ### How do I disable the video (FX) effects?
 The allowed video effects are included into the token, but they can be disabled manually by customer.
 
-To do it, pass your custom implementation of the ```EnabledEffectsProvider``` interface in the [DI](https://github.com/Banuba/ve-sdk-android-integration-sample#configure-di) to override the default implementation:
+To do it, pass your custom implementation of the ```EnabledEffectsProvider``` interface in the ```VideoEditorModule```
 ```kotlin
 single(named("fxEffectsProvider"), override = true) {
     EnabledEffectsProvider {
@@ -479,7 +479,7 @@ This will return the list of enabled video effects.
 **Note**: To get all video effects names list use ```DefaultEnabledFxEffectsProvider().provide()``` method.
 
 ### How to integrate custom FFmpeg dependency.
-Check out [step-by-step guide](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/mddocs/ffmpeg_dependency.md) to integrate custom FFmpeg dependency.
+Check out [step-by-step guide](ffmpeg_dependency.md) to integrate custom FFmpeg dependency.
 
 ### How to configure default state of microphone at camera screen?
 If you want to configure default state of microphone at camera screen you can use CameraMuteMicConfig class.

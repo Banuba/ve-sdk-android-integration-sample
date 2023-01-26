@@ -39,11 +39,11 @@ override val cameraTimerActionProvider: BeanDefinition<CameraTimerActionProvider
 ```
 
 ### Step 2
-Customize Hands Free appearance by overriding default [styles](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L1119).
+Customize Hands Free appearance by overriding default [styles](../app/src/main/res/values/themes.xml#L1119).
 
 ## Customization
 
-Hands-Free is customized by [main theme attributes](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L347) like any other Video Editor SDK screens.
+Hands-Free is customized by [main theme attributes](../app/src/main/res/values/themes.xml#L347) like any other Video Editor SDK screens.
 
  - **handsFreeBottomSheetStyle** - style for the background of Hands Free feature
  - **handsFreeTimerPickerStyle** - style for the parent view containing timer options

@@ -11,7 +11,7 @@ All of them are customized by theme attributes described in this file.
 
 ### **Toast**
 
-- [toastStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L274)
+- [toastStyle](../app/src/main/res/values/themes.xml#L274)
 
     style to customize toast messages
 
@@ -19,15 +19,15 @@ All of them are customized by theme attributes described in this file.
 
 ### **Wait dialog**
 
-- [throbberViewStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L35)
+- [throbberViewStyle](../app/src/main/res/values/themes.xml#L35)
 
     style for the circle progress bar. It is allowed to customize gradient colors using custom attribute
 
-- [waitDialogTextStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L36)
+- [waitDialogTextStyle](../app/src/main/res/values/themes.xml#L36)
 
     style for the TextView that shows a description
 
-- [wait_dialog_throbber_bg](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L275)
+- [wait_dialog_throbber_bg](../app/src/main/res/values/themes.xml#L275)
 
     theme attribut that configures the background of circle progress bar within progress dialog
 
@@ -36,13 +36,13 @@ All of them are customized by theme attributes described in this file.
 ### **Info alert**
 Info alerts are messages that are used to show information message to the user (recently they are rationale messages that should be shown before ask the user to grant permissions).
 
-- [permissionsDialogContainerStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L340)
+- [permissionsDialogContainerStyle](../app/src/main/res/values/themes.xml#L340)
     style for the container of info alert
 
-- [permissionsDialogDescriptionStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L341)
+- [permissionsDialogDescriptionStyle](../app/src/main/res/values/themes.xml#L341)
     style for the description text 
 
-- [permissionsDialogActionButtonStyle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L343)
+- [permissionsDialogActionButtonStyle](../app/src/main/res/values/themes.xml#L343)
     style for the single button on the info alert
 
 ![img](screenshots/alert3.png)
@@ -130,7 +130,7 @@ Every alert dialog has its own type within SDK. It allows to **customize descrip
     draft_alert_restore_negative
 
 
-Also there is a possibility to **add custom icon** for every alert dialog type. To setup drawables for this reason they should be passed into custom [theme attributes](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/1e37324dea76304e8e9205d463844ac5c8c199f7/app/src/main/res/values/themes.xml#L43):
+Also there is a possibility to **add custom icon** for every alert dialog type. To setup drawables for this reason they should be passed into custom [theme attributes](../app/src/main/res/values/themes.xml#L43):
 
 - alert_camera_delete_video
 - alert_camera_save

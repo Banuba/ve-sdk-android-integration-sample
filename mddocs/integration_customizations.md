@@ -68,7 +68,7 @@ class CustomMaskOrderProvider : OrderProvider {
 }
 ```
 This will return the list of masks with the required order.
-Note: The name of mask is a name of an appropriate directory located in **assets/bnb-resources/effects** directory or received from AR cloud. [Example](https://github.com/Banuba/ve-sdk-android-integration-sample/tree/main/app/src/main/assets/bnb-resources/effects/Background).
+Note: The name of mask is a name of an appropriate directory located in **assets/bnb-resources/effects** directory or received from AR cloud. [Example](../app/src/main/assets/bnb-resources/effects/Background).
 
 ```kotlin
 class CustomColorFilterOrderProvider : OrderProvider {
@@ -76,9 +76,9 @@ class CustomColorFilterOrderProvider : OrderProvider {
 }
 ```
 This will return the list of color filters with the required order.
-Note: The name of color filter is a name of an appropriate file located in **assets/bnb-resources/luts** directory. [Example](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/src/main/assets/bnb-resources/luts/egypt.png).
+Note: The name of color filter is a name of an appropriate file located in **assets/bnb-resources/luts** directory. [Example](../app/src/main/assets/bnb-resources/luts/egypt.png).
 
-The final step is to pass your custom ```CustomMaskOrderProvider``` and ```CustomColorFilterOrderProvider``` implementation in the [DI](https://github.com/Banuba/ve-sdk-android-integration-sample#configure-di) to override the default implementations:
+The final step is to pass your custom ```CustomMaskOrderProvider``` and ```CustomColorFilterOrderProvider``` implementation in the [DI](#configure-di) to override the default implementations:
 
 ```kotlin
 override val maskOrderProvider: BeanDefinition<OrderProvider> =
@@ -95,7 +95,7 @@ override val colorFilterOrderProvider: BeanDefinition<OrderProvider> =
 Note: pay attention that ```OrderProvider``` should be named "maskOrderProvider" and "colorFilterOrderProvider" for masks and filters, respectively.
 
 ### Configure watermark
-To use a watermark, add the ``` WatermarkProvider``` interface to your app. The image goes into the getWatermarkBitmap method. Once you’re done, rearrange the dependency watermarkProvider in [DI](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/IntegrationKoinModule.kt#L64). See the [example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationAppWatermarkProvider.kt) of adding a watermark here.
+To use a watermark, add the ``` WatermarkProvider``` interface to your app. The image goes into the getWatermarkBitmap method. Once you’re done, rearrange the dependency watermarkProvider in [DI](app/src/main/java/com/banuba/example/integrationapp//IntegrationKoinModule.kt#L64). See the [example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationAppWatermarkProvider.kt) of adding a watermark here.
 
 ### Configure media content
 
@@ -141,18 +141,6 @@ single(override = true) {
 ```
 
 GIPHY doesn't charge for their content. The one thing they do require is attribution. Also, there is no commercial aspect to the current version of the product (no advertisements, etc.) To use it, please, add **"Search GIPHY"** text attribution to the search bar.
-
-### Configure the record button
-
-If you want to use the **default record button** provided by the Video Editor SDK with some color, size and animation customization, follow [this guide](record_button_styles.md).
-
-If you want to fully change the look of the button and the animation on tap, you should provide your **custom record button** implementation. This is how it’s done:
-
-1. Create a [custom view](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/d5f0b5de02a55866a4dbd35ebb4243a36ca87585/app/src/main/java/com/banuba/example/integrationapp/videoeditor/widget/recordbutton/RecordButtonView.kt).
-
-2. Implement ```CameraRecordingAnimationProvider``` interface. Here the view created in step 1 should be provided through method ```provideView()``` within this interface. [Example](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/d5f0b5de02a55866a4dbd35ebb4243a36ca87585/app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationAppRecordingAnimationProvider.kt).
-
-3. Implement ```CameraRecordingAnimationProvider``` in the [DI](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/d5f0b5de02a55866a4dbd35ebb4243a36ca87585/app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/VideoEditorKoinModule.kt#L81).
 
 ### Configure camera timer
 
@@ -230,7 +218,7 @@ VideoEditorUtils.isSupportsVideoEditor
 
 ### Localization
 
-To change any particular text in the Video Editor SDK just provide your custom value for string resource provided in String resources section of [every screen](#Configure-screens) (check out an example of [string resources](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/mddocs/editor_styles.md#string-resources) on editor screen). Keep ResourceId the same and change only related value.
+To change any particular text in the Video Editor SDK just provide your custom value for string resource provided in String resources section of [every screen](#Configure-screens) (check out an example of [string resources](editor_styles.md#string-resources) on editor screen). Keep ResourceId the same and change only related value.
 
 To localize Video Editor SDK follow an [official guilde](https://developer.android.com/guide/topics/resources/localization) and provide string resources for every locale in your app with the same ResourceId and translated values.
 

@@ -132,5 +132,5 @@
 | trimmer_action_delete | Delete | label that is shown under the delete action icon
 | trimmer_action_trim | Trim | label that is shown under the trim action icon
 | trimmer_drag_hint | Drag to swap | hint that is shown to the user when he is long pressing on the video thumbnail in multitrimmer mode. Related TextView is customized in ```trimmerThumbsHintTextStyle```
-| err_trimmer_invalid_duration | Video duration should be between %1$d and %2$d seconds | error message shown as a [toast](alert_styles.md#L11). Here placeholders are values from ```minVideoDuration``` and ```maxVideoDuration``` parameters in [EditorConfig](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/mddocs/config_videoeditor.md) class
+| err_trimmer_invalid_duration | Video duration should be between %1$d and %2$d seconds | error message shown as a [toast](alert_styles.md#L11). Here placeholders are values from ```minVideoDuration``` and ```maxVideoDuration``` parameters in [EditorConfig](config_videoeditor.md) class
 | err_trimmer_internal | Error while making video | error message shown as a [toast](alert_styles.md#L11) if an undefined exception appeared during trimming video
