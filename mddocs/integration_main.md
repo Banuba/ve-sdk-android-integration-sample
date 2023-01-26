@@ -206,7 +206,7 @@ Video Editor SDK supports multiple entry points:
 3. Trimmer screen
 4. Video editing screen
 
-For example, the following [implementation](../app/src/main/java/com/banuba/example/integrationapp/MainActivity.kt#201) starts Video Editor from camera screen. 
+For example, the following [implementation](../app/src/main/java/com/banuba/example/integrationapp/MainActivity.kt#220) starts Video Editor from camera screen.
 ```kotlin
  val createVideoRequest =
     registerForActivityResult(IntegrationAppExportVideoContract()) { exportResult ->
