@@ -39,7 +39,7 @@ override val cameraTimerActionProvider: BeanDefinition<CameraTimerActionProvider
 ```
 
 ### Step 2
-Customize Hands Free appearance by overriding default [styles](../app/src/main/res/values/themes.xml#L1119).
+Customize Hands Free appearance by overriding default [styles](../app/src/main/res/values/themes.xml#L1275).
 
 ## Customization
 

@@ -5,38 +5,38 @@ This screen is used to edit gif (sticker) and text effects.
 
 Almost all views are **the same** as in [Music Editor screen](music_editor_styles.md) and configured using the same theme attributes. The special attributes related to this screen directly:
 
-- [timelineTextViewStyle](../app/src/main/res/values/themes.xml#L236)
+- [timelineTextViewStyle](../app/src/main/res/values/themes.xml#L253)
 
     style for the TextView that represents the text effect on the timeline
 
-- [object_editor_icon_text](../app/src/main/res/values/themes.xml#L237)
+- [object_editor_icon_text](../app/src/main/res/values/themes.xml#L255)
 
     theme attribute for the text effect drawable
 
-- [object_editor_icon_sticker](../app/src/main/res/values/themes.xml#L238)
+- [object_editor_icon_sticker](../app/src/main/res/values/themes.xml#L256)
 
     theme attribute for the sticker effect drawable
 
-- [object_editor_icon_edit](../app/src/main/res/values/themes.xml#L239)
+- [object_editor_icon_edit](../app/src/main/res/values/themes.xml#L257)
 
     theme attribute for the button that opens text editor screen (it is disabled if you try to edit sticker, cause the sticker is only available to delete)
-- [object_editor_icon_delete](../app/src/main/res/values/themes.xml#L240)
+- [object_editor_icon_delete](../app/src/main/res/values/themes.xml#L258)
 
     theme attribute for the button that deletes selected effect
 
     ![img](screenshots/timeline1.png)
 
-- [stickersSearchViewStyle](../app/src/main/res/values/themes.xml#L244)
+- [stickersSearchViewStyle](../app/src/main/res/values/themes.xml#L262)
 
     style for the SearchView while adding sticker effect. A lot of custom attributes are intended to customize search icon, hint color, cursor and other items. 
     <br />GIPHY doesn't charge for their content. The one thing they do require is attribution. Also, there is no commercial aspect to the current version of the product (no advertisements, etc.) We suggest to use **"Search GIPHY"** text as a search hint inside editor_search_hint attribute of this style. 
-- [stickersRetryTitleTextStyle](../app/src/main/res/values/themes.xml#L245)
+- [stickersRetryTitleTextStyle](../app/src/main/res/values/themes.xml#L263)
 
     style for the TextView that is shown in case of absent internet connection appearing during stickers searching
-- [stickersRetryMessageTextStyle](../app/src/main/res/values/themes.xml#L246)
+- [stickersRetryMessageTextStyle](../app/src/main/res/values/themes.xml#L264)
 
     style for the TextView that shows additional information for the user in case of lost network connection
-- [stickersRetryBtnStyle](../app/src/main/res/values/themes.xml#L247)
+- [stickersRetryBtnStyle](../app/src/main/res/values/themes.xml#L265)
 
     style for the button that is used to retry stickers loading
 

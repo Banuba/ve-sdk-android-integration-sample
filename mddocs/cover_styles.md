@@ -1,45 +1,45 @@
 # Banuba AI Video Editor SDK
 ## Cover screen styles
 
-- [extendedCoverParentStyle](../app/src/main/res/values/themes.xml#L250)
+- [extendedCoverParentStyle](../app/src/main/res/values/themes.xml#L268)
 
     style for the root Constraint layout that represents cover screen
-- [extendedCoverNextButtonStyle](../app/src/main/res/values/themes.xml#L251)
+- [extendedCoverNextButtonStyle](../app/src/main/res/values/themes.xml#L269)
     
     style for the button that proceeds the user to the export
-- [extendedCoverCancelButtonStyle](../app/src/main/res/values/themes.xml#L252)
+- [extendedCoverCancelButtonStyle](../app/src/main/res/values/themes.xml#L270)
 
     style for the button that return the user to the editor screen
-- [extendedCoverTitleStyle](../app/src/main/res/values/themes.xml#L254)
+- [extendedCoverTitleStyle](../app/src/main/res/values/themes.xml#L272)
 
     style for the label in the top middle of the screen
-- [extendedCoverDescriptionStyle](../app/src/main/res/values/themes.xml#L255)
+- [extendedCoverDescriptionStyle](../app/src/main/res/values/themes.xml#L273)
 
     style for the hint placed below the preview
 
-- [extendedCoverThumbnailPickerStyle](../app/src/main/res/values/themes.xml#L256)
+- [extendedCoverThumbnailPickerStyle](../app/src/main/res/values/themes.xml#L274)
 
     style for the view that is used to pick a thumbnail as the video cover
 
-- [extendedCoverExternalPhotoChooseStyle](../app/src/main/res/values/themes.xml#L259)
+- [extendedCoverExternalPhotoChooseStyle](../app/src/main/res/values/themes.xml#L277)
 
     style for the text button allowing the user to choose the cover image from the gallery
 
     ![img](screenshots/cover1.png)
 
-- [extendedCoverPreviewParentStyle](../app/src/main/res/values/themes.xml#L262)
+- [extendedCoverPreviewParentStyle](../app/src/main/res/values/themes.xml#L280)
 
     style for the Constraint layout containing the recent cover preview
 
-- [extendedCoverExternalPhotoStyle](../app/src/main/res/values/themes.xml#L264)
+- [extendedCoverExternalPhotoStyle](../app/src/main/res/values/themes.xml#L282)
 
     style for the ImageView that shows the cover image
 
-- [extendedCoverExternalPhotoDeleteBackgroundStyle](../app/src/main/res/values/themes.xml#L266)
+- [extendedCoverExternalPhotoDeleteBackgroundStyle](../app/src/main/res/values/themes.xml#L284)
 
     style for the view at the bottom of the preview that plays a role of the background of "delete" button
 
-- [extendedCoverExternalPhotoDeleteStyle](../app/src/main/res/values/themes.xml#L269)
+- [extendedCoverExternalPhotoDeleteStyle](../app/src/main/res/values/themes.xml#L287)
 
     style for the text button for deletion of the chosen cover image
 

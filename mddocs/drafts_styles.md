@@ -27,45 +27,45 @@ val draftsHelper: DraftsHelper by inject()
 
 ## Drafts screen styles
 
-- [draftsBackButtonStyle](../app/src/main/res/values/themes.xml#L422)
+- [draftsBackButtonStyle](../app/src/main/res/values/themes.xml#L428)
 
     style for the back button on drafts screen
 
-- [draftsTitleStyle](../app/src/main/res/values/themes.xml#L423)
+- [draftsTitleStyle](../app/src/main/res/values/themes.xml#L429)
 
     style for the title of drafts screen
 
-- [draftsRecyclerViewStyle](../app/src/main/res/values/themes.xml#L424)
+- [draftsRecyclerViewStyle](../app/src/main/res/values/themes.xml#L430)
 
     style for the view containing all drafts
 
-- [draftsParentStyle](../app/src/main/res/values/themes.xml#L421)
+- [draftsParentStyle](../app/src/main/res/values/themes.xml#L427)
 
     style for the item representing every draft inside the recycler view container
 
-- [draftItemThumbnailStyle](../app/src/main/res/values/themes.xml#L427)
+- [draftItemThumbnailStyle](../app/src/main/res/values/themes.xml#L433)
 
   style for the draft preview
 
-- [draftItemNameStyle](../app/src/main/res/values/themes.xml#L429)
+- [draftItemNameStyle](../app/src/main/res/values/themes.xml#L435)
 
     style for the name of the draft
 
-- [draftItemDurationStyle](../app/src/main/res/values/themes.xml#L430)
+- [draftItemDurationStyle](../app/src/main/res/values/themes.xml#L436)
 
     style for the duration of the draft
 
-- [draftItemOptionsButtonStyle](../app/src/main/res/values/themes.xml#L428)
+- [draftItemOptionsButtonStyle](../app/src/main/res/values/themes.xml#L434)
 
     style for the button that opens available options for the current draft
 
 ![img](screenshots/drafts3.png)
 
-- [draftOptionsPopupStyle](../app/src/main/res/values/themes.xml#L432)
+- [draftOptionsPopupStyle](../app/src/main/res/values/themes.xml#L438)
 
     style for the options popup of the draft
 
-- [draftOptionsEditButtonStyle](../app/src/main/res/values/themes.xml#L433)
+- [draftOptionsEditButtonStyle](../app/src/main/res/values/themes.xml#L439)
 
     style for the edit button of the options popup of the draft
 

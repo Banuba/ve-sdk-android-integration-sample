@@ -13,7 +13,7 @@
 
     style to customize trimmer view actions text 
 
-- [timelinePlayerLineStyle](../app/src/main/res/values/themes.xml#L1016)
+- [timelinePlayerLineStyle](../app/src/main/res/values/themes.xml#L1037)
 
     style to customize player line style, e.g. player line color
 
@@ -21,7 +21,7 @@
 
     drawable for multi trimmer view border
 
-- [timelineVideoTimeLabelStyle](../app/src/main/res/values/themes.xml#L878)
+- [timelineVideoTimeLabelStyle](../app/src/main/res/values/themes.xml#L899)
 
     style to customize multi trimmer view time label
 
@@ -29,21 +29,21 @@
 
     style for the button that opens aspects list
 
-- [timelineAddVideoButtonStyle](../app/src/main/res/values/themes.xml#L874)
+- [timelineAddVideoButtonStyle](../app/src/main/res/values/themes.xml#L895)
 
     style for the button that opens gallery dialog to add video 
 
-- [timelineTimeTotalTextStyle](../app/src/main/res/values/themes.xml#L877)
+- [timelineTimeTotalTextStyle](../app/src/main/res/values/themes.xml#L898)
 
     style to customize the total time text label for the multi trimmer view
 
-- [timelineTimeCurrentTextStyle](../app/src/main/res/values/themes.xml#L876)
+- [timelineTimeCurrentTextStyle](../app/src/main/res/values/themes.xml#L897)
 
     style to customize the current time text label for the multi trimmer view
 
     ![img](screenshots/new_trimmer1.png)
 
-- [trimmer_icon_play](../app/src/main/res/values/themes.xml#L174) and [trimmer_icon_pause](../app/src/main/res/values/themes.xml#L172)
+- [trimmer_icon_play](../app/src/main/res/values/themes.xml#L171) and [trimmer_icon_pause](../app/src/main/res/values/themes.xml#L172)
 
     attributes for different playback icon states. Visibility of the playback icon itself is defined in [trimmer_play_control_visible](../app/src/main/res/values/themes.xml#L170) attribute
 

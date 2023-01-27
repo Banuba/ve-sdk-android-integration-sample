@@ -1,52 +1,52 @@
 # Banuba AI Video Editor SDK
 ## Camera screen styles  
 
-- [cameraOverlayStyle](../app/src/main/res/values/themes.xml#L17)
+- [cameraOverlayStyle](../app/src/main/res/values/themes.xml#L24)
 
-    style is intended to **setup action button icons**, customize relative position and appearance of music, gallery, switch camera icons. Icons drawables customized by using custom attributes of this style (for instance, [icon_mask_on](../app/src/main/res/values/themes.xml#L445) and [icon_mask_off](..app/src/main/res/values/themes.xml#L446) setup drawables for icons related to applied AR mask effect)
-- [cameraActionButtonStyle](../app/src/main/res/values/themes.xml#L18)
+    style is intended to **setup action button icons**, customize relative position and appearance of music, gallery, switch camera icons. Icons drawables customized by using custom attributes of this style (for instance, [icon_mask_on](../app/src/main/res/values/themes.xml#L469) and [icon_mask_off](..app/src/main/res/values/themes.xml#L470) setup drawables for icons related to applied AR mask effect)
+- [cameraActionButtonStyle](../app/src/main/res/values/themes.xml#L25)
 
     style defines action buttons appearance
 
-- [cameraBackButtonStyle](../app/src/main/res/values/themes.xml#L20)
+- [cameraBackButtonStyle](../app/src/main/res/values/themes.xml#L27)
 
     style defines "back" button appearance
-- [cameraNextButtonStyle](../app/src/main/res/values/themes.xml#L21)
+- [cameraNextButtonStyle](../app/src/main/res/values/themes.xml#L28)
 
     style defines "next" button appearance
-- [cameraRemoveLastPieceButtonStyle](../app/src/main/res/values/themes.xml#L22)
+- [cameraRemoveLastPieceButtonStyle](../app/src/main/res/values/themes.xml#L29)
 
     style defines an appearance of the button that is used to delete the last recorded video chunk from the timeline
-- [cameraRecorderTimelineStyle](../app/src/main/res/values/themes.xml#L24)
+- [cameraRecorderTimelineStyle](../app/src/main/res/values/themes.xml#L31)
     style is intended to customize the timeline
 
     ![img](screenshots/camera1.png)
 
     If you want to customize your camera screen with the **music icon on the top** of the screen you should:
-    - setup [cameraMusicTopIconStyle](../app/src/main/res/values/themes.xml#L19) - special style that defines appearance of music icon in case it is placed on the top of the camera screen (if the music icon is placed on the left side the cameraActionButtonStyle is applied to it, so this attribute can be omitted). **subtitleAvailable** attribute is responsible for displaying of soundtrack name in two lines. There are two possible values for this attribute:
+    - setup [cameraMusicTopIconStyle](../app/src/main/res/values/themes.xml#L26) - special style that defines appearance of music icon in case it is placed on the top of the camera screen (if the music icon is placed on the left side the cameraActionButtonStyle is applied to it, so this attribute can be omitted). **subtitleAvailable** attribute is responsible for displaying of soundtrack name in two lines. There are two possible values for this attribute:
         - **true** : soundtrack name and artist display in **two** lines
         - **false** : soundtrack name and artist display in **one** lines
-    - in `CameraOverlayStyle` sibling set attribute [icon_music_screen_position](../app/src/main/res/values/themes.xml#L459) to `top`
+    - in `CameraOverlayStyle` sibling set attribute [icon_music_screen_position](../app/src/main/res/values/themes.xml#L483) to `top`
 
     ![img](screenshots/camera1_music_top.png)
 
 
-- [cameraEffectsLabelStyle](../app/src/main/res/values/themes.xml#L25)
+- [cameraEffectsLabelStyle](../app/src/main/res/values/themes.xml#L32)
 
     style of the label, which appears at the top of the visual effects menu (color filters and AR masks). By default the label is not visible so this style can be omitted
-- [cameraEffectsItemStyle](../app/src/main/res/values/themes.xml#L26)
+- [cameraEffectsItemStyle](../app/src/main/res/values/themes.xml#L33)
 
     style applied to every item within visual effects list
-- [cameraEffectsRecyclerStyle](../app/src/main/res/values/themes.xml#L27)
+- [cameraEffectsRecyclerStyle](../app/src/main/res/values/themes.xml#L34)
 
     style applied to RecyclerView containing visual effects list
-- [cameraSpeedPickerViewStyle](../app/src/main/res/values/themes.xml#L29)
+- [cameraSpeedPickerViewStyle](../app/src/main/res/values/themes.xml#L36)
 
     style is applied to custom recording speed options container
-- [cameraSpeedPickerItemStyle](../app/src/main/res/values/themes.xml#L30)
+- [cameraSpeedPickerItemStyle](../app/src/main/res/values/themes.xml#L37)
 
     style is applied to TextView representing every recording speed option within container
-- [checkableEffectTitleStyle](../app/src/main/res/values/themes.xml#L32)
+- [checkableEffectTitleStyle](../app/src/main/res/values/themes.xml#L39)
 
     style is used to set text appearance of "checkable" effects (applied/removed by selection) title. This type of effects includes:
     - color filters on camera screen
