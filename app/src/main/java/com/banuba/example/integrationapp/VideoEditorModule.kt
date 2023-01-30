@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.banuba.android.sdk.ve.timeline.`object`.data.ObjectEditorConfig
 import com.banuba.sdk.arcloud.data.source.ArEffectsRepositoryProvider
 import com.banuba.sdk.arcloud.di.ArCloudKoinModule
+import com.banuba.sdk.arcloud.manager.ArEffectsResourceManager
 import com.banuba.sdk.audiobrowser.di.AudioBrowserKoinModule
 import com.banuba.sdk.audiobrowser.domain.AudioBrowserMusicProvider
 import com.banuba.sdk.cameraui.data.CameraTimerActionProvider
@@ -23,10 +24,7 @@ import com.banuba.sdk.core.VideoResolution
 import com.banuba.sdk.core.data.AudioPlayer
 import com.banuba.sdk.core.data.OrderProvider
 import com.banuba.sdk.core.data.TrackData
-import com.banuba.sdk.core.domain.AspectRatioProvider
-import com.banuba.sdk.core.domain.BackgroundSeparationActionDataProvider
-import com.banuba.sdk.core.domain.DraftConfig
-import com.banuba.sdk.core.domain.ScannerActionDataProvider
+import com.banuba.sdk.core.domain.*
 import com.banuba.sdk.core.ext.copyFile
 import com.banuba.sdk.core.ext.toPx
 import com.banuba.sdk.core.media.MediaFileNameHelper
@@ -201,6 +199,14 @@ private class SampleIntegrationKoinModule {
                     }
                 }
             }
+        }
+
+        single<EffectPlayerActionDataManager> {
+            CustomEffectPlayerActionDataManager(
+                context = get(),
+                storageEffectsDir = get<ArEffectsResourceManager>().storageEffectsDir.path,
+                imageConverter = get()
+            )
         }
     }
 }
