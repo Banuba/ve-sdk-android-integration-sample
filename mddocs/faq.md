@@ -105,19 +105,19 @@ You can control visibility of editor config. Change `showEditorConfig` property 
 
 ### I want to customize gallery icon
 
-Gallery icon is represented by AppCompatImageView. Its style placed into `galleryImageViewStyle` attribute of the main theme ([**example**](../app/src/main/res/values/themes.xml#L104))
+Gallery icon is represented by AppCompatImageView. Its style placed into `galleryImageViewStyle` attribute of the main theme ([**example**](../app/src/main/res/values/themes.xml#L116))
 
 **Drawable resource** of the gallery icon may vary depending on the use case:
- - in case of the very first launch, if the user **did not grant permission** to [read external storage](https://developer.android.com/reference/android/Manifest.permission#READ_EXTERNAL_STORAGE), or if the gallery on the device **is empty**, the drawable resource defined in `icon_empty_gallery` attribute of the `CameraOverlayStyle` ([**example**](../app/src/main/res/values/themes.xml#L469)) will be used
+ - in case of the very first launch, if the user **did not grant permission** to [read external storage](https://developer.android.com/reference/android/Manifest.permission#READ_EXTERNAL_STORAGE), or if the gallery on the device **is empty**, the drawable resource defined in `icon_empty_gallery` attribute of the `CameraOverlayStyle` ([**example**](../app/src/main/res/values/themes.xml#L525)) will be used
  - in other cases you can select what to show as a gallery icon: 
     -  **the last media file** from the device
     - **custom drawable** resource
 
 ![img](screenshots/faq1.png)
 
-**By default the last media file is used as a drawable**. You have an option to **put background** to the gallery icon by changing `icon_gallery_background` attribute of `CameraOverlayStyle` and you can **add rounded corners** to the gallery icon by changing `icon_gallery_radius` attribute of this style ([**example**](../app/src/main/res/values/themes.xml#L420)).
+**By default the last media file is used as a drawable**. You have an option to **put background** to the gallery icon by changing `icon_gallery_background` attribute of `CameraOverlayStyle` and you can **add rounded corners** to the gallery icon by changing `icon_gallery_radius` attribute of this style ([**example**](../app/src/main/res/values/themes.xml#L528)).
 
- **To setup custom drawable resource** instead of the last media file you have to put custom style into `galleryImageViewStyle` attribute of the main theme ([**example**](../app/src/main/res/values/themes.xml#L105)) and set there `use_custom_image` to `true` and put your drawable as `android:src` attribute value
+ **To setup custom drawable resource** instead of the last media file you have to put custom style into `galleryImageViewStyle` attribute of the main theme ([**example**](../app/src/main/res/values/themes.xml#L116)) and set there `use_custom_image` to `true` and put your drawable as `android:src` attribute value
 
 ### How does video editor work when token expires?
 

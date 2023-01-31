@@ -1,13 +1,13 @@
 # Banuba AI VideoEditor SDK
 ## Editor screen styles
 
-- [editorOverlayStyle](../app/src/main/res/values/themes.xml#L65)
+- [editorOverlayStyle](../app/src/main/res/values/themes.xml#L72)
 
     style defines back icon drawable, playback icon visibility, several editor screen appearance parameters, also setups icons used for voice recording (they can be omitted if music editor feature is enabled)
-- [editorActionsStyle](../app/src/main/res/values/themes.xml#L66)
+- [editorActionsStyle](../app/src/main/res/values/themes.xml#L73)
 
-    style **setups drawables** for all action buttons **on the editor screen** (for instance, [editor_act_icon_masks_off](../app/src/main/res/values/themes.xml#L656) and [editor_act_icon_masks_on](../app/src/main/res/values/themes.xml#L657) setup drawables for an icon that related to AR masks applied to video)
-- [editorActionButtonStyle](../app/src/main/res/values/themes.xml#L67)
+    style **setups drawables** for all action buttons **on the editor screen** (for instance, [editor_act_icon_masks_off](../app/src/main/res/values/themes.xml#L717) and [editor_act_icon_masks_on](../app/src/main/res/values/themes.xml#L718) setup drawables for an icon that related to AR masks applied to video)
+- [editorActionButtonStyle](../app/src/main/res/values/themes.xml#L74)
 
     style defines how action buttons look like (size, title visibility, margins, etc.). It is applied to every action button on the editor screen
 - [editorBackButtonStyle](../app/src/main/res/values/themes.xml#L68)

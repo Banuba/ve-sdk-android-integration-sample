@@ -451,6 +451,16 @@
         <item name="loadingScreenProgressStyle">@style/CustomLoadingScreenProgressStyle</item>
         <item name="loadingScreenCancelBtnStyle">@style/CustomLoadingScreenCancelButtonStyle</item>
         <!---->
+
+        <!--Blur-->
+        <item name="blur_editor_icon_circle">@drawable/ic_blur_editor_add_circle</item>
+        <item name="blur_editor_icon_square">@drawable/ic_blur_editor_add_square</item>
+        <item name="blur_editor_icon_delete">@drawable/ic_blur_editor_delete</item>
+        <item name="blurEffectViewStyle">@style/CustomBlurEffectViewStyle</item>
+    </style>
+
+    <style name="CustomBlurEffectViewStyle" parent="BlurEffectViewStyle">
+        <item name="blur_scale_icon">@drawable/ic_scale</item>
     </style>
 
     <!-- CameraOverlayStyle setup icons for Camera screen.
@@ -706,6 +716,9 @@
 
         <item name="editor_act_icon_masks_off">@drawable/ic_masks</item>
         <item name="editor_act_icon_masks_on">@drawable/ic_masks_on</item>
+
+        <item name="editor_act_icon_blur_off">@drawable/ic_blur_off</item>
+        <item name="editor_act_icon_blur_on">@drawable/ic_blur_on</item>
     </style>
 
     <style name="CustomEditorActionButtonStyle" parent="EditorActionButtonStyle" />

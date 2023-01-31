@@ -1,51 +1,47 @@
 # Banuba AI Video Editor SDK
 ## Music Editor screen styles
 
-- [musicEditorPlaybackControllerParentStyle](../app/src/main/res/values/themes.xml#L157)
+- [musicEditorPlaybackControllerParentStyle](../app/src/main/res/values/themes.xml#L177)
 
     style for the parent of buttons defined in `editorPlaybackControllerCancelStyle`, `editorPlaybackControllerPlayStyle`, `editorPlaybackControllerDoneStyle` attributes. See buttons on the [Editor screen](editor_styles.md#L46) page
 
-- [musicEditorTimelineStyle](../app/src/main/res/values/themes.xml#L160)
+- [musicEditorTimelineStyle](../app/src/main/res/values/themes.xml#L180)
 
     style for the complex view that contains applied music tracks, video timeline, video volume button. It has a lot of custom attributes appliceable to children views
 
-- [musicEditorTimelineTimeTextStyle](../app/src/main/res/values/themes.xml#L161)
-
-    style for TextViews that represent current pointer's position and the whole video duration
-
-- [musicEditorTimelineSoundWaveStyle](../app/src/main/res/values/themes.xml#L172)
+- [musicEditorTimelineSoundWaveStyle](../app/src/main/res/values/themes.xml#L189)
 
     style for the view that represents added music effect on the timeline view. It configured with a lot of custom attributes
 
-- [musicEditorActionButtonParentStyle](../app/src/main/res/values/themes.xml#L164)
+- [musicEditorActionButtonParentStyle](../app/src/main/res/values/themes.xml#L181)
 
     style for the ConstraintLayout that is used as container for every action button
 
-- [musicEditorActionButtonStyle](../app/src/main/res/values/themes.xml#L167)
+- [musicEditorActionButtonStyle](../app/src/main/res/values/themes.xml#L184)
 
     style for the ImageView representing an icon for action button. Drawables for all action buttons in music editor are configured in custom theme attributes:
-    - [music_editor_icon_tracks](../app/src/main/res/values/themes.xml#L227) - to open music track selection
-    - [music_editor_icon_track_recording](../app/src/main/res/values/themes.xml#L229) - to show voice recording screen
-    - [music_editor_icon_track_effects](../app/src/main/res/values/themes.xml#L234) - to open voice recording effects selection
-    - [music_editor_icon_track_edit](../app/src/main/res/values/themes.xml#L230) - to open music trimmer for the selected music track
-    - [music_editor_icon_track_delete](../app/src/main/res/values/themes.xml#L232) - to delete selected music track
+    - [music_editor_icon_tracks](../app/src/main/res/values/themes.xml#L244) - to open music track selection
+    - [music_editor_icon_track_recording](../app/src/main/res/values/themes.xml#L246) - to show voice recording screen
+    - [music_editor_icon_track_effects](../app/src/main/res/values/themes.xml#L248) - to open voice recording effects selection
+    - [music_editor_icon_track_edit](../app/src/main/res/values/themes.xml#L247) - to open music trimmer for the selected music track
+    - [music_editor_icon_track_delete](../app/src/main/res/values/themes.xml#L249) - to delete selected music track
 
 ![img](screenshots/musiceditor1_1.png)
 
-- [musicEditorActionButtonTextStyle](../app/src/main/res/values/themes.xml#L168)
+- [musicEditorActionButtonTextStyle](../app/src/main/res/values/themes.xml#L185)
 
     style for action button title
 
-- [timelineEditorBoardStyle](../app/src/main/res/values/themes.xml#L171)
+- [timelineEditorBoardStyle](../app/src/main/res/values/themes.xml#L188)
 
     style for an invisible view that holds applied graphic effects. This view is similar to [editorBoardStyle](editor_styles.md#L86) and has several custom attributes to configure its behavior
 
 ![img](screenshots/musiceditor1.png)
 
-- [musicEditorVideoVolumeContainerStyle](../app/src/main/res/values/themes.xml#L189)
+- [musicEditorVideoVolumeContainerStyle](../app/src/main/res/values/themes.xml#L206)
 
     style for the bottom sheet view that is opened by tapping on left bottom icon of the video timeline to change video volume
-- [musicEditorVideoVolumeTitleStyle](../app/src/main/res/values/themes.xml#L192)
+- [musicEditorVideoVolumeTitleStyle](../app/src/main/res/values/themes.xml#L209)
 
     style for the title of the volume setting
 - [musicEditorVideoVolumeValueStyle](../app/src/main/res/values/themes.xml#L195)

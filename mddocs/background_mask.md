@@ -16,11 +16,11 @@ To use the Background effect in an app, please, request it from Banuba represent
 
  ### Step 2
 
- Add theme attributes with your custom [styles](../app/src/main/res/values/themes.xml#L1160) mentioned in Customization section.
+ Add theme attributes with your custom [styles](../app/src/main/res/values/themes.xml#L1306) mentioned in Customization section.
 
 ## Customization
 
-Background mask is provided with additional UI that helps to select required media file. UI is customized by [main theme attributes](../app/src/main/res/values/themes.xml#L366) like any other Video Editor SDK screens.
+Background mask is provided with additional UI that helps to select required media file. UI is customized by [main theme attributes](../app/src/main/res/values/themes.xml#L398) like any other Video Editor SDK screens.
 
  - **backgroundEffectContainerStyle** - style for the background of the main UI container 
  - **backgroundEffectHintStyle** - style for the hint on the top of the main UI container

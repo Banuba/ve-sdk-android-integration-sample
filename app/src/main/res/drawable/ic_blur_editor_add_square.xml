@@ -1,0 +1,4 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/ic_blur_editor_add_square_disabled" android:state_activated="false" />
+    <item android:drawable="@drawable/ic_blur_editor_add_square_enabled" />
+</selector>
