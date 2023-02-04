@@ -24,15 +24,15 @@ Any AR effect downloaded from ```AR Cloud``` is cached on the user's device.
 Follow next steps to integrate ```AR Cloud``` into your project.  
 First, add Gradle ```com.banuba.sdk:ar-cloud``` dependency in [app gradle file](/app/build.gradle).  
 
-```groovy
+```diff
     def banubaSdkVersion = '1.26.3'
-   ...
-  + implementation "com.banuba.sdk:ar-cloud:${banubaSdkVersion}"
+    ...
++   implementation "com.banuba.sdk:ar-cloud:${banubaSdkVersion}"
     ...
 ```
 
 Next, add ```ArCloudKoinModule``` module to [Koin modules](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L72).
-```kotlin
+```diff
 startKoin {
    ...
    
