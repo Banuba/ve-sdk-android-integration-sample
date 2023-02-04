@@ -1,7 +1,6 @@
 ## Video Editor UI SDK advanced integration guide
 
 - [Video Editor SDK size](#Video-Editor-SDK-size)
-- [Connecting with AR cloud](#Connecting-with-AR-cloud)
 - [Supported media formats](#Supported-media-formats)
 - [Video recording quality details](#Video-recording-quality-details)
 - [Export video quality params](#Export-video-quality-params)
@@ -14,13 +13,6 @@
 | :x: Face AR SDK | 15.5  | no AR effects  |  
 
 You can either include the AR filters in the app or have users download them from the [AR cloud](#Configure-AR-cloud) to dramatically decrease the app size.
-
-## Connecting with AR cloud
-
-All AR filters can be stored on the backend - AR Cloud.  
-In this way you can dramatically decrease the app size.  
-The AR filters will be downloaded whenever a user needs them.  
-Please check out [AR Cloud integration guide](ar_cloud.md) to plugin AR Cloud to Video Editor SDK.
 
 ## Supported media formats
 | Audio                                  | Video      | Images      |

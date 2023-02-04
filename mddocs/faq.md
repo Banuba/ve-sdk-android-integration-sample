@@ -2,7 +2,6 @@
 These are the answers to the most popular questions we are asked about the Banuba AI Video Editor SDK
 
 - [How do I start/stop recording with a tap?](#how-do-i-startstop-recording-with-a-tap)
-- [How do I add an AR mask to the app without using the AR cloud?](#how-do-i-add-an-ar-mask-to-the-app-without-using-the-ar-cloud)
 - [I want to turn off animations from slideshow](#i-want-to-turn-off-animations-from-slideshow)
 - [I want to start VideoEditor with a preselected audio track](#i-want-to-start-videoEditor-with-a-preselected-audio-track)
 - [How do I add LUTs to the app?](#how-do-i-add-luts-to-the-app)
@@ -30,13 +29,6 @@ These are the answers to the most popular questions we are asked about the Banub
 By default, the user must hold the “record” button to film and release it to stop filming.   
 
 To change that, simply set the `takePhotoOnTap` property inside [**CameraConfig**](config_camera.md) class to **false**.
-
-### How do I add an AR mask to the app without using the AR cloud?
-If you don’t want to pull the masks from the backend, you can include them in the app itself. 
-
-To do so, name the folder with the mask files the way you want to call the mask, and place it into **assets/bnb-resources/effects** directory in the module containing the Video Editor SDK (Example).
-
-Make sure that you include the **preview.png** file in the mask folder. It serves as an icon for the mask within the app. 
 
 ### I want to turn off animations from slideshow
 

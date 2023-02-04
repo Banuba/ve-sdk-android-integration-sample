@@ -1,6 +1,7 @@
 ## Video Editor SDK customizations guide
 
 - [Configurations](#Configurations)
+- [Face AR SDK and AR Cloud](#Face-AR-SDK-and-AR-Cloud)
 - [Disable Face AR SDK](#Disable-Face-AR-SDK)
 - [Configure export media](integration_export_media.md)
 - [Configure masks and filters order](#Configure-masks-and-filters-order)
@@ -35,26 +36,18 @@ single(override = true) {
         }
 ```
 
-### Disable Face AR SDK
-You can use AI Video Editor SDK without Face AR SDK. Please follow these changes to make it.
+### Face AR SDK and AR Cloud
+[Banuba Face AR SDK](https://www.banuba.com/facear-sdk/face-filters) is used in Video Editor for applying AR effects in 2 use cases:
+1. Camera screen  
+   The user can record video content with various AR effects.
+2. Editor screen  
+   The user can apply various AR effects on existing video.  
 
-Remove ```BanubaEffectPlayerKoinModule().module``` from the video editor Koin module
-```diff
-startKoin {
-    androidContext(this@IntegrationApp)    
-    modules(
-        AudioBrowserKoinModule().module,
-        VideoEditorKoinModule().module,
--       BanubaEffectPlayerKoinModule().module
-    )
-}
-```
-And also remove dependency ```com.banuba.sdk:effect-player-adapter``` from [app/build.gradle](app/build.gradle#L52)
-```diff
-    implementation "com.banuba.sdk:ve-effects-sdk:${banubaSdkVersion}"
--   implementation "com.banuba.sdk:effect-player-adapter:${banubaSdkVersion}"
-    implementation "com.banuba.sdk:ar-cloud-sdk:${banubaSdkVersion}"
-```
+Video Editor SDK has built in integration with Banuba AR Cloud - remote storage for Banuba AR effects.
+
+Please follow [Face AR and AR Cloud integration guide](guide_far_arcloud.md) if you are interested in disabling Face AR, 
+integrating AR Cloud, managing AR effects and many more. 
+
 
 
 ### Configure masks and filters order
@@ -190,9 +183,8 @@ The AI Video Editor SDK includes the following screens:
 
 ### Configure additional Video Editor SDK features
 
-1. [Background separation](background_mask.md)
 1. [Transition effects](transitions_styles.md)
-1. [Sharing screen](sharing_screen_styles.md)
+2. [Sharing screen](sharing_screen_styles.md)
 
 ### Launch Video Editor
 
