@@ -59,7 +59,7 @@ Next, override ```ArEffectsRepositoryProvider``` in [VideoEditorModule](../app/s
 ### Change effects order
 By default, all AR effects are listed in alphabetical order. AR effects from ``assets``` are listed in the begining.
 
-Create class [CustomMaskOrderProvider](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L289) and implement ```OrderProvider```.
+Create class [CustomMaskOrderProvider](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L289) and implement ```OrderProvider``` to provide custom order.
 
 ```kotlin
 class CustomMaskOrderProvider : OrderProvider {

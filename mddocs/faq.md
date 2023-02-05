@@ -4,8 +4,6 @@ These are the answers to the most popular questions we are asked about the Banub
 - [How do I start/stop recording with a tap?](#how-do-i-startstop-recording-with-a-tap)
 - [I want to turn off animations from slideshow](#i-want-to-turn-off-animations-from-slideshow)
 - [I want to start VideoEditor with a preselected audio track](#i-want-to-start-videoEditor-with-a-preselected-audio-track)
-- [How do I add LUTs to the app?](#how-do-i-add-luts-to-the-app)
-- [How do I change the order of LUTs](#how-do-i-change-the-order-of-luts)
 - [I want to control visibility of debug info on camera and editor screens](#i-want-to-control-visibility-of-debug-info-on-camera-and-editor-screens)
 - [I want to customize gallery icon](#i-want-to-customize-gallery-icon)
 - [How does video editor work when token expires?](#how-does-video-editor-work-when-token-expires)
@@ -20,7 +18,6 @@ These are the answers to the most popular questions we are asked about the Banub
 - [How do I specify the video file saving directory?](#how-do-I-specify-the-video-file-saving-directory)
 - [How do I change the duration of the image display in a slideshow?](#how-do-I-change-the-duration-of-the-image-display-in-a-slideshow)
 - [How do I change the launguage (how do I add new locale support)](#how-do-I-change-the-launguage-how-do-I-add-new-locale-support)
-- [How do I disable the video (FX) effects?](#how-do-i-disable-the-video-fx-effects)
 - [How do I integrate custom FFmpeg dependency in app?](#how-to-integrate-custom-ffmpeg-dependency)
 - [How to configure default state of microphone at camera screen?](#how-to-configure-default-state-of-microphone-at-camera-screen)
 - [Switcher Photo / Video configuration](#switcher-photovideo-configuration)
@@ -59,34 +56,6 @@ data class TrackData(
     val localUri: Uri,
     val artist: String? = null
 )
-```
-
-### How do I add LUTs to the app?
-
-Color filters are located in the **assets/bnb-resources/luts** directory in the module with the AI Video Editor SDK. To add your own, place the files in this folder and create a drawable resource that will be used as an icon for this particular LUT. The name of the drawable resource must be the same as the graphic file in the filter’s directory.
-
-For example, this is the [lux LUT](../app/src/main/assets/bnb-resources/luts/lux.png) file, and this is its [drawable resource](../app/src/main/res/drawable-hdpi/lux.png).
-
-### How do I change the order of LUTs?
-
-By default, the filters are listed in alphabetical order. 
-
-To change it, use the implementation of the ```OrderProvider``` interface.
-```kotlin
-class CustomColorFilterOrderProvider : OrderProvider {
-    override fun provide(): List<String> = listOf("egypt", "byers")
-}
-``` 
-This will return the list of color filters with the required order.
-Note: The name of color filter is a name of an appropriate file located in **assets/bnb-resources/luts** directory. [Example](../app/src/main/assets/bnb-resources/luts/egypt.png).
-
-The final step is to pass your custom ```CustomColorFilterOrderProvider``` implementation in the ```VideoEditorModule``` to override the default implementation:
-
-```kotlin
-override val colorFilterOrderProvider: BeanDefinition<OrderProvider> =
-    single(named("colorFilterOrderProvider"), override = true) {
-        CustomColorFilterOrderProvider()
-    }
 ```
 
 ### I want to control visibility of debug info on camera and editor screens
@@ -454,21 +423,6 @@ The newly added locale will be applied after the device language is changed by s
 If you need to change language programmatically in your application, see the next links how it can be done:
 [one](https://www.geeksforgeeks.org/how-to-change-the-whole-app-language-in-android-programmatically/),
 [two](https://medium.com/swlh/android-app-specific-language-change-programmatically-using-kotlin-d650a5392220)
-
-### How do I disable the video (FX) effects?
-The allowed video effects are included into the token, but they can be disabled manually by customer.
-
-To do it, pass your custom implementation of the ```EnabledEffectsProvider``` interface in the ```VideoEditorModule```
-```kotlin
-single(named("fxEffectsProvider"), override = true) {
-    EnabledEffectsProvider {
-        listOf("acid_whip", "soul", "zoom")
-    }
-}
-```
-This will return the list of enabled video effects.
-
-**Note**: To get all video effects names list use ```DefaultEnabledFxEffectsProvider().provide()``` method.
 
 ### How to integrate custom FFmpeg dependency.
 Check out [step-by-step guide](ffmpeg_dependency.md) to integrate custom FFmpeg dependency.

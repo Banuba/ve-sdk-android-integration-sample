@@ -30,7 +30,7 @@ Sections and theirs properties are described below:
 | **trimmerMinSourceVideoDurationMs** | Number > 0 | defines the minimum video duration *in milliseconds* allowed to be appended to list of videos recorded with camera or chosen from gallery
 | **trimmerActionVibrationDurationMs** | Number >= 0 | defines vibration duration *in milliseconds* when drag and drop applied on Trimmer screen. **Note**, this value should be small enougn to provide good user experience. Value "0" means no vibration.
 | **trimmerTimelineOneScreenDurationMs** | Number > 0 | defines the maximum total video duration *in milliseconds* that takes the whole device's width on the Trimmer screen
-| **supportsTransitions** | true/false | if the video editor supports [transition effects](transitions_styles.md) between videos
+| **supportsTransitions** | true/false | if the video editor supports [transition effects](guide_effect.md#Transitions) between videos
 
 ## **"slideshow"**
 

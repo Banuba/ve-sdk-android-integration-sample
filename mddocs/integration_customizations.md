@@ -2,20 +2,17 @@
 
 - [Configurations](#Configurations)
 - [Face AR SDK and AR Cloud](#Face-AR-SDK-and-AR-Cloud)
-- [Disable Face AR SDK](#Disable-Face-AR-SDK)
+- [Effects](#Effects)
 - [Configure export media](integration_export_media.md)
-- [Configure masks and filters order](#Configure-masks-and-filters-order)
 - [Configure watermark](#Configure-watermark)
 - [Configure media content](#Configure-media-content)
 - [Configure audio content](#Configure-audio-content)
 - [Configure audio browser](#Configure-audio-browser)
-- [Configure stickers content](#Configure-stickers-content)
 - [Configure the record button](#Configure-the-record-button)
 - [Configure camera timer](#Configure-camera-timer)
 - [Configure Cover preview screen](#Configure-Cover-preview-screen)
 - [Configure screens](#Configure-screens)
 - [Configure additional Video Editor SDK features](#Configure-additional-Video-Editor-SDK-features)
-- [Check Video Editor SDK availability before opening](#Check-Video-Editor-SDK-availability-before-opening)
 - [Localization](#Localization)
 - [Analytics](#Analytics)
 
@@ -48,44 +45,18 @@ Video Editor SDK has built in integration with Banuba AR Cloud - remote storage 
 Please follow [Face AR and AR Cloud integration guide](guide_far_arcloud.md) if you are interested in disabling Face AR, 
 integrating AR Cloud, managing AR effects and many more. 
 
+### Effects
+Video Editor allows to apply a number of various effects to video:
+1. Face AR effects
+2. Color filters(LUT)
+3. Visual
+4. Speed
+5. Stickers
+6. Text
+7. Blur
+8. Transitions
 
-
-### Configure masks and filters order
-By default, the masks and filters are listed in alphabetical order.
-
-To change it, use the implementation of the ```OrderProvider``` interface.
-
-```kotlin
-class CustomMaskOrderProvider : OrderProvider {
-    override fun provide(): List<String> = listOf("Background", "HeadphoneMusic", "AsaiLines")
-}
-```
-This will return the list of masks with the required order.
-Note: The name of mask is a name of an appropriate directory located in **assets/bnb-resources/effects** directory or received from AR cloud. [Example](../app/src/main/assets/bnb-resources/effects/Background).
-
-```kotlin
-class CustomColorFilterOrderProvider : OrderProvider {
-    override fun provide(): List<String> = listOf("egypt", "byers")
-}
-```
-This will return the list of color filters with the required order.
-Note: The name of color filter is a name of an appropriate file located in **assets/bnb-resources/luts** directory. [Example](../app/src/main/assets/bnb-resources/luts/egypt.png).
-
-The final step is to pass your custom ```CustomMaskOrderProvider``` and ```CustomColorFilterOrderProvider``` implementation in the [DI](#configure-di) to override the default implementations:
-
-```kotlin
-override val maskOrderProvider: BeanDefinition<OrderProvider> =
-    single(named("maskOrderProvider"), override = true) {
-        CustomMaskOrderProvider()
-    }
-
-override val colorFilterOrderProvider: BeanDefinition<OrderProvider> =
-    single(named("colorFilterOrderProvider"), override = true) {
-        CustomColorFilterOrderProvider()
-    }
-```
-
-Note: pay attention that ```OrderProvider``` should be named "maskOrderProvider" and "colorFilterOrderProvider" for masks and filters, respectively.
+Please follow [Video Editor effects integration guide](guide_effects.md) to get more information about applying available effects.
 
 ### Configure watermark
 To use a watermark, add the ``` WatermarkProvider``` interface to your app. The image goes into the getWatermarkBitmap method. Once you’re done, rearrange the dependency watermarkProvider in [DI](app/src/main/java/com/banuba/example/integrationapp//IntegrationKoinModule.kt#L64). See the [example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationAppWatermarkProvider.kt) of adding a watermark here.
@@ -119,21 +90,6 @@ Adding audio content is simple. See this [step-by-step guide](audio_content.md) 
 ### Configure audio browser
 
 Check out [step-by-step guide](audio_browser.md) to use audio browser in your app.
-
-### Configure stickers content
-
-The stickers in the AI Video Editor SDK are GIFs. Adding them is as simple as adding your personal [**Giphy API**](https://developers.giphy.com/docs/api/) into the **stickersApiKey** parameter in [DI](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/IntegrationKoinModule.kt#L112).
-
-``` kotlin
-single(override = true) {
-    EditorConfig(
-        ...
-        stickersApiKey = "<-- Paste Giphy key here to load gif images -->"
-    )
-}
-```
-
-GIPHY doesn't charge for their content. The one thing they do require is attribution. Also, there is no commercial aspect to the current version of the product (no advertisements, etc.) To use it, please, add **"Search GIPHY"** text attribution to the search bar.
 
 ### Configure camera timer
 
@@ -183,30 +139,11 @@ The AI Video Editor SDK includes the following screens:
 
 ### Configure additional Video Editor SDK features
 
-1. [Transition effects](transitions_styles.md)
-2. [Sharing screen](sharing_screen_styles.md)
+1. [Sharing screen](sharing_screen_styles.md)
 
 ### Launch Video Editor
 
 The Video Editor has multiple entry points. Please check out [guide](launch_modes.md).
-
-### Check Video Editor SDK availability before opening
-
-The SDK is protected by the token so its presence is a vital part of Video Editor launch. To check if the SDK is ready to use you may use the following property:
-```kotlin
-VideoEditorLicenceUtils.isSupportsVeSdk
-```
-
-Also you can check token expiration with help of:
-```kotlin
-EditorLicenseManager.isTokenExpired()
-```
-property. See [FAQ page](faq.md#how-does-video-editor-work-when-token-expires) to get more details about token expiration.
-
-There are a few devices, that doesn't support Video Editor. To check you may use the following property:
-```kotlin
-VideoEditorUtils.isSupportsVideoEditor
-```
 
 ### Localization
 
