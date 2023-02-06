@@ -3,7 +3,7 @@
 
 This screen is used to edit gif (sticker) and text effects. 
 
-Almost all views are **the same** as in [Music Editor screen](music_editor_styles.md) and configured using the same theme attributes. The special attributes related to this screen directly:
+Almost all views are **the same** as in [Music Editor screen](guide_audio_content.md#Music-Editor-screen) and configured using the same theme attributes. The special attributes related to this screen directly:
 
 - [timelineTextViewStyle](../app/src/main/res/values/themes.xml#L253)
 
@@ -45,7 +45,7 @@ Almost all views are **the same** as in [Music Editor screen](music_editor_style
 
 ## String resources
 
-Some string resources (i.e. button titles) are common with the music editor screen, so they can be found on the music editor screen configuration [**page**](music_editor_styles.md#L115).
+Some string resources (i.e. button titles) are common with the music editor screen, so they can be found on the music editor screen configuration [**page**](guide_audio_content.md#Music-Editor-screen).
 
 | ResourceId        |      Value      |   Description |
 | ------------- | :----------- | :------------- |

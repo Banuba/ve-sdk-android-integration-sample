@@ -7,6 +7,8 @@
 - [Add module](#Add-module)
 - [Configure export](#Configure-export)
 - [Start sdk](#Start-sdk)
+- [Add audio content](#Add-audio-content)
+- [Add effects](#Add-effects)
 - [Customizations](#Customizations)
 - [Troubleshooting](#Troubleshooting)
 - [Dependencies and licenses](#Ddependencies-and-licenses)
@@ -224,6 +226,24 @@ val intent = VideoCreationActivity.startFromCamera(
 )
 createVideoRequest.launch(intent)
 ```
+
+### Add audio content
+Video Editor has built in support and API for browsing, playing and applying audio while making video content on various screens.  
+Follow [Video Editor audio content integration guide](guide_audio_content.md) to know more details about using audio and API in Video Editor.
+
+### Add effects
+Video Editor allows to apply a number of various effects to video:
+1. Face AR effects
+2. Color filters(LUT)
+3. Visual
+4. Speed
+5. Stickers
+6. Text
+7. Blur
+8. Transitions
+
+Please follow [Video Editor effects integration guide](guide_effects.md) to get more information about applying available effects.
+
 ### Customizations
 Video Editor SDK has built in UI/UX experience and provides list of changes you can apply to meet your requirements.
 

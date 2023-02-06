@@ -3,14 +3,10 @@
 - [Configurations](#Configurations)
 - [Face AR SDK and AR Cloud](#Face-AR-SDK-and-AR-Cloud)
 - [Effects](#Effects)
-- [Configure media content](#Configure-media-content)
-- [Configure audio content](#Configure-audio-content)
-- [Configure audio browser](#Configure-audio-browser)
 - [Configure the record button](#Configure-the-record-button)
 - [Configure camera timer](#Configure-camera-timer)
 - [Configure Cover preview screen](#Configure-Cover-preview-screen)
 - [Configure screens](#Configure-screens)
-- [Configure additional Video Editor SDK features](#Configure-additional-Video-Editor-SDK-features)
 - [Localization](#Localization)
 
 ### Configurations
@@ -19,7 +15,6 @@ There are several classes in the Video Editor SDK that allow you to modify its p
 - [**EditorConfig**](config_videoeditor.md) lets you modify editor, trimmer, and gallery screens.
 - [**MusicEditorConfig**](config_music_editor.md) allows you to change the audio editor screen, e.g. the number of timelines or tracks allowed.
 - [**ObjectEditorConfig**](config_object_editor.md) allows you to change text and gif editor screens, e.g. the number of timelines or effects allowed
-- [**MubertApiConfig**](config_mubert_api.md) - optional config class available only in case you plugged in **audio-browser-sdk** module allows to configure music tracks network requests
 
 If you want to customize some of these classes, provide them with just those properties you need to change. For example, to change only max recording duration on the camera screen, provide the following instance:
 ```kotlin
@@ -42,51 +37,7 @@ Video Editor SDK has built in integration with Banuba AR Cloud - remote storage 
 Please follow [Face AR and AR Cloud integration guide](guide_far_arcloud.md) if you are interested in disabling Face AR, 
 integrating AR Cloud, managing AR effects and many more. 
 
-### Effects
-Video Editor allows to apply a number of various effects to video:
-1. Face AR effects
-2. Color filters(LUT)
-3. Visual
-4. Speed
-5. Stickers
-6. Text
-7. Blur
-8. Transitions
-
-Please follow [Video Editor effects integration guide](guide_effects.md) to get more information about applying available effects.
-
-### Configure media content
-
-AI Video Editor SDK is provided with its own solution for media content (i.e. images and videos) selection - the gallery screen. To use it as a part of SDK just add a dependency into build.gradle:
-```kotlin
-implementation "com.banuba.sdk:ve-gallery-sdk:1.0.16"
-```
-and put the new koin module into `startKoin` function:
-```diff
-startKoin {
-    androidContext(this@IntegrationApp)
-        modules(
-            // other Video Editor modules
-+           GalleryKoinModule().module
-        )
-}
-```
-The gallery provided by the SDK is fully customizable according to [this guide](gallery_styles.md).
-
-Also there is an option to use **your own implementation of the gallery**. This is available according to this [step-by-step guide](configure_external_gallery.md).
-
-### Configure audio content
-
-Banuba Video Editor SDK can trim audio tracks, merge them, and apply them to a video. **It doesn’t include music or sounds**. However, it can be integrated with [Mubert](https://mubert.com/) and get music from it (requires additional contract with them). Moreover, the users can add audio files from internal memory (downloaded library) from the phone.
-
-Adding audio content is simple. See this [step-by-step guide](audio_content.md) guide for code examples.
-
-### Configure audio browser
-
-Check out [step-by-step guide](audio_browser.md) to use audio browser in your app.
-
 ### Configure camera timer
-
 This will allow your users to take pictures and videos after a delay. The timer is managed by the ```CameraTimerStateProvider``` interface. Every delay is represented by the TimerEntry object:
 
 ```kotlin
@@ -119,25 +70,60 @@ You can use the Android themes and styles to change the screens in the mobile Vi
 
 The AI Video Editor SDK includes the following screens:
 1. [Camera screen](camera_styles.md)
-1. [Editor screen](editor_styles.md)
-1. [Gallery screen](gallery_styles.md)
-1. [Trimmer screen](trimmer_styles.md)
-1. [Aspects screen](aspects_styles.md)
-1. [Music Editor screen](music_editor_styles.md)
-1. [Timeline Editor screen](timeline_editor_styles.md)
-1. [Cover screen](cover_styles.md)
-1. [Alert Dialogs](alert_styles.md)
-1. [Picture in picture](pip_configuration.md)
-1. [Drafts screen](drafts_styles.md)
-1. [Media progress screen](media_progress_styles.md)
+2. [Editor screen](editor_styles.md)
+3. [Gallery screen](guide_gallery.md)
+4. [Trimmer screen](trimmer_styles.md)
+5. [Aspects screen](aspects_styles.md)
+6. [Music Editor screen](guide_audio_content.md#Music-Editor-screen)
+7. [Timeline Editor screen](timeline_editor_styles.md)
+8. [Cover screen](cover_styles.md)
+9. [Alert Dialogs](alert_styles.md)
+10. [Picture in picture](pip_configuration.md)
+11. [Drafts screen](drafts_styles.md)
+12. [Media progress screen](media_progress_styles.md)
+13. [Sharing screen](sharing_screen_styles.md)
 
-### Configure additional Video Editor SDK features
+### Launch methods
+Video Editor has multiple launch methods implemented in ```VideoCreationActivity```.
 
-1. [Sharing screen](sharing_screen_styles.md)
+1. Start from Camera screen.
+```kotlin
+     fun startFromCamera(
+        context: Context,
+        pictureInPictureConfig: PipConfig? = null,
+        additionalExportData: Parcelable? = null,
+        audioTrackData: TrackData? = null
+    )
+  ```
 
-### Launch Video Editor
+Pass instance of ```PipConfig``` to  ```pictureInPictureVideo``` to start in Picture-in-Picture mode.
 
-The Video Editor has multiple entry points. Please check out [guide](launch_modes.md).
+2. Start from Trimmer screen
+```kotlin
+    fun startFromTrimmer(
+            context: Context,
+            predefinedVideos: Array<Uri>,
+            additionalExportData: Parcelable? = null,
+            audioTrackData: TrackData? = null
+        )
+  ```
+
+3. Start from Drafts screen
+```kotlin
+     fun startFromDrafts(
+            context: Context,
+            predefinedDraft: Draft? = null
+    )
+ ```
+4. Start from Editor screen
+```kotlin
+    fun startFromEditor(
+        context: Context,
+        predefinedVideos: Array<Uri>,
+        additionalExportData: Parcelable? = null,
+        audioTrackData: TrackData? = null
+    )
+```
 
 ### Localization
 
