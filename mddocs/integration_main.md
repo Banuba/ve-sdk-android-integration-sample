@@ -5,6 +5,7 @@
 - [Update AndroidManifest](#Update-AndroidManifest)
 - [Add resources](#Add-resources)
 - [Add module](#Add-module)
+- [Configure export](#Configure-export)
 - [Start sdk](#Start-sdk)
 - [Customizations](#Customizations)
 - [Troubleshooting](#Troubleshooting)
@@ -175,14 +176,10 @@ Finally, initialize ```VideoEditorModule```  in [Application class](../app/src/m
 VideoEditorModule().initialize(this@SampleApp)
 ```
 
-### Configure media export
-Video Editor SDK allows to export a number of media files to meet your requirements.
-Implement ```ExportParamsProvider``` and provide ```List<ExportParams>``` where every ```ExportParams``` is a media file i.e. video or audio -
-[See example](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L208).
-
-Use ```ExportParams.Builder.fileName()``` method to provide custom media file name.  
-
-Follow [export media guide](integration_export_media.md) to know more about exporting media content.
+### Configure export
+Video Editor can export a number of media files to meet your requirements.
+Implement ```ExportParamsProvider``` and provide ```List<ExportParams>``` where every ```ExportParams``` is a media file i.e. video or audio.  
+Check [CustomExportParamsProvider](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L208) implementation and follow [Export integration guide](guide_export.md) to know more about exporting media content.
 
 ### Start SDK
 Before start Video Editor SDK we strongly recommend checking your license state.

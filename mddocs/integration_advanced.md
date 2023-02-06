@@ -3,7 +3,6 @@
 - [Video Editor SDK size](#Video-Editor-SDK-size)
 - [Supported media formats](#Supported-media-formats)
 - [Video recording quality details](#Video-recording-quality-details)
-- [Export video quality params](#Export-video-quality-params)
 
 ## Video Editor SDK size
 
@@ -27,20 +26,6 @@ You can either include the AR filters in the app or have users download them fro
 | 2x              | 1800            | 3000            | 6000           | 9600             |
 | 3x              | 2400            | 4000            | 8000           | 12800            |  
 
-## Export video
-In general Video Editor SDK classifies any device by its performance capabilities and
-uses the most suitable quality params for the exported video.
-
-Also it is possible to override this by implementing `ExportParamsProvider` interface. 
-Specify a required video quality into `ExportManager.Params.Builder` constructor.  
-
-Video quality table (resolution and bitrate, kb/s) of exported video without audio.
-
-| 360p(360 x 640) | 480p(480 x 854) | HD(720 x 1280) | FHD(1080 x 1920) |
-|------------| --------------- | -------------- | ---------------- |
-| 1200       |             2000|            4000|              6400|
-
-Follow [export media guide](integration_export_media.md) to know more about exporting media content.
 
 ### Check Video Editor SDK availability before opening
 

@@ -3,8 +3,6 @@
 - [Configurations](#Configurations)
 - [Face AR SDK and AR Cloud](#Face-AR-SDK-and-AR-Cloud)
 - [Effects](#Effects)
-- [Configure export media](integration_export_media.md)
-- [Configure watermark](#Configure-watermark)
 - [Configure media content](#Configure-media-content)
 - [Configure audio content](#Configure-audio-content)
 - [Configure audio browser](#Configure-audio-browser)
@@ -14,7 +12,6 @@
 - [Configure screens](#Configure-screens)
 - [Configure additional Video Editor SDK features](#Configure-additional-Video-Editor-SDK-features)
 - [Localization](#Localization)
-- [Analytics](#Analytics)
 
 ### Configurations
 There are several classes in the Video Editor SDK that allow you to modify its parameters and behavior:
@@ -57,9 +54,6 @@ Video Editor allows to apply a number of various effects to video:
 8. Transitions
 
 Please follow [Video Editor effects integration guide](guide_effects.md) to get more information about applying available effects.
-
-### Configure watermark
-To use a watermark, add the ``` WatermarkProvider``` interface to your app. The image goes into the getWatermarkBitmap method. Once you’re done, rearrange the dependency watermarkProvider in [DI](app/src/main/java/com/banuba/example/integrationapp//IntegrationKoinModule.kt#L64). See the [example](app/src/main/java/com/banuba/example/integrationapp/videoeditor/impl/IntegrationAppWatermarkProvider.kt) of adding a watermark here.
 
 ### Configure media content
 
@@ -150,52 +144,3 @@ The Video Editor has multiple entry points. Please check out [guide](launch_mode
 To change any particular text in the Video Editor SDK just provide your custom value for string resource provided in String resources section of [every screen](#Configure-screens) (check out an example of [string resources](editor_styles.md#string-resources) on editor screen). Keep ResourceId the same and change only related value.
 
 To localize Video Editor SDK follow an [official guilde](https://developer.android.com/guide/topics/resources/localization) and provide string resources for every locale in your app with the same ResourceId and translated values.
-
-### Analytics
-
-The SDK generates simple metadata analytics in JSON file that you can use in your application.
-You need to make sure that analytics collection is enabled in your token.
-
-Analytics data is provided as a JSON string and can be extracted from ```ExportResult.Success``` object (which is a normal result of successfully exported video) in the following way:
-```kotlin
-//"exportResult" is an instance of ExportResult.Success object
-val outputBundle = exportResult.additionalExportData.getBundle(ExportBundleProvider.Keys.EXTRA_EXPORT_OUTPUT_INFO)
-val analytics = outputBundle?.getString(ExportBundleProvider.Keys.EXTRA_EXPORT_ANALYTICS_DATA)
-```
-Use ```ExportBundleProvider.Keys``` constants to parse analytics data string.
-
-Output example:
-```JSON
-{
-   "video_duration":16.384,
-   "video_resolutions":[
-      "1280x720"
-   ],
-   "camera_effects":[
-   ],
-   "post_processing_effects":[
-      "mask:2_5D_HeadphoneMusic",
-      "fx:dv_cam",
-      "fx:cathode",
-      "fx:acid_whip",
-      "time:rapid"
-   ],
-   "video_count":2,
-   "video_sources":[
-      {
-         "title":"2022-04-10T12-56-11.362",
-         "type":"camera",
-         "duration":9795,
-         "startTime":0,
-         "endTime":9.795
-      },
-      {
-         "title":"video",
-         "type":"gallery",
-         "duration":8366,
-         "startTime":9.795,
-         "endTime":18.161
-      }
-   ]
-}
-```
