@@ -34,7 +34,7 @@ override val colorFilterOrderProvider: BeanDefinition<OrderProvider> =
     }
 ```
 
-### Stickers
+### Stickers(GIPHY)
 Video Editor SDK has built in integration with [Giphy service](https://developers.giphy.com/docs/api/) for loading stickers.  
 Any sticker effect represents a GIF file.  
  

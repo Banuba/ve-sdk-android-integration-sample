@@ -237,7 +237,7 @@ Video Editor allows to apply a number of various effects to video:
 2. Color filters(LUT)
 3. Visual
 4. Speed
-5. Stickers
+5. Stickers(GIPHY)
 6. Text
 7. Blur
 8. Transitions
