@@ -10,7 +10,9 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import androidx.lifecycle.lifecycleScope
+import com.banuba.sdk.cameraui.data.CameraRecordingModesProvider
 import com.banuba.sdk.cameraui.data.PipConfig
+import com.banuba.sdk.cameraui.ui.RecordMode
 import com.banuba.sdk.core.ext.obtainReadFileDescriptor
 import com.banuba.sdk.core.ui.ext.replaceFragment
 import com.banuba.sdk.core.ui.ext.visible
@@ -20,10 +22,12 @@ import com.banuba.sdk.ve.flow.VideoCreationActivity
 import com.banuba.sdk.ve.slideshow.SlideShowScaleMode
 import com.banuba.sdk.ve.slideshow.SlideShowSource
 import com.banuba.sdk.ve.slideshow.SlideShowTask
+import com.banuba.sdk.veui.data.EditorConfig
 import com.banuba.sdk.veui.ext.popFragmentByTag
 import com.banuba.sdk.veui.ui.sharing.VideoSharingFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.launch
+import org.koin.android.ext.android.inject
 import java.io.File
 
 class MainActivity : AppCompatActivity() {
@@ -167,6 +171,9 @@ class MainActivity : AppCompatActivity() {
         return Uri.fromFile(slideshowFromBitmap)
     }
 
+    val cameraRecordingModesProvider: CameraRecordingModesProvider by inject()
+    val editorConfig: EditorConfig by inject()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -196,6 +203,18 @@ class MainActivity : AppCompatActivity() {
                 }
                 btnSlideShowVideoEditor.setOnClickListener {
                     createVideoFromImageRequest.launch("image/*")
+                }
+                btnVideoEditorVideoOnly.setOnClickListener {
+                    cameraRecordingModesProvider.availableModes = setOf(RecordMode.Video)
+                    editorConfig.gallerySupportsVideo = true
+                    editorConfig.gallerySupportsImage = false
+                    openVideoEditor()
+                }
+                btnVideoEditorPhotoOnly.setOnClickListener {
+                    cameraRecordingModesProvider.availableModes = setOf(RecordMode.Photo)
+                    editorConfig.gallerySupportsVideo = false
+                    editorConfig.gallerySupportsImage = true
+                    openVideoEditor()
                 }
             } else {
                 // ❌ Use of Video Editor is restricted. License is revoked or expired.
