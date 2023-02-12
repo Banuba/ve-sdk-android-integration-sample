@@ -9,9 +9,9 @@
 - [Start sdk](#Start-sdk)
 - [Add audio content](#Add-audio-content)
 - [Add effects](#Add-effects)
-- [Customizations](#Customizations)
+- [Advanced customizations](#Advanced-customizations)
 - [Troubleshooting](#Troubleshooting)
-- [Dependencies and licenses](#Ddependencies-and-licenses)
+- [Dependencies and licenses](#Dependencies-and-licenses)
 - [FAQ](faq.md)
 - [Releases](#Releases)
 
@@ -198,7 +198,7 @@ videoEditorSDK.getLicenseState { isValid ->
 ```
 :exclamation: Video content unavailable screen will appear if you start Video Editor SDK with revoked or expired license.  
 <p align="center">
-<img src="screenshots/screen_expired.png"  width="33%" height="33%">
+<img src="screenshots/screen_expired.png"  width="25%" height="auto">
 </p>
    
 Video Editor SDK supports multiple entry points:
@@ -246,22 +246,22 @@ Video Editor allows to apply a number of various effects to video:
 
 Please follow [Video Editor effects integration guide](guide_effects.md) to get more information about applying available effects.
 
-### Customizations
+### Advanced customizations
 Video Editor SDK has built in UI/UX experience and provides list of changes you can apply to meet your requirements.
 
 **AVAILABLE**  
-:white_check_mark: Use your branded icons. [See details](integration_customizations.md#Configure-screens)  
-:white_check_mark: Use you branded colors. [See details](integration_customizations.md#Configure-screens)  
-:white_check_mark: Change text styles i.e. font, color. [See details](integration_customizations.md#Configure-screens)  
+:white_check_mark: Use your branded icons. [See details](integration_advanced_customizations.md#Configure-screens)  
+:white_check_mark: Use you branded colors. [See details](integration_advanced_customizations.md#Configure-screens)  
+:white_check_mark: Change text styles i.e. font, color. [See details](integration_advanced_customizations.md#Configure-screens)  
 :white_check_mark: Localize and change text resources. Default locale is :us:  
-:white_check_mark: Make content you want i.e. a number of video with different resolutions  and durations, an audio file. [See details](integration_customizations.md#Configure-export-flow)  
-:white_check_mark: Masks and filters order. [See details](integration_customizations.md#Configure-masks-and-filters-order)  
+:white_check_mark: Make content you want i.e. a number of video with different resolutions  and durations, an audio file. [See details](integration_advanced_customizations.md#Configure-export-flow)  
+:white_check_mark: Masks and filters order. [See details](guide_far_arcloud.md#Change-effects-order)  
 
 NOT AVAILABLE  
 :x: Change layout  
 :x: Change order of screens after entry point
 
-Please follow [customizations guide](integration_customizations.md) and [advanced guide](integration_advanced.md) to know more about features and configurations.
+Please follow [customizations guide](integration_advanced_customizations.md) to know more about features and configurations.
 
 ### Troubleshooting
 [This guide](integration_troubleshooting.md) might help you in case if you are experiencing any issues with an integration so far.

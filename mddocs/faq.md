@@ -1,26 +1,17 @@
 # FAQ  
 These are the answers to the most popular questions we are asked about the Banuba AI Video Editor SDK
 
-- [How do I start/stop recording with a tap?](#how-do-i-startstop-recording-with-a-tap)
 - [I want to turn off animations from slideshow](#i-want-to-turn-off-animations-from-slideshow)
 - [I want to start VideoEditor with a preselected audio track](#i-want-to-start-videoEditor-with-a-preselected-audio-track)
-- [I want to control visibility of debug info on camera and editor screens](#i-want-to-control-visibility-of-debug-info-on-camera-and-editor-screens)
 - [I want to customize gallery icon](#i-want-to-customize-gallery-icon)
 - [I want to change the font in Video Editor](#i-want-to-change-the-font-in-video-editor)
 - [How to change drafts configuration](#how-to-change-drafts-configuration)
 - [How to add other text fonts that are used in the editor screen](#how-to-add-other-text-fonts-that-are-used-in-the-editor-screen)
 - [Optimizing app size](#optimizing-app-size)
-- [How do I specify the video file saving directory?](#how-do-I-specify-the-video-file-saving-directory)
 - [How do I change the duration of the image display in a slideshow?](#how-do-I-change-the-duration-of-the-image-display-in-a-slideshow)
 - [How do I change the launguage (how do I add new locale support)](#how-do-I-change-the-launguage-how-do-I-add-new-locale-support)
 - [How do I integrate custom FFmpeg dependency in app?](#how-to-integrate-custom-ffmpeg-dependency)
-- [How to configure default state of microphone at camera screen?](#how-to-configure-default-state-of-microphone-at-camera-screen)
-- [Switcher Photo / Video configuration](#switcher-photovideo-configuration)
 
-### How do I start/stop recording with a tap?
-By default, the user must hold the “record” button to film and release it to stop filming.   
-
-To change that, simply set the `takePhotoOnTap` property inside [**CameraConfig**](config_camera.md) class to **false**.
 
 ### I want to turn off animations from slideshow
 
@@ -52,12 +43,6 @@ data class TrackData(
     val artist: String? = null
 )
 ```
-
-### I want to control visibility of debug info on camera and editor screens
-
-You can control visibility of camera config information and camera preview params(FPS, ISO). Change `showCameraInfoAndPerformance` property in [**CameraConfig**](config_camera.md) class.
-
-You can control visibility of editor config. Change `showEditorConfig` property in  [**EditorConfig**](config_videoeditor.md) class.
 
 ### I want to customize gallery icon
 
@@ -159,20 +144,6 @@ The easiest way to gain immediate app size savings when publishing to Google Pla
 
 As a result, the final size of our library for one of the platform types (`armeabi-v7a`,` arm64-v8a`, `x86`,` x86_64`) will be **24-26 MB** less than indicated in the documentation
 
-### How do I specify the video file saving directory?
-
-By default, they are placed in the "export" directory of external storage. To change the target folder, you should provide a custom Uri instance named exportDir through DI. For example, 
-to change the title of destination directory to "my_awesome_directory", provide the Uri instance below:
-
-```kotlin
-single(named("exportDir"), override = true) {
-            get<Context>().getExternalFilesDir("")?.toUri()
-                ?.buildUpon()
-                ?.appendPath("my_awesome_directory")
-                ?.build() ?: throw NullPointerException("exportDir should not be null!")
-        }
-```
-
 ### How do I change the duration of the image display in a slideshow?
 
 Use the ```slideShowSourceVideoDurationMs``` parameter in [EditorConfig](config_videoeditor.md) class:
@@ -192,7 +163,7 @@ Use the ```slideShowSourceVideoDurationMs``` parameter in [EditorConfig](config_
 There is no special language switching mechanism in the Video Editor SDK (VE SDK).
 
 Out of the box, the VE SDK includes support for two locales: English (default) and Russian. If you need to support any other locales, you can do it according to the standard Android way. See how [Create locale directories and resource files](https://developer.android.com/training/basics/supporting-devices/languages#CreateDirs) for more details. After adding a new locale resource file into your application with integrated VE SDK, you need to re-define the VE SDK strings keys with new locale string values.
-To do that you need to add all needed string keys in the new locale `strings.xml` file. You can find the main VE SDK string keys you need in the [Configure screens](integration_customizations.md#configure-screens) doc page. E.g. string keys of the Editor screen you can find [here](editor_styles.md#string-resources).
+To do that you need to add all needed string keys in the new locale `strings.xml` file. You can find the main VE SDK string keys you need in the [Configure screens](integration_advanced_customizations.md#configure-screens) doc page. E.g. string keys of the Editor screen you can find [here](editor_styles.md#string-resources).
 The newly added locale will be applied after the device language is changed by system settings.
 
 If you need to change language programmatically in your application, see the next links how it can be done:
@@ -201,53 +172,3 @@ If you need to change language programmatically in your application, see the nex
 
 ### How to integrate custom FFmpeg dependency.
 Check out [step-by-step guide](ffmpeg_dependency.md) to integrate custom FFmpeg dependency.
-
-### How to configure default state of microphone at camera screen?
-If you want to configure default state of microphone at camera screen you can use CameraMuteMicConfig class.
-```kotlin
-data class CameraMuteMicConfig(
-    val muteInNormalMode: Boolean = false,
-    val muteInPipMode: Boolean = true,
-    val muteWithAudioTrack: Boolean = true
-)
-```
-Add the following to the IntegrationKoinModule class:
-```kotlin
-factory {
-    CameraMuteMicConfig(
-        muteInNormalMode = false,
-        muteInPipMode = true, 
-        muteWithAudioTrack = true 
-    )
-}
-```
-- **muteInNormalMode**
-    - ```true``` - disabled by default
-    - ```false``` - enabled by default
-- **muteInPipMode**
-    - ```true``` - disabled by default in PIP mode
-    - ```false``` - enabled by default in PIP mode
-- **muteWithAudioTrack**
-    - ```true``` - default when audio track is added 
-    - ```false``` - enabled by default when audio track is added 
-
-### Switcher Photo/Video configuration
-Regarding Photo / Video functionality camera could be setup with set of options 
-- Only Photo
-- Only Video
-- Photo and Video
-
-It depends on ```availableModes``` of overridden ```CameraRecordingModesProvider``` object: 
-```kotlin
-single<CameraRecordingModesProvider> {
-    object : CameraRecordingModesProvider {
-        override var availableModes = setOf(RecordMode.Video, RecordMode.Photo)
-    }
-}
-...
-sealed class RecordMode {
-    object Video : RecordMode()
-    object Photo : RecordMode()
-}
-```
-:exclamation:**Set should not be empty, or it lead to crash at start of application**

@@ -1,4 +1,4 @@
-## Video Editor audio integration guide
+# Video Editor Audio integration guide
 Audio is a key part of making awesome video content.  
 
 Video Editor SDK can play, trim, merge and apply audio content to a video.  
@@ -11,7 +11,7 @@ There are 2 approaches of providing audio content:
 1. ```AudioBrowser``` - specific module and a set of screens that includes built in support of browsing and applying audio content within video editor. The user does not leave the sdk while using audio.
 2. ```External API``` - the client implements specific API for managing audio content. The user is taken on client's screen when audio is requested.
 
-### Audio Browser
+## Audio Browser
 Audio Browser is a specific Android module that allows to browse, play and apply audio content within video editor.  
 It supports 2 sources for audio content:
 1. ```My Library``` - includes audio content available on the user's device
@@ -88,7 +88,7 @@ Finally, you can customize Audio Browser appearance by implementing the list of 
 ```
 This sample includes stub implementations of these [styles](../app/src/main/res/values/themes.xml#L295).
 
-### [Mubert](https://mubert.com/) integration
+## [Mubert](https://mubert.com/) integration
 Audio Browser has built in integration with [Mubert](https://mubert.com/) API.  
 Please contact Mubert representatives to request API KEY.
 
@@ -147,7 +147,7 @@ Below is a list of used string resources you can customize
 | audio_browser_connection_error_toast | No internet connection | Error message that is shown to the user when there is no internet connection
 
 
-### External API
+## External API
 Video Editor includes special API for integrating your custom audio content provider and applying this content in video editor.   
 The user will be taken to your app specific screen when audio is requested on video editor screen i.e. camera or editor.
 Next, once the user picks audio content on your app screen you need to follow API and return the user to video editor.  
@@ -247,7 +247,7 @@ finish()
 ```
 To dismiss previously selected audio track you can pass ```null``` for ```TrackData```.
 
-### Music Editor
+## Music Editor
 Video Editor includes Music Editor screens. These are screens where the user can adjust usage of audio in video editor i.e. trim, add new, delete. 
 Music Editor includes voice recording feature as well.  
 
@@ -363,7 +363,6 @@ Music Editor screen also has some theme attributes that define background of som
 - [music_editor_timeline_background](../app/src/main/res/values/themes.xml#L223) - background of [timeline view](music_editor_styles.md#L8)
 - [music_editor_playback_controller_bg](../app/src/main/res/values/themes.xml#L224) - background of control panel on music editor screen
 - [music_editor_action_container_bg](../app/src/main/res/values/themes.xml#L225) - background of action buttons container
-
 
 And you can customize string resources as well.
 
