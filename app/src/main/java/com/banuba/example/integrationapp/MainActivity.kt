@@ -200,7 +200,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 // ❌ Use of Video Editor is restricted. License is revoked or expired.
                 licenseStateView.text = SampleApp.ERR_LICENSE_REVOKED
-                Log.w(SampleApp.TAG, SampleApp.LICENSE_TOKEN)
+                Log.w(SampleApp.TAG, SampleApp.ERR_LICENSE_REVOKED)
 
                 licenseStateView.visible()
                 btnVideoEditor.isEnabled = false

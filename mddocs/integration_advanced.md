@@ -27,20 +27,3 @@ You can either include the AR filters in the app or have users download them fro
 | 3x              | 2400            | 4000            | 8000           | 12800            |  
 
 
-### Check Video Editor SDK availability before opening
-
-The SDK is protected by the token so its presence is a vital part of Video Editor launch. To check if the SDK is ready to use you may use the following property:
-```kotlin
-VideoEditorLicenceUtils.isSupportsVeSdk
-```
-
-Also you can check token expiration with help of:
-```kotlin
-EditorLicenseManager.isTokenExpired()
-```
-property. See [FAQ page](faq.md#how-does-video-editor-work-when-token-expires) to get more details about token expiration.
-
-There are a few devices, that doesn't support Video Editor. To check you may use the following property:
-```kotlin
-VideoEditorUtils.isSupportsVideoEditor
-```

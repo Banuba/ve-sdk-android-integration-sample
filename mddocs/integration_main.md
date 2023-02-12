@@ -17,14 +17,8 @@
 
 ### Prerequisite
 :exclamation: The license token **IS REQUIRED** to run Video Editor SDK in your app.  
-Check [Installation](../README.md#Installation) guide if the license token is not set.
-
-To initialize Banuba Video Editor SDK with the license token use 
-``` kotlin
-val videoEditorSDK = BanubaVideoEditor.initialize(LICENSE_TOKEN)
-```
-instance ```videoEditorSDK``` is ```null``` in case if license is incorrect i.e. empty, truncated.
-If ```videoEditorSDK``` is not ```null``` you can proceed.
+Check [Installation](../README.md#Installation) guide if the license token is not set.  
+Use the license token to [start Video Editor](#Start-sdk) 
 
 ### Add dependencies
 GitHub packages is used for getting Android Video Editor SDK modules.
@@ -62,7 +56,7 @@ allprojects {
 Next, specify a list of dependencies in [app gradle](../app/build.gradle#L50) file.
 
 ```groovy
-    def banubaSdkVersion = '1.26.3'
+    def banubaSdkVersion = '1.26.4'
 
     implementation "com.banuba.sdk:ffmpeg:4.4"
     implementation "com.banuba.sdk:camera-sdk:${banubaSdkVersion}"
@@ -184,8 +178,14 @@ Implement ```ExportParamsProvider``` and provide ```List<ExportParams>``` where 
 Check [CustomExportParamsProvider](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L208) implementation and follow [Export integration guide](guide_export.md) to know more about exporting media content.
 
 ### Start SDK
-Before start Video Editor SDK we strongly recommend checking your license state.
+Create instance of ```BanubaVideoEditor```  by using the license token
+``` kotlin
+val videoEditorSDK = BanubaVideoEditor.initialize(LICENSE_TOKEN)
+```
+```videoEditorSDK``` is ```null``` when the license token is incorrect i.e. empty, truncated.
+If ```videoEditorSDK``` is not ```null``` you can proceed and start video editor.
 
+Next, we strongly recommend checking your license state before staring video editor
 ```kotlin
 videoEditorSDK.getLicenseState { isValid ->
    if (isValid) {
@@ -196,8 +196,10 @@ videoEditorSDK.getLicenseState { isValid ->
    }
 }
 ```
-:exclamation: Certain screen will appear if you start Video Editor SDK with revoked or expired license.  
-
+:exclamation: Video content unavailable screen will appear if you start Video Editor SDK with revoked or expired license.  
+<p align="center">
+<img src="screenshots/screen_expired.png"  width="33%" height="33%">
+</p>
    
 Video Editor SDK supports multiple entry points:
 1. Camera screen
@@ -276,13 +278,11 @@ Please follow [customizations guide](integration_customizations.md) and [advance
 [See all dependencies and licenses](dependencies_licenses.md)
 
 ## Releases
-[1.24.0](https://vebanuba.notion.site/1-24-5b97696e0eae4fbca36b71ac6d8a05be)\
-[1.24.1](https://vebanuba.notion.site/1-24-1-c6a58469dc5140bc95ad4cc78061a332)\
-[1.24.2](https://vebanuba.notion.site/1-24-2-fffb57ad78b246af9a0903be8626967a)\
 [1.25.0](https://www.notion.so/vebanuba/1-25-0-9240af0c9b694bc596d8326dd38b7c17)\
 [1.25.1](https://www.notion.so/vebanuba/1-25-1-56105d73bcfb4d468a6ce6ea960ab13a)\
 [1.26.0](https://www.notion.so/vebanuba/1-26-0-a13cea95a22940b7bf7ec14ab80cfbcb)\
 [1.26.0.1](https://www.notion.so/vebanuba/1-26-0-1-97c4631d568e4111b2ca3982f141bbcf)\
 [1.26.1](https://www.notion.so/vebanuba/1-26-1-10615b7836ff422bae7ba629894fd300)\
 [1.26.2](https://www.notion.so/vebanuba/1-26-2-49f2bc0c102e498fa0e25e6d067aec67)\
-[1.26.3](https://www.notion.so/vebanuba/1-26-3-113feef808d14d39abf8ccdd3181b36a)
+[1.26.3](https://www.notion.so/vebanuba/1-26-3-113feef808d14d39abf8ccdd3181b36a)\
+[1.26.4](https://www.notion.so/vebanuba/1-26-4-41c28eeb378043039fa28ae42d2bbf74)\

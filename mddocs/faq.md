@@ -6,7 +6,6 @@ These are the answers to the most popular questions we are asked about the Banub
 - [I want to start VideoEditor with a preselected audio track](#i-want-to-start-videoEditor-with-a-preselected-audio-track)
 - [I want to control visibility of debug info on camera and editor screens](#i-want-to-control-visibility-of-debug-info-on-camera-and-editor-screens)
 - [I want to customize gallery icon](#i-want-to-customize-gallery-icon)
-- [How does video editor work when token expires?](#how-does-video-editor-work-when-token-expires)
 - [I want to change the font in Video Editor](#i-want-to-change-the-font-in-video-editor)
 - [How to change drafts configuration](#how-to-change-drafts-configuration)
 - [How to add other text fonts that are used in the editor screen](#how-to-add-other-text-fonts-that-are-used-in-the-editor-screen)
@@ -75,18 +74,6 @@ Gallery icon is represented by AppCompatImageView. Its style placed into `galler
 **By default the last media file is used as a drawable**. You have an option to **put background** to the gallery icon by changing `icon_gallery_background` attribute of `CameraOverlayStyle` and you can **add rounded corners** to the gallery icon by changing `icon_gallery_radius` attribute of this style ([**example**](../app/src/main/res/values/themes.xml#L528)).
 
  **To setup custom drawable resource** instead of the last media file you have to put custom style into `galleryImageViewStyle` attribute of the main theme ([**example**](../app/src/main/res/values/themes.xml#L116)) and set there `use_custom_image` to `true` and put your drawable as `android:src` attribute value
-
-### How does video editor work when token expires?
-
-[License](../README.md#License) provided by sales managers has an expiration term to protect Video Editor SDK from malicious access. When the token expires the following happens:
- - video resolution will be lowered to 360p on camera, after trimmer and after export
- - Banuba watermark is applied to every exported video
-
- Also [FaceAR SDK](https://docs.banuba.com/face-ar-sdk/overview/token_management#how-does-it-work) you may expect the following actions if the token expires:
- - on the first expired month a watermark with "Powered by Banuba" label will be added on the top of both recorded and exported videos
- - after the first month the camera screen will be blurred and a full-screen watermark will be displayed
-
- Please keep your licence up to date to avoid unwanted behavior.
 
  ### I want to change the font in Video Editor
 
