@@ -92,20 +92,15 @@ This sample includes stub implementations of these [styles](../app/src/main/res/
 Audio Browser has built in integration with [Mubert](https://mubert.com/) API.  
 Please contact Mubert representatives to request API KEY.
 
-Set Mubert API key in VideoEditor Koin module.
+Set Mubert API key in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt).
 ```kotlin
 single {
   MubertApiConfig("API KEY")
 }
 ```
 
-You can use ```MubertApiConfig``` to customize network requests to Mubert API and apply in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt)
+You can use ```MubertApiConfig``` to customize network requests to Mubert as well.
 
-```kotlin
-single {
-  MubertApiConfig(...) 
-} 
-```
 | Property | Available values | Description |
 | ------------- | :------------: | :------------- |
 | **generatedTrackDurationSec** | Number > 0 | duration that applied for generated tracks in seconds

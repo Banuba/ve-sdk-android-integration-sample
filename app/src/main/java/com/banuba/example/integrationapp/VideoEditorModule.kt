@@ -203,10 +203,6 @@ private class SampleIntegrationKoinModule {
                 }
             }
         }
-
-        single {
-            MubertApiConfig("API KEY")
-        }
     }
 }
 
