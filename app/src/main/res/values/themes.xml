@@ -247,6 +247,7 @@
         <item name="music_editor_icon_track_edit">@drawable/ic_timeline_edit</item>
         <item name="music_editor_icon_track_effects">@drawable/ic_timeline_effects</item>
         <item name="music_editor_icon_track_delete">@drawable/ic_timeline_trash</item>
+        <item name="music_editor_icon_track_volume">@drawable/ic_volume</item>
         <!---->
 
         <!-- Timeline editor -->
