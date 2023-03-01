@@ -200,13 +200,9 @@ videoEditorSDK.getLicenseState { isValid ->
 <img src="screenshots/screen_expired.png"  width="25%" height="auto">
 </p>
    
-Video Editor SDK supports multiple entry points:
-1. Camera screen
-2. Drafts screen
-3. Trimmer screen
-4. Video editing screen
+Video Editor supports multiple launch methods described in [this guide](advanced_customizations.md#Launch-methods).
 
-For example, the following [implementation](../app/src/main/java/com/banuba/example/integrationapp/MainActivity.kt#L18) starts Video Editor from camera screen.
+The following [implementation](../app/src/main/java/com/banuba/example/integrationapp/MainActivity.kt#L18) starts Video Editor from camera screen.
 ```kotlin
  val createVideoRequest =
     registerForActivityResult(IntegrationAppExportVideoContract()) { exportResult ->

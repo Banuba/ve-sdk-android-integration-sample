@@ -1,39 +1,37 @@
-### Configure media content
+## Gallery integration guide
 
-AI Video Editor SDK is provided with its own solution for media content (i.e. images and videos) selection - the gallery screen. To use it as a part of SDK just add a dependency into build.gradle:
+Video Editor SDK includes built in solution for the gallery where the user can pick any video or image and use it while making video.  
+To connect Banuba Gallery screen and its functionality you need to add the dependency in [build.gradle](../app/build.gradle#L60) file.
 ```kotlin
-implementation "com.banuba.sdk:ve-gallery-sdk:1.0.16"
+implementation "com.banuba.sdk:ve-gallery-sdk:1.26.5"
 ```
-and put the new koin module into `startKoin` function:
+and [GalleryKoinModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L76) to the list of modules
 ```diff
 startKoin {
     androidContext(this@IntegrationApp)
         modules(
-            // other Video Editor modules
+            ...
 +           GalleryKoinModule().module
         )
 }
 ```
-The gallery provided by the SDK is fully customizable according to [this guide](gallery_styles.md).
 
-Also there is an option to use **your own implementation of the gallery**. This is available according to this [step-by-step guide](configure_external_gallery.md).
+Instance of ```EditorConfgig``` that you implement in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt)  contains 2 properties that will allow you to filter media content:
+- ```gallerySupportsVideo``` - if the ```Video``` tab is shown on the Gallery screen. Values: true/false. Default ```true```
+- ```gallerySupportsImage``` - if the ```Image``` tab is shown on the Gallery screen. Values: true/false. Default ```true```
 
 
-## Gallery screen configuration
+Please use the following styles to change appearance of Gallery screen that will meet your requirements.
 
-There is a "gallery" section in [**EditorConfig**](./config_videoeditor.md#gallery) class. It has some attributes that impact on gallery screen appearance and logic.
-
-## Gallery screen styles
-
-- [galleryImageViewStyle](../app/src/main/res/values/themes.xml#L116)
-
-  style defines the overview of gallery icon on the **camera screen**. By default the last media resource is used as gallery icon drawable. To show the custom icon for gallery the `use_custom_image` attribute should be changed to "true" and the custom drawable should be passed as `android:src` value. If there are no media resource on the device the icon from `icon_empty_gallery` attribute of `CameraOverlayView` style is used (if `use_custom_image` is false).
+- [galleryImageViewStyle](../app/src/main/res/values/themes.xml#L116)  
+  style defines the overview of gallery icon on the camera screen. The last media resource is used as gallery icon drawable by default.  
+  To show the custom icon for gallery set `use_custom_image` attribute to "true" and pass custom drawable to `android:src`. If there is no media resource on the device the icon from `icon_empty_gallery` attribute of `CameraOverlayView` style is used (if `use_custom_image` is false).
 
   ![img](screenshots/gallery4.png)
 
 - [galleryBackButtonStyle](../app/src/main/res/values/themes.xml#L118)
 
-  style for the button placed on the top left corner of the screen. This icon has **two states:** if some files are already selected in the gallery and if nothing is selected. Both states have different drawables that are configured into `VideoCreationTheme` [attributes](../app/src/main/res/values/themes.xml#L828):
+  back button style which is placed at top left corner of the screen. This icon has two states: if some files are already selected in the gallery and if nothing is selected. Both states have different drawables that are configured into `VideoCreationTheme` [attributes](../app/src/main/res/values/themes.xml#L862):
 
     - `ic_nav_back_arrow` -  nothing is selected → **get back to the previous screen**
     - `ic_nav_close` - some files are selected → **clear selection**
@@ -88,14 +86,13 @@ There is a "gallery" section in [**EditorConfig**](./config_videoeditor.md#galle
 
   ![img](screenshots/gallery7.png)
 
-Besides concrete styles there are a lot of theme attributes that allows to configure gallery screen:
-- [galleryColumnsNumber](../app/src/main/res/values/themes.xml#L132) - setup how much columns the gallery screen shows
+- [galleryColumnsNumber](../app/src/main/res/values/themes.xml#L132) - setup how many columns the gallery screen shows
 - [gallery_bg_color](../app/src/main/res/values/themes.xml#L133) - background color for gallery screen
 - [gallery_item_corner_radius](../app/src/main/res/values/themes.xml#L134) - setup corner radius for every gallery item
 - [gallery_item_margin](../app/src/main/res/values/themes.xml#L135) - setup margins between items in gallery (applied in all directions)
 - [gallery_album_divider_color](../app/src/main/res/values/themes.xml#L136) - divider color in the albums list
 
-## String resources
+Below string resources are used and can be customized.
 
 | ResourceId        |      Value      |   Description |
 | ------------- | :----------- | :------------- |
@@ -113,3 +110,117 @@ Besides concrete styles there are a lot of theme attributes that allows to confi
 | gallery_choose_at_least | Select at least %1$d files | **plurals resource** that is used for the [toast](alert_styles.md) message that is shown when the user want to open the editor screen but the number of selected resources (videos or images) is less than predefined custom value (recently "1" is used). This predefined value is a placeholder in every plural string resource here
 | err_gallery_broken_file | Damaged file | message shown as a [toast](alert_styles.md) in case of tapping on the damaged media file
 | err_gallery_limit_selected | You can select only %1$d files | **plurals resource** that is used for the toast message if the user tries to select more files than allowed
+
+
+## Implement custom gallery
+
+Video editor allows to replace default gallery with your custom. Please follow implementation guide.  
+First, create ```CustomMediaContentProvider``` class that implements ```ContentFeatureProvider<List<Uri>, Fragment>```. 
+This class describes a contract between Video Editor and specific Fragment from your project for gallery. 
+
+```kotlin
+class CustomMediaContentProvider : ContentFeatureProvider<List<Uri>, Fragment> {
+
+    private var activityResultLauncher: ActivityResultLauncher<Intent>? = null
+
+    private val activityResultCallback: (List<Uri>?) -> Unit = {
+        activityResultCallbackInternal(it)
+    }
+    private var activityResultCallbackInternal: (List<Uri>?) -> Unit = {}
+
+    override fun init(hostComponent: WeakReference<Fragment>) {
+        activityResultLauncher = hostComponent.get()?.registerForActivityResult(
+            ProvideMediaContentContract(),
+            activityResultCallback
+        )
+    }
+
+    override fun requestContent(
+        context: Context,
+        extras: Bundle
+    ): ContentFeatureProvider.Result<List<Uri>> = ContentFeatureProvider.Result.RequestUi(
+        intent = CustomGalleryActivity.createIntent(context).apply {
+            putExtras(extras)
+        }
+    )
+
+    override fun handleResult(
+        hostComponent: WeakReference<Fragment>,
+        intent: Intent,
+        block: (List<Uri>?) -> Unit
+    ) {
+        activityResultCallbackInternal = block
+        activityResultLauncher?.launch(intent)
+    }
+}
+```
+
+Method `init` is invoked in Video Editor to register `onActivityResult` callback and receive media content.
+`ProvideMediaContentContract` class is used to manage data bundle that is passed between video editor and your custom media provider implementation.  
+
+Method `requestContent` is used to create `Intent` for starting your custom Activity with gallery.
+`extras` argument contains metadata for media content selection and should be passed into your custom media provider.
+
+`handleResult` method connects `onActivityResult` callback within Video Editor with the media content provided by `CustomGalleryActivity`.
+
+Next, obtain media request params in `CustomGalleryActivity.onCreate()` 
+
+```kotlin
+override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        intent.extras?.let { extras ->
+            val params = ProvideMediaContentContract.obtainParams(extras)
+            ...
+        }
+```
+
+`Params` object contains data about request from video editor
+```kotlin
+    data class Params(
+        val mode: OpenGalleryMode,
+        val types: List<MediaType>,
+        val maxCount: Int,
+        val minCount: Int,
+        val supportedFormats: List<String>
+    )
+```
+
+`mode` - is a type of request (NORMAL, FEATURE_BACKGROUND, ADD_TO_TRIMMER)
+`types` - list of requested media types (Video, Image)  
+`supportedFormats` - list of media file extensions that are supported by SDK  
+
+
+Deliver media data from `CustomGalleryActivity` to video editor
+
+```kotlin
+val resultIntent = Intent().apply {
+            putParcelableArrayListExtra(
+                ProvideMediaContentContract.EXTRA_MEDIA_CONTENT_RESULT,
+                ArrayList(selectedMedia)
+            )
+        }
+setResult(Activity.RESULT_OK, resultIntent)
+```
+
+`selectedMedia` is a list of media Uris with **content://** scheme.
+
+Finally, provide `CustomMediaContentProvider` in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt)
+
+```kotlin
+    factory<ContentFeatureProvider<List<Uri>, Fragment>>(named("mediaDataProvider"), override = true) { (external: Boolean?) ->
+        CustomMediaContentProvider()
+    }
+```
+and remove module `GalleryKoinModule` from the list of modules.
+```diff
+   startKoin {
+            androidContext(applicationContext)
+            allowOverride(true)
+
+            modules(
+                ...
+-               GalleryKoinModule().module,
+                ...
+            )
+        }
+```

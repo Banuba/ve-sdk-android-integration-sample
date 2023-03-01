@@ -1,5 +1,22 @@
-# Banuba AI Video Editor SDK
-## Cover screen styles
+## Cover image guide
+
+Cover image screen allows users to pick any frame of video as image or choose an image from gallery.  
+
+```CoverProvider``` supports 2 modes for managing cover image screen in video editor. Default ```EXTENDED```
+``` kotlin
+ enum class CoverProvider {
+    EXTENDED,   // enable cover screen
+    NONE        // disable cover screen
+}
+```
+You can change the mode in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L145)
+``` kotlin
+single<CoverProvider>(override = true) {
+    CoverProvider.EXTENDED
+}
+```
+
+Use the following styles to change appearance of cover image screen.
 
 - [extendedCoverParentStyle](../app/src/main/res/values/themes.xml#L268)
 
@@ -45,9 +62,9 @@
 
 ![img](screenshots/cover2.png)
 
-## String resources
-
-**Pay attention** that some strings on the cover screen are defined in the styles. To localize these strings firstly create string resources and setup them into styles under `android:text` attribute.
+Below string resources are used and can be customized.  
+:exclamation: Important  
+Some string resources are defined in the styles. To localize these strings firstly create string resources and setup them into styles under `android:text` attribute.
 
 | ResourceId        |      Value      |   Description |
 | ------------- | :----------- | :------------- |

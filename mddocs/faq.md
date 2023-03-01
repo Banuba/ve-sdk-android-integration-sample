@@ -1,6 +1,7 @@
 # FAQ  
 These are the answers to the most popular questions we are asked about the Banuba AI Video Editor SDK
 
+- [What is the size of Video Editor SDK size?](#What-is-the-size-of-Video-Editor-SDK-size?)
 - [I want to turn off animations from slideshow](#i-want-to-turn-off-animations-from-slideshow)
 - [I want to start VideoEditor with a preselected audio track](#i-want-to-start-videoEditor-with-a-preselected-audio-track)
 - [I want to customize gallery icon](#i-want-to-customize-gallery-icon)
@@ -12,6 +13,14 @@ These are the answers to the most popular questions we are asked about the Banub
 - [How do I change the launguage (how do I add new locale support)](#how-do-I-change-the-launguage-how-do-I-add-new-locale-support)
 - [How do I integrate custom FFmpeg dependency in app?](#how-to-integrate-custom-ffmpeg-dependency)
 - [FFmpeg build issue(Error compressed Native Libs)](#FFmpeg-build-issue)
+
+### What is the size of Video Editor SDK size?
+| Options | Mb      | Note |
+| -------- | --------- | ----- |
+| :white_check_mark: Face AR SDK  | 37.3 | AR effect sizes are not included. AR effect takes 1-3 MB in average.
+| :x: Face AR SDK | 15.5  | no AR effects  |  
+
+You can either include the AR filters in the app or have users download them from the [AR cloud](#Configure-AR-cloud) to dramatically decrease the app size.
 
 ### I want to turn off animations from slideshow
 

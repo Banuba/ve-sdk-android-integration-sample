@@ -1,20 +1,12 @@
 # Advanced customizations
 
-- [Video Editor SDK size](#Video-Editor-SDK-size)
 - [Video recording](#Video-recording)
 - [Face AR SDK and AR Cloud](#Face-AR-SDK-and-AR-Cloud)
-- [Configure Cover preview screen](#Configure-Cover-preview-screen)
+- [Gallery](#Gallery)
+- [Cover image](#Cover-image)
+- [Launch methods](#Launch-methods)
 - [Configurations](#Configurations)
 - [Configure screens](#Configure-screens)
-- [Localization](#Localization)
-
-## Video Editor SDK size
-| Options | Mb      | Note |
-| -------- | --------- | ----- |
-| :white_check_mark: Face AR SDK  | 37.3 | AR effect sizes are not included. AR effect takes 1-3 MB in average.
-| :x: Face AR SDK | 15.5  | no AR effects  |  
-
-You can either include the AR filters in the app or have users download them from the [AR cloud](#Configure-AR-cloud) to dramatically decrease the app size.
 
 ## Video recording
 Video editor supports functionality allowing to record video using Android camera. There are many features, configurations and styles 
@@ -33,20 +25,57 @@ Video Editor SDK has built in integration with Banuba AR Cloud - remote storage 
 Please follow [Face AR and AR Cloud integration guide](guide_far_arcloud.md) if you are interested in disabling Face AR, 
 integrating AR Cloud, managing AR effects and many more. 
 
+## Gallery
+Video editor includes gallery screen where the user is able to pick any video and image stored on the device. 
+Any video or image content is validated before using it in playback or export functionality. See [supported media formats](../README.md#Supported-media-formats).  
+Visit [Gallery guide](guide_gallery.md) to get more details how to customize or replace with your own version.
 
-## Configure Cover preview screen
-If you want to manage Cover preview screen you need to override CoverProvider property in [DI](app/src/main/java/com/banuba/example/integrationapp/videoeditor/di/IntegrationKoinModule.kt#L86).
-``` kotlin
-single<CoverProvider>(override = true) {
-    CoverProvider.EXTENDED
-}
-```
-There are 3 modes:
-``` kotlin
- enum class CoverProvider {
-    EXTENDED,   // enable cover screen
-    NONE        // disable cover screen
-}
+## Cover image
+Cover image is a frame of a video which the user can easily select on a specific video editor screen i.e cover screen.  
+Visit [Cover image guide](guide_cover_image.md) to get more details how to customize or disable it.
+
+## Launch methods
+Video Editor supports multiple launch methods that are in ```VideoCreationActivity``` to meet all your requirements.
+
+1. Launch from Camera screen where the user can record video or take a picture.
+```kotlin
+     fun startFromCamera(
+        context: Context,
+        pictureInPictureConfig: PipConfig? = null,
+        additionalExportData: Parcelable? = null,
+        audioTrackData: TrackData? = null
+    )
+  ```
+
+Pass instance of ```PipConfig``` to start in Picture-in-Picture(PIP) mode.  
+:exclamation: Important  
+Video editor will not open in PIP mode if your license token does not support PIP feature.
+
+2. Launch from Trimmer screen where the user can trim video, add transitions and move to editing screens for adding effects.
+```kotlin
+    fun startFromTrimmer(
+            context: Context,
+            predefinedVideos: Array<Uri>,
+            additionalExportData: Parcelable? = null,
+            audioTrackData: TrackData? = null
+        )
+  ```
+
+3. Launch from Drafts screen where the user can pick any non completed draft and proceed making video.
+```kotlin
+     fun startFromDrafts(
+            context: Context,
+            predefinedDraft: Draft? = null
+    )
+ ```
+4. Launch from Editor screen where the user can add effects to video.
+```kotlin
+    fun startFromEditor(
+        context: Context,
+        predefinedVideos: Array<Uri>,
+        additionalExportData: Parcelable? = null,
+        audioTrackData: TrackData? = null
+    )
 ```
 
 ## Configurations
@@ -61,61 +90,12 @@ You can use the Android themes and styles to change the screens in the mobile Vi
 
 The AI Video Editor SDK includes the following screens:
 1. [Editor screen](editor_styles.md)
-2. [Gallery screen](guide_gallery.md)
 3. [Trimmer screen](trimmer_styles.md)
 4. [Aspects screen](aspects_styles.md)
 5. [Music Editor screen](guide_audio_content.md#Music-Editor-screen)
 6. [Timeline Editor screen](timeline_editor_styles.md)
-7. [Cover screen](cover_styles.md)
 8. [Alert Dialogs](alert_styles.md)
 9. [Drafts screen](drafts_styles.md)
 10. [Media progress screen](media_progress_styles.md)
 11. [Sharing screen](sharing_screen_styles.md)
 
-## Launch methods
-Video Editor has multiple launch methods implemented in ```VideoCreationActivity```.
-
-1. Start from Camera screen.
-```kotlin
-     fun startFromCamera(
-        context: Context,
-        pictureInPictureConfig: PipConfig? = null,
-        additionalExportData: Parcelable? = null,
-        audioTrackData: TrackData? = null
-    )
-  ```
-
-Pass instance of ```PipConfig``` to  ```pictureInPictureVideo``` to start in Picture-in-Picture mode.
-
-2. Start from Trimmer screen
-```kotlin
-    fun startFromTrimmer(
-            context: Context,
-            predefinedVideos: Array<Uri>,
-            additionalExportData: Parcelable? = null,
-            audioTrackData: TrackData? = null
-        )
-  ```
-
-3. Start from Drafts screen
-```kotlin
-     fun startFromDrafts(
-            context: Context,
-            predefinedDraft: Draft? = null
-    )
- ```
-4. Start from Editor screen
-```kotlin
-    fun startFromEditor(
-        context: Context,
-        predefinedVideos: Array<Uri>,
-        additionalExportData: Parcelable? = null,
-        audioTrackData: TrackData? = null
-    )
-```
-
-### Localization
-
-To change any particular text in the Video Editor SDK just provide your custom value for string resource provided in String resources section of [every screen](#Configure-screens) (check out an example of [string resources](editor_styles.md#string-resources) on editor screen). Keep ResourceId the same and change only related value.
-
-To localize Video Editor SDK follow an [official guide](https://developer.android.com/guide/topics/resources/localization) and provide string resources for every locale in your app with the same ResourceId and translated values.
