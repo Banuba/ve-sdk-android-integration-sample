@@ -187,19 +187,12 @@ private class SampleIntegrationKoinModule {
             )
         }
 
+        // Override implementation if you use sharing functionality
         single<SharingActionHandler> {
             object : SharingActionHandler {
-                override fun onBack(activity: Activity) {
-                    if (activity is MainActivity) {
-                        activity.hideSharingScreen()
-                    }
-                }
+                override fun onBack(activity: Activity) {}
 
-                override fun onClose(activity: Activity, result: ExportResult.Success?) {
-                    if (activity is MainActivity) {
-                        activity.hideSharingScreen()
-                    }
-                }
+                override fun onClose(activity: Activity, result: ExportResult.Success?) {}
             }
         }
     }

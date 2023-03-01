@@ -190,7 +190,7 @@ The feature is disabled by default and can be enabled if the license supports it
 
 The subsequent guide explains how to start and customize ```PIP```.  
 
-First, pass ```pictureInPictureConfig``` in [VideoCreationActivity.startFromCamera](../app/src/main/java/com/banuba/example/integrationapp/MainActivity.kt#L73) method
+First, pass ```pictureInPictureConfig``` in [VideoCreationActivity.startFromCamera](../app/src/main/java/com/banuba/example/integrationapp/MainActivity.kt#L31) method
 
 ```kotlin
 val localVideoUri = ...

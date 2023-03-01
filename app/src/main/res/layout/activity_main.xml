@@ -6,16 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/shareScreenContainer"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnVideoEditor"
         android:layout_width="240dp"
@@ -50,7 +40,7 @@
         android:layout_marginTop="16dp"
         android:text="Open Video Editor - Drafts"
         android:textSize="11sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnSlideShowVideoEditor"
+        app:layout_constraintBottom_toTopOf="@+id/btnSlideShowVideoEditorTrimmer"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -58,11 +48,11 @@
         app:layout_constraintVertical_bias="0" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnSlideShowVideoEditor"
+        android:id="@+id/btnSlideShowVideoEditorTrimmer"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Open Video Editor - SlideShow"
+        android:text="Open Video Editor - Trimmer"
         android:textSize="11sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

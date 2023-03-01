@@ -177,7 +177,7 @@ Finally, use the most suitable export mode for your application - ```ForegroundE
 If you set ```shouldClearSessionOnFinish``` to ```true``` in ```ExportFlowManager```  you should clear ```VideoCreationActivity``` from Activity backstack. Otherwise crash will occur.
 
 ### Export result
-The result is returned to your controller in [registerForActivityResult method](../app/src/main/ava/com/banuba/example/integrationapp/MainActivity.kt#L39) as an instance of ```ExportResult```.
+The result is returned to your controller in [registerForActivityResult method](../app/src/main/ava/com/banuba/example/integrationapp/MainActivity.kt#L18) as an instance of ```ExportResult```.
 ```kotlin
 private val createVideoRequest =
         registerForActivityResult(CustomExportResultVideoContract()) { exportResult ->

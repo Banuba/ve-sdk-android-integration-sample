@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Used in the sample for playing exported video file -->
 <paths>
     <external-path
         name="external_files"
