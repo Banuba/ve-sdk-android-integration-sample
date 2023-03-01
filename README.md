@@ -11,7 +11,6 @@
 
 ## Overview
 [Banuba Video Editor SDK](https://www.banuba.com/video-editor-sdk) allows you to quickly add short video functionality and possibly AR filters and effects into your mobile app.  
-The sample demonstrates how to integrate Video Editor SDK into Android project.
 
 ## Usage
 ### License
@@ -20,16 +19,20 @@ We will get back to you with the trial token.
 Feel free to [contact us](https://www.banuba.com/faq/kb-tickets/new) if you have any questions.
 
 ### Installation
-1. Clone the repository
-2. Open the project in your IDE
-3. Add the license token [within the app](app/src/main/java/com/banuba/example/integrationapp/SampleApp.kt#L13)
-4. Run the sample application in your IDE
+1. Clone the repository and open the project in IDE
+2. Add the license token [within the app](app/src/main/java/com/banuba/example/integrationapp/SampleApp.kt#L13)
+3. Run the sample application in your IDE
 
-### Integration guide
-Follow [Main Integration Guide](mddocs/integration_main.md) to continue integration and customization process of Video Editor SDK into your Android project.
+### Quickstart Guide
+Our [Quickstart Guide](mddocs/quickstart.md) will help you to quickly integrate and customize Video Editor SDK into your Android project.
 
 ### Requirements
 - Kotlin 1.4+ or Java 1.8+
 - Android OS 6.0 or higher with Camera 2 API
 - OpenGL ES 3.0 (3.1 for Neural networks on GPU)
 - :white_check_mark: arm64-v8a , :white_check_mark: armv7, :exclamation: x86-64 limited support, :x: x86 - no support
+
+### Supported media formats
+| Audio                                  | Video      | Images      |
+|----------------------------------------| ---------  | ----------- |
+| .aac, .mp3, .wav,<br>.ogg, .m4a, .flac |.mp4, .mov | .jpg, .gif, .heic, .png,<br>.nef, .cr2, .jpeg, .raf, .bmp

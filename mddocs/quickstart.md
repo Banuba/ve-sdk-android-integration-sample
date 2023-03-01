@@ -1,6 +1,6 @@
-## Video Editor UI SDK integration guide into Android project
+## Quickstart Guide
 
-- [Prerequisite](#Prerequisite)
+- [Prerequisites](#Prerequisites)
 - [Add dependencies](#Add-dependencies)
 - [Update AndroidManifest](#Update-AndroidManifest)
 - [Add resources](#Add-resources)
@@ -10,14 +10,13 @@
 - [Add audio content](#Add-audio-content)
 - [Add effects](#Add-effects)
 - [Advanced customizations](#Advanced-customizations)
-- [Troubleshooting](#Troubleshooting)
+- [FAQ](#FAQ)
 - [Dependencies and licenses](#Dependencies-and-licenses)
-- [FAQ](faq.md)
 - [Releases](#Releases)
 
-### Prerequisite
-:exclamation: The license token **IS REQUIRED** to run Video Editor SDK in your app.  
-Check [Installation](../README.md#Installation) guide if the license token is not set.  
+### Prerequisites
+:exclamation: The license token **IS REQUIRED** to use Video Editor SDK in your app.  
+Please check [Installation](../README.md#Installation) out guide if the license token is not set.  
 Use the license token to [start Video Editor](#Start-sdk) 
 
 ### Add dependencies
@@ -250,28 +249,28 @@ Please follow [Video Editor effects integration guide](guide_effects.md) to get 
 Video Editor SDK has built in UI/UX experience and provides list of changes you can apply to meet your requirements.
 
 **AVAILABLE**  
-:white_check_mark: Use your branded icons. [See details](integration_advanced_customizations.md#Configure-screens)  
-:white_check_mark: Use you branded colors. [See details](integration_advanced_customizations.md#Configure-screens)  
-:white_check_mark: Change text styles i.e. font, color. [See details](integration_advanced_customizations.md#Configure-screens)  
+:white_check_mark: Use your branded icons. [See details](advanced_customizations.md#Configure-screens)  
+:white_check_mark: Use you branded colors. [See details](advanced_customizations.md#Configure-screens)  
+:white_check_mark: Change text styles i.e. font, color. [See details](advanced_customizations.md#Configure-screens)  
 :white_check_mark: Localize and change text resources. Default locale is :us:  
-:white_check_mark: Make content you want i.e. a number of video with different resolutions  and durations, an audio file. [See details](integration_advanced_customizations.md#Configure-export-flow)  
+:white_check_mark: Make content you want i.e. a number of video with different resolutions  and durations, an audio file. [See details](advanced_customizations.md#Configure-export-flow)  
 :white_check_mark: Masks and filters order. [See details](guide_far_arcloud.md#Change-effects-order)  
 
 NOT AVAILABLE  
 :x: Change layout  
 :x: Change order of screens after entry point
 
-Please follow [customizations guide](integration_advanced_customizations.md) to know more about features and configurations.
+Please follow [customizations guide](advanced_customizations.md) to know more about features and configurations.
 
-### Troubleshooting
-[This guide](integration_troubleshooting.md) might help you in case if you are experiencing any issues with an integration so far.
+### FAQ
+Visit [FAQ](faq.md) if you are experiencing any issues with an integration.
 
 ### Dependencies and licenses
 - [Koin](https://insert-koin.io/)
 - [ExoPlayer](https://github.com/google/ExoPlayer)
 - [Glide](https://github.com/bumptech/glide)
 - [Kotlin Coroutines](https://github.com/Kotlin/kotlinx.coroutines)
-- [ffmpeg](https://github.com/FFmpeg/FFmpeg/tree/n4.4)
+- [ffmpeg](https://github.com/FFmpeg/FFmpeg/tree/n5.1.3)
 - [AndroidX](https://developer.android.com/jetpack/androidx) libraries
 - [Banuba Face AR SDK](https://www.banuba.com/facear-sdk/face-filters). **Optional**. *Video Editor SDK disables Face AR for devices with CPU armv7l(8 cores) and armv8(working in 32bit mode)*.
 
@@ -286,3 +285,4 @@ Please follow [customizations guide](integration_advanced_customizations.md) to 
 [1.26.2](https://www.notion.so/vebanuba/1-26-2-49f2bc0c102e498fa0e25e6d067aec67)\
 [1.26.3](https://www.notion.so/vebanuba/1-26-3-113feef808d14d39abf8ccdd3181b36a)\
 [1.26.4](https://www.notion.so/vebanuba/1-26-4-41c28eeb378043039fa28ae42d2bbf74)\
+[1.26.5](https://www.notion.so/vebanuba/1-26-5-c621ce3ef6c84d67a721ec1e9b829dde)

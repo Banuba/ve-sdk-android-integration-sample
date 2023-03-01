@@ -1,14 +1,20 @@
-# Video Editor advanced customizations
+# Advanced customizations
 
+- [Video Editor SDK size](#Video-Editor-SDK-size)
 - [Video recording](#Video-recording)
 - [Face AR SDK and AR Cloud](#Face-AR-SDK-and-AR-Cloud)
-- [Effects](#Effects)
 - [Configure Cover preview screen](#Configure-Cover-preview-screen)
 - [Configurations](#Configurations)
 - [Configure screens](#Configure-screens)
-- [Video Editor SDK size](#Video-Editor-SDK-size)
-- [Supported media formats](#Supported-media-formats)
 - [Localization](#Localization)
+
+## Video Editor SDK size
+| Options | Mb      | Note |
+| -------- | --------- | ----- |
+| :white_check_mark: Face AR SDK  | 37.3 | AR effect sizes are not included. AR effect takes 1-3 MB in average.
+| :x: Face AR SDK | 15.5  | no AR effects  |  
+
+You can either include the AR filters in the app or have users download them from the [AR cloud](#Configure-AR-cloud) to dramatically decrease the app size.
 
 ## Video recording
 Video editor supports functionality allowing to record video using Android camera. There are many features, configurations and styles 
@@ -107,21 +113,6 @@ Pass instance of ```PipConfig``` to  ```pictureInPictureVideo``` to start in Pic
         audioTrackData: TrackData? = null
     )
 ```
-
-## Video Editor SDK size
-
-| Options | Mb      | Note |
-| -------- | --------- | ----- |
-| :white_check_mark: Face AR SDK  | 37.3 | AR effect sizes are not included. AR effect takes 1-3 MB in average.
-| :x: Face AR SDK | 15.5  | no AR effects  |  
-
-You can either include the AR filters in the app or have users download them from the [AR cloud](#Configure-AR-cloud) to dramatically decrease the app size.
-
-## Supported media formats
-| Audio                                  | Video      | Images      |
-|----------------------------------------| ---------  | ----------- |
-| .aac, .mp3, .wav,<br>.ogg, .m4a, .flac |.mp4, .mov | .jpg, .gif, .heic, .png,<br>.nef, .cr2, .jpeg, .raf, .bmp
- 
 
 ### Localization
 

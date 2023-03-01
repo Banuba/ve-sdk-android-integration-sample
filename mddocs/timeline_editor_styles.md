@@ -49,9 +49,9 @@ Some string resources (i.e. button titles) are common with the music editor scre
 
 | ResourceId        |      Value      |   Description |
 | ------------- | :----------- | :------------- |
-| stickers_empty_list | No stickers found | message that is shown while the user is searching [stickers](integration_advanced_customizations.md#configure-stickers-content) and has no result
-| stickers_search_cancel | Cancel | text on the button on the right of the search view on [stickers](integration_advanced_customizations.md#configure-stickers-content) screen
-| connection_view_title | Connection failed | message that is shown in case of network error while [stickers](integration_advanced_customizations.md#configure-stickers-content) are being loaded. The text appearance is defined in ```stickersRetryTitleTextStyle```
-| connection_view_message | Please check connection\nand retry | hint that is shown in case of network error while [stickers](integration_advanced_customizations.md#configure-stickers-content) are being loaded. The text appearance is defined in ```stickersRetryMessageTextStyle```
-| connection_view_retry | Retry | text on the button that is shown in case of network error while [stickers](integration_advanced_customizations.md#configure-stickers-content) are being loaded. It allows to resend the request for stickers. The text appearence is defined in ```stickersRetryBtnStyle```
+| stickers_empty_list | No stickers found | message that is shown while the user is searching [stickers](advanced_customizations.md#configure-stickers-content) and has no result
+| stickers_search_cancel | Cancel | text on the button on the right of the search view on [stickers](advanced_customizations.md#configure-stickers-content) screen
+| connection_view_title | Connection failed | message that is shown in case of network error while [stickers](advanced_customizations.md#configure-stickers-content) are being loaded. The text appearance is defined in ```stickersRetryTitleTextStyle```
+| connection_view_message | Please check connection\nand retry | hint that is shown in case of network error while [stickers](advanced_customizations.md#configure-stickers-content) are being loaded. The text appearance is defined in ```stickersRetryMessageTextStyle```
+| connection_view_retry | Retry | text on the button that is shown in case of network error while [stickers](advanced_customizations.md#configure-stickers-content) are being loaded. It allows to resend the request for stickers. The text appearence is defined in ```stickersRetryBtnStyle```
 | error_invalid_duration_object_effect | Min effect duration - %1$.1f sec | toast message that is shown when the user tries to make the object effect shorter than defined in `objectEffectMinDurationMs` parameter of the [**ObjectEditor**](config_object_editor.md) class

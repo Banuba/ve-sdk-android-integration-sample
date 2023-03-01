@@ -11,7 +11,7 @@ These are the answers to the most popular questions we are asked about the Banub
 - [How do I change the duration of the image display in a slideshow?](#how-do-I-change-the-duration-of-the-image-display-in-a-slideshow)
 - [How do I change the launguage (how do I add new locale support)](#how-do-I-change-the-launguage-how-do-I-add-new-locale-support)
 - [How do I integrate custom FFmpeg dependency in app?](#how-to-integrate-custom-ffmpeg-dependency)
-
+- [FFmpeg build issue(Error compressed Native Libs)](#FFmpeg-build-issue)
 
 ### I want to turn off animations from slideshow
 
@@ -163,12 +163,30 @@ Use the ```slideShowSourceVideoDurationMs``` parameter in [EditorConfig](config_
 There is no special language switching mechanism in the Video Editor SDK (VE SDK).
 
 Out of the box, the VE SDK includes support for two locales: English (default) and Russian. If you need to support any other locales, you can do it according to the standard Android way. See how [Create locale directories and resource files](https://developer.android.com/training/basics/supporting-devices/languages#CreateDirs) for more details. After adding a new locale resource file into your application with integrated VE SDK, you need to re-define the VE SDK strings keys with new locale string values.
-To do that you need to add all needed string keys in the new locale `strings.xml` file. You can find the main VE SDK string keys you need in the [Configure screens](integration_advanced_customizations.md#configure-screens) doc page. E.g. string keys of the Editor screen you can find [here](editor_styles.md#string-resources).
+To do that you need to add all needed string keys in the new locale `strings.xml` file. You can find the main VE SDK string keys you need in the [Configure screens](advanced_customizations.md#configure-screens) doc page. E.g. string keys of the Editor screen you can find [here](editor_styles.md#string-resources).
 The newly added locale will be applied after the device language is changed by system settings.
 
 If you need to change language programmatically in your application, see the next links how it can be done:
 [one](https://www.geeksforgeeks.org/how-to-change-the-whole-app-language-in-android-programmatically/),
 [two](https://medium.com/swlh/android-app-specific-language-change-programmatically-using-kotlin-d650a5392220)
+
+
+### FFmpeg build issue
+Below are the steps to resolve the issue while building the project.
+1. Add the ```android.bundle.enableUncompressedNativeLibs=false``` in the ```gradle.properties```
+
+``` properties
+android.bundle.enableUncompressedNativeLibs=false
+```
+
+2. Add ```android:extractNativeLibs="true"``` in ```AndroidManifest.xml``` file
+``` xml
+<application
+    ...
+    android:extractNativeLibs="true"
+    ...
+>
+```
 
 ### How to integrate custom FFmpeg dependency.
 Check out [step-by-step guide](ffmpeg_dependency.md) to integrate custom FFmpeg dependency.

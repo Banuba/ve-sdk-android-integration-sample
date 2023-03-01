@@ -385,7 +385,7 @@ Groups described above are shown on the screenshot along with some string resour
 | control_description_speed | Speed | title for the icon to switch recording speed
 | control_description_mute | Mute | title for the icon to switch mic recording
 | control_description_beauty | Beauty | title for the icon to apply beautification effect
-| control_description_music | Music | title for the icon to request an [audio content](integration_advanced_customizations.md#configure-audio-content)
+| control_description_music | Music | title for the icon to request an [audio content](advanced_customizations.md#configure-audio-content)
 | control_description_color | Filter | title for the icon to open color filters
 | control_description_mask | Mask | title for the icon to open AR masks
 | message_record_first_video | Record at least %1$s | message shown in case user tries to proceed with the video shorter than ```minVideoDuration``` parameter in ```CameraConfig```
