@@ -62,12 +62,12 @@ Use the following styles to change appearance of cover image screen.
 
 ![img](screenshots/cover2.png)
 
-Below string resources are used and can be customized.  
+Below are string resources are used and can be customized.  
 :exclamation: Important  
 Some string resources are defined in the styles. To localize these strings firstly create string resources and setup them into styles under `android:text` attribute.
 
 | ResourceId        |      Value      |   Description |
 | ------------- | :----------- | :------------- |
 | cover_image_text | Choose cover | label over the progress bar that allows to choose a cover from video frames. The view is customized in ```extendedCoverDescriptionStyle```
-| cover_progress_text | Please, wait | text that is shown on the [throbber](alert_styles.md#L25) when the process of extracting cover image was started. The text appearance is customized by the ```waitDialogTextStyle```
-| err_cover_image | Failed to create cover image | message shown as a [toast](alert_styles.md#L11) in case of error happened during the process of extracting cover image
+| cover_progress_text | Please, wait | text that is shown on the [throbber](guide_popus.md#L25) when the process of extracting cover image was started. The text appearance is customized by the ```waitDialogTextStyle```
+| err_cover_image | Failed to create cover image | message shown as a [toast](guide_popus.md#L11) in case of error happened during the process of extracting cover image

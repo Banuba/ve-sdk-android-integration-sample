@@ -1,8 +1,6 @@
-# Banuba AI Video Editor SDK
+# Drafts guide
 
-## Drafts API
-
-The ```DraftsHelper``` class can be used to get all drafts, delete and open drafts. This class has next methods:
+```DraftsHelper``` interface is used for managing drafts.
 
 ```kotlin
 interface DraftsHelper {
@@ -19,91 +17,73 @@ interface DraftsHelper {
 }
 ```
 
-To get the ```DraftsHelper``` object use ```inject()``` method:
-
+To get the instance of ```DraftsHelper```  use the following in your Fragment or Activity.
 ```kotlin
 val draftsHelper: DraftsHelper by inject()
 ```
 
-## Drafts screen styles
+Drafts screen comes with a list of styles you can change.
 
-- [draftsBackButtonStyle](../app/src/main/res/values/themes.xml#L428)
-
+- [draftsBackButtonStyle](../app/src/main/res/values/themes.xml#L428)  
     style for the back button on drafts screen
 
-- [draftsTitleStyle](../app/src/main/res/values/themes.xml#L429)
-
+- [draftsTitleStyle](../app/src/main/res/values/themes.xml#L429)  
     style for the title of drafts screen
 
-- [draftsRecyclerViewStyle](../app/src/main/res/values/themes.xml#L430)
-
+- [draftsRecyclerViewStyle](../app/src/main/res/values/themes.xml#L430)  
     style for the view containing all drafts
 
-- [draftsParentStyle](../app/src/main/res/values/themes.xml#L427)
+- [draftsParentStyle](../app/src/main/res/values/themes.xml#L427)  
+  style for the item representing every draft inside the recycler view container
 
-    style for the item representing every draft inside the recycler view container
-
-- [draftItemThumbnailStyle](../app/src/main/res/values/themes.xml#L433)
-
+- [draftItemThumbnailStyle](../app/src/main/res/values/themes.xml#L433)  
   style for the draft preview
 
-- [draftItemNameStyle](../app/src/main/res/values/themes.xml#L435)
-
+- [draftItemNameStyle](../app/src/main/res/values/themes.xml#L435)  
     style for the name of the draft
 
-- [draftItemDurationStyle](../app/src/main/res/values/themes.xml#L436)
-
+- [draftItemDurationStyle](../app/src/main/res/values/themes.xml#L436)  
     style for the duration of the draft
 
-- [draftItemOptionsButtonStyle](../app/src/main/res/values/themes.xml#L434)
-
+- [draftItemOptionsButtonStyle](../app/src/main/res/values/themes.xml#L434)  
     style for the button that opens available options for the current draft
 
 ![img](screenshots/drafts3.png)
 
-- [draftOptionsPopupStyle](../app/src/main/res/values/themes.xml#L438)
-
+- [draftOptionsPopupStyle](../app/src/main/res/values/themes.xml#L438)  
     style for the options popup of the draft
 
-- [draftOptionsEditButtonStyle](../app/src/main/res/values/themes.xml#L439)
-
+- [draftOptionsEditButtonStyle](../app/src/main/res/values/themes.xml#L439)  
     style for the edit button of the options popup of the draft
 
-- [draftOptionsDeleteButtonStyle](../app/src/main/res/values/themes.xml#L434)
-
+- [draftOptionsDeleteButtonStyle](../app/src/main/res/values/themes.xml#L434)  
     style for the delete button of the options popup of the draft
 
 ![img](screenshots/drafts4.png)
 
-- [draftsEmptyTextStyle](../app/src/main/res/values/themes.xml#L425)
-
+- [draftsEmptyTextStyle](../app/src/main/res/values/themes.xml#L425)  
     style for the view that is shown in case of absent drafts
 
 ![img](screenshots/drafts5.png)
 
-- [editorBackButtonStyle](../app/src/main/res/values/themes.xml#L75)
-
+- [editorBackButtonStyle](../app/src/main/res/values/themes.xml#L75)  
     style for the button that is used to return the user on the previous screen
 
-- [editorTrimButtonStyle](../app/src/main/res/values/themes.xml#L110)
-
+- [editorTrimButtonStyle](../app/src/main/res/values/themes.xml#L110)  
     style for the button that is used to return the user on the trimmer screen if draft is opened
 
-- [editorBackPopupStyle](../app/src/main/res/values/themes.xml#L111)
-
+- [editorBackPopupStyle](../app/src/main/res/values/themes.xml#L111)  
     style for the back popup that is shown when draft was changed
 
-- [editorDiscardChangesButtonStyle](../app/src/main/res/values/themes.xml#L112)
-
+- [editorDiscardChangesButtonStyle](../app/src/main/res/values/themes.xml#L112)  
     style for the discard changes button of the back popup
 
-- [editorUpdateDraftButtonStyle](../app/src/main/res/values/themes.xml#L113)
-
+- [editorUpdateDraftButtonStyle](../app/src/main/res/values/themes.xml#L113)  
     style for the update draft button of the back popup
 
 ![img](screenshots/drafts6.png)
 
-## String resources
+Below are strings resource you can use or customize.
 
 | ResourceId        |      Value      |   Description |
 | ------------- | :----------- | :------------- |

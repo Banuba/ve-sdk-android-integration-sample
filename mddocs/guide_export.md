@@ -1,6 +1,31 @@
-## Video Editor export integration guide
+# Export guide
+
+- [Overview](#Overview)
+- [Video codecs](#Video-codecs)
+- [Video quality](#Video-quality)
+- [Export storage](#Export-storage)
+- [Implement export flow](#Implement-export-flow)
+- [Handle export result](#Handle-export-result)
+- [Export in background](#Export-in-background)
+- [Progress screen](#Progress-screen)
+- [Add watermark](#Add-watermark)
+- [Publish video](#Publish video)
+- [Export GIF preview](#Export-GIF-preview)
+- [Get audio used in export](#Get-audio-used-in-export)
+- [Export metadata analytics](#Export-metadata-analytics)
+
+## Overview
 You can export a number of media files i.e. video and audio with various resolutions and other configurations using. 
 Video Editor export video as ```.mp4``` file.  
+
+:exclamation: Important  
+Export is a very heavy computational task that takes time and the user has to wait.
+Execution time depends on
+1. Video duration - the longer video the longer execution time.
+2. Number of video sources - the many sources the longer execution time.
+3. Number of effects and their usage in video - the more effects and their usage the longer execution time.
+4. Number of exported video - the more video and audio you want to export the longer execution time.
+5. Device hardware - the most powerful devices can execute export much quicker.
 
 Export includes 2 modes:
 - ```Foreground``` - the user has to wait on progress screen until processing is done.
@@ -13,7 +38,7 @@ Here is a screen that is shown in ```Foreground``` mode.
 <img src="screenshots/export_media_progress.png"  width="33%" height="33%">
 </p>
 
-### Video codec
+## Video codecs
 Video Editor supports video codec options:
 1. ```HEVC``` - H265 codec. Enabled by **default**
 2. ```AVC_PROFILES``` - H264 codec with profiles
@@ -26,14 +51,14 @@ You can use another video codec for export by using ```CodecConfiguration``` in 
     }
 ```
 
-### Video quality
+## Video quality
 | 240p(240x426) | 360p(360x640) | 480p(480x854) | QHD540(540x960) | HD(720x1280) | FHD(1080x1920) | QHD(1440x2560) | UHD(2160x3840) |
 |---------------|------------|---------------|-----------------|---------------|----------------|----------------|----------------|
 | 1000   kb/s   | 1200  kb/s     | 2000 kb/s         | 2400  kb/s          |4000   kb/s       | 6400 kb/s          | 10000    kb/s      | 20000  kb/s        |
 
 Video Editor has built in feature for detecting device performance capabilities and finding optimal video quality params for export.
 
-### Export storage
+## Export storage
 Video Editor stores all exported video files in ```export``` directory on external storage.
 You can change the folder by overriding ```exportDir``` dependency in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt)
 Default implementation is
@@ -47,7 +72,7 @@ Default implementation is
     }
 ```
 
-### Create export flow
+## Implement export flow
 You can create your own flow for exporting media files for your application.  
 
 First, create class ```CustomExportParamsProvider``` and implement ```ExportParamsProvider```.
@@ -176,7 +201,7 @@ Finally, use the most suitable export mode for your application - ```ForegroundE
 ```
 If you set ```shouldClearSessionOnFinish``` to ```true``` in ```ExportFlowManager```  you should clear ```VideoCreationActivity``` from Activity backstack. Otherwise crash will occur.
 
-### Export result
+## Handle export result
 The result is returned to your controller in [registerForActivityResult method](../app/src/main/ava/com/banuba/example/integrationapp/MainActivity.kt#L18) as an instance of ```ExportResult```.
 ```kotlin
 private val createVideoRequest =
@@ -219,7 +244,7 @@ private val createVideoRequest =
 When export finished successfully ```ExportResult.Success``` instance is returned with all export data.  
 ```ExportResult.Error``` is returned when an error is occurred while exporting media content.
 
-### Export in background
+## Export in background
 If you want to export media in the background and do not show any progress screen to your user you can use ```BackgroundExportFlowManager``` implementation in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L114).
 ```kotlin
         single<ExportFlowManager> {
@@ -311,7 +336,52 @@ There are 3 options:
     }
 ```
 
-### Add watermark to video
+## Progress screen
+You can change appearance of this screen by overriding these styles and resources.
+
+- [loadingScreenParentViewStyle](../app/src/main/res/values/themes.xml#L442)  
+  style for the root Constraint layout that represents
+
+- [loadingScreenTitleStyle](../app/src/main/res/values/themes.xml#L443)  
+  style for the loading dialog title
+
+- [loadingScreenDescStyle](../app/src/main/res/values/themes.xml#L444)  
+  style for the loading dialog description
+
+- [loadingScreenProgressStyle](../app/src/main/res/values/themes.xml#L445)  
+  style for the loading dialog progress
+
+- [loadingScreenCancelBtnStyle](../app/src/main/res/values/themes.xml#L446)  
+  style for the loading dialog cancel button
+
+  ![img](screenshots/media_progress_screen.png)
+
+Below are string you can use or customize.
+
+:exclamation: Important  
+Some strings on the screen are defined in the styles. To localize these strings firstly create string resources and setup them into styles under `android:text` attribute.
+
+| ResourceId        |      Value      |   Description |
+| ------------- | :----------- | :------------- |
+| editor_alert_import_failed | Content uploading failed | title of alert that is shown when the process of gallery resources import was failed
+| editor_alert_import_failed_desc | | description of alert that is shown when the process of gallery resources import was failed
+| editor_alert_import_failed_positive | Retry | positive button text of alert that is shown when the process of gallery resources import was failed
+| editor_alert_import_failed_negative | Cancel | negative button text of alert that is shown when the process of gallery resources import was failed
+| editor_alert_export_stopped | Do you want to interrupt the video export? | title of alert that is shown when the export process was stopped
+| editor_alert_export_stopped_desc | | description of alert that is shown when the export process was stopped
+| editor_alert_export_stopped_positive | Interrupt | positive button text of alert that is shown when the export process was stopped
+| editor_alert_export_stopped_negative | Cancel | negative button text of alert that is shown when the export process was stopped
+| editor_alert_export_interrupted | Export interrupted | title of alert that is shown when the process of export was interrupted
+| editor_alert_export_interrupted_desc | | description of alert that is shown when the process of export was interrupted
+| editor_alert_export_interrupted_positive | Retry | positive button text of alert that is shown when the process of export was interrupted
+| editor_alert_export_interrupted_negative | Cancel | negative button description of alert that is shown when the process of export was interrupted
+| loading_export_title | Exporting video | title of the exporting dialog
+| loading_export_description | Please, don\'t lock your screen or switch to other apps | description of the exporting dialog
+| loading_import_title | Importing video | title of the importing dialog
+| loading_import_description | Please, don\'t lock your screen or switch to other apps | description of the importing dialog
+
+
+## Add watermark
 :exclamation: Important  
 Watermark is not added to video by default.  
 
@@ -333,7 +403,7 @@ where ```WatermarkBuilder``` provides watermark drawable and ```alignment``` is 
 ```
 Add custom implementation of ```WatermarkBuilder``` to [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt)
 
-### Publish video
+## Publish video
 When export finishes successfully ```ForegroundExportFlowManager``` and ```BackgroundExportFlowManager``` implementations can publish video to specific destinations.
 ```PublishManager``` is used for implementing custom publish flow.  
 Video Editor does not have built in implementation of ```PublishManager```.  
@@ -345,7 +415,7 @@ You can implement your ```CustomPublishManager``` that publishes video to galler
     }
 ```
 
-### Export GIF preview
+## Export GIF preview
 Video Editor allows to export preview of a video as a GIF file.
 
 Use ```GifMaker.Params``` in your ```CustomExportParamsProvider``` to create params for exporting GIF preview
@@ -382,7 +452,7 @@ ExportParams.Builder(sizeProvider.videoResolution)
                 .build()
  ```
 
-### Get audio used in export
+## Get audio used in export
 You can get all audio used in exported video when export finished successfully.
 ```ExportBundleHelper.getExportedMusicEffect``` requires ```additionalExportData``` value of ```ExportResult.Success```.
 The result is ```List<MusicEffectExportData>``` where ```MusicEffectExportData``` is
@@ -401,7 +471,7 @@ The result is ```List<MusicEffectExportData>``` where ```MusicEffectExportData``
 3. `CAMERA_TRACK` - audio track that was added on the `Camera` screen
 
 
-### Export metadata analytics
+## Export metadata analytics
 Video Editor generates simple metadata analytics while exporting media content that you can use to analyze what media content your users make.  
 Metadata is a JSON string and can be returned from ```ExportResult.Success``` in this way
 ```kotlin

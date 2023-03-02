@@ -30,26 +30,26 @@ single(override = true) {
 }
 ```
 
-| Property |                       Available values                       | Description |
-| ------------- |:------------------------------------------------------------:| :------------- |
-| minRecordedTotalVideoDurationMs |                Number > 0; Default ```3000```                | minimum video recording duration *in milliseconds* required to proceed and open video editing screen (i.e. 3000 for 3 seconds)
-| maxRecordedTotalVideoDurationMs |               Number > 0; Default ```120000```               | maximum video recording duration *in milliseconds* available to record
-| minRecordedChunkVideoDurationMs |              Number > 1000; Default ```1000```               | minimum video recording duration *in milliseconds* that is allowed to record on camera
-| takePhotoOnTap |               true/false; Default ```false```                | defines if it is available to take a photo on the camera screen by tap. ```true``` photo is taken by tap and video is recording by long press.
-| supportsMultiRecords |                true/false; Default ```true```                | defines if the use can record multiple video subsequently. ```false```  when the first video recording is done the editing screen will be opened
-| supportsFlashlight |                true/false; Default ```true```                | enables flashlight icon on the camera screen and possibility to take a photo with flashlight
-| supportsSpeedRecording |                true/false; Default ```true```                | enables speed recording icon on the camera screen and possibility to select recording speed
-| supportsExternalMusic |                true/false; Default ```true```                | enables the music icon on the camera screen and possibility to add music track playing over the video recording
-| supportsMuteMic |                true/false; Default ```true```                | enables mute microphone icon on the camera screen and possibility to record video without capturing sound
-| switchFacingOnDoubleTap |                true/false; Default ```true```                | ```true``` allows to switch between front and back camera by double tap
-| isStartFrontFacingFirst |                true/false; Default ```true```                | ```true``` means that ```front``` camera facing is used on the first launch of the camera screen, ```false``` means that ```back``` camera facing is used on the first launch of the camera screen
-| isSaveLastCameraFacing |                true/false; Default ```true```                | defines if the camera facing (```back``` or ```front```) is saved and restored
-| cameraFpsMode | CameraFpsMode enum values; Default ```CameraFpsMode.FIXED``` | ```CameraFpsMode.FIXED``` means that video recording quality can be degraded to maintain 30 FPS while applying "heavy" Face AR effects (*This behavior is recommended* and allows to reach seamless usage on wide range of devices). ```CameraFpsMode.ADAPTIVE``` means that FPS can be reduced in order to maintain video quality(not recommended).
-| showCameraInfoAndPerformance |               true/false; Default ```false```                | enables debug views for showing camera system details such as current FPS, Iso etc.
-| supportsSwitchFacing |                true/false; Default ```true```                | defines if camera facing switching is available.
-| supportsAudioRateEqualsVideoSpeed |               true/false; Default ```false```                | determines if the audio playback speed is equal to the video recording speed.
-| supportsGallery |                true/false; Default ```true```                | defines if there is an icon on the camera screen at the bottom-right to pick a content from gallery.
-| videoDurations |                List<Long>; Default ```listOf(maxRecordedTotalVideoDurationMs, 60_000L, 30_000L, 15_000L)```                | defines the list of durations available to record. The user can see the option on the camera screen and pick new option. For example,  ```60000L``` means that the user can record a number of video with total duration no more than 60 seconds.
+| Property |                                            Values                                            | Description |
+| ------------- |:--------------------------------------------------------------------------------------------:| :------------- |
+| minRecordedTotalVideoDurationMs |                                Number > 0; Default ```3000```                                | minimum video recording duration *in milliseconds* required to proceed and open video editing screen (i.e. 3000 for 3 seconds)
+| maxRecordedTotalVideoDurationMs |                               Number > 0; Default ```120000```                               | maximum video recording duration *in milliseconds* available to record
+| minRecordedChunkVideoDurationMs |                              Number > 1000; Default ```1000```                               | minimum video recording duration *in milliseconds* that is allowed to record on camera
+| takePhotoOnTap |                               true/false; Default ```false```                                | defines if it is available to take a photo on the camera screen by tap. ```true``` photo is taken by tap and video is recording by long press.
+| supportsMultiRecords |                                true/false; Default ```true```                                | defines if the use can record multiple video subsequently. ```false```  when the first video recording is done the editing screen will be opened
+| supportsFlashlight |                                true/false; Default ```true```                                | enables flashlight icon on the camera screen and possibility to take a photo with flashlight
+| supportsSpeedRecording |                                true/false; Default ```true```                                | enables speed recording icon on the camera screen and possibility to select recording speed
+| supportsExternalMusic |                                true/false; Default ```true```                                | enables the music icon on the camera screen and possibility to add music track playing over the video recording
+| supportsMuteMic |                                true/false; Default ```true```                                | enables mute microphone icon on the camera screen and possibility to record video without capturing sound
+| switchFacingOnDoubleTap |                                true/false; Default ```true```                                | ```true``` allows to switch between front and back camera by double tap
+| isStartFrontFacingFirst |                                true/false; Default ```true```                                | ```true``` means that ```front``` camera facing is used on the first launch of the camera screen, ```false``` means that ```back``` camera facing is used on the first launch of the camera screen
+| isSaveLastCameraFacing |                                true/false; Default ```true```                                | defines if the camera facing (```back``` or ```front```) is saved and restored
+| cameraFpsMode |                 CameraFpsMode enum values; Default ```CameraFpsMode.FIXED```                 | ```CameraFpsMode.FIXED``` means that video recording quality can be degraded to maintain 30 FPS while applying "heavy" Face AR effects (*This behavior is recommended* and allows to reach seamless usage on wide range of devices). ```CameraFpsMode.ADAPTIVE``` means that FPS can be reduced in order to maintain video quality(not recommended).
+| showCameraInfoAndPerformance |                               true/false; Default ```false```                                | enables debug views for showing camera system details such as current FPS, Iso etc.
+| supportsSwitchFacing |                                true/false; Default ```true```                                | defines if camera facing switching is available.
+| supportsAudioRateEqualsVideoSpeed |                               true/false; Default ```false```                                | determines if the audio playback speed is equal to the video recording speed.
+| supportsGallery |                                true/false; Default ```true```                                | defines if there is an icon on the camera screen at the bottom-right to pick a content from gallery.
+| videoDurations | List<Long>; Default ```listOf(maxRecordedTotalVideoDurationMs, 60_000L, 30_000L, 15_000L)``` | defines the list of durations available to record. The user can see the option on the camera screen and pick new option. For example,  ```60000L``` means that the user can record a number of video with total duration no more than 60 seconds.
 
 ## Configure microphone state
 Use ```CameraMuteMicConfig``` if you want to customize default state of microphone on the camera screen.
@@ -385,7 +385,7 @@ Groups described above are shown on the screenshot along with some string resour
 | control_description_speed | Speed | title for the icon to switch recording speed
 | control_description_mute | Mute | title for the icon to switch mic recording
 | control_description_beauty | Beauty | title for the icon to apply beautification effect
-| control_description_music | Music | title for the icon to request an [audio content](advanced_customizations.md#configure-audio-content)
+| control_description_music | Music | title for the icon to request an [audio content](advanced_integration.md#configure-audio-content)
 | control_description_color | Filter | title for the icon to open color filters
 | control_description_mask | Mask | title for the icon to open AR masks
 | message_record_first_video | Record at least %1$s | message shown in case user tries to proceed with the video shorter than ```minVideoDuration``` parameter in ```CameraConfig```
@@ -399,5 +399,5 @@ Groups described above are shown on the screenshot along with some string resour
 
 :exclamation: Important  
 In case if a ```TextView``` that is shown on camera screen does not have string resource mentioned in the table it means you may use any resource and apply it through view's style configuration.
-All alert messages shown on the camera screen that require user's action are described in [Alert dialogs](alert_styles.md) guide.
+All alert messages shown on the camera screen that require user's action are described in [Alert dialogs](guide_popus.md) guide.
 

@@ -1,53 +1,55 @@
-# Banuba AI Video Editor SDK
-## Alert Dialog styles
+# Popups guide
 
-There are following types of user notification used in AI Video Editor SDK:
+- [Types](#Types)
+- [Toast](#Toast)
+- [Wait dialog](#Wait-dialog)
+- [Info alert](#Info-alert)
+- [Confirmation alert](#Confirmation-alert)
+
+## Types
+Video editor includes a few types of popups:
 - toast
-- wait dialog (represents long running tasks)
+- wait dialog (for long running tasks)
 - info alert
 - confirmation alert
 
-All of them are customized by theme attributes described in this file.
+You can customize all types
 
-### **Toast**
-
-- [toastStyle](../app/src/main/res/values/themes.xml#L292)
-
+## Toast
+- [toastStyle](../app/src/main/res/values/themes.xml#L293)  
     style to customize toast messages
 
     ![img](screenshots/alert1.png)
 
-### **Wait dialog**
+## Wait dialog
 
-- [throbberViewStyle](../app/src/main/res/values/themes.xml#L43)
-
+- [throbberViewStyle](../app/src/main/res/values/themes.xml#L43)  
     style for the circle progress bar. It is allowed to customize gradient colors using custom attribute
 
-- [waitDialogTextStyle](../app/src/main/res/values/themes.xml#L44)
-
+- [waitDialogTextStyle](../app/src/main/res/values/themes.xml#L44)  
     style for the TextView that shows a description
 
-- [wait_dialog_throbber_bg](../app/src/main/res/values/themes.xml#L293)
-
-    theme attribut that configures the background of circle progress bar within progress dialog
+- [wait_dialog_throbber_bg](../app/src/main/res/values/themes.xml#L293)  
+    an attribute that configures the background of circle progress bar within progress dialog
 
     ![img](screenshots/alert2.png)
 
-### **Info alert**
-Info alerts are messages that are used to show information message to the user (recently they are rationale messages that should be shown before ask the user to grant permissions).
+## Info alert
+The popup used for informing the user with a message (like rationale messages that should be shown before ask the user to grant permissions).
 
-- [permissionsDialogContainerStyle](../app/src/main/res/values/themes.xml#L370)
+- [permissionsDialogContainerStyle](../app/src/main/res/values/themes.xml#L370)  
     style for the container of info alert
 
-- [permissionsDialogDescriptionStyle](../app/src/main/res/values/themes.xml#L371)
+- [permissionsDialogDescriptionStyle](../app/src/main/res/values/themes.xml#L371)  
     style for the description text 
 
-- [permissionsDialogActionButtonStyle](../app/src/main/res/values/themes.xml#L373)
+- [permissionsDialogActionButtonStyle](../app/src/main/res/values/themes.xml#L373)  
     style for the single button on the info alert
 
 ![img](screenshots/alert3.png)
 
-## String resources
+String resources you can use or customize.
+
 | ResourceId        |      Value      |   Description |
 | ------------- | :----------- | :------------- |
 | permission_camera_description_message | Allow to access your Camera and, Microphone to take and edit photos or videos, and record audio. | message to show as info alert before request vital video edior permissions
@@ -55,11 +57,10 @@ Info alerts are messages that are used to show information message to the user (
 | permission_dialog_allow | Allow | button title for simple confirmation from the user
 | permission_dialog_settings | Settings | button title for redirection to application settings (it is used in case the user did not granted permissions but still tries to make something unavailable without permission)
 
-### **Confirmation alert**
+## Confirmation alert
 
 Confirmation alerts are used when some action from the user is required. They have two buttons representing different user experience flow.
 
-To customize this type of dialogs you should override following styles :
  - alertParentViewStyle - for the whole alert container
  - alertTitleTextStyle - for the alert title (how to add an icon to every alert is described below)
  - alertDescriptionTextStyle - for the optional alert description (now it is used only for Audio Browser feature, so if you does not have it just do not override this attribute)

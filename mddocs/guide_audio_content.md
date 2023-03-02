@@ -1,4 +1,12 @@
-# Video Editor Audio integration guide
+# Audio integration guide
+
+- [Overview](#Overview)
+- [Audio Browser](#Audio-Browser)
+- [Mubert integration](#Mubert-integration)
+- [External API](#External-API)
+- [Music Editor screen](#Music-Editor-screen)
+
+## Overview
 Audio is a key part of making awesome video content.  
 
 Video Editor SDK can play, trim, merge and apply audio content to a video.  
@@ -88,7 +96,7 @@ Finally, you can customize Audio Browser appearance by implementing the list of 
 ```
 This sample includes stub implementations of these [styles](../app/src/main/res/values/themes.xml#L295).
 
-## [Mubert](https://mubert.com/) integration
+## Mubert integration
 Audio Browser has built in integration with [Mubert](https://mubert.com/) API.  
 Please contact Mubert representatives to request API KEY.
 
@@ -109,7 +117,7 @@ You can use ```MubertApiConfig``` to customize network requests to Mubert as wel
 | **generatedTrackFormat** |  any of the following values: mp3, wav, flac | format of generated tracks
 | **generatedTracksAmount** | Number > 0 | amount of tracks to generate for selected category
 
-Below is a list of used string resources you can customize
+Below is a list string resources you can use or customize
 
 | ResourceId        |      Value      |   Description |
 | ------------- | :----------- | :------------- |
@@ -244,7 +252,7 @@ finish()
 ```
 To dismiss previously selected audio track you can pass ```null``` for ```TrackData```.
 
-## Music Editor
+## Music Editor screen
 Video Editor includes Music Editor screens. These are screens where the user can adjust usage of audio in video editor i.e. trim, add new, delete. 
 Music Editor includes voice recording feature as well.  
 

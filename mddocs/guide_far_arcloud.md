@@ -1,13 +1,22 @@
-## Face AR and AR Cloud integration guide
+# Face AR and AR Cloud integration guide
+
+- [Overview](#Overview)
+- [Manage effects](#Manage-effects)
+- [Integrate AR Cloud](#Integrate-AR-Cloud)
+- [Change effects order](#Change-effects-order)
+- [Disable Face AR SDK](#Disable-Face-AR-SDK)
+- [Integrate Beauty effect](#Integrate-Beauty-effect)
+- [Integrate Background effect](#Integrate-Background-effect)
 
 [Banuba Face AR SDK](https://www.banuba.com/facear-sdk/face-filters) product is used on camera and editor screens for applying various AR effects while making video content.  
 
+## Overview
 Any Face AR effect is a normal folder that includes a number of files required for Face AR SDK to play this effect. 
 
 :exclamation: Important    
 Make sure you included ```preview.png``` file in effect folder. This file is used as a preview for AR effect.
 
-### Manage effects
+## Manage effects
 There are 2 options for managing AR effects:
 1. Android ```assets```  
    Use [assets/bnb-resources/effects](../app/src/main/assets/bnb-resources/effects) folder 
@@ -17,7 +26,7 @@ There are 2 options for managing AR effects:
 :exclamation: Recommendation  
 You can use both options i.e. store just a few AR effects in ```assets``` and 100 or more AR effects  on ```AR Cloud```.
 
-### AR Cloud integration
+## Integrate AR Cloud
 ```AR Cloud``` is a cloud solution for storing Banuba Face AR effect on the server and used by Face AR and Video Editor products.  
 Any AR effect downloaded from ```AR Cloud``` is cached on the user's device.
 
@@ -56,7 +65,7 @@ Next, override ```ArEffectsRepositoryProvider``` in [VideoEditorModule](../app/s
     }
 ```
 
-### Change effects order
+## Change effects order
 By default, all AR effects are listed in alphabetical order. AR effects from ``assets``` are listed in the begining.
 
 Create class [CustomMaskOrderProvider](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L289) and implement ```OrderProvider``` to provide custom order.
@@ -77,7 +86,7 @@ single<OrderProvider>(named("maskOrderProvider")) {
 ```
 
 
-### Disable Face AR SDK
+## Disable Face AR SDK
 Video Editor SDK can work without Face AR SDK. 
 
 Remove ```BanubaEffectPlayerKoinModule().module``` from [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt)
@@ -97,7 +106,7 @@ and remove Gradle dependency ```com.banuba.sdk:effect-player-adapter```
     ...
 ```
 
-### Beauty effect integration
+## Integrate Beauty effect
 Video Editor SDK has built in integration with beautification effect - [Beauty](../app/src/main/assets/bnb-resources/effects/Beauty).
 The user interacts with ```Beauty``` effect by clicking on specific button on camera screen.  
 
@@ -105,7 +114,7 @@ The user interacts with ```Beauty``` effect by clicking on specific button on ca
 ```Beauty``` is not available in the list of all AR effects. It is required to store the effect in ```assets``` and keep name ```Beauty``` with no changes.    
 Please move this effect while integrating Video Editor SDK into your project.
 
-### Background effect integration
+## Integrate Background effect
 
 [Background](../app/src/main/assets/bnb-resources/effects/Background) effect allows to apply various images or videos as a background while recording video content on the camera screen.  
 The AR effect requires Face AR and can be added to your license.  

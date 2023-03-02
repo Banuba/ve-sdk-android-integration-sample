@@ -1,25 +1,31 @@
-## Quickstart Guide
+# Quickstart Guide
 
 - [Prerequisites](#Prerequisites)
+- [Concepts](#Concepts)
 - [Add dependencies](#Add-dependencies)
 - [Update AndroidManifest](#Update-AndroidManifest)
 - [Add resources](#Add-resources)
 - [Add module](#Add-module)
-- [Configure export](#Configure-export)
-- [Start sdk](#Start-sdk)
-- [Add audio content](#Add-audio-content)
-- [Add effects](#Add-effects)
-- [Advanced customizations](#Advanced-customizations)
+- [Implement export](#Implement-export)
+- [Launch](#Launch)
+- [Advanced integration](#Advanced-integration)
 - [FAQ](#FAQ)
 - [Dependencies and licenses](#Dependencies-and-licenses)
 - [Releases](#Releases)
 
-### Prerequisites
+## Prerequisites
 :exclamation: The license token **IS REQUIRED** to use Video Editor SDK in your app.  
 Please check [Installation](../README.md#Installation) out guide if the license token is not set.  
 Use the license token to [start Video Editor](#Start-sdk) 
 
-### Add dependencies
+## Concepts
+- Export - the process of making video in video editor.
+- Slideshow - the feature that allows to create short video from single or multiple images.
+- PIP - short Picture-in-Picture feature.
+- Trimmer - trimmer screen where the user can trim, merge, change aspects
+- Editor - editor the screen where the user can manage effects and audio. Normally the next screen after trimmer.
+
+## Add dependencies
 GitHub packages is used for getting Android Video Editor SDK modules.
 
 First, add repositories to your [project gradle](../build.gradle#L21) file.
@@ -76,7 +82,7 @@ Next, specify a list of dependencies in [app gradle](../app/build.gradle#L50) fi
     implementation "com.banuba.sdk:ve-playback-sdk:${banubaSdkVersion}"
 ```
 
-### Update AndroidManifest
+## Update AndroidManifest
 Add ```VideoCreationActivity``` in [AndroidManifest.xml](../app/src/main/AndroidManifest.xml#L27) files.  
 ``` xml
 <activity android:name="com.banuba.sdk.ve.flow.VideoCreationActivity"
@@ -99,7 +105,7 @@ Network is used for downloading AR effects from AR Cloud and stickers from [Giph
 Custom implementation of ```VideoCreationTheme``` is required for running ```VideoCreationActivity``` for customizing visual appearance of Video Editor SDK i.e. colors, icons and more.  
 [See example](../app/src/main/res/values/themes.xml#L21).
 
-### Add resources
+## Add resources
 Video Editor SDK uses a lot of resources required for running.  
 Please make sure all these resources are provided in your project.
 
@@ -116,7 +122,7 @@ Please make sure all these resources are provided in your project.
 
 3. [values](../app/src/main/res/values) to use colors and themes. Theme ```VideoCreationTheme``` and its styles use resources in **drawable** and **color** directories.
 
-### Add module
+## Add module
 Custom behavior of Video Editor SDK in your app is implemented by using dependency injection framework [Koin](https://insert-koin.io/).  
 
 First, create new class for implementing integration of Video Editor SDK. 
@@ -171,12 +177,12 @@ Finally, initialize ```VideoEditorModule```  in [Application class](../app/src/m
 VideoEditorModule().initialize(this@SampleApp)
 ```
 
-### Configure export
+## Implement export
 Video Editor can export a number of media files to meet your requirements.
 Implement ```ExportParamsProvider``` and provide ```List<ExportParams>``` where every ```ExportParams``` is a media file i.e. video or audio.  
 Check [CustomExportParamsProvider](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L208) implementation and follow [Export integration guide](guide_export.md) to know more about exporting media content.
 
-### Start SDK
+## Launch
 Create instance of ```BanubaVideoEditor```  by using the license token
 ``` kotlin
 val videoEditorSDK = BanubaVideoEditor.initialize(LICENSE_TOKEN)
@@ -200,7 +206,7 @@ videoEditorSDK.getLicenseState { isValid ->
 <img src="screenshots/screen_expired.png"  width="25%" height="auto">
 </p>
    
-Video Editor supports multiple launch methods described in [this guide](advanced_customizations.md#Launch-methods).
+Video Editor supports multiple launch methods described in [this guide](advanced_integration.md#Launch-methods).
 
 The following [implementation](../app/src/main/java/com/banuba/example/integrationapp/MainActivity.kt#L18) starts Video Editor from camera screen.
 ```kotlin
@@ -224,44 +230,27 @@ val intent = VideoCreationActivity.startFromCamera(
 createVideoRequest.launch(intent)
 ```
 
-### Add audio content
-Video Editor has built in support and API for browsing, playing and applying audio while making video content on various screens.  
-Follow [Video Editor audio content integration guide](guide_audio_content.md) to know more details about using audio and API in Video Editor.
-
-### Add effects
-Video Editor allows to apply a number of various effects to video:
-1. Face AR effects
-2. Color filters(LUT)
-3. Visual
-4. Speed
-5. Stickers(GIPHY)
-6. Text
-7. Blur
-8. Transitions
-
-Please follow [Video Editor effects integration guide](guide_effects.md) to get more information about applying available effects.
-
-### Advanced customizations
-Video Editor SDK has built in UI/UX experience and provides list of changes you can apply to meet your requirements.
+## Advanced integration
+Video editor has built in UI/UX experience and provides a number of customizations you can use to meet your requirements.
 
 **AVAILABLE**  
-:white_check_mark: Use your branded icons. [See details](advanced_customizations.md#Configure-screens)  
-:white_check_mark: Use you branded colors. [See details](advanced_customizations.md#Configure-screens)  
-:white_check_mark: Change text styles i.e. font, color. [See details](advanced_customizations.md#Configure-screens)  
+:white_check_mark: Use your branded icons. [See details](advanced_integration.md#Configure-screens)  
+:white_check_mark: Use you branded colors. [See details](advanced_integration.md#Configure-screens)  
+:white_check_mark: Change text styles i.e. font, color. [See details](advanced_integration.md#Configure-screens)  
 :white_check_mark: Localize and change text resources. Default locale is :us:  
-:white_check_mark: Make content you want i.e. a number of video with different resolutions  and durations, an audio file. [See details](advanced_customizations.md#Configure-export-flow)  
+:white_check_mark: Make content you want i.e. a number of video with different resolutions  and durations, an audio file. [See details](advanced_integration.md#Configure-export-flow)  
 :white_check_mark: Masks and filters order. [See details](guide_far_arcloud.md#Change-effects-order)  
 
 NOT AVAILABLE  
 :x: Change layout  
 :x: Change order of screens after entry point
 
-Please follow [customizations guide](advanced_customizations.md) to know more about features and configurations.
+Visit [Advanced integration guide](advanced_integration.md) to know more about features and customizations.
 
-### FAQ
+## FAQ
 Visit [FAQ](faq.md) if you are experiencing any issues with an integration.
 
-### Dependencies and licenses
+## Dependencies and licenses
 - [Koin](https://insert-koin.io/)
 - [ExoPlayer](https://github.com/google/ExoPlayer)
 - [Glide](https://github.com/bumptech/glide)

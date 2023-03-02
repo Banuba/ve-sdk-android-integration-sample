@@ -1,5 +1,11 @@
-## Gallery integration guide
+# Gallery integration guide
 
+- [Add module](#Add-module)
+- [Customize default gallery](#Customize-default-gallery)
+- [Implement custom gallery](#Implement-custom-gallery)
+- [Progress screen](#Progress-screen)
+
+## Add module 
 Video Editor SDK includes built in solution for the gallery where the user can pick any video or image and use it while making video.  
 To connect Banuba Gallery screen and its functionality you need to add the dependency in [build.gradle](../app/build.gradle#L60) file.
 ```kotlin
@@ -16,7 +22,8 @@ startKoin {
 }
 ```
 
-Instance of ```EditorConfgig``` that you implement in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt)  contains 2 properties that will allow you to filter media content:
+## Customize default gallery
+Instance of ```EditorConfig``` that you implement in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt)  contains 2 properties that will allow you to filter media content:
 - ```gallerySupportsVideo``` - if the ```Video``` tab is shown on the Gallery screen. Values: true/false. Default ```true```
 - ```gallerySupportsImage``` - if the ```Image``` tab is shown on the Gallery screen. Values: true/false. Default ```true```
 
@@ -107,8 +114,8 @@ Below string resources are used and can be customized.
 | gallery_album_all_media | All | the title of the album that contains all media resources
 | gallery_empty_image_list | No images found | message that is shown in the middle of the gallery screen in case of there are no images found on device. The view is defined in ```galleryEmptyTextStyle```
 | gallery_empty_video_list | No videos found | message that is shown in the middle of the gallery screen in case of there are no videos found on device. The view is defined in ```galleryEmptyTextStyle```
-| gallery_choose_at_least | Select at least %1$d files | **plurals resource** that is used for the [toast](alert_styles.md) message that is shown when the user want to open the editor screen but the number of selected resources (videos or images) is less than predefined custom value (recently "1" is used). This predefined value is a placeholder in every plural string resource here
-| err_gallery_broken_file | Damaged file | message shown as a [toast](alert_styles.md) in case of tapping on the damaged media file
+| gallery_choose_at_least | Select at least %1$d files | **plurals resource** that is used for the [toast](guide_popus.md) message that is shown when the user want to open the editor screen but the number of selected resources (videos or images) is less than predefined custom value (recently "1" is used). This predefined value is a placeholder in every plural string resource here
+| err_gallery_broken_file | Damaged file | message shown as a [toast](guide_popus.md) in case of tapping on the damaged media file
 | err_gallery_limit_selected | You can select only %1$d files | **plurals resource** that is used for the toast message if the user tries to select more files than allowed
 
 
@@ -224,3 +231,50 @@ and remove module `GalleryKoinModule` from the list of modules.
             )
         }
 ```
+
+
+## Progress screen
+When import video sources from Gallery takes time progress screen appear.
+
+You can change appearance of this screen by overriding these styles and resources.
+
+- [loadingScreenParentViewStyle](../app/src/main/res/values/themes.xml#L442)  
+  style for the root Constraint layout that represents
+
+- [loadingScreenTitleStyle](../app/src/main/res/values/themes.xml#L443)  
+  style for the loading dialog title
+
+- [loadingScreenDescStyle](../app/src/main/res/values/themes.xml#L444)  
+  style for the loading dialog description
+
+- [loadingScreenProgressStyle](../app/src/main/res/values/themes.xml#L445)  
+  style for the loading dialog progress
+
+- [loadingScreenCancelBtnStyle](../app/src/main/res/values/themes.xml#L446)  
+  style for the loading dialog cancel button
+
+  ![img](screenshots/media_progress_screen.png)
+
+Below are string you can use or customize.
+
+:exclamation: Important  
+Some strings on the screen are defined in the styles. To localize these strings firstly create string resources and setup them into styles under `android:text` attribute.
+
+| ResourceId        |      Value      |   Description |
+| ------------- | :----------- | :------------- |
+| editor_alert_import_failed | Content uploading failed | title of alert that is shown when the process of gallery resources import was failed
+| editor_alert_import_failed_desc | | description of alert that is shown when the process of gallery resources import was failed
+| editor_alert_import_failed_positive | Retry | positive button text of alert that is shown when the process of gallery resources import was failed
+| editor_alert_import_failed_negative | Cancel | negative button text of alert that is shown when the process of gallery resources import was failed
+| editor_alert_export_stopped | Do you want to interrupt the video export? | title of alert that is shown when the export process was stopped
+| editor_alert_export_stopped_desc | | description of alert that is shown when the export process was stopped
+| editor_alert_export_stopped_positive | Interrupt | positive button text of alert that is shown when the export process was stopped
+| editor_alert_export_stopped_negative | Cancel | negative button text of alert that is shown when the export process was stopped
+| editor_alert_export_interrupted | Export interrupted | title of alert that is shown when the process of export was interrupted
+| editor_alert_export_interrupted_desc | | description of alert that is shown when the process of export was interrupted
+| editor_alert_export_interrupted_positive | Retry | positive button text of alert that is shown when the process of export was interrupted
+| editor_alert_export_interrupted_negative | Cancel | negative button description of alert that is shown when the process of export was interrupted
+| loading_export_title | Exporting video | title of the exporting dialog
+| loading_export_description | Please, don\'t lock your screen or switch to other apps | description of the exporting dialog
+| loading_import_title | Importing video | title of the importing dialog
+| loading_import_description | Please, don\'t lock your screen or switch to other apps | description of the importing dialog

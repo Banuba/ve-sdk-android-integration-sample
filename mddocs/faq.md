@@ -172,7 +172,7 @@ Use the ```slideShowSourceVideoDurationMs``` parameter in [EditorConfig](config_
 There is no special language switching mechanism in the Video Editor SDK (VE SDK).
 
 Out of the box, the VE SDK includes support for two locales: English (default) and Russian. If you need to support any other locales, you can do it according to the standard Android way. See how [Create locale directories and resource files](https://developer.android.com/training/basics/supporting-devices/languages#CreateDirs) for more details. After adding a new locale resource file into your application with integrated VE SDK, you need to re-define the VE SDK strings keys with new locale string values.
-To do that you need to add all needed string keys in the new locale `strings.xml` file. You can find the main VE SDK string keys you need in the [Configure screens](advanced_customizations.md#configure-screens) doc page. E.g. string keys of the Editor screen you can find [here](editor_styles.md#string-resources).
+To do that you need to add all needed string keys in the new locale `strings.xml` file. You can find the main VE SDK string keys you need in the [Configure screens](advanced_integration.md#configure-screens) doc page. E.g. string keys of the Editor screen you can find [here](editor_styles.md#string-resources).
 The newly added locale will be applied after the device language is changed by system settings.
 
 If you need to change language programmatically in your application, see the next links how it can be done:
