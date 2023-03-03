@@ -170,7 +170,8 @@ private class SampleIntegrationKoinModule {
 
         single<EditorConfig> {
             EditorConfig(
-                minTotalVideoDurationMs = 1500
+                minTotalVideoDurationMs = 1500,
+                supportsTransitions = true
             )
         }
 
