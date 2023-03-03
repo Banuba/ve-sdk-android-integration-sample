@@ -87,7 +87,7 @@ single<CameraRecordingModesProvider> {
 
 ## Configure timer
 This feature allows to take a picture or record a video after some delay.  
-Implement ```CameraTimerStateProvider``` to customize timer feature in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L337) where every delay is a ```TimerEntry```.
+Implement ```CameraTimerStateProvider``` to customize timer feature in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L291) where every delay is a ```TimerEntry```.
 Subsequent example shows how to add timer with 2 options - 0 seconds and 3 seconds.
 ```kotlin
 class CustomCameraTimerStateProvider : CameraTimerStateProvider {
@@ -112,7 +112,7 @@ Every ```TimerEntry``` instance of ```CameraTimerStateProvider``` is passed as a
 
 Video Editor includes ```DefaultCameraTimerAnimationProvider``` with 10 seconds timer animation. If you want either more than 10 seconds timer or another animation you can implement ```CameraTimerAnimationProvider```.  
 
-To disable hands free feature you should remove `HandsFreeTimerActionProvider` implementation in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L149).
+To disable hands free feature you should remove `HandsFreeTimerActionProvider` implementation in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L137).
 ```diff
 -    single<CameraTimerActionProvider> {
 -       HandsFreeTimerActionProvider()

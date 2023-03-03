@@ -19,7 +19,7 @@ You can move all available color filters in this sample to your project.
 
 By default, color filters are listed in alphabetical order.  
 
-Create class [CustomColorFilterOrderProvider](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L258) and implement ```OrderProvider``` to provide custom order of color filters.
+Create class [CustomColorFilterOrderProvider](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L231) and implement ```OrderProvider``` to provide custom order of color filters.
 ```kotlin
 class CustomColorFilterOrderProvider : OrderProvider {
     override fun provide(): List<String> = listOf("egypt", "byers")
@@ -28,12 +28,11 @@ class CustomColorFilterOrderProvider : OrderProvider {
 :exclamation: Important  
 These are names of specific color filters located in ```assets/bnb-resources/luts```.  
 
-Next, use ```CustomColorFilterOrderProvider``` in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L153)
+Next, use ```CustomColorFilterOrderProvider``` in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L141)
 ```kotlin
-override val colorFilterOrderProvider: BeanDefinition<OrderProvider> =
-    single(named("colorFilterOrderProvider"), override = true) {
-        CustomColorFilterOrderProvider()
-    }
+single<OrderProvider>(named("colorFilterOrderProvider")) {
+    CustomColorFilterOrderProvider()
+}
 ```
 
 ## Stickers(GIPHY)
@@ -41,7 +40,7 @@ Video Editor SDK has built in integration with [Giphy service](https://developer
 Any sticker effect represents a GIF file.  
  
 To use stickers in your project you need to request personal [Giphy API key](https://support.giphy.com/hc/en-us/articles/360020283431-Request-A-GIPHY-API-Key).  
-Set GIPHY API key to ```stickersApiKey``` parameter in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L172).
+Set GIPHY API key to ```stickersApiKey``` parameter in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L156).
 
 ``` diff
 single(override = true) {
@@ -128,7 +127,7 @@ To change an icon of ```Rapid``` time effect, you should place drawable resource
 Transitions are effects applying to segue between two videos. Transition effects are not being played if the closest video (either to the left or to the right of transition icon) is very short. Transitions are enabled by default.
 
 
-Set ```false``` to  ```supportsTransitions``` of ```EditorConfig``` in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L172) to disable transitions.
+Set ```false``` to  ```supportsTransitions``` of ```EditorConfig``` in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L156) to disable transitions.
 ``` diff
 single(override = true) {
     EditorConfig(

@@ -169,7 +169,7 @@ and add watermark on bottom right of the video.
 - `extraAudioFile(extraAudioTrack: Uri)` - where to store extra audio file from video
 - `volumeVideo(volume: Float)` - set audio volume in video
 
-Next, specify this implementation in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L114)
+Next, specify this implementation in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L105)
 
 ```kotlin
     factory<ExportParamsProvider> {
@@ -183,7 +183,7 @@ Next, specify this implementation in [VideoEditorModule](../app/src/main/java/co
 }
 ```
 
-Finally, use the most suitable export mode for your application - ```ForegroundExportFlowManager``` or ```BackgroundExportFlowManager``` in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L93).
+Finally, use the most suitable export mode for your application - ```ForegroundExportFlowManager``` or ```BackgroundExportFlowManager``` in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L88).
 ```kotlin
         single<ExportFlowManager> {
             ForegroundExportFlowManager(
@@ -245,7 +245,7 @@ When export finished successfully ```ExportResult.Success``` instance is returne
 ```ExportResult.Error``` is returned when an error is occurred while exporting media content.
 
 ## Export in background
-If you want to export media in the background and do not show any progress screen to your user you can use ```BackgroundExportFlowManager``` implementation in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L114).
+If you want to export media in the background and do not show any progress screen to your user you can use ```BackgroundExportFlowManager``` implementation in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt).
 ```kotlin
         single<ExportFlowManager> {
             BackgroundExportFlowManager(
@@ -383,9 +383,9 @@ Some strings on the screen are defined in the styles. To localize these strings 
 
 ## Add watermark
 :exclamation: Important  
-Watermark is not added to video by default.  
+Watermark is not added to exported video by default.  
 
-Please use extension method ```withWatermark``` to add watermark to video.
+Please use extension method ```Effects.withWatermark``` method to add watermark to video.
 ```kotlin
     fun Effects.withWatermark(
    watermarkBuilder: WatermarkBuilder,
@@ -401,7 +401,26 @@ where ```WatermarkBuilder``` provides watermark drawable and ```alignment``` is 
         BOTTOM_RIGHT
     }
 ```
-Add custom implementation of ```WatermarkBuilder``` to [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt)
+You can provide custom implementation ```WatermarkBuilder``` as well in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt)
+
+To use your custom watermark image you should first create new class and implement ```WatermarkProvider```
+```kotlin
+   private class CustomWatermarkProvider : WatermarkProvider {
+
+  /**
+   * Provide your own watermark image
+   * */
+  override fun getWatermarkBitmap(): Bitmap? {
+    return null
+  }
+}
+```
+and add this implementation in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt)
+```kotlin
+factory<WatermarkProvider> {
+    CustomWatermarkProvider()
+}
+```
 
 ## Publish video
 When export finishes successfully ```ForegroundExportFlowManager``` and ```BackgroundExportFlowManager``` implementations can publish video to specific destinations.

@@ -169,7 +169,7 @@ fun initialize(applicationContext: Context) {
     }
 ```
 
-[VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L90) 
+[VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L62) 
 demonstrates a list of dependencies and configurations required for the launch.  
 
 Finally, initialize ```VideoEditorModule```  in [Application class](../app/src/main/java/com/banuba/example/integrationapp/SampleApp.kt#L31).
@@ -180,7 +180,7 @@ VideoEditorModule().initialize(this@SampleApp)
 ## Implement export
 Video Editor can export a number of media files to meet your requirements.
 Implement ```ExportParamsProvider``` and provide ```List<ExportParams>``` where every ```ExportParams``` is a media file i.e. video or audio.  
-Check [CustomExportParamsProvider](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L208) implementation and follow [Export integration guide](guide_export.md) to know more about exporting media content.
+Check [CustomExportParamsProvider](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L105) implementation and follow [Export integration guide](guide_export.md) to know more about exporting media content.
 
 ## Launch
 Create instance of ```BanubaVideoEditor```  by using the license token

@@ -11,7 +11,7 @@ To connect Banuba Gallery screen and its functionality you need to add the depen
 ```kotlin
 implementation "com.banuba.sdk:ve-gallery-sdk:1.26.5"
 ```
-and [GalleryKoinModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L76) to the list of modules
+and [GalleryKoinModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L71) to the list of modules
 ```diff
 startKoin {
     androidContext(this@IntegrationApp)

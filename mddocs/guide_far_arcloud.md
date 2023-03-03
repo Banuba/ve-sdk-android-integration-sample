@@ -40,7 +40,7 @@ First, add Gradle ```com.banuba.sdk:ar-cloud``` dependency in [app gradle file](
     ...
 ```
 
-Next, add ```ArCloudKoinModule``` module to [Koin modules](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L72).
+Next, add ```ArCloudKoinModule``` module to [Koin modules](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L67).
 ```diff
 startKoin {
    ...
@@ -54,7 +54,7 @@ startKoin {
 }
 ```
 
-Next, override ```ArEffectsRepositoryProvider``` in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L132).
+Next, override ```ArEffectsRepositoryProvider``` in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L120).
 
 ```kotlin
    single<ArEffectsRepositoryProvider>(createdAtStart = true) {
@@ -68,7 +68,7 @@ Next, override ```ArEffectsRepositoryProvider``` in [VideoEditorModule](../app/s
 ## Change effects order
 By default, all AR effects are listed in alphabetical order. AR effects from ``assets``` are listed in the begining.
 
-Create class [CustomMaskOrderProvider](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L289) and implement ```OrderProvider``` to provide custom order.
+Create new class ```CustomMaskOrderProvider``` and implement ```OrderProvider``` to provide custom order.
 
 ```kotlin
 class CustomMaskOrderProvider : OrderProvider {
@@ -78,13 +78,12 @@ class CustomMaskOrderProvider : OrderProvider {
 :exclamation: Important  
 These are names of specific directories located in ```assets/bnb-resources/effects``` or on ```AR Cloud```.  
 
-Next, use ```CustomMaskOrderProvider``` in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L157)
+Next, use ```CustomMaskOrderProvider``` in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt)
 ```kotlin
 single<OrderProvider>(named("maskOrderProvider")) {
    CustomMaskOrderProvider()
 }
 ```
-
 
 ## Disable Face AR SDK
 Video Editor SDK can work without Face AR SDK. 

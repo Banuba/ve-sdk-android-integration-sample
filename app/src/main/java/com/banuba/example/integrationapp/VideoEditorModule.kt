@@ -2,12 +2,10 @@ package com.banuba.example.integrationapp
 
 import android.app.Activity
 import android.content.Context
-import android.graphics.Bitmap
 import android.net.Uri
 import androidx.core.net.toFile
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
-import com.banuba.android.sdk.ve.timeline.`object`.data.ObjectEditorConfig
 import com.banuba.sdk.arcloud.data.source.ArEffectsRepositoryProvider
 import com.banuba.sdk.arcloud.di.ArCloudKoinModule
 import com.banuba.sdk.audiobrowser.di.AudioBrowserKoinModule
@@ -24,9 +22,7 @@ import com.banuba.sdk.core.data.AudioPlayer
 import com.banuba.sdk.core.data.OrderProvider
 import com.banuba.sdk.core.data.TrackData
 import com.banuba.sdk.core.domain.AspectRatioProvider
-import com.banuba.sdk.core.domain.BackgroundSeparationActionDataProvider
 import com.banuba.sdk.core.domain.DraftConfig
-import com.banuba.sdk.core.domain.ScannerActionDataProvider
 import com.banuba.sdk.core.ext.copyFile
 import com.banuba.sdk.core.ext.toPx
 import com.banuba.sdk.core.media.MediaFileNameHelper
@@ -43,7 +39,6 @@ import com.banuba.sdk.ve.effects.Effects
 import com.banuba.sdk.ve.effects.music.MusicEffect
 import com.banuba.sdk.ve.effects.watermark.WatermarkAlignment
 import com.banuba.sdk.ve.effects.watermark.WatermarkBuilder
-import com.banuba.sdk.ve.effects.watermark.WatermarkProvider
 import com.banuba.sdk.ve.ext.withWatermark
 import com.banuba.sdk.ve.flow.di.VeFlowKoinModule
 import com.banuba.sdk.veui.data.EditorConfig
@@ -56,7 +51,7 @@ import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import java.io.File
 
-class VideoEditorModule {
+class   VideoEditorModule {
 
     fun initialize(applicationContext: Context) {
         startKoin {
@@ -107,10 +102,6 @@ private class SampleIntegrationKoinModule {
         /**
          * Provides params for export
          * */
-
-        /**
-         * Provides params for export
-         * */
         factory<ExportParamsProvider> {
             val hardwareClass = get<HardwareClassProvider>().provideHardwareClass()
 
@@ -121,10 +112,7 @@ private class SampleIntegrationKoinModule {
             )
         }
 
-        factory<WatermarkProvider> {
-            CustomWatermarkProvider()
-        }
-
+        // Implementation required to enable timer on camera screen
         factory<CameraTimerStateProvider> {
             CustomCameraTimerStateProvider()
         }
@@ -154,10 +142,6 @@ private class SampleIntegrationKoinModule {
             CustomColorFilterOrderProvider()
         }
 
-        single<OrderProvider>(named("maskOrderProvider")) {
-            CustomMaskOrderProvider()
-        }
-
         factory<DraftConfig> {
             DraftConfig.ENABLED_ASK_TO_SAVE
         }
@@ -174,7 +158,7 @@ private class SampleIntegrationKoinModule {
                 supportsTransitions = true
             )
         }
-        
+
 
         single<CameraTimerUpdateProvider> {
             CustomCameraTimerUpdateProvider(
@@ -273,25 +257,6 @@ private class CustomColorFilterOrderProvider : OrderProvider {
         "glitch",
         "grunge"
     )
-}
-
-private class CustomMaskOrderProvider : OrderProvider {
-
-    override fun provide(): List<String> =
-        listOf(
-            ScannerActionDataProvider.EFFECT_NAME,
-            BackgroundSeparationActionDataProvider.EFFECT_NAME
-        )
-}
-
-private class CustomWatermarkProvider : WatermarkProvider {
-
-    /**
-     * Provide your own watermark image
-     * */
-    override fun getWatermarkBitmap(): Bitmap? {
-        return null
-    }
 }
 
 class CustomCameraTimerUpdateProvider(

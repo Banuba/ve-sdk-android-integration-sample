@@ -36,7 +36,7 @@ First, add a dependency to your [gradle](../app/build.gradle#L64) file.
 implementation "com.banuba.sdk:ve-audio-browser-sdk:${current sdk version}"
 ```
 
-Next, add ```AudioBrowserKoinModule``` to Koin modules in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L71)
+Next, add ```AudioBrowserKoinModule``` to Koin modules in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L66)
 ```diff
 startKoin {
     ...    
@@ -46,7 +46,7 @@ startKoin {
     )
 }
 ```
-and add specific implementation for ```musicTrackProvider``` in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L139)
+and add specific implementation for ```musicTrackProvider``` in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L127)
 ```kotlin
 single<ContentFeatureProvider<TrackData, Fragment>>(named("musicTrackProvider")) {
     AudioBrowserMusicProvider()

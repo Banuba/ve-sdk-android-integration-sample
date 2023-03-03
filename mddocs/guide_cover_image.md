@@ -9,7 +9,7 @@ Cover image screen allows users to pick any frame of video as image or choose an
     NONE        // disable cover screen
 }
 ```
-You can change the mode in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L145)
+You can change the mode in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L133)
 ``` kotlin
 single<CoverProvider>(override = true) {
     CoverProvider.EXTENDED

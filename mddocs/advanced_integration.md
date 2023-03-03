@@ -1,5 +1,7 @@
 # Advanced integration
 
+This guide is aimed to help you complete advanced integration of Video Editor SDK.
+
 - [Face AR SDK and AR Cloud](#Face-AR-SDK-and-AR-Cloud)
 - [Video recording](#Video-recording)
 - [Gallery](#Gallery)
