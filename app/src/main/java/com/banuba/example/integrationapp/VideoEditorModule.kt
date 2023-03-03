@@ -174,12 +174,7 @@ private class SampleIntegrationKoinModule {
                 supportsTransitions = true
             )
         }
-
-        single<ObjectEditorConfig> {
-            ObjectEditorConfig(
-                objectEffectDefaultDuration = 2000
-            )
-        }
+        
 
         single<CameraTimerUpdateProvider> {
             CustomCameraTimerUpdateProvider(
