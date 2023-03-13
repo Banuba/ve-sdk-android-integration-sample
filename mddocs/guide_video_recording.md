@@ -287,7 +287,7 @@ You can even customize camera align for each mode and exclude actions for some m
 There are a number of Android styles and other resources you can use to customize camera screen.  
 
 - [cameraOverlayStyle](../app/src/main/res/values/themes.xml#L24)  
-  allows to **setup action button icons**, customize relative position and appearance of music, gallery, switch camera icons. Icons drawables customized by using custom attributes of this style (for instance, [icon_mask_on](../app/src/main/res/values/themes.xml#L469) and [icon_mask_off](..app/src/main/res/values/themes.xml#L470) setup drawables for icons related to applied AR mask effect)
+  allows to **setup action button icons**, customize relative position and appearance of music, gallery, switch camera icons. Icons drawables customized by using custom attributes of this style (for instance, [icon_mask_on](../app/src/main/res/values/themes.xml#L470) and [icon_mask_off](../app/src/main/res/values/themes.xml#L471) setup drawables for icons related to applied AR mask effect)
 
 - [cameraActionButtonStyle](../app/src/main/res/values/themes.xml#L25)  
   defines action buttons appearance
