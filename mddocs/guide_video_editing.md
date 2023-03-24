@@ -37,7 +37,7 @@ We grouped a number of properties into related sections(editor, trimmer, gallery
 | trimmerMinSourceVideoDurationMs |  Number > 0, Default ```300L```   | the minimum video duration *in milliseconds* that is required to be appended to the list of video sources recorded with camera or seleced from gallery.
 | trimmerActionVibrationDurationMs |   Number >= 0, Default ```3L```   | defines vibration duration *in milliseconds* when drag and drop is applied on Trimmer screen. **Note**, this value should be small enougn to provide good user experience. Value "0" means no vibration.
 | trimmerTimelineOneScreenDurationMs | Number > 0, Default ```10_000L``` | defines the maximum total video duration *in milliseconds* that takes the whole device's width on the Trimmer screen
-| supportsTransitions |  true/false, Default ```false```  | if [transition effects](guide_effect.md#Transitions) are available
+| supportsTransitions |  true/false, Default ```true```   | if [transition effects](guide_effect.md#Transitions) are available
 
 #### Slideshow
 Slideshow is a small video made from image.

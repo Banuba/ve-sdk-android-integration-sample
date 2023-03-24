@@ -503,35 +503,30 @@ val analytics = outputBundle?.getString(ExportBundleProvider.Keys.EXTRA_EXPORT_A
 Sample
 ```JSON
 {
-   "video_duration":16.384,
-   "video_resolutions":[
-      "1280x720"
-   ],
-   "camera_effects":[
-   ],
-   "post_processing_effects":[
-      "mask:2_5D_HeadphoneMusic",
-      "fx:dv_cam",
-      "fx:cathode",
-      "fx:acid_whip",
-      "time:rapid"
-   ],
-   "video_count":2,
-   "video_sources":[
-      {
-         "title":"2022-04-10T12-56-11.362",
-         "type":"camera",
-         "duration":9795,
-         "startTime":0,
-         "endTime":9.795
-      },
-      {
-         "title":"video",
-         "type":"gallery",
-         "duration":8366,
-         "startTime":9.795,
-         "endTime":18.161
-      }
-   ]
+  "export_success": true, // defines if the export finished succesffully
+  "aspect_ratio": "original", // aspect ration used in exported video
+  "video_resolutions": ["1080x1920"], // list of video resolutions used in export
+  "camera_effects": [], // list of effects of features used on camera screen while recording video
+  "ppt_effects": {
+    "visual": 2, // num of visual effects i.e. Glitch, VHS used in exported video
+    "speed": 1, //  num of speed effects used in exported video
+    "mask": 6, // num of AR masks used in exported video
+    "color": 3, // num of color effects used in exported video
+    "text": 1, // num of text effects used in exported video
+    "sticker": 1, // num of sticker effects used in exported video
+    "blur": 1 // num of blur effects used in exported video
+  },
+  "sources": {
+    "camera": 0, // num of video sources recorded on camera screen(not PIP)
+    "gallery": 1, // num of video sources selected in the gallery
+    "pip": 0, // num of video recorded with PIP
+    "slideshow": 0, // num of video exported as slideshow
+    "audio": 0 // num of audi tracks
+  },
+  "export_duration": 12.645, // export processing duration
+  "video_duration": 20.11, // exported video duration
+  "video_count": 1, // num of exported video files
+  "os_version": "11", // OS version
+  "sdk_version": "1.26.6" // VE SDK version
 }
 ```

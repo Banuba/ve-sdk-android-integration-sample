@@ -88,14 +88,13 @@ private class SampleIntegrationKoinModule {
         single<ExportFlowManager> {
             ForegroundExportFlowManager(
                 exportDataProvider = get(),
-                sessionParamsProvider = get(),
                 exportSessionHelper = get(),
                 exportDir = get(named("exportDir")),
                 shouldClearSessionOnFinish = true,
                 publishManager = get(),
                 errorParser = get(),
-                mediaFileNameHelper = get(),
-                exportBundleProvider = get()
+                exportBundleProvider = get(),
+                eventConverter = get()
             )
         }
 
@@ -154,8 +153,7 @@ private class SampleIntegrationKoinModule {
 
         single<EditorConfig> {
             EditorConfig(
-                minTotalVideoDurationMs = 1500,
-                supportsTransitions = true
+                minTotalVideoDurationMs = 1500
             )
         }
 

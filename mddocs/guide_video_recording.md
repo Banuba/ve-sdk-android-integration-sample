@@ -50,6 +50,8 @@ single(override = true) {
 | supportsAudioRateEqualsVideoSpeed |                               true/false; Default ```false```                                | determines if the audio playback speed is equal to the video recording speed.
 | supportsGallery |                                true/false; Default ```true```                                | defines if there is an icon on the camera screen at the bottom-right to pick a content from gallery.
 | videoDurations | List<Long>; Default ```listOf(maxRecordedTotalVideoDurationMs, 60_000L, 30_000L, 15_000L)``` | defines the list of durations available to record. The user can see the option on the camera screen and pick new option. For example,  ```60000L``` means that the user can record a number of video with total duration no more than 60 seconds.
+| supportsVideoDurationSwitcher | true/false; Default ```true```  | defines if video recording time interval swithced is enabled
+
 
 ## Configure microphone state
 Use ```CameraMuteMicConfig``` if you want to customize default state of microphone on the camera screen.
