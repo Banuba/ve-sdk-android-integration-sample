@@ -182,6 +182,10 @@ private class CustomExportParamsProvider(
     private val watermarkBuilder: WatermarkBuilder
 ) : ExportParamsProvider {
 
+    companion object {
+        private const val EXPORT_SOUND_FILE_EXTENSION = ".m4a"
+    }
+
     override fun provideExportParams(
         effects: Effects,
         videoRangeList: VideoRangeList,
@@ -193,7 +197,7 @@ private class CustomExportParamsProvider(
             mkdirs()
         }
         val extraSoundtrackUri = Uri.parse(exportSessionDir.toString()).buildUpon()
-            .appendPath("exported_soundtrack.${MediaFileNameHelper.DEFAULT_SOUND_FORMAT}")
+            .appendPath("exported_soundtrack.${EXPORT_SOUND_FILE_EXTENSION}")
             .build()
 
         return listOf(
