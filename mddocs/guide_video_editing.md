@@ -29,6 +29,8 @@ We grouped a number of properties into related sections(editor, trimmer, gallery
 | stickersApiKey                 |               String               | Set your GIPHY key here.
 | showEditorConfig               |  true/false, Default ```false```   | Enable button "Show config" that shows debug info of `EditorConfig` properties. *Do not forget to setup false for production build*.
 | supportsTrimRecordedVideo      |   true/false, Default ```true```   | defines if the trimmer screen will be opened after camera. ```false``` means editor screen will be opened after camera.
+| supportsStickersOnVideo      |   true/false, Default ```true```   | defines if adding stickers to video feature is enabled
+
 
 #### Trimmer
 

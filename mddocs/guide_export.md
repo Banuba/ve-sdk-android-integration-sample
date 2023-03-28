@@ -9,7 +9,7 @@
 - [Export in background](#Export-in-background)
 - [Progress screen](#Progress-screen)
 - [Add watermark](#Add-watermark)
-- [Publish video](#Publish video)
+- [Publish video](#Publish-video)
 - [Export GIF preview](#Export-GIF-preview)
 - [Get audio used in export](#Get-audio-used-in-export)
 - [Export metadata analytics](#Export-metadata-analytics)
