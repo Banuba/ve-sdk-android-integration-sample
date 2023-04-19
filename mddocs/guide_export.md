@@ -44,17 +44,11 @@ Video Editor supports video codec options:
 2. ```AVC_PROFILES``` - H264 codec with profiles
 3. ```BASELINE``` - H264 codec without profiles
 
-You can use another video codec for export by using ```CodecConfiguration``` in  [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt)
-```kotlin
-    single(override = true) {
-        CodecConfiguration.AVC_PROFILES
-    }
-```
 
 ## Video quality
 | 240p(240x426) | 360p(360x640) | 480p(480x854) | QHD540(540x960) | HD(720x1280) | FHD(1080x1920) | QHD(1440x2560) | UHD(2160x3840) |
-|---------------|------------|---------------|-----------------|---------------|----------------|----------------|----------------|
-| 1000   kb/s   | 1200  kb/s     | 2000 kb/s         | 2400  kb/s          |4000   kb/s       | 6400 kb/s          | 10000    kb/s      | 20000  kb/s        |
+|---------------|------------|---------------|-----------------|--------------|----------------|----------------|----------------|
+| 1000   kb/s   | 1200  kb/s     | 2000 kb/s         | 2400  kb/s          | 3600   kb/s  | 5800 kb/s      | 10000    kb/s      | 20000  kb/s        |
 
 Video Editor has built in feature for detecting device performance capabilities and finding optimal video quality params for export.
 
@@ -168,6 +162,7 @@ and add watermark on bottom right of the video.
 - `destDir(destDir: File)` -  where to store exported video
 - `extraAudioFile(extraAudioTrack: Uri)` - where to store extra audio file from video
 - `volumeVideo(volume: Float)` - set audio volume in video
+- `useHevcIfPossible(flag: Boolean)` -  ```true``` - HEVC codec is preferred and AVC will be used if only HEVC is not available.  ```false``` - use AVC only.
 
 Next, specify this implementation in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L105)
 
