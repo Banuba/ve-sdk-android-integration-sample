@@ -815,7 +815,12 @@
 
     <style name="CustomStickersRetryBtnStyle" />
 
-    <style name="CustomStickersSearchStyle" parent="StickersSearchStyle" />
+    <style name="CustomStickersSearchStyle" parent="StickersSearchStyle">
+        <item name="editor_search_icon">@drawable/ic_search</item>
+        <item name="editor_search_hint">@string/stickers_search_hint</item>
+        <item name="editor_search_cancel_text">@string/stickers_search_cancel</item>
+        <item name="editor_search_cursor">@drawable/search_cursor</item>
+    </style>
 
     <!--Stickers & text editor styles-->
     <style name="CustomTimelineTextViewStyle" parent="TimelineTextViewStyle" />
