@@ -4,9 +4,8 @@
     <color name="white">#FFFFFFFF</color>
 
     <!-- Video editor colors (it may be your brand colors to customize editor for app style consistency) -->
-    <color name="base_color">#06BCC1</color>
-    <color name="base_color_a50">#8006BCC1</color>
-    <color name="base_color_a40">#6606BCC1</color>
+    <color name="base_color">#886b92</color>
+    <color name="base_color_alpha">#33886b92</color>
     <color name="big_stone">#12263A</color>
     <color name="big_stone_a90">#E612263A</color>
     <color name="violet_red">#FA3E76</color>
