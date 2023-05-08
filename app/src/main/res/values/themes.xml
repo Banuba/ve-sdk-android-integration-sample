@@ -1,7 +1,7 @@
 <resources>
     <!-- Base application theme -->
     <style name="Theme.IntegrationApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <item name="colorPrimary">@color/egg_blue</item>
+        <item name="colorPrimary">@color/base_color</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorSecondary">@color/violet_red</item>
         <item name="colorOnSecondary">@color/black</item>
@@ -381,6 +381,10 @@
         <item name="resetDialogCancelBtnStyle">@style/CustomResetDialogCancelBtnStyle</item>
         <!---->
 
+        <!-- Alert dialog -->
+        <item name="alertPositiveBtnStyle">@style/CustomAlertPositiveBtnStyle</item>
+        <!---->
+
         <!--Hands free-->
         <item name="handsFreeBottomSheetStyle">@style/CustomHandsFreeBottomSheetStyle</item>
         <item name="handsFreeTimerPickerStyle">@style/CustomHandsFreeTimerPickerStyle</item>
@@ -594,7 +598,7 @@
         <item name="divider_width">3dp</item>
         <item name="background_color">@color/dustyGray</item>
         <item name="divider_color">@color/big_stone</item>
-        <item name="normal_color">@color/egg_blue</item>
+        <item name="normal_color">@color/base_color</item>
         <item name="delete_color">@color/violet_red</item>
         <item name="android:layout_marginStart">16dp</item>
         <item name="android:layout_marginEnd">16dp</item>
@@ -827,7 +831,7 @@
 
     <!--Gallery styles-->
     <style name="CustomGalleryTabLayoutStyle" parent="GalleryTabLayoutStyle">
-        <item name="tabIndicatorColor">@color/egg_blue</item>
+        <item name="tabIndicatorColor">@color/base_color</item>
     </style>
 
     <style name="CustomGalleryAlbumBlurViewStyle" parent="GalleryAlbumBlurViewStyle">
@@ -835,7 +839,7 @@
     </style>
 
     <style name="CustomGalleryItemRadioButtonStyle" parent="GalleryItemRadioButtonStyle">
-        <item name="checked_color">@color/egg_blue</item>
+        <item name="checked_color">@color/base_color</item>
     </style>
 
     <style name="CustomGalleryItemTextStyle" parent="GalleryItemTextStyle">
@@ -873,7 +877,7 @@
     <style name="CustomGalleryNextParentStyle" parent="GalleryNextParentStyle" />
 
     <style name="CustomGalleryNextButtonStyle" parent="GalleryNextButtonStyle">
-        <item name="android:textColor">@color/egg_blue</item>
+        <item name="android:textColor">@color/base_color</item>
     </style>
 
     <style name="CustomGallerySelectionDescriptionStyle" parent="GallerySelectionDescriptionStyle" />
@@ -1097,14 +1101,14 @@
     <style name="CustomMusicEditorVideoVolumeTitleStyle" parent="MusicEditorVideoVolumeTitleStyle" />
 
     <style name="CustomMusicEditorVideoVolumeValueStyle" parent="MusicEditorVideoVolumeValueStyle">
-        <item name="android:textColor">@color/egg_blue</item>
+        <item name="android:textColor">@color/base_color</item>
         <item name="android:textSize">16sp</item>
     </style>
 
     <style name="CustomMusicEditorVideoVolumeProgressBarStyle" parent="MusicEditorVideoVolumeProgressBarStyle">
         <item name="android:maxHeight">3dp</item>
-        <item name="android:progressTint">@color/egg_blue</item>
-        <item name="android:thumbTint">@color/egg_blue</item>
+        <item name="android:progressTint">@color/base_color</item>
+        <item name="android:thumbTint">@color/base_color</item>
     </style>
 
     <style name="CustomMusicEditorTrimViewStyle" parent="MusicEditorTrimViewStyle">
@@ -1112,8 +1116,8 @@
         <item name="music_editor_trimmer_title_color">@color/white</item>
         <item name="music_editor_trimmer_done_icon">@drawable/ic_done</item>
         <item name="music_editor_trimmer_volume_value_color">@color/white</item>
-        <item name="music_editor_trimmer_volume_progress_tint">@color/egg_blue</item>
-        <item name="music_editor_trimmer_volume_thumb_tint">@color/egg_blue</item>
+        <item name="music_editor_trimmer_volume_progress_tint">@color/base_color</item>
+        <item name="music_editor_trimmer_volume_thumb_tint">@color/base_color</item>
     </style>
 
     <style name="CustomMusicEditorTrimmerStyle" parent="MusicEditorTrimmerStyle">
@@ -1180,11 +1184,11 @@
     <style name="CustomExtendedCoverExternalPhotoDeleteBackgroundStyle" parent="ExtendedCoverExternalPhotoDeleteBackgroundStyle" />
 
     <style name="CustomExtendedCoverExternalPhotoDeleteStyle" parent="ExtendedCoverExternalPhotoDeleteStyle">
-        <item name="android:textColor">@color/egg_blue</item>
+        <item name="android:textColor">@color/base_color</item>
     </style>
 
     <style name="CustomExtendedCoverExternalPhotoChooseStyle" parent="ExtendedCoverExternalPhotoChooseStyle">
-        <item name="android:textColor">@color/egg_blue</item>
+        <item name="android:textColor">@color/base_color</item>
     </style>
 
     <style name="CustomExtendedCoverDescriptionStyle" parent="ExtendedCoverDescriptionStyle" />
@@ -1274,7 +1278,7 @@
     <style name="CustomPermissionsDialogDescription" parent="PermissionsDialogDescription" />
 
     <style name="CustomPermissionsDialogActionButton" parent="PermissionsDialogActionButton">
-        <item name="android:background">@color/egg_blue</item>
+        <item name="android:background">@color/base_color</item>
     </style>
     <!---->
 
@@ -1300,7 +1304,7 @@
     <style name="CustomHandsFreeTimelineCurrentDurationStyle" parent="HandsFreeTimelineCurrentDurationStyle" />
 
     <style name="CustomHandsFreeTimelineStyle" parent="HandsFreeTimelineStyle">
-        <item name="video_duration_timeline_default_lines_color">@color/egg_blue</item>
+        <item name="video_duration_timeline_default_lines_color">@color/base_color</item>
     </style>
 
     <style name="CustomHandsFreeRecordButtonStyle" parent="HandsFreeRecordButtonStyle">
@@ -1377,7 +1381,7 @@
 
     <!-- Reset dialog -->
     <style name="CustomResetDialogStartOverBtnStyle" parent="ResetDialogStartOverBtnStyle" >
-        <item name="android:background">@color/egg_blue</item>
+        <item name="android:background">@color/base_color</item>
     </style>
     <style name="CustomResetDialogResetBtnStyle" parent="ResetDialogResetBtnStyle" >
         <item name="android:background">@color/violet_red</item>
@@ -1386,4 +1390,8 @@
         <item name="android:background">@color/violet_red_20</item>
     </style>
     <!---->
+
+    <style name="CustomAlertPositiveBtnStyle" parent="AlertPositiveButtonStyle">
+        <item name="android:background">@color/base_color</item>
+    </style>
 </resources>

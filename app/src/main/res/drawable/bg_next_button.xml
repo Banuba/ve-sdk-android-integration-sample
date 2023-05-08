@@ -11,13 +11,13 @@
         <selector>
             <item android:state_activated="false">
                 <shape android:shape="rectangle">
-                    <solid android:color="@color/egg_blue_transparent" />
+                    <solid android:color="@color/base_color_a40" />
                     <corners android:radius="4dp" />
                 </shape>
             </item>
             <item>
                 <shape android:shape="rectangle">
-                    <solid android:color="@color/egg_blue" />
+                    <solid android:color="@color/base_color" />
                     <corners android:radius="4dp" />
                 </shape>
             </item>
