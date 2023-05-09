@@ -1390,7 +1390,7 @@
         <item name="android:background">@color/accent_color</item>
     </style>
     <style name="CustomResetDialogCancelBtnStyle" parent="ResetDialogCancelBtnStyle" >
-        <item name="android:background">@color/base_color_alpha</item>
+        <item name="android:background">@color/primary_color_alpha</item>
     </style>
     <!---->
 

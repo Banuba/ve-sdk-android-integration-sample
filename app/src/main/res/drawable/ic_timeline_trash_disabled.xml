@@ -4,7 +4,7 @@
     android:viewportWidth="24"
     android:viewportHeight="24">
     <path
-        android:fillColor="@color/base_color_alpha"
+        android:fillColor="@color/primary_color_alpha"
         android:pathData="M4.915,20.5933L3.5,5.5H19.5L18.085,20.5933C18.0368,21.1072 17.6055,21.5 17.0894,21.5H5.9106C5.3945,21.5 4.9632,21.1072 4.915,20.5933Z" />
     <path
         android:fillColor="#33000000"
@@ -20,7 +20,7 @@
         android:fillColor="#33000000"
         android:pathData="M14.5,10.5C14.5,9.9477 14.9477,9.5 15.5,9.5V9.5C16.0523,9.5 16.5,9.9477 16.5,10.5V18.5C16.5,19.0523 16.0523,19.5 15.5,19.5V19.5C14.9477,19.5 14.5,19.0523 14.5,18.5V10.5Z" />
     <path
-        android:fillColor="@color/base_color_alpha"
+        android:fillColor="@color/primary_color_alpha"
         android:fillType="evenOdd"
         android:pathData="M5,3.1667L7,1.5H16L18,3.1667H20.5C21.0523,3.1667 21.5,3.6144 21.5,4.1667V5.5C21.5,6.0523 21.0523,6.5 20.5,6.5H2.5C1.9477,6.5 1.5,6.0523 1.5,5.5V4.1667C1.5,3.6144 1.9477,3.1667 2.5,3.1667H5Z" />
     <path

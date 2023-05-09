@@ -4,8 +4,8 @@
     <color name="white">#FFFFFFFF</color>
 
     <!-- Video editor colors (it may be your brand colors to customize editor for app style consistency) -->
-    <color name="primary_color">#886b92</color>
-    <color name="base_color_alpha">#33886b92</color>
+    <color name="primary_color">#06BCC1</color>
+    <color name="primary_color_alpha">#6606BCC1</color>
     <color name="secondary_color">#12263A</color>
     <color name="accent_color">#FA3E76</color>
 
@@ -15,5 +15,6 @@
         <item>@color/primary_color</item>
     </array>
 
+    <!-- Changes color of recording button on camera screen -->
     <color name="rec_btn_idle_state_color">@color/primary_color</color>
 </resources>
