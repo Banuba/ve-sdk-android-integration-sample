@@ -8,6 +8,6 @@
 
     <stroke
         android:width="@dimen/voice_recording_button_stroke_width"
-        android:color="@color/violet_red" />
+        android:color="@color/accent_color" />
 
 </shape>

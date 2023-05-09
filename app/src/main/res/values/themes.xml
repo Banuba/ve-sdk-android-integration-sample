@@ -1,9 +1,9 @@
 <resources>
     <!-- Base application theme -->
     <style name="Theme.IntegrationApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <item name="colorPrimary">@color/egg_blue</item>
+        <item name="colorPrimary">@color/primary_color</item>
         <item name="colorOnPrimary">@color/white</item>
-        <item name="colorSecondary">@color/violet_red</item>
+        <item name="colorSecondary">@color/secondary_color</item>
         <item name="colorOnSecondary">@color/black</item>
         <item name="android:statusBarColor">?attr/colorPrimary</item>
 
@@ -133,7 +133,7 @@
         <item name="gallery_bg_color">@color/black</item>
         <item name="gallery_item_corner_radius">4dp</item>
         <item name="gallery_item_margin">2dp</item>
-        <item name="gallery_album_divider_color">@color/catskill_white</item>
+        <item name="gallery_album_divider_color">@color/white</item>
 
         <item name="previewActionButtonStyle">@style/CustomPreviewActionButtonStyle</item>
         <item name="previewContainerStyle">@style/CustomPreviewContainerStyle</item>
@@ -171,6 +171,7 @@
         <item name="trimmer_icon_play">@drawable/ic_play</item>
         <item name="trimmer_icon_pause">@drawable/ic_pause</item>
         <item name="trimmer_time_visible">true</item>
+
         <!---->
 
         <!--Music Editor-->
@@ -237,7 +238,7 @@
 
         <item name="music_editor_surface_background">@color/black</item>
         <item name="music_editor_voice_recording_background">@color/black</item>
-        <item name="music_editor_timeline_background">@color/big_stone</item>
+        <item name="music_editor_timeline_background">@color/secondary_color</item>
         <item name="music_editor_playback_controller_bg">@color/black</item>
         <item name="music_editor_action_container_bg">@color/black</item>
 
@@ -379,6 +380,10 @@
         <item name="resetDialogStartOverBtnStyle">@style/CustomResetDialogStartOverBtnStyle</item>
         <item name="resetDialogResetBtnStyle">@style/CustomResetDialogResetBtnStyle</item>
         <item name="resetDialogCancelBtnStyle">@style/CustomResetDialogCancelBtnStyle</item>
+        <!---->
+
+        <!-- Alert dialog -->
+        <item name="alertPositiveBtnStyle">@style/CustomAlertPositiveBtnStyle</item>
         <!---->
 
         <!--Hands free-->
@@ -531,7 +536,7 @@
         <item name="camera_gradient_top">@android:color/transparent</item>
         <item name="camera_gradient_bottom">@android:color/transparent</item>
 
-        <item name="camera_effects_list_background">@color/big_stone</item>
+        <item name="camera_effects_list_background">@color/secondary_color</item>
     </style>
 
     <!-- Style for the music icon placed on top of the camera screen.
@@ -593,9 +598,9 @@
     <style name="CustomCameraTimelineRecorderStyle" parent="CameraTimelineRecorderStyle">
         <item name="divider_width">3dp</item>
         <item name="background_color">@color/dustyGray</item>
-        <item name="divider_color">@color/big_stone</item>
-        <item name="normal_color">@color/egg_blue</item>
-        <item name="delete_color">@color/violet_red</item>
+        <item name="divider_color">@color/secondary_color</item>
+        <item name="normal_color">@color/primary_color</item>
+        <item name="delete_color">@color/accent_color</item>
         <item name="android:layout_marginStart">16dp</item>
         <item name="android:layout_marginEnd">16dp</item>
         <item name="android:layout_marginBottom">32dp</item>
@@ -827,15 +832,15 @@
 
     <!--Gallery styles-->
     <style name="CustomGalleryTabLayoutStyle" parent="GalleryTabLayoutStyle">
-        <item name="tabIndicatorColor">@color/egg_blue</item>
+        <item name="tabIndicatorColor">@color/primary_color</item>
     </style>
 
     <style name="CustomGalleryAlbumBlurViewStyle" parent="GalleryAlbumBlurViewStyle">
-        <item name="overlay_color">@color/big_stone_a90</item>
+        <item name="overlay_color">@color/secondary_color</item>
     </style>
 
     <style name="CustomGalleryItemRadioButtonStyle" parent="GalleryItemRadioButtonStyle">
-        <item name="checked_color">@color/egg_blue</item>
+        <item name="checked_color">@color/primary_color</item>
     </style>
 
     <style name="CustomGalleryItemTextStyle" parent="GalleryItemTextStyle">
@@ -873,7 +878,7 @@
     <style name="CustomGalleryNextParentStyle" parent="GalleryNextParentStyle" />
 
     <style name="CustomGalleryNextButtonStyle" parent="GalleryNextButtonStyle">
-        <item name="android:textColor">@color/egg_blue</item>
+        <item name="android:textColor">@color/primary_color</item>
     </style>
 
     <style name="CustomGallerySelectionDescriptionStyle" parent="GallerySelectionDescriptionStyle" />
@@ -964,16 +969,16 @@
     </style>
 
     <style name="CustomTrimmerActionDoneButtonStyle" parent="TrimmerActionDoneButtonStyle">
-        <item name="android:src">@drawable/ic_check</item>
+        <item name="drawableStartCompat">@drawable/ic_check</item>
     </style>
 
     <style name="CustomTrimmerActionCancelButtonStyle" parent="TrimmerActionCancelButtonStyle">
-        <item name="android:src">@drawable/ic_navigation_exit</item>
+        <item name="drawableStartCompat">@drawable/ic_navigation_exit</item>
     </style>
 
     <style name="CustomTrimmerViewStyle" parent="TrimmerViewStyle">
-        <item name="trimmer_default_color">@color/violet_red</item>
-        <item name="trimmer_wrong_color">@color/violet_red</item>
+        <item name="trimmer_default_color">@color/accent_color</item>
+        <item name="trimmer_wrong_color">@color/accent_color</item>
         <item name="trimmer_left_pointer">@drawable/ic_timeline_left_pointer</item>
         <item name="trimmer_right_pointer">@drawable/ic_timeline_right_pointer</item>
         <item name="trimmer_border_line">@drawable/bg_trimmer_border_line</item>
@@ -1097,23 +1102,23 @@
     <style name="CustomMusicEditorVideoVolumeTitleStyle" parent="MusicEditorVideoVolumeTitleStyle" />
 
     <style name="CustomMusicEditorVideoVolumeValueStyle" parent="MusicEditorVideoVolumeValueStyle">
-        <item name="android:textColor">@color/egg_blue</item>
+        <item name="android:textColor">@color/primary_color</item>
         <item name="android:textSize">16sp</item>
     </style>
 
     <style name="CustomMusicEditorVideoVolumeProgressBarStyle" parent="MusicEditorVideoVolumeProgressBarStyle">
         <item name="android:maxHeight">3dp</item>
-        <item name="android:progressTint">@color/egg_blue</item>
-        <item name="android:thumbTint">@color/egg_blue</item>
+        <item name="android:progressTint">@color/primary_color</item>
+        <item name="android:thumbTint">@color/primary_color</item>
     </style>
 
     <style name="CustomMusicEditorTrimViewStyle" parent="MusicEditorTrimViewStyle">
-        <item name="music_editor_trimmer_background_color">@color/big_stone</item>
+        <item name="music_editor_trimmer_background_color">@color/secondary_color</item>
         <item name="music_editor_trimmer_title_color">@color/white</item>
         <item name="music_editor_trimmer_done_icon">@drawable/ic_done</item>
         <item name="music_editor_trimmer_volume_value_color">@color/white</item>
-        <item name="music_editor_trimmer_volume_progress_tint">@color/egg_blue</item>
-        <item name="music_editor_trimmer_volume_thumb_tint">@color/egg_blue</item>
+        <item name="music_editor_trimmer_volume_progress_tint">@color/primary_color</item>
+        <item name="music_editor_trimmer_volume_thumb_tint">@color/primary_color</item>
     </style>
 
     <style name="CustomMusicEditorTrimmerStyle" parent="MusicEditorTrimmerStyle">
@@ -1125,8 +1130,8 @@
     </style>
 
     <style name="CustomMusicEditorTrimmerSoundWaveStyle" parent="MusicEditorTrimmerSoundWaveStyle">
-        <item name="block_color">@color/catskill_white</item>
-        <item name="android:background">@color/violet_red_20</item>
+        <item name="block_color">@color/white</item>
+        <item name="android:background">@color/accent_color</item>
     </style>
 
     <style name="CustomMusicEditorActionButtonStyle" parent="MusicEditorActionButtonStyle">
@@ -1180,11 +1185,11 @@
     <style name="CustomExtendedCoverExternalPhotoDeleteBackgroundStyle" parent="ExtendedCoverExternalPhotoDeleteBackgroundStyle" />
 
     <style name="CustomExtendedCoverExternalPhotoDeleteStyle" parent="ExtendedCoverExternalPhotoDeleteStyle">
-        <item name="android:textColor">@color/egg_blue</item>
+        <item name="android:textColor">@color/primary_color</item>
     </style>
 
     <style name="CustomExtendedCoverExternalPhotoChooseStyle" parent="ExtendedCoverExternalPhotoChooseStyle">
-        <item name="android:textColor">@color/egg_blue</item>
+        <item name="android:textColor">@color/primary_color</item>
     </style>
 
     <style name="CustomExtendedCoverDescriptionStyle" parent="ExtendedCoverDescriptionStyle" />
@@ -1274,7 +1279,7 @@
     <style name="CustomPermissionsDialogDescription" parent="PermissionsDialogDescription" />
 
     <style name="CustomPermissionsDialogActionButton" parent="PermissionsDialogActionButton">
-        <item name="android:background">@color/egg_blue</item>
+        <item name="android:background">@color/primary_color</item>
     </style>
     <!---->
 
@@ -1300,7 +1305,7 @@
     <style name="CustomHandsFreeTimelineCurrentDurationStyle" parent="HandsFreeTimelineCurrentDurationStyle" />
 
     <style name="CustomHandsFreeTimelineStyle" parent="HandsFreeTimelineStyle">
-        <item name="video_duration_timeline_default_lines_color">@color/egg_blue</item>
+        <item name="video_duration_timeline_default_lines_color">@color/primary_color</item>
     </style>
 
     <style name="CustomHandsFreeRecordButtonStyle" parent="HandsFreeRecordButtonStyle">
@@ -1370,20 +1375,26 @@
 
     <style name="CustomLoadingScreenDescriptionViewStyle" parent="LoadingScreenDescriptionViewStyle" />
 
-    <style name="CustomLoadingScreenProgressStyle" parent="LoadingScreenProgressStyle" />
+    <style name="CustomLoadingScreenProgressStyle" parent="LoadingScreenProgressStyle" >
+        <item name="android:progressTint">@color/primary_color</item>
+    </style>
 
     <style name="CustomLoadingScreenCancelButtonStyle" parent="LoadingScreenCancelButtonStyle" />
     <!---->
 
     <!-- Reset dialog -->
     <style name="CustomResetDialogStartOverBtnStyle" parent="ResetDialogStartOverBtnStyle" >
-        <item name="android:background">@color/egg_blue</item>
+        <item name="android:background">@color/primary_color</item>
     </style>
     <style name="CustomResetDialogResetBtnStyle" parent="ResetDialogResetBtnStyle" >
-        <item name="android:background">@color/violet_red</item>
+        <item name="android:background">@color/accent_color</item>
     </style>
     <style name="CustomResetDialogCancelBtnStyle" parent="ResetDialogCancelBtnStyle" >
-        <item name="android:background">@color/violet_red_20</item>
+        <item name="android:background">@color/base_color_alpha</item>
     </style>
     <!---->
+
+    <style name="CustomAlertPositiveBtnStyle" parent="AlertPositiveButtonStyle">
+        <item name="android:background">@color/primary_color</item>
+    </style>
 </resources>
