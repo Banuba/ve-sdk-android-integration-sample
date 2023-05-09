@@ -4,5 +4,5 @@
     <solid android:color="@color/transparent" />
     <stroke
         android:width="@dimen/timeline_music_selection_rect_width"
-        android:color="@color/base_color" />
+        android:color="@color/primary_color" />
 </shape>

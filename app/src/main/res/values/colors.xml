@@ -4,17 +4,16 @@
     <color name="white">#FFFFFFFF</color>
 
     <!-- Video editor colors (it may be your brand colors to customize editor for app style consistency) -->
-    <color name="base_color">#886b92</color>
+    <color name="primary_color">#886b92</color>
     <color name="base_color_alpha">#33886b92</color>
-    <color name="big_stone">#12263A</color>
-    <color name="big_stone_a90">#E612263A</color>
-    <color name="violet_red">#FA3E76</color>
-    <color name="violet_red_20">#33FA3E76</color>
-    <color name="catskill_white">#E3E9F1</color>
+    <color name="secondary_color">#12263A</color>
+    <color name="accent_color">#FA3E76</color>
 
     <array name="progress_gradient_colors">
-        <item>@color/base_color</item>
+        <item>@color/primary_color</item>
         <item>@color/white</item>
-        <item>@color/base_color</item>
+        <item>@color/primary_color</item>
     </array>
+
+    <color name="rec_btn_idle_state_color">@color/primary_color</color>
 </resources>

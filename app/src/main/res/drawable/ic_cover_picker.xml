@@ -4,7 +4,7 @@
         <shape android:shape="rectangle">
             <stroke
                 android:width="2dp"
-                android:color="@color/base_color" />
+                android:color="@color/primary_color" />
             <corners android:radius="2dp" />
         </shape>
     </item>
@@ -14,7 +14,7 @@
         <shape android:shape="rectangle">
             <stroke
                 android:width="2dp"
-                android:color="@color/base_color" />
+                android:color="@color/primary_color" />
         </shape>
     </item>
 </layer-list>
