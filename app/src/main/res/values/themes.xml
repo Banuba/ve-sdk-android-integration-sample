@@ -171,6 +171,7 @@
         <item name="trimmer_icon_play">@drawable/ic_play</item>
         <item name="trimmer_icon_pause">@drawable/ic_pause</item>
         <item name="trimmer_time_visible">true</item>
+
         <!---->
 
         <!--Music Editor-->
@@ -968,11 +969,11 @@
     </style>
 
     <style name="CustomTrimmerActionDoneButtonStyle" parent="TrimmerActionDoneButtonStyle">
-        <item name="android:src">@drawable/ic_check</item>
+        <item name="drawableStartCompat">@drawable/ic_check</item>
     </style>
 
     <style name="CustomTrimmerActionCancelButtonStyle" parent="TrimmerActionCancelButtonStyle">
-        <item name="android:src">@drawable/ic_navigation_exit</item>
+        <item name="drawableStartCompat">@drawable/ic_navigation_exit</item>
     </style>
 
     <style name="CustomTrimmerViewStyle" parent="TrimmerViewStyle">
@@ -1374,7 +1375,9 @@
 
     <style name="CustomLoadingScreenDescriptionViewStyle" parent="LoadingScreenDescriptionViewStyle" />
 
-    <style name="CustomLoadingScreenProgressStyle" parent="LoadingScreenProgressStyle" />
+    <style name="CustomLoadingScreenProgressStyle" parent="LoadingScreenProgressStyle" >
+        <item name="android:progressTint">@color/base_color</item>
+    </style>
 
     <style name="CustomLoadingScreenCancelButtonStyle" parent="LoadingScreenCancelButtonStyle" />
     <!---->
