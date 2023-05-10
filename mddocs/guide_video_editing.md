@@ -30,7 +30,8 @@ We grouped a number of properties into related sections(editor, trimmer, gallery
 | showEditorConfig               |  true/false, Default ```false```   | Enable button "Show config" that shows debug info of `EditorConfig` properties. *Do not forget to setup false for production build*.
 | supportsTrimRecordedVideo      |   true/false, Default ```true```   | defines if the trimmer screen will be opened after camera. ```false``` means editor screen will be opened after camera.
 | supportsStickersOnVideo      |   true/false, Default ```true```   | defines if adding stickers to video feature is enabled
-
+| supportsGalleryOnTrimmer      |   true/false, Default ```true```   | defines if adding media from gallery is available on trimmer screen
+| supportsGalleryOnCover      |   true/false, Default ```true```   | defines if adding media from gallery is available on cover screen
 
 #### Trimmer
 
