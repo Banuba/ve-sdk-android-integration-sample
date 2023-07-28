@@ -171,6 +171,9 @@
         <item name="trimmer_icon_play">@drawable/ic_play</item>
         <item name="trimmer_icon_pause">@drawable/ic_pause</item>
         <item name="trimmer_time_visible">true</item>
+        <item name="advancedAudioVolumeBackgroundStyle">@style/CustomAdvancedAudioVolumeBackgroundStyle</item>
+        <item name="trimmerEditVolumeApplyStyle">@style/CustomTrimmerEditVolumeApplyStyle</item>
+        <item name="trimmerEditVolumeDismissStyle">@style/CustomTrimmerEditVolumeDismissStyle</item>
 
         <!---->
 
@@ -249,6 +252,9 @@
         <item name="music_editor_icon_track_effects">@drawable/ic_timeline_effects</item>
         <item name="music_editor_icon_track_delete">@drawable/ic_timeline_trash</item>
         <item name="music_editor_icon_track_volume">@drawable/ic_volume</item>
+        <item name="musicEditorAdvancedVolumeProgressBarStyle">
+            @style/CustomMusicEditorAdvancedVolumeProgressBarStyle
+        </item>
         <!---->
 
         <!-- Timeline editor -->
@@ -1396,5 +1402,34 @@
 
     <style name="CustomAlertPositiveBtnStyle" parent="AlertPositiveButtonStyle">
         <item name="android:background">@color/primary_color</item>
+    </style>
+
+    <style name="CustomAdvancedAudioVolumeBackgroundStyle">
+        <item name="android:background">@color/volume_dialog_background</item>
+    </style>
+
+    <style name="CustomTrimmerEditVolumeDismissStyle">
+        <item name="android:layout_height">24dp</item>
+        <item name="android:layout_width">24dp</item>
+        <item name="android:src">@drawable/ic_close</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginTop">12dp</item>
+    </style>
+
+    <style name="CustomTrimmerEditVolumeApplyStyle">
+        <item name="android:layout_height">24dp</item>
+        <item name="android:layout_width">24dp</item>
+        <item name="android:src">@drawable/ic_check</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:layout_marginTop">12dp</item>
+    </style>
+
+    <style name="CustomMusicEditorAdvancedVolumeProgressBarStyle" parent="Widget.AppCompat.SeekBar">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:progressTint">@color/primary_color</item>
+        <item name="android:progressBackgroundTint">@color/white30</item>
+        <item name="android:thumb">@drawable/selector_seekbar_thumb</item>
     </style>
 </resources>
