@@ -128,6 +128,8 @@
         <item name="galleryAlbumDescTextStyle">@style/CustomGalleryAlbumDescTextStyle</item>
         <item name="galleryTabLayoutStyle">@style/CustomGalleryTabLayoutStyle</item>
         <item name="galleryTabTextColors">@color/gallery_tab_color_state_list</item>
+        <item name="galleryAutoCutNextButtonStyle">@style/CustomGalleryAutoCutNextButtonStyle</item>
+        <item name="galleryAutoCutButtonStyle">@style/CustomGalleryAutoCutButtonStyle</item>
 
         <item name="galleryColumnsNumber">wrap_content</item>
         <item name="gallery_bg_color">@color/black</item>
@@ -840,6 +842,10 @@
     <style name="CustomGalleryTabLayoutStyle" parent="GalleryTabLayoutStyle">
         <item name="tabIndicatorColor">@color/primary_color</item>
     </style>
+
+    <style name="CustomGalleryAutoCutNextButtonStyle" parent="GalleryAutoCutNextButtonStyle"/>
+
+    <style name="CustomGalleryAutoCutButtonStyle" parent="GalleryAutoCutButtonStyle"/>
 
     <style name="CustomGalleryAlbumBlurViewStyle" parent="GalleryAlbumBlurViewStyle">
         <item name="overlay_color">@color/secondary_color</item>
