@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@drawable/ic_timeline_recording_disabled" android:state_activated="false" />
-    <item android:drawable="@drawable/ic_timeline_recording_enabled" />
-</selector>

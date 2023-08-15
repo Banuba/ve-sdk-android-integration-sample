@@ -6,6 +6,7 @@ import android.net.Uri
 import androidx.core.net.toFile
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
+import com.banuba.android.sdk.ve.timeline.music.data.DefaultVoiceRecordTimerAnimationProvider
 import com.banuba.sdk.arcloud.data.source.ArEffectsRepositoryProvider
 import com.banuba.sdk.arcloud.di.ArCloudKoinModule
 import com.banuba.sdk.audiobrowser.di.AudioBrowserKoinModule
@@ -18,6 +19,7 @@ import com.banuba.sdk.cameraui.domain.HandsFreeTimerActionProvider
 import com.banuba.sdk.core.AspectRatio
 import com.banuba.sdk.core.HardwareClassProvider
 import com.banuba.sdk.core.VideoResolution
+import com.banuba.sdk.core.data.AnimationProvider
 import com.banuba.sdk.core.data.AudioPlayer
 import com.banuba.sdk.core.data.OrderProvider
 import com.banuba.sdk.core.data.TrackData

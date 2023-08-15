@@ -1,20 +1,3 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-
-    <!-- Video editor colors (it may be your brand colors to customize editor for app style consistency) -->
-    <color name="primary_color">#06BCC1</color>
-    <color name="primary_color_alpha">#6606BCC1</color>
-    <color name="secondary_color">#12263A</color>
-    <color name="accent_color">#FA3E76</color>
-
-    <array name="progress_gradient_colors">
-        <item>@color/primary_color</item>
-        <item>@color/white</item>
-        <item>@color/primary_color</item>
-    </array>
-
-    <!-- Changes color of recording button on camera screen -->
-    <color name="rec_btn_idle_state_color">@color/primary_color</color>
 </resources>
