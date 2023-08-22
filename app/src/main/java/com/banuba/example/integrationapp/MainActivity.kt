@@ -35,12 +35,12 @@ class MainActivity : AppCompatActivity() {
     private val requestImageOpenTrimmer = registerForActivityResult(
         ActivityResultContracts.GetContent()
     ) { imageUri ->
-        if (imageUri != Uri.EMPTY) {
+        if (imageUri != Uri.EMPTY && imageUri != null) {
             val slideShowList =
                 Utils.createSlideShowList(
                     applicationContext,
                     lifecycleScope,
-                    requireNotNull(imageUri)
+                    imageUri
                 )
             openVideoEditorTrimmerWithSlideShow(slideShowList)
         }
