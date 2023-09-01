@@ -28,7 +28,9 @@ class MainActivity : AppCompatActivity() {
     private val requestVideoOpenPIP = registerForActivityResult(
         ActivityResultContracts.GetContent()
     ) { videoPipUri ->
-        openVideoEditor(pipVideo = videoPipUri ?: Uri.EMPTY)
+        if (videoPipUri != Uri.EMPTY && videoPipUri != null) {
+            openVideoEditor(pipVideo = videoPipUri)
+        }
     }
 
     // Opens system app to pick image for Trimmer
