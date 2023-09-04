@@ -22,7 +22,6 @@ You can customize all types
     ![img](screenshots/alert1.png)
 
 ## Wait dialog
-
 - [throbberViewStyle](../app/src/main/res/values/themes.xml#L43)  
     style for the circle progress bar. It is allowed to customize gradient colors using custom attribute
 
@@ -32,19 +31,10 @@ You can customize all types
 - [wait_dialog_throbber_bg](../app/src/main/res/values/themes.xml#L293)  
     an attribute that configures the background of circle progress bar within progress dialog
 
-    ![img](screenshots/alert2.png)
+- ![img](screenshots/alert2.png)
 
 ## Info alert
 The popup used for informing the user with a message (like rationale messages that should be shown before ask the user to grant permissions).
-
-- [permissionsDialogContainerStyle](../app/src/main/res/values/themes.xml#L370)  
-    style for the container of info alert
-
-- [permissionsDialogDescriptionStyle](../app/src/main/res/values/themes.xml#L371)  
-    style for the description text 
-
-- [permissionsDialogActionButtonStyle](../app/src/main/res/values/themes.xml#L373)  
-    style for the single button on the info alert
 
 ![img](screenshots/alert3.png)
 

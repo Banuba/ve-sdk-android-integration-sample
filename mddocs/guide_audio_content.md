@@ -325,14 +325,8 @@ Below is a list of styles and attributes you can customize to meet your requirem
 
 - [musicEditorVoiceRecordingControllerParentStyle](../app/src/main/res/values/themes.xml#L176)
 
-  style for the view that holds action buttons to manipulate with voice recording on the music editor
-- [musicEditorVoiceRecordingControllerCancelStyle](../app/src/main/res/values/themes.xml#L179)
-
   style for the button that closes voice recording screen returning back to the music editor
 - [musicEditorVoiceRecordingControllerResetStyle](../app/src/main/res/values/themes.xml#L182)
-
-  style for the button that removes the last voice recording
-- [musicEditorVoiceRecordingControllerDoneStyle](../app/src/main/res/values/themes.xml#L185)
 
   style for the button that applies voice recordings to the common timeline and returns back to music editor
   ![img](screenshots/musiceditor4.png)
