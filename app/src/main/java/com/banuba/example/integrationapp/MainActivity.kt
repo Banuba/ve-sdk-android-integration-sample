@@ -28,19 +28,21 @@ class MainActivity : AppCompatActivity() {
     private val requestVideoOpenPIP = registerForActivityResult(
         ActivityResultContracts.GetContent()
     ) { videoPipUri ->
-        openVideoEditor(pipVideo = videoPipUri ?: Uri.EMPTY)
+        if (videoPipUri != Uri.EMPTY && videoPipUri != null) {
+            openVideoEditor(pipVideo = videoPipUri)
+        }
     }
 
     // Opens system app to pick image for Trimmer
     private val requestImageOpenTrimmer = registerForActivityResult(
         ActivityResultContracts.GetContent()
     ) { imageUri ->
-        if (imageUri != Uri.EMPTY) {
+        if (imageUri != Uri.EMPTY && imageUri != null) {
             val slideShowList =
                 Utils.createSlideShowList(
                     applicationContext,
                     lifecycleScope,
-                    requireNotNull(imageUri)
+                    imageUri
                 )
             openVideoEditorTrimmerWithSlideShow(slideShowList)
         }
