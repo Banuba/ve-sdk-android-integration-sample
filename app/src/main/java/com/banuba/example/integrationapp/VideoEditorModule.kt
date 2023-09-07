@@ -11,7 +11,6 @@ import com.banuba.sdk.arcloud.di.ArCloudKoinModule
 import com.banuba.sdk.audiobrowser.di.AudioBrowserKoinModule
 import com.banuba.sdk.audiobrowser.domain.AudioBrowserMusicProvider
 import com.banuba.sdk.cameraui.data.CameraTimerActionProvider
-import com.banuba.sdk.cameraui.data.CameraTimerStateProvider
 import com.banuba.sdk.cameraui.data.CameraTimerUpdateProvider
 import com.banuba.sdk.cameraui.data.TimerEntry
 import com.banuba.sdk.cameraui.domain.HandsFreeTimerActionProvider
@@ -113,11 +112,6 @@ private class SampleIntegrationKoinModule {
                 videoResolution = hardwareClass.optimalResolution,
                 watermarkBuilder = get()
             )
-        }
-
-        // Implementation required to enable timer on camera screen
-        factory<CameraTimerStateProvider> {
-            CustomCameraTimerStateProvider()
         }
 
         single<ArEffectsRepositoryProvider>(createdAtStart = true) {
@@ -288,16 +282,4 @@ class CustomCameraTimerUpdateProvider(
     override fun finish() {
         audioPlayer.release()
     }
-}
-
-internal class CustomCameraTimerStateProvider : CameraTimerStateProvider {
-
-    override val timerStates = listOf(
-        TimerEntry(
-            durationMs = 0
-        ),
-        TimerEntry(
-            durationMs = 3000
-        )
-    )
 }
