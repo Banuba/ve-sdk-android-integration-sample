@@ -58,10 +58,10 @@ allprojects {
 }
 ```
 
-Next, specify a list of dependencies in [app gradle](../app/build.gradle#L50) file.
+Next, specify a list of dependencies in [app gradle](../app/build.gradle#L51) file.
 
 ```groovy
-    def banubaSdkVersion = '1.28.4'
+    def banubaSdkVersion = '1.30.2'
 
     implementation "com.banuba.sdk:ffmpeg:5.1.3"
     implementation "com.banuba.sdk:camera-sdk:${banubaSdkVersion}"
@@ -109,18 +109,14 @@ Custom implementation of ```VideoCreationTheme``` is required for running ```Vid
 Video Editor SDK uses a lot of resources required for running.  
 Please make sure all these resources are provided in your project.
 
-1. [bnb-resources](../app/src/main/assets/bnb-resources) to use build-in Banuba AR and Lut effects. Using Banuba AR ```assets/bnb-resources/effects``` requires [Face AR product](https://docs.banuba.com/face-ar-sdk-v1). Please contact Banuba Sales managers to get more AR effects.
+1. [bnb-resources](../android/app/src/main/assets/bnb-resources)  Banuba AR and color filters. Use of AR effects ```assets/bnb-resources/effects``` requires [Face AR](https://docs.banuba.com/face-ar-sdk-v1) product.
 
-2. [color](../app/src/main/res/color),
-   [drawable](../app/src/main/res/drawable),
-   [drawable-hdpi](../app/src/main/res/drawable-hdpi),
-   [drawable-ldpi](../app/src/main/res/drawable-ldpi),
-   [drawable-mdpi](../app/src/main/res/drawable-mdpi),
+2. [drawable-hdpi](../app/src/main/res/drawable-hdpi),
    [drawable-xhdpi](../app/src/main/res/drawable-xhdpi),
    [drawable-xxhdpi](../app/src/main/res/drawable-xxhdpi),
-   [drawable-xxxhdpi](../app/src/main/res/drawable-xxxhdpi) are visual assets used in views and added in the sample for simplicity. You can use your specific assets.
+   [drawable-xxxhdpi](../app/src/main/res/drawable-xxxhdpi) are visual assets for color filter previews.
 
-3. [values](../app/src/main/res/values) to use colors and themes. Theme ```VideoCreationTheme``` and its styles use resources in **drawable** and **color** directories.
+3. [themes.xml](../app/src/main/res/values/themes.xml) includes implementation of ```VideoCreationTheme``` of Video Editor SDK.
 
 ## Add module
 Custom behavior of Video Editor SDK in your app is implemented by using dependency injection framework [Koin](https://insert-koin.io/).  
@@ -274,4 +270,12 @@ Visit [FAQ](faq.md) if you are experiencing any issues with an integration.
 [1.26.8](https://vebanuba.notion.site/1-26-8-6d339f3b737c4faab0e1bc86a001616e)\
 [1.26.9](https://vebanuba.notion.site/1-26-9-31040cb35a454b8c8874d2df9984e659)\
 [1.27.0](https://vebanuba.notion.site/1-27-0-03033a59052248e098fd60921376754b)\
-[1.28.0](https://vebanuba.notion.site/1-28-0-0a848e6d2f5a41cbbf4263d8347e94cc)
+[1.28.0](https://vebanuba.notion.site/1-28-0-0a848e6d2f5a41cbbf4263d8347e94cc)\
+[1.28.4](https://www.notion.so/vebanuba/1-28-4-0938f3a5b33d434b9346ab31198929e9)\
+[1.29.0](https://www.notion.so/vebanuba/1-29-0-99aed44d533b4670ab053055e0e02d01)\
+[1.29.1](https://www.notion.so/vebanuba/1-29-1-78170ead1c7a4853b39d0d7a4c068b0e)\
+[1.29.2](https://www.notion.so/vebanuba/1-29-2-a1a86dda6ae94527a4922ce482dd85d6)\
+[1.29.3](https://www.notion.so/vebanuba/1-29-3-3902233840384206ae54b5255ea048b4)\
+[1.30.0](https://www.notion.so/vebanuba/1-30-0-e8a3f0f7235946d6b0a42039da8ed148)\
+[1.30.1](https://www.notion.so/vebanuba/1-30-1-5a08b6f2e9dc43be8bff62667daa4b1d)\
+[1.30.2](https://www.notion.so/vebanuba/1-30-2-d2e8a131674c43e8b3579d56e85bbc86)
