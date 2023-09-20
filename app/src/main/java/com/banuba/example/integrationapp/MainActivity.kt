@@ -10,6 +10,7 @@ import com.banuba.sdk.cameraui.data.PipConfig
 import com.banuba.sdk.core.ui.ext.visible
 import com.banuba.sdk.export.data.ExportResult
 import com.banuba.sdk.ve.flow.VideoCreationActivity
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -18,9 +19,20 @@ class MainActivity : AppCompatActivity() {
     private val videoEditorExportResult =
         registerForActivityResult(CustomExportResultVideoContract()) { exportResult ->
             if (exportResult is ExportResult.Success) {
-                exportResult.videoList.firstOrNull()?.let {
-                    Utils.playExportedVideo(this@MainActivity, it.sourceUri)
-                }
+                val gifUri = exportResult.videoList.firstOrNull {
+                    it.interactivePreviewUri != Uri.EMPTY
+                }?.interactivePreviewUri ?: Uri.EMPTY
+
+                Log.d("videoEditorExportResult", "Exported gif $gifUri")
+
+                Glide.with(this)
+                    .asGif()
+                    .load(gifUri)
+                    .into(gifImage)
+
+//                exportResult.videoList.firstOrNull()?.let {
+//                    Utils.playExportedVideo(this@MainActivity, it.sourceUri)
+//                }
             }
         }
 

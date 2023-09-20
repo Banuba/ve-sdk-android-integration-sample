@@ -44,6 +44,7 @@ import com.banuba.sdk.ve.effects.watermark.WatermarkAlignment
 import com.banuba.sdk.ve.effects.watermark.WatermarkBuilder
 import com.banuba.sdk.ve.ext.withWatermark
 import com.banuba.sdk.ve.flow.di.VeFlowKoinModule
+import com.banuba.sdk.ve.processing.GifMaker
 import com.banuba.sdk.veui.data.EditorConfig
 import com.banuba.sdk.veui.di.VeUiSdkKoinModule
 import com.banuba.sdk.veui.domain.CoverProvider
@@ -194,6 +195,10 @@ private class CustomExportParamsProvider(
             .appendPath("exported_soundtrack.${MediaFileNameHelper.DEFAULT_SOUND_FORMAT}")
             .build()
 
+        val gifPreviewParams = GifMaker.Params(
+            destFile = File(exportSessionDir, "exported_gif.gif")
+        )
+
         return listOf(
             ExportParams.Builder(videoResolution)
                 .effects(effects.withWatermark(watermarkBuilder, WatermarkAlignment.BottomRight(marginRightPx = 16.toPx)))
@@ -211,6 +216,7 @@ private class CustomExportParamsProvider(
                 .destDir(exportSessionDir)
                 .musicEffects(musicEffects)
                 .volumeVideo(videoVolume)
+                .interactivePreview(gifPreviewParams)
                 .build(),
             ExportParams.Builder(VideoResolution.Exact.VGA360)
                 .effects(effects.withWatermark(watermarkBuilder, WatermarkAlignment.BottomRight(marginRightPx = 16.toPx)))
