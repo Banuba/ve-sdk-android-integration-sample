@@ -10,10 +10,12 @@ import com.banuba.sdk.arcloud.data.source.ArEffectsRepositoryProvider
 import com.banuba.sdk.arcloud.di.ArCloudKoinModule
 import com.banuba.sdk.audiobrowser.di.AudioBrowserKoinModule
 import com.banuba.sdk.audiobrowser.domain.AudioBrowserMusicProvider
+import com.banuba.sdk.cameraui.data.CameraRecordingModesProvider
 import com.banuba.sdk.cameraui.data.CameraTimerActionProvider
 import com.banuba.sdk.cameraui.data.CameraTimerUpdateProvider
 import com.banuba.sdk.cameraui.data.TimerEntry
 import com.banuba.sdk.cameraui.domain.HandsFreeTimerActionProvider
+import com.banuba.sdk.cameraui.ui.RecordMode
 import com.banuba.sdk.core.AspectRatio
 import com.banuba.sdk.core.HardwareClassProvider
 import com.banuba.sdk.core.VideoResolution
@@ -151,8 +153,15 @@ private class SampleIntegrationKoinModule {
 
         single<EditorConfig> {
             EditorConfig(
-                minTotalVideoDurationMs = 1500
+                minTotalVideoDurationMs = 1500,
+                gallerySupportsVideo = false
             )
+        }
+
+        single<CameraRecordingModesProvider> {
+            object : CameraRecordingModesProvider {
+                override var availableModes = setOf<RecordMode>(RecordMode.Photo)
+            }
         }
 
 
