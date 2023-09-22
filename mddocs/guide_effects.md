@@ -137,23 +137,6 @@ single(override = true) {
 }
 ```
 
-Any applied transition effect is presented as a specific icon video edges.
-![img](screenshots/transitions_1.png)
-Use ```TrimmerTimelineViewStyle``` style to customize transition icon styles:
-
-- **timelineTransitionIconBg** - background drawable for the icon
-- **timelineTransitionIconViewSize** - the whole icon size
-- **timelineTransitionIconImageSize** - the size of the picture inside transition icon
-
-There is specific screen for selecting transition effects. You can customize it as well.
-![img](screenshots/transitions_2.png)
-- **trimmerTransitionsRecyclerView** - the container of transitions
-- **trimmerTransitionItemParentStyle** - the container of the single transition
-- **trimmerTransitionItemThumbStyle** - the selectable thumb
-- **trimmerTransitionsItemImageStyle** - the picture inside the thumb
-- **trimmerTransitionsItemTitleStyle** - the transition title
-
-
 Video Editor includes 10 transition effects. Additional "empty" effect is used to leave the segue between videos without any transition effect.
 Every transition effect has its own string identifier i.e. ```fade```:
 

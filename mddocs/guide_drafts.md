@@ -22,75 +22,14 @@ To get the instance of ```DraftsHelper```  use the following in your Fragment or
 val draftsHelper: DraftsHelper by inject()
 ```
 
-Drafts screen comes with a list of styles you can change.
+### Used string resources
 
-- [draftsBackButtonStyle](../app/src/main/res/values/themes.xml#L428)  
-    style for the back button on drafts screen
-
-- [draftsTitleStyle](../app/src/main/res/values/themes.xml#L429)  
-    style for the title of drafts screen
-
-- [draftsRecyclerViewStyle](../app/src/main/res/values/themes.xml#L430)  
-    style for the view containing all drafts
-
-- [draftsParentStyle](../app/src/main/res/values/themes.xml#L427)  
-  style for the item representing every draft inside the recycler view container
-
-- [draftItemThumbnailStyle](../app/src/main/res/values/themes.xml#L433)  
-  style for the draft preview
-
-- [draftItemNameStyle](../app/src/main/res/values/themes.xml#L435)  
-    style for the name of the draft
-
-- [draftItemDurationStyle](../app/src/main/res/values/themes.xml#L436)  
-    style for the duration of the draft
-
-- [draftItemOptionsButtonStyle](../app/src/main/res/values/themes.xml#L434)  
-    style for the button that opens available options for the current draft
-
-![img](screenshots/drafts3.png)
-
-- [draftOptionsPopupStyle](../app/src/main/res/values/themes.xml#L438)  
-    style for the options popup of the draft
-
-- [draftOptionsEditButtonStyle](../app/src/main/res/values/themes.xml#L439)  
-    style for the edit button of the options popup of the draft
-
-- [draftOptionsDeleteButtonStyle](../app/src/main/res/values/themes.xml#L434)  
-    style for the delete button of the options popup of the draft
-
-![img](screenshots/drafts4.png)
-
-- [draftsEmptyTextStyle](../app/src/main/res/values/themes.xml#L425)  
-    style for the view that is shown in case of absent drafts
-
-![img](screenshots/drafts5.png)
-
-- [editorBackButtonStyle](../app/src/main/res/values/themes.xml#L75)  
-    style for the button that is used to return the user on the previous screen
-
-- [editorTrimButtonStyle](../app/src/main/res/values/themes.xml#L110)  
-    style for the button that is used to return the user on the trimmer screen if draft is opened
-
-- [editorBackPopupStyle](../app/src/main/res/values/themes.xml#L111)  
-    style for the back popup that is shown when draft was changed
-
-- [editorDiscardChangesButtonStyle](../app/src/main/res/values/themes.xml#L112)  
-    style for the discard changes button of the back popup
-
-- [editorUpdateDraftButtonStyle](../app/src/main/res/values/themes.xml#L113)  
-    style for the update draft button of the back popup
-
-![img](screenshots/drafts6.png)
-
-Below are strings resource you can use or customize.
-
-| ResourceId        |      Value      |   Description |
-| ------------- | :----------- | :------------- |
-| drafts_title | Drafts | label of the drafts screen
-| drafts_empty_description | No Drafts | text description inside ```draftsEmptyTextStyle```
-| drafts_options_edit | Edit | text of button inside ```draftOptionsEditButtonStyle```
-| drafts_options_delete | Delete | text of button inside ```draftOptionsDeleteButtonStyle```
-| editor_trim_video | Adjust Clips | text of button inside ```editorTrimButtonStyle```
-| editor_discard_changes | Discard changes | text of button inside ```editorDiscardChangesButtonStyle```
-| editor_update_draft | Update draft | text of button inside ```editorUpdateDraftButtonStyle```
+| ResourceId        |      Value      |
+| ------------- | :----------- |
+| drafts_title | Drafts |
+| drafts_empty_description | No Drafts |
+| drafts_options_edit | Edit |
+| drafts_options_delete | Delete |
+| editor_trim_video | Adjust Clips |
+| editor_discard_changes | Discard changes |
+| editor_update_draft | Update draft |

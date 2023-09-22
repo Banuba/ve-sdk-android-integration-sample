@@ -6,9 +6,7 @@
 - [Configure recording modes](#Configure-recording-modes)
 - [Configure timer](#Configure-timer)
 - [Configure hands free](#Configure-hands-free)
-- [Configure record button appearance](#Configure-record-button-appearance)
 - [Picture in picture](#Picture-in-picture)
-- [Configure camera screen appearance](#Configure-camera-screen-appearance)
 
 ## Quality details
 Subsequent table describes video quality details used for video recording in various resolutions.  
@@ -122,21 +120,6 @@ To disable hands free feature you should remove `HandsFreeTimerActionProvider` i
 ```
 ```B2BTimerStateProvider``` implementation with of 3, 5, and 10 seconds will be used once you disable hands free feature.
 
-
-Hands free feature can be customized with a number of [Android styles](../app/src/main/res/values/themes.xml#L1275)
-
-- ```handsFreeBottomSheetStyle``` - style for the background of Hands Free feature
-- ```handsFreeTimerPickerStyle``` - style for the parent view containing timer options
-- ```handsFreeTimerItemStyle``` - style for every item within timer options container
-- ```handsFreeTimelineHintStyle``` - style for the timeline hint
-- ```handsFreeTimelineRangeDurationStyle``` - style for the time labels that define min and max available video duration
-- ```handsFreeTimelineCurrentDurationStyle``` - style for the time label that define the video recording duration recently configured
-- ```handsFreeTimelineStyle``` - style for the timeline view that is used to configure video recording duration
-- ```handsFreeRecordButtonStyle``` - style for the button that starts video recording
-
-<p align="center">
-<img src="screenshots/handsfree_1.png"  width="50%" height="auto">
-</p>
 Available string resources to customize.
 
 | ResourceId        |      Value      |   Description |
@@ -144,40 +127,6 @@ Available string resources to customize.
 | hands_free_timeline_hint | Drag to set video duration: | text of the timeline hint
 | hands_free_record_button_text | start recording | label of the recording button
 
-
-## Configure record button appearance
-Use [RecordButtonStyle](../app/src/main/res/values/themes.xml#L1357) to customize appearance of content recording button
-
-- ```recordButtonRecordingSize``` - size of recording button
-- ```recordButtonInnerIdleDrawable``` - drawable inside record button shown during idle state
-- ```recordButtonInnerRecordingDrawable``` - drawable inside record button shown during recording
-- ```recordButtonElevation``` - elevation of the record button
-- ```recordButtonInnerRecordingSize``` - size of the drawable shown during recording
-- ```recordButtonCircleIdleWidth``` - width of the record button circle during idle state
-- ```recordButtonCircleRecordingWidth``` - width of the record button circle during recording
-- ```recordButtonCircleGradientColors``` - array for the gradient colors that fill the record button circle during recording
-- ```recordButtonCircleSolidColor``` - color of the record button circle
-- ```recordButtonAnimationPhotoScale``` - array with two integers where the first is an initial scale and the second is a final scale during animation (these values should be multiplier of 1000: for example, for 1.0 use 1000)
-- ```recordButtonAnimationVideoInnerScale``` - array with two integers where the first is an initial scale of the inner drawable of record button and the second is a final scale during animation (these values should be multiplier of 1000: for example, for 1.0 use 1000)
-- ```recordButtonAnimationVideoOuterScale``` - array with two integers where the first is an initial scale of the outer circle of record button and the second is a final scale during animation (these values should be multiplier of 1000: for example, for 1.0 use 1000)
-- ```recordButtonAnimationDuration``` - duration for all animations of the record button
-<p align="center">
-<img src="screenshots/recordButton.png"  width="50%" height="auto">
-</p>
-
-You can customize color resources as well 
-```xml
-<resources>
-    ...
-    <color name="rec_btn_idle_state_color">#FFCA00</color>
-    <color name="rec_btn_video_recording_state_color">#FD0005</color>
-    <color name="rec_btn_photo_capturing_timer_state_color">#FFFFFF</color>
-    <color name="rec_btn_ring_color">#FFFFFF</color>
-</resources>
-```
-<p align="center">
-<img src="screenshots/camera3.png"  width="50%"  height="auto" class="docs-screenshot">
-</p>
 
 ## Picture in picture
 Picture in Picture or ```PIP``` is video editing technique that lets you overlay two videos in the same video.
@@ -283,123 +232,3 @@ You can even customize camera align for each mode and exclude actions for some m
         )
     )
 ```
-
-
-## Configure camera screen appearance
-There are a number of Android styles and other resources you can use to customize camera screen.  
-
-- [cameraOverlayStyle](../app/src/main/res/values/themes.xml#L24)  
-  allows to **setup action button icons**, customize relative position and appearance of music, gallery, switch camera icons. Icons drawables customized by using custom attributes of this style (for instance, [icon_mask_on](../app/src/main/res/values/themes.xml#L470) and [icon_mask_off](../app/src/main/res/values/themes.xml#L471) setup drawables for icons related to applied AR mask effect)
-
-- [cameraActionButtonStyle](../app/src/main/res/values/themes.xml#L25)  
-  defines action buttons appearance
-
-- [cameraBackButtonStyle](../app/src/main/res/values/themes.xml#L27)  
-  defines "back" button appearance
-
-- [cameraNextButtonStyle](../app/src/main/res/values/themes.xml#L28)
-  defines "next" button appearance
-
-- [cameraRemoveLastPieceButtonStyle](../app/src/main/res/values/themes.xml#L29)
-  defines an appearance of the button that is used to delete the last recorded video chunk from the timeline
-
-- [cameraRecorderTimelineStyle](../app/src/main/res/values/themes.xml#L31)  
-  allows to customize the timeline
-
-<p align="center">
-<img src="screenshots/camera1.png"  width="50%" height="auto">
-</p>
-
-To customize music icon on the top of the screen use the following approach
-<p align="center">
-<img src="screenshots/camera1_music_top.png"  width="50%" height="auto">
-</p>
-
-- setup [cameraMusicTopIconStyle](../app/src/main/res/values/themes.xml#L26) - defines appearance of music icon in case it is placed on the top of the camera screen (if the music icon is placed on the left side the cameraActionButtonStyle is applied to it, so this attribute can be omitted). **subtitleAvailable** attribute is responsible for displaying of soundtrack name in two lines. There are two possible values for this attribute:
-    - ```true``` - soundtrack name and artist display in **two** lines
-    - ```false``` - soundtrack name and artist display in **one** lines
-- use ```top``` in [icon_music_screen_position](../app/src/main/res/values/themes.xml#L483)  
-
-
-- [cameraEffectsLabelStyle](../app/src/main/res/values/themes.xml#L32)
-  defines the label which appears at the top of the visual effects menu (color filters and AR masks). By default the label is not visible and this style can be omitted
-
-- [cameraEffectsItemStyle](../app/src/main/res/values/themes.xml#L33)
-  applies to every item within visual effects list
-
-- [cameraEffectsRecyclerStyle](../app/src/main/res/values/themes.xml#L34)
-  applies to RecyclerView containing visual effects list
-
-- [cameraSpeedPickerViewStyle](../app/src/main/res/values/themes.xml#L36)  
-  applies to custom recording speed options container
-
-- [cameraSpeedPickerItemStyle](../app/src/main/res/values/themes.xml#L37)  
-  applies to TextView representing every recording speed option within container 
-
-- [checkableEffectTitleStyle](../app/src/main/res/values/themes.xml#L39)  
-  is used to set text appearance of "checkable" effects (applied/removed by selection) title. This type of effects includes:
-  - color filters on camera screen
-  - AR masks on camera screen
-  - color filters on editor screen
-
-  The other effects type - "actionable" - defined in [editor styles](editor_styles.md#L57)
-
-<p align="center">
-<img src="screenshots/camera2.png"  width="50%"  height="auto" class="docs-screenshot">
-</p>
-
-<p align="center">
-<img src="screenshots/camera4.png"  width="50%"  height="auto" class="docs-screenshot">
-</p>
-
-
-3 groups of string resources are available for customizations
-1. All available ```CameraActionButtonStyle```. You can adjust the size, color, font, margins, shadow, ellipsize(truncate at marquee) and position of the title text, overriding the attributes below in [CameraActionButtonStyle](../app/src/main/res/values/themes.xml#L544).
-```xml
-<style name="CustomCameraActionButtonStyle" parent="CameraActionButtonStyle">
-    <item name="description">Custom Title</item> <!--title text value-->
-    <item name="descriptionSize">14sp</item><!--title text size-->
-    <item name="descriptionColor">color/white</item><!--title text color-->
-    <item name="descriptionMarginStart">4dp</item><!--title text margin start-->
-    <item name="descriptionMarginEnd">4dp</item><!--title text margin end-->
-    <item name="descriptionTypeface">@font/roboto</item><!--title text typeface-->
-    <item name="descriptionPosition">[left|bottom|right|none]</item><!--title text position-->
-    <item name="descriptionApplyShadow">[true|false]</item> <!--title text shadow state-->
-    <item name="descriptionApplyMarquee">[true|false]</item> <!--title text ellipsize truncate at marquee state-->
-</style>
-```
-
-2. ```Notification``` displayed as [Toast](https://developer.android.com/reference/android/widget/Toast) is shown at the top of the screen upon some actions.
-     Some of them has a dynamic message that depends on additional data (i.e. parameters from config files)
-
-3. Bottom view with ```AR masks and color filters``` may have a label (its visibility is configured in [checkableEffectTitleStyle](../app/src/main/res/values/themes.xml#L39)
-
-Groups described above are shown on the screenshot along with some string resources:
-<p align="center">
-<img src="screenshots/camera_strings1.png"  width="50%"  height="auto" class="docs-screenshot">
-</p>
-
-| ResourceId        |      Value      |   Description |
-| ------------- | :----------- | :------------- |
-| control_description_switch | Flip | title for the icon to switch camera facing
-| control_description_flashlight |  Flash | title for the icon to switch flashlight
-| control_description_timer | Timer | title for the timer icon
-| control_description_speed | Speed | title for the icon to switch recording speed
-| control_description_mute | Mute | title for the icon to switch mic recording
-| control_description_beauty | Beauty | title for the icon to apply beautification effect
-| control_description_music | Music | title for the icon to request an [audio content](advanced_integration.md#configure-audio-content)
-| control_description_color | Filter | title for the icon to open color filters
-| control_description_mask | Mask | title for the icon to open AR masks
-| message_record_first_video | Record at least %1$s | message shown in case user tries to proceed with the video shorter than ```minVideoDuration``` parameter in ```CameraConfig```
-| message_record_video_duration | {0,choice,0#{0} second\|1#{0} seconds\|2#{0} seconds\|3#{0} seconds\|4#{0} seconds\|4&lt;{0} seconds} | special string that defines the string value of the placeholder from ```message_record_first_video``` string (i.e. "1 second" or "3 seconds").  In this string only the selected words should be translated: {0,choice,0#{0} **second**\|1#{0} **seconds**\|2#{0} **seconds**\|3#{0} **seconds**\|4#{0} **seconds**\|4&lt;{0} **seconds**}. Other formatting should remain the same for every locale
-| err_no_space_left | Not enough disk space | message widely used in Video Editor SDK and informing that there is not space to effort further operations
-| err_no_time_left | Max video length %1$.1f sec | message shown in case of user tries to record video longer than the ```maxVideoDuration``` parameter in ```CameraConfig```
-| err_no_space_left_recording | Running out of disk space. Recording is canceled. | message shown in case the phone is running out of space during video recording
-| label_camera_effects_luts | Filter | label at the top of the color filters list (visibility of the label is configured in [cameraEffectsLabelStyle](../app/src/main/res/values/themes.xml#L25))
-| label_camera_effects_mask | Mask | label at the top of the AR masks list (visibility of the label is configured in [cameraEffectsLabelStyle](../app/src/main/res/values/themes.xml#L25))
-| camera_next | Next | text on the button that goes on the editor screen
-
-:exclamation: Important  
-In case if a ```TextView``` that is shown on camera screen does not have string resource mentioned in the table it means you may use any resource and apply it through view's style configuration.
-All alert messages shown on the camera screen that require user's action are described in [Alert dialogs](guide_popus.md) guide.
-

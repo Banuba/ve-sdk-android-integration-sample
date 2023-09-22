@@ -4,8 +4,6 @@ These are the answers to the most popular questions we are asked about the Banub
 - [What is the size of Video Editor SDK size?](#What-is-the-size-of-Video-Editor-SDK-size?)
 - [I want to turn off animations from slideshow](#i-want-to-turn-off-animations-from-slideshow)
 - [I want to start VideoEditor with a preselected audio track](#i-want-to-start-videoEditor-with-a-preselected-audio-track)
-- [I want to customize gallery icon](#i-want-to-customize-gallery-icon)
-- [I want to change the font in Video Editor](#i-want-to-change-the-font-in-video-editor)
 - [How to change drafts configuration](#how-to-change-drafts-configuration)
 - [How to add other text fonts that are used in the editor screen](#how-to-add-other-text-fonts-that-are-used-in-the-editor-screen)
 - [Optimizing app size](#optimizing-app-size)
@@ -15,10 +13,10 @@ These are the answers to the most popular questions we are asked about the Banub
 - [FFmpeg build issue(Error compressed Native Libs)](#FFmpeg-build-issue)
 
 ### What is the size of Video Editor SDK size?
-| Options | Mb      | Note |
-| -------- | --------- | ----- |
-| :white_check_mark: Face AR SDK  | 37.3 | AR effect sizes are not included. AR effect takes 1-3 MB in average.
-| :x: Face AR SDK | 15.5  | no AR effects  |  
+| Options | Mb  | Note |
+| -------- |-----| ----- |
+| :white_check_mark: Face AR SDK  | 40  | AR effect sizes are not included. AR effect takes 1-3 MB in average.
+| :x: Face AR SDK | 17  | no AR effects  |  
 
 You can either include the AR filters in the app or have users download them from the [AR cloud](#Configure-AR-cloud) to dramatically decrease the app size.
 
@@ -53,42 +51,9 @@ data class TrackData(
 )
 ```
 
-### I want to customize gallery icon
+### How to change drafts configuration
 
-Gallery icon is represented by AppCompatImageView. Its style placed into `galleryImageViewStyle` attribute of the main theme ([**example**](../app/src/main/res/values/themes.xml#L116))
-
-**Drawable resource** of the gallery icon may vary depending on the use case:
- - in case of the very first launch, if the user **did not grant permission** to [read external storage](https://developer.android.com/reference/android/Manifest.permission#READ_EXTERNAL_STORAGE), or if the gallery on the device **is empty**, the drawable resource defined in `icon_empty_gallery` attribute of the `CameraOverlayStyle` ([**example**](../app/src/main/res/values/themes.xml#L525)) will be used
- - in other cases you can select what to show as a gallery icon: 
-    -  **the last media file** from the device
-    - **custom drawable** resource
-
-![img](screenshots/faq1.png)
-
-**By default the last media file is used as a drawable**. You have an option to **put background** to the gallery icon by changing `icon_gallery_background` attribute of `CameraOverlayStyle` and you can **add rounded corners** to the gallery icon by changing `icon_gallery_radius` attribute of this style ([**example**](../app/src/main/res/values/themes.xml#L528)).
-
- **To setup custom drawable resource** instead of the last media file you have to put custom style into `galleryImageViewStyle` attribute of the main theme ([**example**](../app/src/main/res/values/themes.xml#L116)) and set there `use_custom_image` to `true` and put your drawable as `android:src` attribute value
-
- ### I want to change the font in Video Editor
-
-All text view styles in Video Editor SDK are inherited from the `Text` style, thus the font set in this style will be applied to all text views in Video Editor.
-
-To apply `customFont` to Video Editor just override this style:
-
- ```
-<style name="Text">
-    <item name="android:fontFamily">@font/customFont</item>
-</style>
- ```
-
-Using this approach you don't have to repeatedly set the font to any other styles while customizing the Video Editor.
-
-
- 
-
- ### How to change drafts configuration
-
- By default drafts enabled, asks the user to save a draft before leave any VideoEditor screen. If you need to change drafts configuration you should add the code below in the `VideoEditorKoinModule`:
+Drafts are enabled by default, asks the user to save a draft before leave any VideoEditor screen. If you need to change drafts configuration you should add the code below in the `VideoEditorKoinModule`:
 
  ```kotlin
      override val draftConfig: BeanDefinition<DraftConfig> = factory(override = true) {

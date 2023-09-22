@@ -10,7 +10,6 @@ This guide is aimed to help you complete advanced integration of Video Editor SD
 - [Add audio content](#Add-audio-content)
 - [Cover image](#Cover-image)
 - [Drafts](#Drafts)
-- [Popups](#Popups)
 - [Launch methods](#Launch-methods)
 
 ## Face AR SDK and AR Cloud
@@ -53,11 +52,9 @@ Video Editor allows to apply a number of various effects to video:
 
 Please follow [Video Editor effects integration guide](guide_effects.md) to get more information about applying available effects.
 
-
 ## Add audio content
 Video Editor has built in support and API for browsing, playing and applying audio while making video content on various screens.  
 Follow [Video Editor audio content integration guide](guide_audio_content.md) to know more details about using audio and API in Video Editor.
-
 
 ## Cover image
 Cover image is a frame of a video which the user can easily select on a specific video editor screen i.e cover screen.  
@@ -66,9 +63,6 @@ Visit [Cover image guide](guide_cover_image.md) to get more details how to custo
 ## Drafts
 The feature that allows your users to save and proceed editing later. Video editor includes built in screen for managing drafts.  
 Visit [Drafts guide](guide_drafts.md) to know more details.
-
-## Popups
-Visit [Popups guide](guide_popus.md) to know more about usage popups in video editor.
 
 ## Launch methods
 Video Editor supports multiple launch methods that are in ```VideoCreationActivity``` to meet all your requirements.

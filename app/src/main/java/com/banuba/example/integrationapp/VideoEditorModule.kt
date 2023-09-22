@@ -54,7 +54,7 @@ import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import java.io.File
 
-class   VideoEditorModule {
+class VideoEditorModule {
 
     fun initialize(applicationContext: Context) {
         startKoin {

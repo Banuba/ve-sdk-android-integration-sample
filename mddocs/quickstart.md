@@ -19,14 +19,14 @@ Please check [Installation](../README.md#Installation) out guide if the license 
 Use the license token to [start Video Editor](#Start-sdk) 
 
 ## Concepts
-- Export - the process of making video in video editor.
+- Export - the process of making video file in video editor.
 - Slideshow - the feature that allows to create short video from single or multiple images.
 - PIP - short Picture-in-Picture feature.
-- Trimmer - trimmer screen where the user can trim, merge, change aspects
-- Editor - editor the screen where the user can manage effects and audio. Normally the next screen after trimmer.
+- Trimmer - a screen where the user can trim, merge, change aspects of videos
+- Editor -  a screen where the user can manage effects and audio. The next screen after trimmer.
 
 ## Add dependencies
-GitHub packages is used for getting Android Video Editor SDK modules.
+GitHub Packages is used for getting Android Video Editor SDK modules.
 
 First, add repositories to your [project gradle](../build.gradle#L21) file.
 ```groovy
@@ -103,13 +103,13 @@ Next, allow Network by adding permissions
 Network is used for downloading AR effects from AR Cloud and stickers from [Giphy](https://giphy.com/).
 
 Custom implementation of ```VideoCreationTheme``` is required for running ```VideoCreationActivity``` for customizing visual appearance of Video Editor SDK i.e. colors, icons and more.  
-[See example](../app/src/main/res/values/themes.xml#L21).
+[See example](../app/src/main/res/values/themes.xml#L13).
 
 ## Add resources
-Video Editor SDK uses a lot of resources required for running.  
-Please make sure all these resources are provided in your project.
+Video Editor SDK uses a lot of resources required for running in the app.  
+Please make sure all these resources exist in your project.
 
-1. [bnb-resources](../android/app/src/main/assets/bnb-resources)  Banuba AR and color filters. Use of AR effects ```assets/bnb-resources/effects``` requires [Face AR](https://docs.banuba.com/face-ar-sdk-v1) product.
+1. [bnb-resources](../android/app/src/main/assets/bnb-resources)  Banuba AR and color filters. AR effects ```assets/bnb-resources/effects``` requires [Face AR](https://docs.banuba.com/face-ar-sdk-v1) product.
 
 2. [drawable-hdpi](../app/src/main/res/drawable-hdpi),
    [drawable-xhdpi](../app/src/main/res/drawable-xhdpi),
@@ -121,13 +121,8 @@ Please make sure all these resources are provided in your project.
 ## Add module
 Custom behavior of Video Editor SDK in your app is implemented by using dependency injection framework [Koin](https://insert-koin.io/).  
 
-First, create new class for implementing integration of Video Editor SDK. 
-``` kotlin
-class VideoEditorModule {
-  
-}
-```
-Next, add new class ```SampleIntegrationKoinModule``` for initializing Video Editor SDK modules and add Koin ```module``` declaration 
+First, create new class ```VideoEditorModule``` for implementing Video Editor SDK features.  
+Next, add new class ```SampleIntegrationKoinModule``` for initializing and customizing Video Editor SDK dependencies. 
 ``` kotlin
 class VideoEditorModule {
    ...
@@ -165,7 +160,7 @@ fun initialize(applicationContext: Context) {
     }
 ```
 
-[VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L62) 
+[VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L65) 
 demonstrates a list of dependencies and configurations required for the launch.  
 
 Finally, initialize ```VideoEditorModule```  in [Application class](../app/src/main/java/com/banuba/example/integrationapp/SampleApp.kt#L31).
@@ -230,9 +225,9 @@ createVideoRequest.launch(intent)
 Video editor has built in UI/UX experience and provides a number of customizations you can use to meet your requirements.
 
 **AVAILABLE**  
-:white_check_mark: Use your branded icons. [See details](advanced_integration.md#Configure-screens)  
-:white_check_mark: Use you branded colors. [See details](advanced_integration.md#Configure-screens)  
-:white_check_mark: Change text styles i.e. font, color. [See details](advanced_integration.md#Configure-screens)  
+:white_check_mark: Use your branded icons  
+:white_check_mark: Use you branded colors  
+:white_check_mark: Change text styles i.e. font, color  
 :white_check_mark: Localize and change text resources. Default locale is :us:  
 :white_check_mark: Make content you want i.e. a number of video with different resolutions  and durations, an audio file. [See details](advanced_integration.md#Configure-export-flow)  
 :white_check_mark: Masks and filters order. [See details](guide_far_arcloud.md#Change-effects-order)  
@@ -258,24 +253,24 @@ Visit [FAQ](faq.md) if you are experiencing any issues with an integration.
 [See all dependencies and licenses](dependencies_licenses.md)
 
 ## Releases
-[1.26.0](https://vebanuba.notion.site/1-26-0-a13cea95a22940b7bf7ec14ab80cfbcb)\
-[1.26.0.1](https://vebanuba.notion.site/1-26-0-1-97c4631d568e4111b2ca3982f141bbcf)\
-[1.26.1](https://vebanuba.notion.site/1-26-1-10615b7836ff422bae7ba629894fd300)\
-[1.26.2](https://vebanuba.notion.site/1-26-2-49f2bc0c102e498fa0e25e6d067aec67)\
-[1.26.3](https://vebanuba.notion.site/1-26-3-113feef808d14d39abf8ccdd3181b36a)\
-[1.26.4](https://vebanuba.notion.site/1-26-4-41c28eeb378043039fa28ae42d2bbf74)\
-[1.26.5](https://vebanuba.notion.site/1-26-5-c621ce3ef6c84d67a721ec1e9b829dde)\
-[1.26.6](https://vebanuba.notion.site/1-26-6-2093b77cabc54ec0b28100c723ca90fe)\
-[1.26.7](https://vebanuba.notion.site/1-26-7-e4badafaf5144200a3a19ae6dfd98a7f)\
-[1.26.8](https://vebanuba.notion.site/1-26-8-6d339f3b737c4faab0e1bc86a001616e)\
-[1.26.9](https://vebanuba.notion.site/1-26-9-31040cb35a454b8c8874d2df9984e659)\
-[1.27.0](https://vebanuba.notion.site/1-27-0-03033a59052248e098fd60921376754b)\
-[1.28.0](https://vebanuba.notion.site/1-28-0-0a848e6d2f5a41cbbf4263d8347e94cc)\
-[1.28.4](https://www.notion.so/vebanuba/1-28-4-0938f3a5b33d434b9346ab31198929e9)\
-[1.29.0](https://www.notion.so/vebanuba/1-29-0-99aed44d533b4670ab053055e0e02d01)\
-[1.29.1](https://www.notion.so/vebanuba/1-29-1-78170ead1c7a4853b39d0d7a4c068b0e)\
-[1.29.2](https://www.notion.so/vebanuba/1-29-2-a1a86dda6ae94527a4922ce482dd85d6)\
-[1.29.3](https://www.notion.so/vebanuba/1-29-3-3902233840384206ae54b5255ea048b4)\
-[1.30.0](https://www.notion.so/vebanuba/1-30-0-e8a3f0f7235946d6b0a42039da8ed148)\
+[1.30.2](https://www.notion.so/vebanuba/1-30-2-d2e8a131674c43e8b3579d56e85bbc86)\
 [1.30.1](https://www.notion.so/vebanuba/1-30-1-5a08b6f2e9dc43be8bff62667daa4b1d)\
-[1.30.2](https://www.notion.so/vebanuba/1-30-2-d2e8a131674c43e8b3579d56e85bbc86)
+[1.30.0](https://www.notion.so/vebanuba/1-30-0-e8a3f0f7235946d6b0a42039da8ed148)\
+[1.29.3](https://www.notion.so/vebanuba/1-29-3-3902233840384206ae54b5255ea048b4)\
+[1.29.2](https://www.notion.so/vebanuba/1-29-2-a1a86dda6ae94527a4922ce482dd85d6)\
+[1.29.1](https://www.notion.so/vebanuba/1-29-1-78170ead1c7a4853b39d0d7a4c068b0e)\
+[1.29.0](https://www.notion.so/vebanuba/1-29-0-99aed44d533b4670ab053055e0e02d01)\
+[1.28.4](https://www.notion.so/vebanuba/1-28-4-0938f3a5b33d434b9346ab31198929e9)\
+[1.28.0](https://vebanuba.notion.site/1-28-0-0a848e6d2f5a41cbbf4263d8347e94cc)\
+[1.27.0](https://vebanuba.notion.site/1-27-0-03033a59052248e098fd60921376754b)\
+[1.26.9](https://vebanuba.notion.site/1-26-9-31040cb35a454b8c8874d2df9984e659)\
+[1.26.8](https://vebanuba.notion.site/1-26-8-6d339f3b737c4faab0e1bc86a001616e)\
+[1.26.7](https://vebanuba.notion.site/1-26-7-e4badafaf5144200a3a19ae6dfd98a7f)\
+[1.26.6](https://vebanuba.notion.site/1-26-6-2093b77cabc54ec0b28100c723ca90fe)\
+[1.26.5](https://vebanuba.notion.site/1-26-5-c621ce3ef6c84d67a721ec1e9b829dde)\
+[1.26.4](https://vebanuba.notion.site/1-26-4-41c28eeb378043039fa28ae42d2bbf74)\
+[1.26.3](https://vebanuba.notion.site/1-26-3-113feef808d14d39abf8ccdd3181b36a)\
+[1.26.2](https://vebanuba.notion.site/1-26-2-49f2bc0c102e498fa0e25e6d067aec67)\
+[1.26.1](https://vebanuba.notion.site/1-26-1-10615b7836ff422bae7ba629894fd300)\
+[1.26.0](https://vebanuba.notion.site/1-26-0-a13cea95a22940b7bf7ec14ab80cfbcb)
+

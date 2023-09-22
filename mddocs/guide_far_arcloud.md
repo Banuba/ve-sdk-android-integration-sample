@@ -34,7 +34,7 @@ Follow next steps to integrate ```AR Cloud``` into your project.
 First, add Gradle ```com.banuba.sdk:ar-cloud``` dependency in [app gradle file](/app/build.gradle).  
 
 ```diff
-    def banubaSdkVersion = '1.26.3'
+    def banubaSdkVersion = '1.30.2'
     ...
 +   implementation "com.banuba.sdk:ar-cloud:${banubaSdkVersion}"
     ...
@@ -120,30 +120,3 @@ The AR effect requires Face AR and can be added to your license.
 Please request this feature from Banuba business representatives.
 
 First, add ```Background``` effect either to ```assets``` or  ```AR Cloud```.
-
-Next, customize [Android styles](../app/src/main/res/values/themes.xml#L1306).
-
-- **backgroundEffectContainerStyle** - style for the background of the main UI container
-- **backgroundEffectHintStyle** - style for the hint on the top of the main UI container
-- **backgroundEffectEmptyViewStyle** - style for the view that is shown in case of no media files found
-- **backgroundEffectPermissionsBtnStyle** - style for the button that requests premission to device storage
-- **backgroundEffectGalleryListStyle** - style for the media files container
-- **backgroundEffectGalleryBtnStyle** - style for the button to the right of the media files list that opens the gallery screen to choose the file out there
-- **backgroundEffectGalleryThumbStyle** - style for the media file item presented in the files list
-- **backgroundEffectGalleryThumbTextStyle** - style for the text over the media file item (duration of the video files is shown here)
-- **backgroundEffectGalleryThumbProgressStyle** - style for the small circle progress bar shown while media file is loading into files list
-- **backgroundEffectGalleryBorderedImageViewStyle** - style for the media item containig some custom attributes that holds selection animation logic (i.e. scaling of selected item)
-
-![img](screenshots/15_1_Background1.png)
-
-![img](screenshots/15_1_Background2.png)
-
-Finally, customize String resources
-
-| ResourceId        |      Value      |   Description |
-| ------------- | :----------- | :------------- |
-| background_effect_empty_view | No media found | text shown in case no media found on the device for background
-| background_effect_permission_btn | Allow Access | label on the button that request access to device storage for the media files
-| background_effect_list_hint | Select media to change the background: | hint over the list of media files
-| background_effect_list_permission | Allow access to Gallery to change the background | hint shown in case of not granted premission to access device storage
-| background_effect_invalid_file | Damaged file | toast message that is shown if the user selects not allowed media file for background
