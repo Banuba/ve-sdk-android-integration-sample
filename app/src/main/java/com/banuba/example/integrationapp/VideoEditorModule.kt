@@ -39,7 +39,6 @@ import com.banuba.sdk.ve.effects.watermark.WatermarkAlignment
 import com.banuba.sdk.ve.effects.watermark.WatermarkBuilder
 import com.banuba.sdk.ve.ext.withWatermark
 import com.banuba.sdk.ve.flow.di.VeFlowKoinModule
-import com.banuba.sdk.veui.data.EditorConfig
 import com.banuba.sdk.veui.di.VeUiSdkKoinModule
 import com.banuba.sdk.veui.domain.CoverProvider
 import com.banuba.sdk.veui.ui.sharing.SharingActionHandler
@@ -141,12 +140,6 @@ private class SampleIntegrationKoinModule {
             object : AspectRatioProvider {
                 override fun provide(): AspectRatio = AspectRatio(9.0 / 16)
             }
-        }
-
-        single<EditorConfig> {
-            EditorConfig(
-                minTotalVideoDurationMs = 1500
-            )
         }
 
         // Override implementation if you use sharing functionality
