@@ -4,25 +4,20 @@ import android.app.Activity
 import android.content.Context
 import android.net.Uri
 import androidx.core.net.toFile
-import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import com.banuba.sdk.arcloud.data.source.ArEffectsRepositoryProvider
 import com.banuba.sdk.arcloud.di.ArCloudKoinModule
 import com.banuba.sdk.audiobrowser.di.AudioBrowserKoinModule
 import com.banuba.sdk.audiobrowser.domain.AudioBrowserMusicProvider
 import com.banuba.sdk.cameraui.data.CameraTimerActionProvider
-import com.banuba.sdk.cameraui.data.CameraTimerUpdateProvider
-import com.banuba.sdk.cameraui.data.TimerEntry
 import com.banuba.sdk.cameraui.domain.HandsFreeTimerActionProvider
 import com.banuba.sdk.core.AspectRatio
 import com.banuba.sdk.core.HardwareClassProvider
 import com.banuba.sdk.core.VideoResolution
-import com.banuba.sdk.core.data.AudioPlayer
 import com.banuba.sdk.core.data.OrderProvider
 import com.banuba.sdk.core.data.TrackData
 import com.banuba.sdk.core.domain.AspectRatioProvider
 import com.banuba.sdk.core.domain.DraftConfig
-import com.banuba.sdk.core.ext.copyFile
 import com.banuba.sdk.core.ext.toPx
 import com.banuba.sdk.core.media.MediaFileNameHelper
 import com.banuba.sdk.core.ui.ContentFeatureProvider
@@ -52,7 +47,6 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
-import java.io.File
 
 class VideoEditorModule {
 
@@ -155,14 +149,6 @@ private class SampleIntegrationKoinModule {
             )
         }
 
-
-        single<CameraTimerUpdateProvider> {
-            CustomCameraTimerUpdateProvider(
-                audioPlayer = get(),
-                context = get()
-            )
-        }
-
         // Override implementation if you use sharing functionality
         single<SharingActionHandler> {
             object : SharingActionHandler {
@@ -253,33 +239,4 @@ private class CustomColorFilterOrderProvider : OrderProvider {
         "glitch",
         "grunge"
     )
-}
-
-class CustomCameraTimerUpdateProvider(
-    private val audioPlayer: AudioPlayer,
-    context: Context
-) : CameraTimerUpdateProvider {
-
-    companion object {
-        private const val SOUND_FILE_NAME = "countdown1.wav"
-    }
-
-    private val soundFile = File(context.filesDir, SOUND_FILE_NAME)
-
-    init {
-        context.assets.copyFile(SOUND_FILE_NAME, soundFile)
-    }
-
-    override fun start() {
-        audioPlayer.prepareTrack(soundFile.toUri())
-        audioPlayer.play(false, 0L)
-    }
-
-    override fun update() {
-        audioPlayer.play(false, 0L)
-    }
-
-    override fun finish() {
-        audioPlayer.release()
-    }
 }
