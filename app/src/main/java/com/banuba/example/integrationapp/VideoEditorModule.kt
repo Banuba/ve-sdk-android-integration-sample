@@ -127,10 +127,6 @@ private class SampleIntegrationKoinModule {
             HandsFreeTimerActionProvider()
         }
 
-        single<OrderProvider>(named("colorFilterOrderProvider")) {
-            CustomColorFilterOrderProvider()
-        }
-        
         single<AspectRatioProvider> {
             object : AspectRatioProvider {
                 override fun provide(): AspectRatio = AspectRatio(9.0 / 16)
@@ -196,35 +192,4 @@ private class CustomExportParamsProvider(
                 .build()
         )
     }
-}
-
-private class CustomColorFilterOrderProvider : OrderProvider {
-
-    override fun provide() = listOf(
-        "egypt",
-        "byers",
-        "chile",
-        "hyla",
-        "new_zeland",
-        "korben",
-        "canada",
-        "remy",
-        "england",
-        "retro",
-        "norway",
-        "neon",
-        "japan",
-        "instant",
-        "lux",
-        "sunset",
-        "bubblegum",
-        "chroma",
-        "lilac",
-        "pinkvine",
-        "spark",
-        "sunny",
-        "vinyl",
-        "glitch",
-        "grunge"
-    )
 }

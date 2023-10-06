@@ -22,7 +22,33 @@ By default, color filters are listed in alphabetical order.
 Create class [CustomColorFilterOrderProvider](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L231) and implement ```OrderProvider``` to provide custom order of color filters.
 ```kotlin
 class CustomColorFilterOrderProvider : OrderProvider {
-    override fun provide(): List<String> = listOf("egypt", "byers")
+    override fun provide() = listOf(
+        "egypt",
+        "byers",
+        "chile",
+        "hyla",
+        "new_zeland",
+        "korben",
+        "canada",
+        "remy",
+        "england",
+        "retro",
+        "norway",
+        "neon",
+        "japan",
+        "instant",
+        "lux",
+        "sunset",
+        "bubblegum",
+        "chroma",
+        "lilac",
+        "pinkvine",
+        "spark",
+        "sunny",
+        "vinyl",
+        "glitch",
+        "grunge"
+    )
 }
 ```
 :exclamation: Important  
