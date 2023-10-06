@@ -17,7 +17,6 @@ import com.banuba.sdk.core.VideoResolution
 import com.banuba.sdk.core.data.OrderProvider
 import com.banuba.sdk.core.data.TrackData
 import com.banuba.sdk.core.domain.AspectRatioProvider
-import com.banuba.sdk.core.domain.DraftConfig
 import com.banuba.sdk.core.ext.toPx
 import com.banuba.sdk.core.media.MediaFileNameHelper
 import com.banuba.sdk.core.ui.ContentFeatureProvider
@@ -131,11 +130,7 @@ private class SampleIntegrationKoinModule {
         single<OrderProvider>(named("colorFilterOrderProvider")) {
             CustomColorFilterOrderProvider()
         }
-
-        factory<DraftConfig> {
-            DraftConfig.ENABLED_ASK_TO_SAVE
-        }
-
+        
         single<AspectRatioProvider> {
             object : AspectRatioProvider {
                 override fun provide(): AspectRatio = AspectRatio(9.0 / 16)
