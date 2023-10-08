@@ -15,6 +15,7 @@ import com.banuba.sdk.ve.slideshow.SlideShowTask
 import kotlinx.coroutines.launch
 import java.io.File
 
+// Helper methods not required for the SDK integration
 object Utils {
     // Creates the list with 2 video sources - the first based on image taken from gallery and
     // the second on image taken from assets

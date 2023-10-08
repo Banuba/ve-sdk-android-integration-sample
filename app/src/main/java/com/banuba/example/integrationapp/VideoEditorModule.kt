@@ -160,36 +160,52 @@ private class CustomExportParamsProvider(
             deleteRecursively()
             mkdirs()
         }
-        val extraSoundtrackUri = Uri.parse(exportSessionDir.toString()).buildUpon()
-            .appendPath("exported_soundtrack.${MediaFileNameHelper.DEFAULT_SOUND_FORMAT}")
+
+        // Change values if you need multiple exported video files
+        val requireExportExtraSound = false
+        val requireExportWatermark = false
+
+        val exportDefault = ExportParams.Builder(videoResolution)
+            .effects(effects)
+            .fileName("export_default")
+            .videoRangeList(videoRangeList)
+            .destDir(exportSessionDir)
+            .musicEffects(musicEffects)
+            .volumeVideo(videoVolume)
             .build()
 
-        return listOf(
-            ExportParams.Builder(videoResolution)
-                .effects(effects.withWatermark(watermarkBuilder, WatermarkAlignment.BottomRight(marginRightPx = 16.toPx)))
-                .fileName("export_default_watermark")
-                .videoRangeList(videoRangeList)
-                .destDir(exportSessionDir)
-                .musicEffects(musicEffects)
-                .extraAudioFile(extraSoundtrackUri)
-                .volumeVideo(videoVolume)
-                .build(),
-            ExportParams.Builder(videoResolution)
-                .effects(effects)
-                .fileName("export_default")
-                .videoRangeList(videoRangeList)
-                .destDir(exportSessionDir)
-                .musicEffects(musicEffects)
-                .volumeVideo(videoVolume)
-                .build(),
-            ExportParams.Builder(VideoResolution.Exact.VGA360)
-                .effects(effects.withWatermark(watermarkBuilder, WatermarkAlignment.BottomRight(marginRightPx = 16.toPx)))
-                .fileName("export_360_watermark")
-                .videoRangeList(videoRangeList)
-                .destDir(exportSessionDir)
-                .musicEffects(musicEffects)
-                .volumeVideo(videoVolume)
+        val listVideoToExport = mutableListOf<ExportParams>()
+        listVideoToExport.add(exportDefault)
+
+        if (requireExportExtraSound) {
+            val extraSoundtrackUri = Uri.parse(exportSessionDir.toString()).buildUpon()
+                .appendPath("exported_soundtrack.${MediaFileNameHelper.DEFAULT_SOUND_FORMAT}")
                 .build()
-        )
+            listVideoToExport.add(
+                ExportParams.Builder(videoResolution)
+                    .fileName("export_extra_sound")
+                    .videoRangeList(videoRangeList)
+                    .destDir(exportSessionDir)
+                    .musicEffects(musicEffects)
+                    .extraAudioFile(extraSoundtrackUri)
+                    .volumeVideo(videoVolume)
+                    .build()
+            )
+        }
+
+        if (requireExportWatermark) {
+            listVideoToExport.add(
+                ExportParams.Builder(VideoResolution.Exact.VGA360)
+                    .effects(effects.withWatermark(watermarkBuilder, WatermarkAlignment.BottomRight(marginRightPx = 16.toPx)))
+                    .fileName("export_360_watermark")
+                    .videoRangeList(videoRangeList)
+                    .destDir(exportSessionDir)
+                    .musicEffects(musicEffects)
+                    .volumeVideo(videoVolume)
+                    .build()
+            )
+        }
+
+        return listVideoToExport
     }
 }
