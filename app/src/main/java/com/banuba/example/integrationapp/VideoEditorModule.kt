@@ -29,7 +29,6 @@ import com.banuba.sdk.export.data.ForegroundExportFlowManager
 import com.banuba.sdk.export.di.VeExportKoinModule
 import com.banuba.sdk.gallery.di.GalleryKoinModule
 import com.banuba.sdk.playback.di.VePlaybackSdkKoinModule
-import com.banuba.sdk.token.storage.di.TokenStorageKoinModule
 import com.banuba.sdk.ve.di.VeSdkKoinModule
 import com.banuba.sdk.ve.domain.VideoRangeList
 import com.banuba.sdk.ve.effects.Effects
@@ -60,7 +59,6 @@ class VideoEditorModule {
                 VePlaybackSdkKoinModule().module,
                 AudioBrowserKoinModule().module, // use this module only if you bought it
                 ArCloudKoinModule().module,
-                TokenStorageKoinModule().module,
                 VeUiSdkKoinModule().module,
                 VeFlowKoinModule().module,
                 GalleryKoinModule().module,

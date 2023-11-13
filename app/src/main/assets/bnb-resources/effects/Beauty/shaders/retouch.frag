@@ -1,241 +1,139 @@
 #include <bnb/glsl.frag>
 
-// #define TEETH_WHITENING
-// #define teethWhiteningCoeff 1.0
+// #define EYES_HIGHLIGHT
+#define SOFT_LIGHT_LAYER
+#define NORMAL_LAYER
 #define SOFT_SKIN
 #define skinSoftIntensity 0.7
-
-#define EYES_WHITENING
-#define eyesWhiteningCoeff 0.1
-#define NORMAL_LAYER
 #define SHARPEN_TEETH
 #define teethSharpenIntensity 0.2
 #define SHARPEN_EYES
-#define eyesSharpenIntensity 0.2
+#define eyesSharpenIntensity 0.3
 #define PSI 0.1
-#define SOFT_LIGHT_LAYER
 
 
-BNB_IN(0) vec2 var_uv;
-BNB_IN(1) vec2 var_bg_uv;
-BNB_IN(2) mat4 sp;
+
+BNB_IN(0) vec3 maskColor;
+BNB_IN(1) vec4 var_uv_bg_uv;
 
 
-BNB_DECLARE_SAMPLER_2D(0, 1, selection_tex);
+BNB_DECLARE_SAMPLER_2D(6, 7, glfx_BACKGROUND);
 
-BNB_DECLARE_SAMPLER_2D(2, 3, lookupTexEyes);
+#if defined(EYES_HIGHLIGHT)
 
-BNB_DECLARE_SAMPLER_2D(8, 9, glfx_BACKGROUND);
-
-#ifdef NORMAL_LAYER
-
-BNB_DECLARE_SAMPLER_2D(4, 5, tex_normalMakeup);
+BNB_DECLARE_SAMPLER_2D(4, 5, tex_highlight);
 #endif
-
 #ifdef SOFT_LIGHT_LAYER
 
-BNB_DECLARE_SAMPLER_2D(6, 7, tex_softLight);
+BNB_DECLARE_SAMPLER_2D(0, 1, tex_softLight);
+#endif
+#ifdef NORMAL_LAYER
+
+BNB_DECLARE_SAMPLER_2D(2, 3, tex_normalMakeup);
+#endif
+
+#ifdef GLFX_OCCLUSION
+BNB_IN(2) vec2 glfx_OCCLUSION_UV;
 #endif
 
 
-#define YUV2RGB_RED_CrV 1.402
-#define YUV2RGB_GREEN_CbU 0.3441
-#define YUV2RGB_GREEN_CrV 0.7141
-#define YUV2RGB_BLUE_CbU 1.772
-
-vec4 rgba2yuva (vec4 rgba)
-{
-	vec4 yuva = vec4(0.);
-
-	yuva.x = rgba.r * 0.299 + rgba.g * 0.587 + rgba.b * 0.114;
-	yuva.y = rgba.r * -0.169 + rgba.g * -0.331 + rgba.b * 0.5 + 0.5;
-	yuva.z = rgba.r * 0.5 + rgba.g * -0.419 + rgba.b * -0.081 + 0.5;
-	yuva.w = rgba.a;
-
-	return yuva;
-}
-
-
-vec3 blendMultiply(vec3 base, vec3 blend) {
-	return base*blend;
-}
-
-vec3 blendMultiply(vec3 base, vec3 blend, float opacity) {
-	return (blendMultiply(base, blend) * opacity + base * (1.0 - opacity));
-}
-
-float blendOverlay(float base, float blend) {
-	return base<0.5?(2.0*base*blend):(1.0-2.0*(1.0-base)*(1.0-blend));
-}
-
-vec3 blendOverlay(vec3 base, vec3 blend) {
-	return vec3(blendOverlay(base.r,blend.r),blendOverlay(base.g,blend.g),blendOverlay(base.b,blend.b));
-}
-
-vec3 blendOverlay(vec3 base, vec3 blend, float opacity) {
-	return (blendOverlay(base, blend) * opacity + base * (1.0 - opacity));
-}
-
-vec4 textureLookup(vec4 originalColor, BNB_DECLARE_SAMPLER_2D_ARGUMENT(lookupTexture))
-{
-    const float epsilon = 0.000001;
-    const float lutSize = 512.0;
-
-    float blueValue = (originalColor.b * 255.0) / 4.0;
-
-    vec2 mulB = clamp(floor(blueValue) + vec2(0.0, 1.0), 0.0, 63.0);
-    vec2 row = floor(mulB / 8.0 + epsilon);
-    vec4 row_col = vec4(row, mulB - row * 8.0);
-    vec4 lookup = originalColor.ggrr * (63.0 / lutSize) + row_col * (64.0 / lutSize) + (0.5 / lutSize);
-
-    float factor = blueValue - mulB.x;
-
-    vec3 sampled1 = BNB_TEXTURE_2D_LOD(BNB_SAMPLER_2D(lookupTexture), lookup.zx, 0.).rgb;
-    vec3 sampled2 = BNB_TEXTURE_2D_LOD(BNB_SAMPLER_2D(lookupTexture), lookup.wy, 0.).rgb;
-
-    vec3 res = mix(sampled1, sampled2, factor);
-    return vec4(res, originalColor.a);
-}
-
-vec4 whitening(vec4 originalColor, float factor, BNB_DECLARE_SAMPLER_2D_ARGUMENT(lookup)) {
-    vec4 color = textureLookup(originalColor, BNB_PASS_SAMPLER_ARGUMENT(lookup));
-    return mix(originalColor, color, factor);
-}
-
-vec4 sharpen(vec4 originalColor, float factor) {
-    vec4 total = 5.0 * originalColor - BNB_TEXTURE_2D(BNB_SAMPLER_2D(glfx_BACKGROUND), sp[0].zw) - BNB_TEXTURE_2D(BNB_SAMPLER_2D(glfx_BACKGROUND), sp[1].zw) - BNB_TEXTURE_2D(BNB_SAMPLER_2D(glfx_BACKGROUND), sp[2].zw) - BNB_TEXTURE_2D(BNB_SAMPLER_2D(glfx_BACKGROUND), sp[3].zw);
-    vec4 result = mix(originalColor, total, factor);
-    return clamp(result, 0.0, 1.0);;
-}
-
-vec4 getLuminance4(mat4 color) {
-    const vec4 rgb2y = vec4(0.299, 0.587, 0.114, 0.0);
-    return rgb2y * color;
-}
-
-float getLuminance(vec4 color) {
-    const vec4 rgb2y = vec4(0.299, 0.587, 0.114, 0.0);
-    return dot(color, rgb2y);
-}
-
-vec4 getWeight(float intensity, vec4 nextIntensity) {
-    vec4 lglg = log(nextIntensity / intensity) * log(nextIntensity / intensity);
-    return exp(lglg / (-2.0 *  PSI  *  PSI ));
-}
-
-vec4 softSkin(vec4 originalColor, float factor) {
-    vec4 screenColor = originalColor;
-    float intensity = getLuminance(screenColor);
-    float summ = 1.0;
+vec3 sharpen(vec3 originalColor, float factor) {
+    const float dx = 1.0 / 960.0;
+    const float dy = 1.0 / 1280.0;
     
-    mat4 nextColor;
-    nextColor[0] = BNB_TEXTURE_2D(BNB_SAMPLER_2D(glfx_BACKGROUND), sp[0].xy);
-    nextColor[1] = BNB_TEXTURE_2D(BNB_SAMPLER_2D(glfx_BACKGROUND), sp[1].xy);
-    nextColor[2] = BNB_TEXTURE_2D(BNB_SAMPLER_2D(glfx_BACKGROUND), sp[2].xy);
-    nextColor[3] = BNB_TEXTURE_2D(BNB_SAMPLER_2D(glfx_BACKGROUND), sp[3].xy);
-    vec4 nextIntensity = getLuminance4(nextColor);
-    vec4 curr = 0.367 * getWeight(intensity, nextIntensity);
-    summ += dot(curr, vec4(1.0));
-    screenColor += nextColor * curr;
-    screenColor = screenColor / summ;
+    vec3 total = 5.0 * originalColor
+    - BNB_TEXTURE_2D(BNB_SAMPLER_2D(glfx_BACKGROUND), vec2(var_uv_bg_uv.z-dx, var_uv_bg_uv.w-dy)).xyz
+    - BNB_TEXTURE_2D(BNB_SAMPLER_2D(glfx_BACKGROUND), vec2(var_uv_bg_uv.z+dx, var_uv_bg_uv.w-dy)).xyz
+    - BNB_TEXTURE_2D(BNB_SAMPLER_2D(glfx_BACKGROUND), vec2(var_uv_bg_uv.z-dx, var_uv_bg_uv.w+dy)).xyz
+    - BNB_TEXTURE_2D(BNB_SAMPLER_2D(glfx_BACKGROUND), vec2(var_uv_bg_uv.z+dx, var_uv_bg_uv.w+dy)).xyz;
+
+    vec3 result = mix(originalColor, total, factor);
+    return clamp(result, 0.0, 1.0);
+}
+
+vec3 softSkin(vec3 originalColor, float factor) {
+    vec3 screenColor = originalColor;
+
+    const float dx = 4.5 / 960.0;
+    const float dy = 4.5 / 1280.0;
     
-    screenColor = mix(originalColor, screenColor, factor);
+    vec3 nextColor0 = BNB_TEXTURE_2D(BNB_SAMPLER_2D(glfx_BACKGROUND), vec2(var_uv_bg_uv.z-dx, var_uv_bg_uv.w-dy)).xyz;
+    vec3 nextColor1 = BNB_TEXTURE_2D(BNB_SAMPLER_2D(glfx_BACKGROUND), vec2(var_uv_bg_uv.z+dx, var_uv_bg_uv.w-dy)).xyz;
+    vec3 nextColor2 = BNB_TEXTURE_2D(BNB_SAMPLER_2D(glfx_BACKGROUND), vec2(var_uv_bg_uv.z-dx, var_uv_bg_uv.w+dy)).xyz;
+    vec3 nextColor3 = BNB_TEXTURE_2D(BNB_SAMPLER_2D(glfx_BACKGROUND), vec2(var_uv_bg_uv.z+dx, var_uv_bg_uv.w+dy)).xyz;
+    
+    float intensity = screenColor.g;
+    vec4 nextIntensity = vec4(nextColor0.g, nextColor1.g, nextColor2.g, nextColor3.g);
+    vec4 lg = nextIntensity - intensity;
+    
+    vec4 curr = max(0.367 - abs(lg * (0.367*0.6/(1.41*PSI))), 0.);
+    
+    float summ = 1.0 + curr.x + curr.y + curr.z + curr.w;
+    screenColor += (nextColor0 * curr.x + nextColor1 * curr.y + nextColor2 * curr.z + nextColor3 * curr.w);
+    screenColor = screenColor * (factor / summ);
+    
+    screenColor = originalColor*(1.-factor) + screenColor;
     return screenColor;
 }
 
-float blendSoftLight(float a, float b) {
-    return (a+2.*b*(1.-a))*a;
+float softlight_blend_1ch(float a, float b)
+{
+   return ((1.-2.*b)*a+2.*b)*a;
 }
 
 vec3 blendSoftLight(vec3 base, vec3 blend) {
-    return vec3(blendSoftLight(base.r,blend.r),blendSoftLight(base.g,blend.g),blendSoftLight(base.b,blend.b));
-}
-
-vec3 blendSoftLight(vec3 base, vec3 blend, float opacity) {
-    return (blendSoftLight(base, blend) * opacity + base * (1.0 - opacity));
+    return vec3(softlight_blend_1ch(base.r,blend.r),softlight_blend_1ch(base.g,blend.g),softlight_blend_1ch(base.b,blend.b));
 }
 
 void main()
 {
-    vec4 maskColor = BNB_TEXTURE_2D(BNB_SAMPLER_2D(selection_tex), var_uv);
-    vec4 res = BNB_TEXTURE_2D(BNB_SAMPLER_2D(glfx_BACKGROUND), var_bg_uv );
+#ifdef GLFX_OCCLUSION
+    float oclusion = BNB_TEXTURE_2D(BNB_SAMPLER_2D(glfx_OCCLUSION), glfx_OCCLUSION_UV).x;
 
-	vec4 js_yuva = rgba2yuva(face_color);
-	vec2 maskColor2 = js_yuva.yz;
-	float beta = js_yuva.x;
+    if (oclusion <= 0.0001)
+        discard;
+#endif
 
-	float y = dot(res.xyz, vec3(0.2989,0.5866,0.1144));
-
-	vec2 uv_src = vec2(
-		dot(res.xyz, vec3(-0.1688,-0.3312,0.5)) + 0.5,
-		dot(res.xyz, vec3(0.5,-0.4183,-0.0816)) + 0.5);
-
-	float alpha = maskColor.r;
-
-	vec2 uv45 = (1.0 - alpha) * uv_src + alpha * ((1.0 - beta) * maskColor2 + beta * uv_src);
-
-	float u = uv45.x - 0.5;
-	float v = uv45.y - 0.5;
-
-	float r = y + YUV2RGB_RED_CrV * v;
-	float g = y - YUV2RGB_GREEN_CbU * u - YUV2RGB_GREEN_CrV * v;
-	float b = y + YUV2RGB_BLUE_CbU * u;
-
-	vec4 color = vec4(r, g, b, 1.0);
-
-    res = color;
-/*
-    vec4 make_multi = texture( tex_make_multi, var_uv );
-    vec4 make_overlay = texture( tex_make_overlay, var_uv );
-    vec4 shadow_multi = texture( tex_shadow_multi, var_uv );
-    vec4 shadow_overlay = texture( tex_shadow_overlay, var_uv );
-    vec4 shadow2_overlay = texture( tex_shadow2_overlay, var_uv );
-*/    
+    vec3 res = BNB_TEXTURE_2D(BNB_SAMPLER_2D(glfx_BACKGROUND), var_uv_bg_uv.zw).xyz;
+    
 #ifdef SOFT_SKIN
     res = softSkin(res, maskColor.r * skinSoftIntensity);
 #endif
     
-#ifdef SKIN_TEXTURING
-    vec4 skinTexture = texture(skin_tex, var_uv);
-    vec4 diff = abs(skinTexture - res);
-    res = mix(res, diff, skinTexturingIntensity);
-#endif
-    
+#if defined(TEETH_WHITENING) || defined(SHARPEN_TEETH)
+    if( maskColor.g > 1./255. )
+    {
 #ifdef SHARPEN_TEETH
-    res = sharpen(res, maskColor.g * teethSharpenIntensity);
+        float sharp_factor = maskColor.g * teethSharpenIntensity;
+        res = sharpen(res, sharp_factor);
 #endif
     
-#if defined(TEETH_WHITENING)
-    res = whitening(res, maskColor.g * teethWhiteningCoeff, lookupTexTeeth);
+    }
 #endif
-    
     
 #ifdef SHARPEN_EYES
     res = sharpen(res, maskColor.b * eyesSharpenIntensity);
 #endif
-    
-#if defined(EYES_WHITENING)
-    res = whitening(res, maskColor.b * eyesWhiteningCoeff, BNB_PASS_SAMPLER_ARGUMENT(lookupTexEyes));
-#endif
-/*
-    res.rgb = blendMultiply(res.rgb,make_multi.rgb,make_multi.a);
-    res.rgb = blendOverlay(res.rgb,make_overlay.rgb,make_overlay.a);
-    res.rgb = blendMultiply(res.rgb,shadow_multi.rgb,shadow_multi.a);
-    res.rgb = blendOverlay(res.rgb,shadow_overlay.rgb,shadow_overlay.a);
-    res.rgb = blendOverlay(res.rgb,shadow2_overlay.rgb,shadow2_overlay.a);
-*/
 
-vec2 uvh = vec2(abs(2.0 * (var_uv.x - 0.5)),var_uv.y);
+    
+#if defined(EYES_HIGHLIGHT)
+    res = res + BNB_TEXTURE_2D(BNB_SAMPLER_2D(tex_highlight), var_uv_bg_uv.xy ).xyz;
+#endif
+
+   //vec2 uvh = vec2(abs(2.0 * (var_uv_bg_uv.x - 0.5)),var_uv_bg_uv.y);
 
 #ifdef SOFT_LIGHT_LAYER
-
-    res.xyz = blendSoftLight( res.xyz, BNB_TEXTURE_2D(BNB_SAMPLER_2D(tex_softLight), uvh ).xyz, 0.3 );
+    res.xyz = blendSoftLight( res.xyz, BNB_TEXTURE_2D(BNB_SAMPLER_2D(tex_softLight), var_uv_bg_uv.xy ).xyz );
 #endif
 
 #ifdef NORMAL_LAYER
-    vec4 makeup2 = 0.7 * BNB_TEXTURE_2D(BNB_SAMPLER_2D(tex_normalMakeup), uvh );
-    res.xyz = mix( res.xyz, 1.0 * makeup2.xyz, 1.0 * makeup2.w );
-
+    vec4 makeup2 = BNB_TEXTURE_2D(BNB_SAMPLER_2D(tex_normalMakeup), var_uv_bg_uv.xy );
+    res.xyz = mix( res.xyz, makeup2.xyz, makeup2.w );
 #endif
-    bnb_FragColor = res;
+
+    bnb_FragColor = vec4(res,js_slider.x);
+
+#ifdef GLFX_OCCLUSION
+    bnb_FragColor.a = oclusion;
+#endif
 }

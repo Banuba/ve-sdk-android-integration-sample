@@ -13,57 +13,44 @@
 #define gl_InstanceID gl_InstanceIndex
 #endif
 
+#define EYES_HIGHLIGHT
+#define SOFT_LIGHT_LAYER
+#define NORMAL_LAYER
+#define SOFT_SKIN
+#define skinSoftIntensity 0.7
+#define SHARPEN_TEETH
+#define teethSharpenIntensity 0.2
+#define SHARPEN_EYES
+#define eyesSharpenIntensity 0.3
+#define PSI 0.1
+
 BNB_LAYOUT_LOCATION(0) BNB_IN vec3 attrib_pos;
 BNB_LAYOUT_LOCATION(1) BNB_IN vec3 attrib_pos_static;
 BNB_LAYOUT_LOCATION(2) BNB_IN vec2 attrib_uv;
 BNB_LAYOUT_LOCATION(3) BNB_IN vec4 attrib_red_mask;
 
 
-BNB_OUT(0) vec2 var_uv;
-BNB_OUT(1) vec2 var_bg_uv;
-
-BNB_OUT(2) mat4 sp;
+BNB_OUT(0) vec3 maskColor;
+BNB_OUT(1) vec4 var_uv_bg_uv;
 
 invariant gl_Position;
 
-const float dx = 1.0 / 720.0;
-const float dy = 1.0 / 1280.0;
-
-const float delta = 5.;
-
-const float sOfssetXneg = -delta * dx;
-const float sOffsetYneg = -delta * dy;
-const float sOffsetXpos = delta * dx;
-const float sOffsetYpos = delta * dy;
+#ifdef GLFX_OCCLUSION
+BNB_OUT(2) vec2 glfx_OCCLUSION_UV;
+#endif
 
 void main()
 {
     gl_Position = bnb_MVP * vec4( attrib_pos, 1. );
-    var_uv = attrib_uv;
-    var_bg_uv  = (gl_Position.xy / gl_Position.w) * 0.5 + 0.5;
-    
-    sp[0].xy = var_bg_uv + vec2(sOfssetXneg, sOffsetYneg);
-    sp[1].xy = var_bg_uv + vec2(sOfssetXneg, sOffsetYpos);
-    sp[2].xy = var_bg_uv + vec2(sOffsetXpos, sOffsetYneg);
-    sp[3].xy = var_bg_uv + vec2(sOffsetXpos, sOffsetYpos);
-    
-    vec2 delta = vec2(dx, dy);
-    sp[0].zw = var_bg_uv + vec2(-delta.x, -delta.y);
-    sp[1].zw = var_bg_uv + vec2(delta.x, -delta.y);
-    sp[2].zw = var_bg_uv + vec2(-delta.x, delta.y);
-    sp[3].zw = var_bg_uv + vec2(delta.x, delta.y);
-#ifdef BNB_VK_1
-var_bg_uv.y = 1. - var_bg_uv.y;
+    maskColor = attrib_red_mask.xyz;
+    vec2 bg_uv  = (gl_Position.xy / gl_Position.w) * 0.5 + 0.5;
+    var_uv_bg_uv = vec4(attrib_uv,bg_uv);
+#ifdef GLFX_OCCLUSION
+    glfx_OCCLUSION_UV = (gl_Position.xy / gl_Position.w - glfx_OCCLUSION_RECT.xy) / glfx_OCCLUSION_RECT.zw;
+    glfx_OCCLUSION_UV = glfx_OCCLUSION_UV * 0.5 + 0.5;
+    glfx_OCCLUSION_UV.y = 1.0 - glfx_OCCLUSION_UV.y;
 #endif
-
 #ifdef BNB_VK_1
-    sp[0].y = 1. - sp[0].y;
-    sp[1].y = 1. - sp[1].y;
-    sp[2].y = 1. - sp[2].y;
-    sp[3].y = 1. - sp[3].y;
-    sp[0].w = 1. - sp[0].w;
-    sp[1].w = 1. - sp[1].w;
-    sp[2].w = 1. - sp[2].w;
-    sp[3].w = 1. - sp[3].w;
+var_uv_bg_uv.w = 1. - var_uv_bg_uv.w;
 #endif
 }
