@@ -1,14 +1,17 @@
 package com.banuba.example.integrationapp
 
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.banuba.sdk.cameraui.data.PipConfig
 import com.banuba.sdk.core.ui.ext.visible
 import com.banuba.sdk.export.data.ExportResult
+import com.banuba.sdk.export.utils.EXTRA_EXPORTED_SUCCESS
 import com.banuba.sdk.ve.flow.VideoCreationActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -17,12 +20,32 @@ class MainActivity : AppCompatActivity() {
     // Handle Video Editor export results
     private val videoEditorExportResult =
         registerForActivityResult(CustomExportResultVideoContract()) { exportResult ->
-            if (exportResult is ExportResult.Success) {
-                exportResult.videoList.firstOrNull()?.let {
-                    Utils.playExportedVideo(this@MainActivity, it.sourceUri)
-                }
+            // The dialog is used to demo export result in a various ways.
+            // It is not required to copy and paste this approach to your project.
+            AlertDialog.Builder(this).setMessage("Export result")
+                .setPositiveButton("Play Video") { _, _ -> playExportedVideo(exportResult) }
+                .setNegativeButton("Open Sharing") { _, _ -> openSharingActivity(exportResult) }
+                .setNeutralButton("Close") { _, _ -> }.create().show()
+        }
+
+    private fun playExportedVideo(exportResult: ExportResult?) {
+        if (exportResult is ExportResult.Success) {
+            exportResult.videoList.firstOrNull()?.let {
+                Utils.playExportedVideo(this@MainActivity, it.sourceUri)
             }
         }
+    }
+
+    private fun openSharingActivity(exportResult: ExportResult?) {
+        if (exportResult is ExportResult.Success) {
+            val resId = com.banuba.sdk.export.R.string.export_action_name
+            val intent =
+                Intent(getString(resId, packageName)).apply {
+                    putExtra(EXTRA_EXPORTED_SUCCESS, exportResult)
+                }
+            startActivity(intent)
+        }
+    }
 
     // Opens system app to pick video for PIP
     private val requestVideoOpenPIP = registerForActivityResult(
