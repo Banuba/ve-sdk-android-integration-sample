@@ -20,16 +20,15 @@ class MainActivity : AppCompatActivity() {
     // Handle Video Editor export results
     private val videoEditorExportResult =
         registerForActivityResult(CustomExportResultVideoContract()) { exportResult ->
-            AlertDialog.Builder(this)
-                .setMessage("Export result")
-                .setPositiveButton("Preview Video") { _,_ -> openExportResult(exportResult) }
-                .setNegativeButton("Open Sharing") { _,_ -> openSharingActivity(exportResult)}
-                .setNeutralButton("Close") { _,_ -> }
-                .create()
-                .show()
+            // The dialog is used to demo export result in a various ways.
+            // It is not required to copy and paste this approach to your project.
+            AlertDialog.Builder(this).setMessage("Export result")
+                .setPositiveButton("Play Video") { _, _ -> playExportedVideo(exportResult) }
+                .setNegativeButton("Open Sharing") { _, _ -> openSharingActivity(exportResult) }
+                .setNeutralButton("Close") { _, _ -> }.create().show()
         }
 
-    private fun openExportResult(exportResult: ExportResult?) {
+    private fun playExportedVideo(exportResult: ExportResult?) {
         if (exportResult is ExportResult.Success) {
             exportResult.videoList.firstOrNull()?.let {
                 Utils.playExportedVideo(this@MainActivity, it.sourceUri)
@@ -37,16 +36,15 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun openSharingActivity(result: ExportResult?) {
-        val intent =
-            Intent(getString(com.banuba.sdk.export.R.string.export_action_name, packageName)).apply {
-                if (result is ExportResult.Success) {
-                    putExtra(EXTRA_EXPORTED_SUCCESS, result)
+    private fun openSharingActivity(exportResult: ExportResult?) {
+        if (exportResult is ExportResult.Success) {
+            val resId = com.banuba.sdk.export.R.string.export_action_name
+            val intent =
+                Intent(getString(resId, packageName)).apply {
+                    putExtra(EXTRA_EXPORTED_SUCCESS, exportResult)
                 }
-                val flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
-                addFlags(flags)
-            }
-        startActivity(intent)
+            startActivity(intent)
+        }
     }
 
     // Opens system app to pick video for PIP

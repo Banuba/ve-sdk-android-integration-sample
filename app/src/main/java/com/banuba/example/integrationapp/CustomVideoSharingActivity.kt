@@ -7,10 +7,13 @@ import com.banuba.sdk.export.data.ExportResult
 import com.banuba.sdk.export.utils.EXTRA_EXPORTED_SUCCESS
 import com.banuba.sdk.veui.ui.sharing.VideoSharingFragment
 
-class VideoSharingActivity : AppCompatActivity(R.layout.activity_video_sharing) {
+// Sample implementation of an Activity that shows SDK sharing screen.
+// COPY THIS FILE IF YOU WANT TO USE SHARING FUNCTIONALITY THROUGH THE SDK
+class CustomVideoSharingActivity : AppCompatActivity(R.layout.activity_video_sharing) {
 
     companion object {
-        const val FB_APP_ID = "YOUR_FB_ID"
+        // Set up your Facebook app id
+        const val FACEBOOK_APP_ID = ""
     }
 
     private val exportResult by lazy(LazyThreadSafetyMode.NONE) {
@@ -22,7 +25,7 @@ class VideoSharingActivity : AppCompatActivity(R.layout.activity_video_sharing) 
 
         val videoSharingFragment = VideoSharingFragment.newInstance(
             exportResult = exportResult,
-            fbAppId = FB_APP_ID
+            fbAppId = FACEBOOK_APP_ID
         )
         supportFragmentManager.addFragment(
             videoSharingFragment,

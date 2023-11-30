@@ -32,7 +32,7 @@
             tools:replace="android:theme" />
 
         <activity
-            android:name=".VideoSharingActivity"
+            android:name=".CustomVideoSharingActivity"
             android:configChanges="orientation|screenSize|screenLayout"
             android:exported="false"
             android:theme="@style/CustomIntegrationAppTheme"
