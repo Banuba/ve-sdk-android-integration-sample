@@ -1,6 +1,5 @@
 package com.banuba.example.integrationapp
 
-import android.app.Activity
 import android.content.Context
 import android.net.Uri
 import androidx.core.net.toFile
@@ -14,7 +13,6 @@ import com.banuba.sdk.cameraui.domain.HandsFreeTimerActionProvider
 import com.banuba.sdk.core.AspectRatio
 import com.banuba.sdk.core.HardwareClassProvider
 import com.banuba.sdk.core.VideoResolution
-import com.banuba.sdk.core.data.OrderProvider
 import com.banuba.sdk.core.data.TrackData
 import com.banuba.sdk.core.domain.AspectRatioProvider
 import com.banuba.sdk.core.ext.toPx
@@ -24,7 +22,6 @@ import com.banuba.sdk.effectplayer.adapter.BanubaEffectPlayerKoinModule
 import com.banuba.sdk.export.data.ExportFlowManager
 import com.banuba.sdk.export.data.ExportParams
 import com.banuba.sdk.export.data.ExportParamsProvider
-import com.banuba.sdk.export.data.ExportResult
 import com.banuba.sdk.export.data.ForegroundExportFlowManager
 import com.banuba.sdk.export.di.VeExportKoinModule
 import com.banuba.sdk.gallery.di.GalleryKoinModule
@@ -133,11 +130,9 @@ private class SampleIntegrationKoinModule {
 
         // Override implementation if you use sharing functionality
         single<SharingActionHandler> {
-            object : SharingActionHandler {
-                override fun onBack(activity: Activity) {}
-
-                override fun onClose(activity: Activity, result: ExportResult.Success?) {}
-            }
+            CustomSharingActionHandler(
+                exportFlowManager = get()
+            )
         }
     }
 }
