@@ -75,19 +75,6 @@ class VideoEditorModule {
 private class SampleIntegrationKoinModule {
 
     val module = module {
-        single<ExportFlowManager> {
-            ForegroundExportFlowManager(
-                exportDataProvider = get(),
-                exportSessionHelper = get(),
-                exportDir = get(named("exportDir")),
-                shouldClearSessionOnFinish = true,
-                publishManager = get(),
-                errorParser = get(),
-                exportBundleProvider = get(),
-                eventConverter = get()
-            )
-        }
-
         /**
          * Provides params for export
          * */
@@ -112,14 +99,6 @@ private class SampleIntegrationKoinModule {
             named("musicTrackProvider")
         ) {
             AudioBrowserMusicProvider()
-        }
-
-        single<CoverProvider> {
-            CoverProvider.EXTENDED
-        }
-
-        single<CameraTimerActionProvider> {
-            HandsFreeTimerActionProvider()
         }
 
         single<AspectRatioProvider> {
