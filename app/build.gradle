@@ -1,18 +1,20 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-parcelize' // ! USE instead of removed 'kotlin-android-extensions'
 }
 
 android {
-    compileSdkVersion 33
-    buildToolsVersion "30.0.3"
 
     namespace "com.banuba.example.integrationapp"
 
     defaultConfig {
         applicationId "com.banuba.example.integrationapp"
+        compileSdk 33
         minSdkVersion 23
         targetSdkVersion 33
+        buildToolsVersion "33.0.0"
+
         versionCode 1
         versionName "1.0"
 
@@ -25,7 +27,11 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
