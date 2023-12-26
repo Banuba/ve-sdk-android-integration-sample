@@ -4,16 +4,18 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.banuba.example.integrationapp.databinding.ActivityMainBinding
 import com.banuba.sdk.cameraui.data.PipConfig
 import com.banuba.sdk.core.ui.ext.visible
 import com.banuba.sdk.export.data.ExportResult
 import com.banuba.sdk.export.utils.EXTRA_EXPORTED_SUCCESS
 import com.banuba.sdk.ve.flow.VideoCreationActivity
-import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -71,15 +73,22 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private var _binding: ActivityMainBinding? = null
+
+    private val binding: ActivityMainBinding
+        get() = requireNotNull(_binding)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        _binding = ActivityMainBinding.inflate(LayoutInflater.from(this))
+
+        setContentView(binding.root)
 
         // Handle Video Editor license flow
         val videoEditor = (application as SampleApp).videoEditor
         if (videoEditor == null) {
-            licenseStateView.visible()
-            licenseStateView.text = SampleApp.ERR_SDK_NOT_INITIALIZED
+            binding.licenseStateView.visible()
+            binding.licenseStateView.text = SampleApp.ERR_SDK_NOT_INITIALIZED
             return
         }
 
@@ -90,30 +99,35 @@ class MainActivity : AppCompatActivity() {
                 // ✅ License is active, all good
                 // You can show button that opens Video Editor or
                 // Start Video Editor right away
-                btnVideoEditor.setOnClickListener {
+                binding.btnVideoEditor.setOnClickListener {
                     openVideoEditor()
                 }
-                btnPiPVideoEditor.setOnClickListener {
+                binding.btnPiPVideoEditor.setOnClickListener {
                     requestVideoOpenPIP.launch("video/*")
                 }
-                btnDraftsVideoEditor.setOnClickListener {
+                binding.btnDraftsVideoEditor.setOnClickListener {
                     openVideoEditorDrafts()
                 }
-                btnSlideShowVideoEditorTrimmer.setOnClickListener {
+                binding.btnSlideShowVideoEditorTrimmer.setOnClickListener {
                     requestImageOpenTrimmer.launch("image/*")
                 }
             } else {
                 // ❌ Use of Video Editor is restricted. License is revoked or expired.
-                licenseStateView.text = SampleApp.ERR_LICENSE_REVOKED
+                binding.licenseStateView.text = SampleApp.ERR_LICENSE_REVOKED
                 Log.w(SampleApp.TAG, SampleApp.ERR_LICENSE_REVOKED)
 
-                licenseStateView.visible()
-                btnVideoEditor.isEnabled = false
-                btnPiPVideoEditor.isEnabled = false
-                btnDraftsVideoEditor.isEnabled = false
-                btnSlideShowVideoEditorTrimmer.isEnabled = false
+                binding.licenseStateView.visible()
+                binding.btnVideoEditor.isEnabled = false
+                binding.btnPiPVideoEditor.isEnabled = false
+                binding.btnDraftsVideoEditor.isEnabled = false
+                binding.btnSlideShowVideoEditorTrimmer.isEnabled = false
             }
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 
     private fun openVideoEditor(pipVideo: Uri = Uri.EMPTY) {
