@@ -28,7 +28,7 @@ Use the license token to [start Video Editor](#Start-sdk)
 ## Add dependencies
 GitHub Packages is used for getting Android Video Editor SDK modules.
 
-First, add repositories to your [project gradle](../build.gradle#L21) file.
+First, add repositories to your [project gradle](../build.gradle#L21) file in ```allprojects``` section.
 ```groovy
 ...
 
@@ -41,7 +41,7 @@ allprojects {
             url = uri("https://maven.pkg.github.com/Banuba/banuba-ve-sdk")
             credentials {
                 username = "Banuba"
-                password = ""
+                password = "\u0038\u0036\u0032\u0037\u0063\u0035\u0031\u0030\u0033\u0034\u0032\u0063\u0061\u0033\u0065\u0061\u0031\u0032\u0034\u0064\u0065\u0066\u0039\u0062\u0034\u0030\u0063\u0063\u0037\u0039\u0038\u0063\u0038\u0038\u0066\u0034\u0031\u0032\u0061\u0038"
             }
         }
         maven {
@@ -49,7 +49,7 @@ allprojects {
             url = uri("https://maven.pkg.github.com/Banuba/banuba-ar")
             credentials {
                 username = "Banuba"
-                password = ""
+                password = "\u0038\u0036\u0032\u0037\u0063\u0035\u0031\u0030\u0033\u0034\u0032\u0063\u0061\u0033\u0065\u0061\u0031\u0032\u0034\u0064\u0065\u0066\u0039\u0062\u0034\u0030\u0063\u0063\u0037\u0039\u0038\u0063\u0038\u0038\u0066\u0034\u0031\u0032\u0061\u0038"
             }
         }
 
@@ -61,7 +61,7 @@ allprojects {
 Next, specify a list of dependencies in [app gradle](../app/build.gradle#L51) file.
 
 ```groovy
-    def banubaSdkVersion = '1.30.2'
+    def banubaSdkVersion = '1.32.2'
 
     implementation "com.banuba.sdk:ffmpeg:5.1.3"
     implementation "com.banuba.sdk:camera-sdk:${banubaSdkVersion}"
