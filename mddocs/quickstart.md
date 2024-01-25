@@ -77,7 +77,6 @@ Next, specify a list of dependencies in [app gradle](../app/build.gradle#L51) fi
     implementation "com.banuba.sdk:effect-player-adapter:${banubaSdkVersion}"
     implementation "com.banuba.sdk:ar-cloud:${banubaSdkVersion}"
     implementation "com.banuba.sdk:ve-audio-browser-sdk:${banubaSdkVersion}"
-    implementation "com.banuba.sdk:banuba-token-storage-sdk:${banubaSdkVersion}"
     implementation "com.banuba.sdk:ve-export-sdk:${banubaSdkVersion}"
     implementation "com.banuba.sdk:ve-playback-sdk:${banubaSdkVersion}"
 ```
@@ -148,7 +147,6 @@ fun initialize(applicationContext: Context) {
                 VePlaybackSdkKoinModule().module,
                 AudioBrowserKoinModule().module, // use this module only if you bought it
                 ArCloudKoinModule().module,
-                TokenStorageKoinModule().module,
                 VeUiSdkKoinModule().module,
                 VeFlowKoinModule().module,
                 GalleryKoinModule().module,
