@@ -61,7 +61,7 @@ allprojects {
 Next, specify a list of dependencies in [app gradle](../app/build.gradle#L51) file.
 
 ```groovy
-    def banubaSdkVersion = '1.32.2'
+    def banubaSdkVersion = '1.33.1'
 
     implementation "com.banuba.sdk:ffmpeg:5.1.3"
     implementation "com.banuba.sdk:camera-sdk:${banubaSdkVersion}"
