@@ -10,6 +10,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.banuba.example.integrationapp.databinding.ActivityMainBinding
+import com.banuba.sdk.cameraui.data.PipConfig
 import com.banuba.sdk.core.ui.ext.visible
 import com.banuba.sdk.export.data.ExportResult
 import com.banuba.sdk.export.utils.EXTRA_EXPORTED_SUCCESS
