@@ -9,10 +9,10 @@
 <img src="mddocs/gif/background_separation.gif" alt="Screenshot" width="19%" height="auto" class="docs-screenshot"/>&nbsp;
 </p>
 <p align="center">
-<img src="mdDocs/gif/PE_UI_retouch.gif" alt="Screenshot" width="19%" height="auto" class="docs-screenshot"/>&nbsp;
-<img src="mdDocs/gif/PE_UI_make.gif" alt="Screenshot" width="19%" height="auto" class="docs-screenshot"/>&nbsp;
-<img src="mdDocs/gif/PE_UI_overlays.gif" alt="Screenshot" width="19%" height="auto" class="docs-screenshot"/>&nbsp;
-<img src="mdDocs/gif/PE_UI_backdrops.gif" alt="Screenshot" width="19%" height="auto" class="docs-screenshot"/>&nbsp;
+<img src="mddocs/gif/PE_UI_retouch.gif" alt="Screenshot" width="19%" height="auto" class="docs-screenshot"/>&nbsp;
+<img src="mddocs/gif/PE_UI_make.gif" alt="Screenshot" width="19%" height="auto" class="docs-screenshot"/>&nbsp;
+<img src="mddocs/gif/PE_UI_overlays.gif" alt="Screenshot" width="19%" height="auto" class="docs-screenshot"/>&nbsp;
+<img src="mddocs/gif/PE_UI_backdrops.gif" alt="Screenshot" width="19%" height="auto" class="docs-screenshot"/>&nbsp;
 </p>
 
 ## Overview
@@ -36,7 +36,7 @@ Feel free to contact us if you have any questions regarding [Video Editor SDK](h
 ### Quickstart Guide
 Our [Quickstart Guide](mddocs/quickstart.md) will help you to quickly integrate and customize Video Editor SDK into your Android project.
 
-For **Photo Editor SDK** please check out the [following document](mdDocs/photo_editor_quickstart.md).
+For **Photo Editor SDK** please check out the [following document](mddocs/photo_editor_quickstart.md).
 
 ### Requirements
 - Kotlin 1.4+ or Java 1.8+
