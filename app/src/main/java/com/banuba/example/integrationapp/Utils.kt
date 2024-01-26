@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.net.Uri
+import android.util.Log
 import android.util.Size
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
@@ -50,6 +51,22 @@ object Utils {
             setDataAndType(uri, "video/mp4")
         }
         activity.startActivity(intent)
+    }
+
+    // Previews exported image to demonstrate the result
+    fun previewExportedImage(
+        activity: AppCompatActivity,
+        uri: Uri
+    ) {
+        val intent = Intent()
+        intent.action = Intent.ACTION_VIEW
+        intent.setDataAndType(uri, "image/*")
+
+        try {
+            activity.startActivity(intent)
+        } catch (e: Exception) {
+            Log.e(SampleApp.TAG, "Can't handle intent")
+        }
     }
 
     /**

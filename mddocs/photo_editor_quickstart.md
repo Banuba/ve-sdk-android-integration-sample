@@ -20,7 +20,7 @@ allprojects {
         }
 
         maven {
-            name "GitHubPackagesEffectPlayer"
+            name "GitHubPackages"
             url "https://maven.pkg.github.com/sdk-banuba/banuba-sdk-android"
             credentials {
                 username = "sdk-banuba"
@@ -33,11 +33,10 @@ allprojects {
 }
 ```
 
-Next, specify a list of dependencies in [app gradle](../app/build.gradle#L51) file.
+Next, specify a list of dependencies in [app gradle](../app/build.gradle#L83) file.
 
 ```groovy
     def banubaPESdkVersion = '1.0.0'
-
     implementation "com.banuba.sdk:pe-sdk:${banubaPESdkVersion}"
     
     def banubaSdkVersion = '1.33.2'
@@ -51,17 +50,21 @@ Next, specify a list of dependencies in [app gradle](../app/build.gradle#L51) fi
     implementation "com.banuba.sdk:effect-player-adapter:${banubaSdkVersion}"
 ```
 ## Launch
-Create instance of ```BanubaVideoEditor```  by using the license token
+Create instance of ```BanubaVideoEditor``` by using the license token
 ``` kotlin
 val videoEditorSDK = BanubaVideoEditor.initialize(LICENSE_TOKEN)
 ```
 
+Start Photo Editor SDK and listen to results.
+
 ```kotlin
 
 val photoEditorExportResult =
-    registerForActivityResult(PhotoExportResultContract()) { exportResult ->
-        Log.i(TAG, "Exported ${exportResult?.path}")
+    registerForActivityResult(PhotoExportResultContract()) { uri ->
+        // Handle exported image result
+        Log.d(TAG, "Image exported $uri")
     }
 
+// Starts Photo Editor SDK
 photoEditorExportResult.launch(PhotoCreationActivity.startFromGallery(this))
 ```

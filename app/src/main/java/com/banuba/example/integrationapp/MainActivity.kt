@@ -78,15 +78,12 @@ class MainActivity : AppCompatActivity() {
 
     private val photoEditorExportResult =
         registerForActivityResult(PhotoExportResultContract()) { uri ->
-            val intent = Intent()
-            intent.action = Intent.ACTION_VIEW
-            intent.setDataAndType(uri, "image/*")
-
-            try {
-                startActivity(intent)
-            } catch (e: Exception) {
-                Log.d(SampleApp.TAG, "Can't handle intent")
+            if (uri == null) {
+                Log.w(SampleApp.TAG, "Failed to export image")
+                return@registerForActivityResult
             }
+
+            Utils.previewExportedImage(this, uri)
         }
 
     private var _binding: ActivityMainBinding? = null
@@ -128,6 +125,7 @@ class MainActivity : AppCompatActivity() {
                     requestImageOpenTrimmer.launch("image/*")
                 }
                 binding.btnOpenPhotoEditor.setOnClickListener {
+                    // Start Photo Editor SDK
                     photoEditorExportResult.launch(PhotoCreationActivity.startFromGallery(this@MainActivity))
                 }
             } else {

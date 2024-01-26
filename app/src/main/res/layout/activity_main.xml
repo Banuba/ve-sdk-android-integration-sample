@@ -68,6 +68,7 @@
         android:layout_marginTop="16dp"
         android:text="Open Photo Editor"
         android:textSize="11sp"
+        app:backgroundTint="@android:color/holo_green_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="parent"
