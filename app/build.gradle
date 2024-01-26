@@ -77,4 +77,8 @@ dependencies {
     implementation "com.banuba.sdk:ve-audio-browser-sdk:${banubaSdkVersion}"
     implementation "com.banuba.sdk:ve-export-sdk:${banubaSdkVersion}"
     implementation "com.banuba.sdk:ve-playback-sdk:${banubaSdkVersion}"
+
+    // Banuba Photo Editor SDK dependencies
+    def banubaPESdkVersion = '1.0.0'
+    implementation "com.banuba.sdk:pe-sdk:${banubaPESdkVersion}"
 }
