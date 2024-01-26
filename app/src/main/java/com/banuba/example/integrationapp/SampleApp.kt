@@ -2,7 +2,11 @@ package com.banuba.example.integrationapp
 
 import android.app.Application
 import android.util.Log
+import com.banuba.sdk.core.EditorUtilityManager
 import com.banuba.sdk.core.license.BanubaVideoEditor
+import org.koin.android.ext.android.getKoin
+import org.koin.core.context.stopKoin
+import org.koin.core.error.InstanceCreationException
 
 class SampleApp : Application() {
 
@@ -27,8 +31,31 @@ class SampleApp : Application() {
         if (videoEditor == null) {
             // Token you provided is not correct - empty or truncated
             Log.e(TAG, ERR_SDK_NOT_INITIALIZED)
-        } else {
-            VideoEditorModule().initialize(this@SampleApp)
         }
+    }
+
+    fun prepareVideoEditor() {
+        // Initialize Video Editor
+        VideoEditorModule().initialize(this@SampleApp)
+    }
+
+    fun releaseVideoEditor() {
+        releaseUtilityManager()
+        stopKoin()
+    }
+
+    private fun releaseUtilityManager() {
+        val utilityManager = try {
+            // EditorUtilityManager is NULL when the token is expired or revoked.
+            // This dependency is not explicitly created in DI.
+            getKoin().getOrNull<EditorUtilityManager>()
+        } catch (e: InstanceCreationException) {
+            Log.w(TAG, "EditorUtilityManager was not initialized!", e)
+            null
+        }
+
+        // It is required to release BanubaUtilityManager when token is changed. Face AR SDK
+        // does not allow to call initialize 2 times without release.
+        utilityManager?.release()
     }
 }

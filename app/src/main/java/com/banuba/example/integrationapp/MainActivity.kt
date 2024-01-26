@@ -10,10 +10,11 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.banuba.example.integrationapp.databinding.ActivityMainBinding
-import com.banuba.sdk.cameraui.data.PipConfig
 import com.banuba.sdk.core.ui.ext.visible
 import com.banuba.sdk.export.data.ExportResult
 import com.banuba.sdk.export.utils.EXTRA_EXPORTED_SUCCESS
+import com.banuba.sdk.pe.PhotoCreationActivity
+import com.banuba.sdk.pe.PhotoExportResultContract
 import com.banuba.sdk.ve.flow.VideoCreationActivity
 
 
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     // Handle Video Editor export results
     private val videoEditorExportResult =
         registerForActivityResult(CustomExportResultVideoContract()) { exportResult ->
+            (application as? SampleApp)?.releaseVideoEditor()
             // The dialog is used to demo export result in a various ways.
             // It is not required to copy and paste this approach to your project.
             AlertDialog.Builder(this).setMessage("Export result")
@@ -73,6 +75,19 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private val photoEditorExportResult =
+        registerForActivityResult(PhotoExportResultContract()) { uri ->
+            val intent = Intent()
+            intent.action = Intent.ACTION_VIEW
+            intent.setDataAndType(uri, "image/*")
+
+            try {
+                startActivity(intent)
+            } catch (e: Exception) {
+                Log.d(SampleApp.TAG, "Can't handle intent")
+            }
+        }
+
     private var _binding: ActivityMainBinding? = null
 
     private val binding: ActivityMainBinding
@@ -111,6 +126,9 @@ class MainActivity : AppCompatActivity() {
                 binding.btnSlideShowVideoEditorTrimmer.setOnClickListener {
                     requestImageOpenTrimmer.launch("image/*")
                 }
+                binding.btnOpenPhotoEditor.setOnClickListener {
+                    photoEditorExportResult.launch(PhotoCreationActivity.startFromGallery(this@MainActivity))
+                }
             } else {
                 // ❌ Use of Video Editor is restricted. License is revoked or expired.
                 binding.licenseStateView.text = SampleApp.ERR_LICENSE_REVOKED
@@ -121,6 +139,7 @@ class MainActivity : AppCompatActivity() {
                 binding.btnPiPVideoEditor.isEnabled = false
                 binding.btnDraftsVideoEditor.isEnabled = false
                 binding.btnSlideShowVideoEditorTrimmer.isEnabled = false
+                binding.btnOpenPhotoEditor.isEnabled = false
             }
         }
     }
@@ -144,19 +163,24 @@ class MainActivity : AppCompatActivity() {
             // set TrackData object if you open VideoCreationActivity with preselected music track
             audioTrackData = null
         )
-        videoEditorExportResult.launch(videoCreationIntent)
+        startVideoEditor(videoCreationIntent)
     }
 
     private fun openVideoEditorDrafts() {
-        videoEditorExportResult.launch(VideoCreationActivity.startFromDrafts(this))
+        startVideoEditor(VideoCreationActivity.startFromDrafts(this))
     }
 
     private fun openVideoEditorTrimmerWithSlideShow(videos: List<Uri>) {
-        videoEditorExportResult.launch(
+        startVideoEditor(
             VideoCreationActivity.startFromTrimmer(
                 this,
                 videos.toTypedArray()
             )
         )
+    }
+
+    private fun startVideoEditor(veIntent: Intent) {
+        (application as? SampleApp)?.prepareVideoEditor()
+        videoEditorExportResult.launch(veIntent)
     }
 }
