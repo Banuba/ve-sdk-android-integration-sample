@@ -108,7 +108,7 @@ Custom implementation of ```VideoCreationTheme``` is required for running ```Vid
 Video Editor SDK uses a lot of resources required for running in the app.  
 Please make sure all these resources exist in your project.
 
-1. [bnb-resources](../android/app/src/main/assets/bnb-resources)  Banuba AR and color filters. AR effects ```assets/bnb-resources/effects``` requires [Face AR](https://docs.banuba.com/face-ar-sdk-v1) product.
+1. [bnb-resources](../app/src/main/assets/bnb-resources)  Banuba AR and color filters. AR effects ```assets/bnb-resources/effects``` requires [Face AR](https://docs.banuba.com/face-ar-sdk-v1) product.
 
 2. [drawable-hdpi](../app/src/main/res/drawable-hdpi),
    [drawable-xhdpi](../app/src/main/res/drawable-xhdpi),
