@@ -81,7 +81,7 @@ Next, specify a list of dependencies in [app gradle](../app/build.gradle#L61) fi
     implementation "com.banuba.sdk:ve-playback-sdk:${banubaSdkVersion}"
 ```
 
-Also you need to add "kotlin-parcelize" plugin into plugin section [app gradle](../app/build.gradle#L4) file.
+Also you need to add "kotlin-parcelize" plugin into plugin section of [app gradle](../app/build.gradle#L4) file.
 ```groovy
 plugins {
     id 'com.android.application'
@@ -175,6 +175,8 @@ Finally, initialize ```VideoEditorModule```  in [Application class](../app/src/m
 override fun onCreate() {
         super.onCreate()
         VideoEditorModule().initialize(this)
+        
+        ...
     }
 ```
 
