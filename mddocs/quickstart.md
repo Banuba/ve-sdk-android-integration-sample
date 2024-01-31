@@ -58,7 +58,7 @@ allprojects {
 }
 ```
 
-Next, specify a list of dependencies in [app gradle](../app/build.gradle#L51) file.
+Next, specify a list of dependencies in [app gradle](../app/build.gradle#L61) file.
 
 ```groovy
     def banubaSdkVersion = '1.33.2'
@@ -79,6 +79,15 @@ Next, specify a list of dependencies in [app gradle](../app/build.gradle#L51) fi
     implementation "com.banuba.sdk:ve-audio-browser-sdk:${banubaSdkVersion}"
     implementation "com.banuba.sdk:ve-export-sdk:${banubaSdkVersion}"
     implementation "com.banuba.sdk:ve-playback-sdk:${banubaSdkVersion}"
+```
+
+Also you need to add "kotlin-parcelize" plugin into plugin section [app gradle](../app/build.gradle#L4) file.
+```groovy
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+}
 ```
 
 ## Update AndroidManifest
@@ -161,9 +170,12 @@ fun initialize(applicationContext: Context) {
 [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L65) 
 demonstrates a list of dependencies and configurations required for the launch.  
 
-Finally, initialize ```VideoEditorModule```  in [Application class](../app/src/main/java/com/banuba/example/integrationapp/SampleApp.kt#L31).
+Finally, initialize ```VideoEditorModule```  in [Application class](../app/src/main/java/com/banuba/example/integrationapp/SampleApp.kt) onCreate() method.
 ``` kotlin
-VideoEditorModule().initialize(this@SampleApp)
+override fun onCreate() {
+        super.onCreate()
+        VideoEditorModule().initialize(this)
+    }
 ```
 
 ## Implement export
