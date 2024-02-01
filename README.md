@@ -39,7 +39,7 @@ Our [Quickstart Guide](mddocs/quickstart.md) will help you to quickly integrate 
 For **Photo Editor SDK** please check out the [following document](mddocs/photo_editor_quickstart.md).
 
 ### Requirements
-- Kotlin 1.4+ or Java 1.8+
+- Kotlin 1.8+ or Java 17
 - Android OS 6.0 or higher with Camera 2 API
 - OpenGL ES 3.0 (3.1 for Neural networks on GPU)
 - :white_check_mark: arm64-v8a , :white_check_mark: armv7, :exclamation: x86-64 limited support, :x: x86 - no support

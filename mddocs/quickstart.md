@@ -16,7 +16,7 @@
 ## Prerequisites
 :exclamation: The license token **IS REQUIRED** to use Video Editor SDK in your app.  
 Please check [Installation](../README.md#Installation) out guide if the license token is not set.  
-Use the license token to [start Video Editor](#Start-sdk) 
+Use the license token to [start Video Editor](#Launch) 
 
 ## Concepts
 - Export - the process of making video file in video editor.
@@ -265,6 +265,10 @@ Visit [FAQ](faq.md) if you are experiencing any issues with an integration.
 [See all dependencies and licenses](dependencies_licenses.md)
 
 ## Releases
+[1.33.0](https://www.notion.so/vebanuba/1-33-0-2b49e129a00e444ba9b6f5e62f0b20b3)\
+[1.32.0](https://www.notion.so/vebanuba/1-32-0-964738ed7fc2402a8f2bd5560c74ca20)\
+[1.30.2](https://www.notion.so/vebanuba/1-30-2-d2e8a131674c43e8b3579d56e85bbc86)\
+[1.30.2](https://www.notion.so/vebanuba/1-30-2-d2e8a131674c43e8b3579d56e85bbc86)\
 [1.30.2](https://www.notion.so/vebanuba/1-30-2-d2e8a131674c43e8b3579d56e85bbc86)\
 [1.30.1](https://www.notion.so/vebanuba/1-30-1-5a08b6f2e9dc43be8bff62667daa4b1d)\
 [1.30.0](https://www.notion.so/vebanuba/1-30-0-e8a3f0f7235946d6b0a42039da8ed148)\
@@ -272,17 +276,5 @@ Visit [FAQ](faq.md) if you are experiencing any issues with an integration.
 [1.29.2](https://www.notion.so/vebanuba/1-29-2-a1a86dda6ae94527a4922ce482dd85d6)\
 [1.29.1](https://www.notion.so/vebanuba/1-29-1-78170ead1c7a4853b39d0d7a4c068b0e)\
 [1.29.0](https://www.notion.so/vebanuba/1-29-0-99aed44d533b4670ab053055e0e02d01)\
-[1.28.4](https://www.notion.so/vebanuba/1-28-4-0938f3a5b33d434b9346ab31198929e9)\
-[1.28.0](https://vebanuba.notion.site/1-28-0-0a848e6d2f5a41cbbf4263d8347e94cc)\
-[1.27.0](https://vebanuba.notion.site/1-27-0-03033a59052248e098fd60921376754b)\
-[1.26.9](https://vebanuba.notion.site/1-26-9-31040cb35a454b8c8874d2df9984e659)\
-[1.26.8](https://vebanuba.notion.site/1-26-8-6d339f3b737c4faab0e1bc86a001616e)\
-[1.26.7](https://vebanuba.notion.site/1-26-7-e4badafaf5144200a3a19ae6dfd98a7f)\
-[1.26.6](https://vebanuba.notion.site/1-26-6-2093b77cabc54ec0b28100c723ca90fe)\
-[1.26.5](https://vebanuba.notion.site/1-26-5-c621ce3ef6c84d67a721ec1e9b829dde)\
-[1.26.4](https://vebanuba.notion.site/1-26-4-41c28eeb378043039fa28ae42d2bbf74)\
-[1.26.3](https://vebanuba.notion.site/1-26-3-113feef808d14d39abf8ccdd3181b36a)\
-[1.26.2](https://vebanuba.notion.site/1-26-2-49f2bc0c102e498fa0e25e6d067aec67)\
-[1.26.1](https://vebanuba.notion.site/1-26-1-10615b7836ff422bae7ba629894fd300)\
-[1.26.0](https://vebanuba.notion.site/1-26-0-a13cea95a22940b7bf7ec14ab80cfbcb)
+
 
