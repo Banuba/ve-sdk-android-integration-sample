@@ -100,16 +100,15 @@ To add other text fonts that are used in the editor screen follow the next steps
     </resources>
     ```
 
-4. The final step is to pass your custom `font_resources` id to the `ResourcesTextOnVideoTypefaceProvider` in the ```VideoEditorModule``` to override the default implementation:
+4. The final step is to pass your custom `font_resources` id to the `MainTextOnVideoTypefaceProvider` in the ```SampleIntegrationKoinModule``` to override the default implementation:
 
     ```kotlin
-    override val textOnVideoTypefaceProvider: BeanDefinition<TextOnVideoTypefaceProvider> =
-        single(override = true) {
-            ResourcesTextOnVideoTypefaceProvider(
-                fontsArrayResId = R.array.font_resources,
-                context = get()
-            )
-        }
+    single<TextOnVideoTypefaceProvider> {
+        MainTextOnVideoTypefaceProvider(
+            context = get(),
+            fontsArrayResId = R.array.font_resources
+        )
+    }
     ```
 
 ### Optimizing app size
