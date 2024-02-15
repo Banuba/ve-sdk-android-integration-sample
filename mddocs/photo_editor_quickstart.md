@@ -36,16 +36,12 @@ allprojects {
 Next, specify a list of dependencies in [app gradle](../app/build.gradle#L83) file.
 
 ```groovy
-    def banubaPESdkVersion = '1.0.0'
+    def banubaPESdkVersion = '1.0.1'
     implementation "com.banuba.sdk:pe-sdk:${banubaPESdkVersion}"
     
-    def banubaSdkVersion = '1.33.2'
-    
-    implementation "com.banuba.sdk:ffmpeg:5.1.3"
+    def banubaSdkVersion = '1.34.0'
     implementation "com.banuba.sdk:core-sdk:${banubaSdkVersion}"
     implementation "com.banuba.sdk:core-ui-sdk:${banubaSdkVersion}"
-    implementation "com.banuba.sdk:ve-sdk:${banubaSdkVersion}"
-    implementation "com.banuba.sdk:ve-ui-sdk:${banubaSdkVersion}"
     implementation "com.banuba.sdk:ve-gallery-sdk:${banubaSdkVersion}"
     implementation "com.banuba.sdk:effect-player-adapter:${banubaSdkVersion}"
 ```
