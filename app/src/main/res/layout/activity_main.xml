@@ -54,12 +54,43 @@
         android:layout_marginTop="16dp"
         android:text="Open Video Editor - Trimmer"
         android:textSize="11sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnOpenPhotoEditor"
+        app:layout_constraintBottom_toTopOf="@+id/btnOpenVEGalleryVideoOnly"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnDraftsVideoEditor"
         app:layout_constraintVertical_bias="0" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnOpenVEGalleryVideoOnly"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Open Video Editor Gallery Video Only"
+        android:textSize="11sp"
+        app:backgroundTint="@android:color/holo_red_dark"
+        app:layout_constraintBottom_toTopOf="@+id/btnOpenVEGalleryPhotoOnly"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSlideShowVideoEditorTrimmer"
+        app:layout_constraintVertical_bias="0" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnOpenVEGalleryPhotoOnly"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Open Video Editor Gallery Photo Only"
+        android:textSize="11sp"
+        app:backgroundTint="@android:color/holo_red_dark"
+        app:layout_constraintBottom_toTopOf="@+id/btnOpenPhotoEditor"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnOpenVEGalleryVideoOnly"
+        app:layout_constraintVertical_bias="0" />
+
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnOpenPhotoEditor"
@@ -73,7 +104,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSlideShowVideoEditorTrimmer"
+        app:layout_constraintTop_toBottomOf="@+id/btnOpenVEGalleryPhotoOnly"
         app:layout_constraintVertical_bias="0" />
 
     <TextView

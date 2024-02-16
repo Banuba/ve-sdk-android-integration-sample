@@ -4,6 +4,7 @@ import android.app.Application
 import android.util.Log
 import com.banuba.sdk.core.EditorUtilityManager
 import com.banuba.sdk.core.license.BanubaVideoEditor
+import com.banuba.sdk.core.media.MediaType
 import org.koin.android.ext.android.getKoin
 import org.koin.core.context.stopKoin
 import org.koin.core.error.InstanceCreationException
@@ -11,6 +12,9 @@ import org.koin.core.error.InstanceCreationException
 class SampleApp : Application() {
 
     companion object {
+        var mediaTypes = listOf<MediaType>(MediaType.Video)
+
+
         const val TAG = "BanubaVideoEditor"
 
         // Please set your license token for Banuba Video Editor SDK or Photo Editor SDK
