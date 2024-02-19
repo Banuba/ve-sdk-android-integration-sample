@@ -36,7 +36,7 @@ Feel free to contact us if you have any questions regarding [Video Editor SDK](h
 ### Quickstart Guide
 Our [Quickstart Guide](mddocs/quickstart.md) will help you to quickly integrate and customize Video Editor SDK into your Android project.
 
-For **Photo Editor SDK** please check out the [following document](mddocs/photo_editor_quickstart.md).
+Please visit new [Video Editor](https://docs.banuba.com/ve-pe-sdk/docs/android/requirements-ve) and [Photo Editor](https://docs.banuba.com/ve-pe-sdk/docs/android/requirements-pe) documentation.
 
 ### Requirements
 - Kotlin 1.8+ or Java 17

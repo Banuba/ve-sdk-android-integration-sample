@@ -52,6 +52,14 @@ allprojects {
                 password = "\u0038\u0036\u0032\u0037\u0063\u0035\u0031\u0030\u0033\u0034\u0032\u0063\u0061\u0033\u0065\u0061\u0031\u0032\u0034\u0064\u0065\u0066\u0039\u0062\u0034\u0030\u0063\u0063\u0037\u0039\u0038\u0063\u0038\u0038\u0066\u0034\u0031\u0032\u0061\u0038"
             }
         }
+       maven {
+          name "GitHubPackagesEffectPlayer"
+          url "https://maven.pkg.github.com/sdk-banuba/banuba-sdk-android"
+          credentials {
+             username = "sdk-banuba"
+             password = "\u0067\u0068\u0070\u005f\u0033\u0057\u006a\u0059\u004a\u0067\u0071\u0054\u0058\u0058\u0068\u0074\u0051\u0033\u0075\u0038\u0051\u0046\u0036\u005a\u0067\u004f\u0041\u0053\u0064\u0046\u0032\u0045\u0046\u006a\u0030\u0036\u006d\u006e\u004a\u004a"
+          }
+       }
 
         ...
     }
@@ -61,7 +69,7 @@ allprojects {
 Next, specify a list of dependencies in [app gradle](../app/build.gradle#L61) file.
 
 ```groovy
-    def banubaSdkVersion = '1.33.2'
+    def banubaSdkVersion = '1.34.0'
 
     implementation "com.banuba.sdk:ffmpeg:5.1.3"
     implementation "com.banuba.sdk:camera-sdk:${banubaSdkVersion}"
@@ -242,7 +250,7 @@ Video editor has built in UI/UX experience and provides a number of customizatio
 :white_check_mark: Change text styles i.e. font, color  
 :white_check_mark: Localize and change text resources. Default locale is :us:  
 :white_check_mark: Make content you want i.e. a number of video with different resolutions  and durations, an audio file. [See details](advanced_integration.md#Configure-export-flow)  
-:white_check_mark: Masks and filters order. [See details](guide_far_arcloud.md#Change-effects-order)  
+:white_check_mark: Masks and filters order.
 
 NOT AVAILABLE  
 :x: Change layout  
@@ -265,6 +273,7 @@ Visit [FAQ](faq.md) if you are experiencing any issues with an integration.
 [See all dependencies and licenses](dependencies_licenses.md)
 
 ## Releases
+[1.34.0](https://www.notion.so/vebanuba/1-34-0-a93561e02494400f99358e021d340534)\
 [1.33.0](https://www.notion.so/vebanuba/1-33-0-2b49e129a00e444ba9b6f5e62f0b20b3)\
 [1.32.0](https://www.notion.so/vebanuba/1-32-0-964738ed7fc2402a8f2bd5560c74ca20)\
 [1.30.2](https://www.notion.so/vebanuba/1-30-2-d2e8a131674c43e8b3579d56e85bbc86)\

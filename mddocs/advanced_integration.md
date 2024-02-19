@@ -12,18 +12,6 @@ This guide is aimed to help you complete advanced integration of Video Editor SD
 - [Drafts](#Drafts)
 - [Launch methods](#Launch-methods)
 
-## Face AR SDK and AR Cloud
-[Banuba Face AR SDK](https://www.banuba.com/facear-sdk/face-filters) is used in Video Editor for applying AR effects in 2 use cases:
-1. Camera screen  
-   The user can record video content with various AR effects.
-2. Editor screen  
-   The user can apply various AR effects on existing video.
-
-Video Editor SDK has built in integration with Banuba AR Cloud - remote storage for Banuba AR effects.
-
-Please follow [Face AR and AR Cloud integration guide](guide_far_arcloud.md) if you are interested in disabling Face AR,
-integrating AR Cloud, managing AR effects and many more.
-
 ## Video recording
 Video editor supports functionality allowing to record video using Android camera. There are many features, configurations and styles 
 that will help you to record video easily in an excellent quality.  
@@ -51,10 +39,6 @@ Video Editor allows to apply a number of various effects to video:
 8. Transitions
 
 Please follow [Video Editor effects integration guide](guide_effects.md) to get more information about applying available effects.
-
-## Add audio content
-Video Editor has built in support and API for browsing, playing and applying audio while making video content on various screens.  
-Follow [Video Editor audio content integration guide](guide_audio_content.md) to know more details about using audio and API in Video Editor.
 
 ## Cover image
 Cover image is a frame of a video which the user can easily select on a specific video editor screen i.e cover screen.  

@@ -160,6 +160,3 @@ android.bundle.enableUncompressedNativeLibs=false
     ...
 >
 ```
-
-### How to integrate custom FFmpeg dependency.
-Check out [step-by-step guide](ffmpeg_dependency.md) to integrate custom FFmpeg dependency.
