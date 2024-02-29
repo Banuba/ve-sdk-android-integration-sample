@@ -17,13 +17,14 @@ import com.banuba.sdk.export.utils.EXTRA_EXPORTED_SUCCESS
 import com.banuba.sdk.pe.PhotoCreationActivity
 import com.banuba.sdk.pe.PhotoExportResultContract
 import com.banuba.sdk.ve.flow.VideoCreationActivity
+import com.banuba.sdk.ve.flow.VideoExportResultContract
 
 
 class MainActivity : AppCompatActivity() {
 
     // Handle Video Editor export results
     private val videoEditorExportResult =
-        registerForActivityResult(CustomExportResultVideoContract()) { exportResult ->
+        registerForActivityResult(VideoExportResultContract()) { exportResult ->
             (application as? SampleApp)?.releaseVideoEditor()
             // The dialog is used to demo export result in a various ways.
             // It is not required to copy and paste this approach to your project.
