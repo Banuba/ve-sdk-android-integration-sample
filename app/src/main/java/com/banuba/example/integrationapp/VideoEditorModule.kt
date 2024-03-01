@@ -25,6 +25,7 @@ import com.banuba.sdk.export.data.ExportParamsProvider
 import com.banuba.sdk.export.data.ForegroundExportFlowManager
 import com.banuba.sdk.export.di.VeExportKoinModule
 import com.banuba.sdk.gallery.di.GalleryKoinModule
+import com.banuba.sdk.gallery.domain.GalleryMediaContentProvider
 import com.banuba.sdk.playback.di.VePlaybackSdkKoinModule
 import com.banuba.sdk.ve.di.VeSdkKoinModule
 import com.banuba.sdk.ve.domain.VideoRangeList
@@ -112,6 +113,10 @@ private class SampleIntegrationKoinModule {
             CustomSharingActionHandler(
                 exportFlowManager = get()
             )
+        }
+
+        factory<ContentFeatureProvider<List<Uri>, Fragment>>(named("mediaDataProvider")) { (external: Boolean?) ->
+            GalleryMediaContentProvider(external ?: true, SampleApp.mediaTypes)
         }
     }
 }

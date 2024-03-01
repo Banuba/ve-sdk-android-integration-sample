@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.banuba.example.integrationapp.databinding.ActivityMainBinding
 import com.banuba.sdk.cameraui.data.PipConfig
+import com.banuba.sdk.core.media.MediaType
 import com.banuba.sdk.core.ui.ext.visible
 import com.banuba.sdk.export.data.ExportResult
 import com.banuba.sdk.export.utils.EXTRA_EXPORTED_SUCCESS
@@ -128,6 +129,14 @@ class MainActivity : AppCompatActivity() {
                 binding.btnOpenPhotoEditor.setOnClickListener {
                     // Start Photo Editor SDK
                     photoEditorExportResult.launch(PhotoCreationActivity.startFromGallery(this@MainActivity))
+                }
+                binding.btnOpenVEGalleryVideoOnly.setOnClickListener {
+                    SampleApp.mediaTypes = listOf(MediaType.Video)
+                    openVideoEditor()
+                }
+                binding.btnOpenVEGalleryPhotoOnly.setOnClickListener {
+                    SampleApp.mediaTypes = listOf(MediaType.Image)
+                    openVideoEditor()
                 }
             } else {
                 // ❌ Use of Video Editor is restricted. License is revoked or expired.
