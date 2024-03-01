@@ -10,7 +10,10 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.banuba.example.integrationapp.databinding.ActivityMainBinding
+import com.banuba.sdk.cameraui.data.CameraConfig
+import com.banuba.sdk.cameraui.data.CameraRecordingModesProvider
 import com.banuba.sdk.cameraui.data.PipConfig
+import com.banuba.sdk.cameraui.ui.RecordMode
 import com.banuba.sdk.core.ui.ext.visible
 import com.banuba.sdk.export.data.ExportResult
 import com.banuba.sdk.export.utils.EXTRA_EXPORTED_SUCCESS
@@ -18,6 +21,7 @@ import com.banuba.sdk.pe.PhotoCreationActivity
 import com.banuba.sdk.pe.PhotoExportResultContract
 import com.banuba.sdk.ve.flow.VideoCreationActivity
 import com.banuba.sdk.ve.flow.VideoExportResultContract
+import org.koin.android.ext.android.inject
 
 
 class MainActivity : AppCompatActivity() {
@@ -129,6 +133,12 @@ class MainActivity : AppCompatActivity() {
                     // Start Photo Editor SDK
                     photoEditorExportResult.launch(PhotoCreationActivity.startFromGallery(this@MainActivity))
                 }
+                binding.btnCameraVideoOnly.setOnClickListener {
+                    startVideoEditorVideoOnCameraOnly()
+                }
+                binding.btnPhotoOnly.setOnClickListener {
+                    startVideoEditorPhotoOnCameraOnly()
+                }
             } else {
                 // ❌ Use of Video Editor is restricted. License is revoked or expired.
                 binding.licenseStateView.text = SampleApp.ERR_LICENSE_REVOKED
@@ -182,5 +192,21 @@ class MainActivity : AppCompatActivity() {
     private fun startVideoEditor(veIntent: Intent) {
         (application as? SampleApp)?.prepareVideoEditor()
         videoEditorExportResult.launch(veIntent)
+    }
+
+    private fun startVideoEditorVideoOnCameraOnly() {
+        (application as? SampleApp)?.prepareVideoEditor()
+        val cameraRecordingModesProvider: CameraRecordingModesProvider by inject()
+        cameraRecordingModesProvider.availableModes = setOf(RecordMode.Video)
+        videoEditorExportResult.launch(VideoCreationActivity.startFromCamera(context = applicationContext))
+    }
+
+    private fun startVideoEditorPhotoOnCameraOnly() {
+        (application as? SampleApp)?.prepareVideoEditor()
+        val cameraRecordingModesProvider: CameraRecordingModesProvider by inject()
+        cameraRecordingModesProvider.availableModes = setOf(RecordMode.Photo)
+        val cameraConfig: CameraConfig by inject()
+        cameraConfig.supportsExternalMusic = false
+        videoEditorExportResult.launch(VideoCreationActivity.startFromCamera(context = applicationContext))
     }
 }
