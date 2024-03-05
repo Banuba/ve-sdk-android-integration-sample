@@ -106,13 +106,6 @@ private class SampleIntegrationKoinModule {
                 override fun provide(): AspectRatio = AspectRatio(9.0 / 16)
             }
         }
-
-        // Override implementation if you use sharing functionality
-        single<SharingActionHandler> {
-            CustomSharingActionHandler(
-                exportFlowManager = get()
-            )
-        }
     }
 }
 

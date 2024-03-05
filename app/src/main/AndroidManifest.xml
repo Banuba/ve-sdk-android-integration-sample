@@ -31,18 +31,6 @@
             android:windowSoftInputMode="adjustResize"
             tools:replace="android:theme" />
 
-        <activity
-            android:name=".CustomVideoSharingActivity"
-            android:configChanges="orientation|screenSize|screenLayout"
-            android:exported="false"
-            android:theme="@style/CustomIntegrationAppTheme"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="${applicationId}.ShowExportResult" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
         <!-- Allows to share exported video -->
         <provider
             android:name="androidx.core.content.FileProvider"

@@ -25,13 +25,17 @@ class MainActivity : AppCompatActivity() {
     // Handle Video Editor export results
     private val videoEditorExportResult =
         registerForActivityResult(VideoExportResultContract()) { exportResult ->
+            // The dialog is used only to demonstrate and play an exported video file.
+
+            // Release Video Editor SDK after exporting video and closing the latest SDK screen
             (application as? SampleApp)?.releaseVideoEditor()
-            // The dialog is used to demo export result in a various ways.
-            // It is not required to copy and paste this approach to your project.
+
             AlertDialog.Builder(this).setMessage("Export result")
-                .setPositiveButton("Play Video") { _, _ -> playExportedVideo(exportResult) }
-                .setNegativeButton("Open Sharing") { _, _ -> openSharingActivity(exportResult) }
-                .setNeutralButton("Close") { _, _ -> }.create().show()
+                .setPositiveButton("Play Video") { _, _ ->
+                    playExportedVideo(exportResult)
+                }
+                .setNeutralButton("Close") { _, _ ->
+                }.create().show()
         }
 
     private fun playExportedVideo(exportResult: ExportResult?) {
@@ -39,17 +43,6 @@ class MainActivity : AppCompatActivity() {
             exportResult.videoList.firstOrNull()?.let {
                 Utils.playExportedVideo(this@MainActivity, it.sourceUri)
             }
-        }
-    }
-
-    private fun openSharingActivity(exportResult: ExportResult?) {
-        if (exportResult is ExportResult.Success) {
-            val resId = com.banuba.sdk.export.R.string.export_action_name
-            val intent =
-                Intent(getString(resId, packageName)).apply {
-                    putExtra(EXTRA_EXPORTED_SUCCESS, exportResult)
-                }
-            startActivity(intent)
         }
     }
 
