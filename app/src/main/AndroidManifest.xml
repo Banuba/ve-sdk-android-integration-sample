@@ -31,7 +31,7 @@
             android:windowSoftInputMode="adjustResize"
             tools:replace="android:theme" />
 
-        <!-- Allows to share exported video -->
+        <!-- Allows to play exported video -->
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"

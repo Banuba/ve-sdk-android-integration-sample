@@ -1,6 +1,3 @@
 <resources>
     <string name="app_name">Banuba VE SDK Integration sample</string>
-
-    <!-- AUDIO BROWSER MUBERT -->
-    <string name="mubert_api_key">PUT YOUR PERSONAL MUBERT KEY</string>
 </resources>
