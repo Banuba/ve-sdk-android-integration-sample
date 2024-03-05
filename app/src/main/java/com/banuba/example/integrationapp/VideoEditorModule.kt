@@ -8,21 +8,15 @@ import com.banuba.sdk.arcloud.data.source.ArEffectsRepositoryProvider
 import com.banuba.sdk.arcloud.di.ArCloudKoinModule
 import com.banuba.sdk.audiobrowser.di.AudioBrowserKoinModule
 import com.banuba.sdk.audiobrowser.domain.AudioBrowserMusicProvider
-import com.banuba.sdk.cameraui.data.CameraTimerActionProvider
-import com.banuba.sdk.cameraui.domain.HandsFreeTimerActionProvider
-import com.banuba.sdk.core.AspectRatio
 import com.banuba.sdk.core.HardwareClassProvider
 import com.banuba.sdk.core.VideoResolution
 import com.banuba.sdk.core.data.TrackData
-import com.banuba.sdk.core.domain.AspectRatioProvider
 import com.banuba.sdk.core.ext.toPx
 import com.banuba.sdk.core.media.MediaFileNameHelper
 import com.banuba.sdk.core.ui.ContentFeatureProvider
 import com.banuba.sdk.effectplayer.adapter.BanubaEffectPlayerKoinModule
-import com.banuba.sdk.export.data.ExportFlowManager
 import com.banuba.sdk.export.data.ExportParams
 import com.banuba.sdk.export.data.ExportParamsProvider
-import com.banuba.sdk.export.data.ForegroundExportFlowManager
 import com.banuba.sdk.export.di.VeExportKoinModule
 import com.banuba.sdk.gallery.di.GalleryKoinModule
 import com.banuba.sdk.playback.di.VePlaybackSdkKoinModule
@@ -35,8 +29,6 @@ import com.banuba.sdk.ve.effects.watermark.WatermarkBuilder
 import com.banuba.sdk.ve.ext.withWatermark
 import com.banuba.sdk.ve.flow.di.VeFlowKoinModule
 import com.banuba.sdk.veui.di.VeUiSdkKoinModule
-import com.banuba.sdk.veui.domain.CoverProvider
-import com.banuba.sdk.veui.ui.sharing.SharingActionHandler
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import org.koin.core.qualifier.named
@@ -49,12 +41,12 @@ class VideoEditorModule {
             androidContext(applicationContext)
             allowOverride(true)
 
-            // pass the customized Koin module that implements required dependencies. Keep order of modules
+            // pass the customized Koin modules that implements required dependencies. Keep order of modules
             modules(
                 VeSdkKoinModule().module,
                 VeExportKoinModule().module,
                 VePlaybackSdkKoinModule().module,
-                AudioBrowserKoinModule().module, // use this module only if you bought it
+                AudioBrowserKoinModule().module,
                 ArCloudKoinModule().module,
                 VeUiSdkKoinModule().module,
                 VeFlowKoinModule().module,
@@ -99,12 +91,6 @@ private class SampleIntegrationKoinModule {
             named("musicTrackProvider")
         ) {
             AudioBrowserMusicProvider()
-        }
-
-        single<AspectRatioProvider> {
-            object : AspectRatioProvider {
-                override fun provide(): AspectRatio = AspectRatio(9.0 / 16)
-            }
         }
     }
 }
