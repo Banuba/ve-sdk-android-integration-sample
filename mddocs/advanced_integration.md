@@ -4,7 +4,6 @@ This guide is aimed to help you complete advanced integration of Video Editor SD
 
 - [Face AR SDK and AR Cloud](#Face-AR-SDK-and-AR-Cloud)
 - [Video recording](#Video-recording)
-- [Gallery](#Gallery)
 - [Video editing](#Video-editing)
 - [Add effects](#Add-effects)
 - [Add audio content](#Add-audio-content)
@@ -15,11 +14,6 @@ This guide is aimed to help you complete advanced integration of Video Editor SD
 Video editor supports functionality allowing to record video using Android camera. There are many features, configurations and styles 
 that will help you to record video easily in an excellent quality.  
 Please follow [video recording integration guide](guide_video_recording.md) to know more about available features.
-
-## Gallery
-Video editor includes gallery screen where the user is able to pick any video and image stored on the device. 
-Any video or image content is validated before using it in playback or export functionality. See [supported media formats](../README.md#Supported-media-formats).  
-Visit [Gallery guide](guide_gallery.md) to get more details how to customize or replace with your own version.
 
 ## Video editing
 Any video recorded or picked in gallery can be edited in video editor. Our SDK allows rich set of functionalities to 
