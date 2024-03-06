@@ -100,8 +100,7 @@ Please make sure all these resources exist in your project.
 
 1. [bnb-resources](../app/src/main/assets/bnb-resources)  Banuba AR and color filters. AR effects ```assets/bnb-resources/effects``` requires [Face AR](https://docs.banuba.com/face-ar-sdk-v1) product.
 
-2. [drawable-hdpi](../app/src/main/res/drawable-hdpi),
-   [drawable-xhdpi](../app/src/main/res/drawable-xhdpi),
+2. [drawable-xhdpi](../app/src/main/res/drawable-xhdpi),
    [drawable-xxhdpi](../app/src/main/res/drawable-xxhdpi),
    [drawable-xxxhdpi](../app/src/main/res/drawable-xxxhdpi) are visual assets for color filter previews.
 
