@@ -33,10 +33,11 @@ Feel free to contact us if you have any questions regarding [Video Editor SDK](h
 2. Add the license token [within the app](app/src/main/java/com/banuba/example/integrationapp/SampleApp.kt#L13)
 3. Run the sample application in your IDE
 
-### Quickstart Guide
+### Quickstart Integration Guide
 Our [Quickstart Guide](mddocs/quickstart.md) will help you to quickly integrate and customize Video Editor SDK into your Android project.
 
-Please visit new [Video Editor](https://docs.banuba.com/ve-pe-sdk/docs/android/requirements-ve) and [Photo Editor](https://docs.banuba.com/ve-pe-sdk/docs/android/requirements-pe) documentation.
+### Documentation
+Please visit [Video Editor SDK](https://docs.banuba.com/ve-pe-sdk/docs/android/requirements-ve) and [Photo Editor SDK](https://docs.banuba.com/ve-pe-sdk/docs/android/requirements-pe) documentation to know more about SDK.
 
 ### Requirements
 - Kotlin 1.8+ or Java 17
@@ -48,3 +49,18 @@ Please visit new [Video Editor](https://docs.banuba.com/ve-pe-sdk/docs/android/r
 | Audio                                  | Video      | Images      |
 |----------------------------------------| ---------  | ----------- |
 | .aac, .mp3, .wav,<br>.ogg, .m4a, .flac |.mp4, .mov | .jpg, .gif, .heic, .png,<br>.nef, .cr2, .jpeg, .raf, .bmp
+
+
+## Releases
+[1.34.0](https://www.notion.so/vebanuba/1-34-0-a93561e02494400f99358e021d340534)\
+[1.33.0](https://www.notion.so/vebanuba/1-33-0-2b49e129a00e444ba9b6f5e62f0b20b3)\
+[1.32.0](https://www.notion.so/vebanuba/1-32-0-964738ed7fc2402a8f2bd5560c74ca20)\
+[1.30.2](https://www.notion.so/vebanuba/1-30-2-d2e8a131674c43e8b3579d56e85bbc86)\
+[1.30.2](https://www.notion.so/vebanuba/1-30-2-d2e8a131674c43e8b3579d56e85bbc86)\
+[1.30.2](https://www.notion.so/vebanuba/1-30-2-d2e8a131674c43e8b3579d56e85bbc86)\
+[1.30.1](https://www.notion.so/vebanuba/1-30-1-5a08b6f2e9dc43be8bff62667daa4b1d)\
+[1.30.0](https://www.notion.so/vebanuba/1-30-0-e8a3f0f7235946d6b0a42039da8ed148)\
+[1.29.3](https://www.notion.so/vebanuba/1-29-3-3902233840384206ae54b5255ea048b4)\
+[1.29.2](https://www.notion.so/vebanuba/1-29-2-a1a86dda6ae94527a4922ce482dd85d6)\
+[1.29.1](https://www.notion.so/vebanuba/1-29-1-78170ead1c7a4853b39d0d7a4c068b0e)\
+[1.29.0](https://www.notion.so/vebanuba/1-29-0-99aed44d533b4670ab053055e0e02d01)\

@@ -1,20 +1,4 @@
-# Quickstart Guide
-
-- [Prerequisites](#Prerequisites)
-- [Concepts](#Concepts)
-- [Installation](#installation)
-- [Resources](#resources)
-- [Configuration](#configuration)
-- [Launch](#Launch)
-- [Advanced integration](#Advanced-integration)
-- [FAQ](#FAQ)
-- [Dependencies and licenses](#Dependencies-and-licenses)
-- [Releases](#Releases)
-
-## Prerequisites
-:exclamation: The license token **IS REQUIRED** to use Video Editor SDK in your app.  
-Please check [Installation](../README.md#Installation) out guide if the license token is not set.  
-Use the license token to [start Video Editor](#Launch) 
+# Quickstart Integration Guide
 
 ## Concepts
 - Export - the process of making video file in video editor.
@@ -22,6 +6,12 @@ Use the license token to [start Video Editor](#Launch)
 - PIP - short Picture-in-Picture feature.
 - Trimmer - a screen where the user can trim, merge, change aspects of videos
 - Editor -  a screen where the user can manage effects and audio. The next screen after trimmer.
+
+- [Installation](#installation)
+- [Resources](#resources)
+- [Configuration](#configuration)
+- [Launch](#Launch)
+- [Advanced integration](#Advanced-integration)
 
 ## Installation
 GitHub Packages is used for downloading Android Video Editor SDK modules.
@@ -236,33 +226,5 @@ NOT AVAILABLE
 :x: Change order of screens after entry point
 
 Visit [Advanced integration guide](advanced_integration.md) to know more about features and customizations.
-
-## FAQ
-Visit [FAQ](faq.md) if you are experiencing any issues with an integration.
-
-## Dependencies and licenses
-- [Koin](https://insert-koin.io/)
-- [ExoPlayer](https://github.com/google/ExoPlayer)
-- [Glide](https://github.com/bumptech/glide)
-- [Kotlin Coroutines](https://github.com/Kotlin/kotlinx.coroutines)
-- [ffmpeg](https://github.com/FFmpeg/FFmpeg/tree/n5.1.3)
-- [AndroidX](https://developer.android.com/jetpack/androidx) libraries
-- [Banuba Face AR SDK](https://www.banuba.com/facear-sdk/face-filters). **Optional**. *Video Editor SDK disables Face AR for devices with CPU armv7l(8 cores) and armv8(working in 32bit mode)*.
-
-[See all dependencies and licenses](dependencies_licenses.md)
-
-## Releases
-[1.34.0](https://www.notion.so/vebanuba/1-34-0-a93561e02494400f99358e021d340534)\
-[1.33.0](https://www.notion.so/vebanuba/1-33-0-2b49e129a00e444ba9b6f5e62f0b20b3)\
-[1.32.0](https://www.notion.so/vebanuba/1-32-0-964738ed7fc2402a8f2bd5560c74ca20)\
-[1.30.2](https://www.notion.so/vebanuba/1-30-2-d2e8a131674c43e8b3579d56e85bbc86)\
-[1.30.2](https://www.notion.so/vebanuba/1-30-2-d2e8a131674c43e8b3579d56e85bbc86)\
-[1.30.2](https://www.notion.so/vebanuba/1-30-2-d2e8a131674c43e8b3579d56e85bbc86)\
-[1.30.1](https://www.notion.so/vebanuba/1-30-1-5a08b6f2e9dc43be8bff62667daa4b1d)\
-[1.30.0](https://www.notion.so/vebanuba/1-30-0-e8a3f0f7235946d6b0a42039da8ed148)\
-[1.29.3](https://www.notion.so/vebanuba/1-29-3-3902233840384206ae54b5255ea048b4)\
-[1.29.2](https://www.notion.so/vebanuba/1-29-2-a1a86dda6ae94527a4922ce482dd85d6)\
-[1.29.1](https://www.notion.so/vebanuba/1-29-1-78170ead1c7a4853b39d0d7a4c068b0e)\
-[1.29.0](https://www.notion.so/vebanuba/1-29-0-99aed44d533b4670ab053055e0e02d01)\
 
 

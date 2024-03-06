@@ -8,7 +8,6 @@ This guide is aimed to help you complete advanced integration of Video Editor SD
 - [Video editing](#Video-editing)
 - [Add effects](#Add-effects)
 - [Add audio content](#Add-audio-content)
-- [Cover image](#Cover-image)
 - [Drafts](#Drafts)
 - [Launch methods](#Launch-methods)
 
@@ -39,10 +38,6 @@ Video Editor allows to apply a number of various effects to video:
 8. Transitions
 
 Please follow [Video Editor effects integration guide](guide_effects.md) to get more information about applying available effects.
-
-## Cover image
-Cover image is a frame of a video which the user can easily select on a specific video editor screen i.e cover screen.  
-Visit [Cover image guide](guide_cover_image.md) to get more details how to customize or disable it.
 
 ## Drafts
 The feature that allows your users to save and proceed editing later. Video editor includes built in screen for managing drafts.  
