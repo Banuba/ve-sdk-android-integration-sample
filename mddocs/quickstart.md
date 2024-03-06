@@ -2,11 +2,9 @@
 
 - [Prerequisites](#Prerequisites)
 - [Concepts](#Concepts)
-- [Add dependencies](#Add-dependencies)
-- [Update AndroidManifest](#Update-AndroidManifest)
-- [Add resources](#Add-resources)
-- [Add module](#Add-module)
-- [Implement export](#Implement-export)
+- [Installation](#installation)
+- [Resources](#resources)
+- [Configuration](#configuration)
 - [Launch](#Launch)
 - [Advanced integration](#Advanced-integration)
 - [FAQ](#FAQ)
@@ -25,10 +23,10 @@ Use the license token to [start Video Editor](#Launch)
 - Trimmer - a screen where the user can trim, merge, change aspects of videos
 - Editor -  a screen where the user can manage effects and audio. The next screen after trimmer.
 
-## Add dependencies
-GitHub Packages is used for getting Android Video Editor SDK modules.
+## Installation
+GitHub Packages is used for downloading Android Video Editor SDK modules.
 
-First, add repositories to your [project gradle](../build.gradle#L21) file in ```allprojects``` section.
+First, add repositories to [gradle](../build.gradle#L21) file in ```allprojects``` section.
 ```groovy
 ...
 
@@ -66,10 +64,10 @@ allprojects {
 }
 ```
 
-Next, specify a list of dependencies in [app gradle](../app/build.gradle#L61) file.
+Next, specify a list of dependencies in [gradle](../app/build.gradle#L63) file.
 
 ```groovy
-    def banubaSdkVersion = '1.34.0'
+    def banubaSdkVersion = '1.34.1'
 
     implementation "com.banuba.sdk:ffmpeg:5.1.3"
     implementation "com.banuba.sdk:camera-sdk:${banubaSdkVersion}"
@@ -89,16 +87,27 @@ Next, specify a list of dependencies in [app gradle](../app/build.gradle#L61) fi
     implementation "com.banuba.sdk:ve-playback-sdk:${banubaSdkVersion}"
 ```
 
-Also you need to add "kotlin-parcelize" plugin into plugin section of [app gradle](../app/build.gradle#L4) file.
+Additionally, make sure the following plugins are in your app [gradle](../app/build.gradle#L1) file.
 ```groovy
-plugins {
-    id 'com.android.application'
-    id 'kotlin-android'
-    id 'kotlin-parcelize'
-}
+    apply plugin: 'com.android.application'
+    apply plugin: 'kotlin-android'
+    apply plugin: 'kotlin-parcelize'
 ```
 
-## Update AndroidManifest
+## Resources
+Video Editor SDK uses a lot of resources required for running in the app.  
+Please make sure all these resources exist in your project.
+
+1. [bnb-resources](../app/src/main/assets/bnb-resources)  Banuba AR and color filters. AR effects ```assets/bnb-resources/effects``` requires [Face AR](https://docs.banuba.com/face-ar-sdk-v1) product.
+
+2. [drawable-hdpi](../app/src/main/res/drawable-hdpi),
+   [drawable-xhdpi](../app/src/main/res/drawable-xhdpi),
+   [drawable-xxhdpi](../app/src/main/res/drawable-xxhdpi),
+   [drawable-xxxhdpi](../app/src/main/res/drawable-xxxhdpi) are visual assets for color filter previews.
+
+3. [themes.xml](../app/src/main/res/values/themes.xml) includes implementation of ```VideoCreationTheme``` of Video Editor SDK.
+
+## Configuration
 Add ```VideoCreationActivity``` in [AndroidManifest.xml](../app/src/main/AndroidManifest.xml#L27) files.  
 ``` xml
 <activity android:name="com.banuba.sdk.ve.flow.VideoCreationActivity"
@@ -121,24 +130,10 @@ Network is used for downloading AR effects from AR Cloud and stickers from [Giph
 Custom implementation of ```VideoCreationTheme``` is required for running ```VideoCreationActivity``` for customizing visual appearance of Video Editor SDK i.e. colors, icons and more.  
 [See example](../app/src/main/res/values/themes.xml#L13).
 
-## Add resources
-Video Editor SDK uses a lot of resources required for running in the app.  
-Please make sure all these resources exist in your project.
+Create new Kotlin class [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt) in your project
+for initializing and customizing Video Editor SDK features.
 
-1. [bnb-resources](../app/src/main/assets/bnb-resources)  Banuba AR and color filters. AR effects ```assets/bnb-resources/effects``` requires [Face AR](https://docs.banuba.com/face-ar-sdk-v1) product.
-
-2. [drawable-hdpi](../app/src/main/res/drawable-hdpi),
-   [drawable-xhdpi](../app/src/main/res/drawable-xhdpi),
-   [drawable-xxhdpi](../app/src/main/res/drawable-xxhdpi),
-   [drawable-xxxhdpi](../app/src/main/res/drawable-xxxhdpi) are visual assets for color filter previews.
-
-3. [themes.xml](../app/src/main/res/values/themes.xml) includes implementation of ```VideoCreationTheme``` of Video Editor SDK.
-
-## Add module
-Custom behavior of Video Editor SDK in your app is implemented by using dependency injection framework [Koin](https://insert-koin.io/).  
-
-First, create new class ```VideoEditorModule``` for implementing Video Editor SDK features.  
-Next, add new class ```SampleIntegrationKoinModule``` for initializing and customizing Video Editor SDK dependencies. 
+Next, add new class [SampleIntegrationKoinModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L51)  for customizing Video Editor SDK features. 
 ``` kotlin
 class VideoEditorModule {
    ...
@@ -151,7 +146,7 @@ class VideoEditorModule {
 ```
 
 Next, add method to initialize Video Editor SDK modules and add ```SampleIntegrationKoinModule``` to the list of modules.
-``` kotlin
+``` diff
 fun initialize(applicationContext: Context) {
         startKoin {
             androidContext(applicationContext)
@@ -169,16 +164,15 @@ fun initialize(applicationContext: Context) {
                 GalleryKoinModule().module,
                 BanubaEffectPlayerKoinModule().module,
                 
-                SampleIntegrationKoinModule().module,
++                SampleIntegrationKoinModule().module,
             )
         }
     }
 ```
 
-[VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L65) 
-demonstrates a list of dependencies and configurations required for the launch.  
+## Launch
 
-Finally, initialize ```VideoEditorModule```  in [Application class](../app/src/main/java/com/banuba/example/integrationapp/SampleApp.kt) onCreate() method.
+Initialize ```VideoEditorModule```  in [Application](../app/src/main/java/com/banuba/example/integrationapp/SampleApp.kt#L42).
 ``` kotlin
 override fun onCreate() {
         super.onCreate()
@@ -188,30 +182,16 @@ override fun onCreate() {
     }
 ```
 
-## Implement export
-Video Editor can export a number of media files to meet your requirements.
-Implement ```ExportParamsProvider``` and provide ```List<ExportParams>``` where every ```ExportParams``` is a media file i.e. video or audio.  
-Check [CustomExportParamsProvider](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L105) implementation and follow [Export integration guide](guide_export.md) to know more about exporting media content.
-
-## Launch
-Create instance of ```BanubaVideoEditor```  by using the license token
+Next, create instance of ```BanubaVideoEditor```  by using the license token
 ``` kotlin
 val videoEditorSDK = BanubaVideoEditor.initialize(LICENSE_TOKEN)
 ```
-```videoEditorSDK``` is ```null``` when the license token is incorrect i.e. empty, truncated.
-If ```videoEditorSDK``` is not ```null``` you can proceed and start video editor.
 
-Next, we strongly recommend checking your license state before staring video editor
-```kotlin
-videoEditorSDK.getLicenseState { isValid ->
-   if (isValid) {
-      // ✅ License is active, all good
-      // Start Video Editor SDK
-   } else {
-      // ❌ Use of Video Editor is restricted. License is revoked or expired.
-   }
-}
-```
+:exclamation: Important
+1. Instance ```videoEditorSDK``` is ```null``` if the license token is incorrect. In this case you cannot use photo editor. Check your license token.
+2. It is highly recommended to [check](../app/src/main/java/com/banuba/example/integrationapp/MainActivity.kt#L104) if the license is active before starting Photo Editor.
+
+
 :exclamation: Video content unavailable screen will appear if you start Video Editor SDK with revoked or expired license.  
 <p align="center">
 <img src="screenshots/screen_expired.png"  width="25%" height="auto">
