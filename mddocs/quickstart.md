@@ -57,7 +57,7 @@ allprojects {
 Next, specify a list of dependencies in [gradle](../app/build.gradle#L63) file.
 
 ```groovy
-    def banubaSdkVersion = '1.34.1'
+    def banubaSdkVersion = '1.35.0'
 
     implementation "com.banuba.sdk:ffmpeg:5.1.3"
     implementation "com.banuba.sdk:camera-sdk:${banubaSdkVersion}"
@@ -75,6 +75,7 @@ Next, specify a list of dependencies in [gradle](../app/build.gradle#L63) file.
     implementation "com.banuba.sdk:ve-audio-browser-sdk:${banubaSdkVersion}"
     implementation "com.banuba.sdk:ve-export-sdk:${banubaSdkVersion}"
     implementation "com.banuba.sdk:ve-playback-sdk:${banubaSdkVersion}"
+
 ```
 
 Additionally, make sure the following plugins are in your app [gradle](../app/build.gradle#L1) file.
