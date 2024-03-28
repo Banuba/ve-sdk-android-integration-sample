@@ -1,7 +1,6 @@
 # Effects integration guide
 
 - [Color filters](#Color-filters)
-- [Stickers(GIPHY)](#Stickers(GIPHY))
 - [Visual FX](#Visual-FX)
 - [Time](#Time)
 - [Transitions](#Transitions)
@@ -60,23 +59,6 @@ single<OrderProvider>(named("colorFilterOrderProvider")) {
     CustomColorFilterOrderProvider()
 }
 ```
-
-## Stickers(GIPHY)
-Video Editor SDK has built in integration with [Giphy service](https://developers.giphy.com/docs/api/) for loading stickers.  
-Any sticker effect represents a GIF file.  
- 
-To use stickers in your project you need to request personal [Giphy API key](https://support.giphy.com/hc/en-us/articles/360020283431-Request-A-GIPHY-API-Key).  
-Set GIPHY API key to ```stickersApiKey``` parameter in [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L156).
-
-``` diff
-single(override = true) {
-    EditorConfig(
-        ...
-+       stickersApiKey = "<-- Paste Giphy key here to load gif images -->"
-    )
-}
-```
-Stickers will appear in the container on editor screen once ```stickersApiKey``` is set.
 
 ## Visual FX 
 FX(or visual) effect can be applied on a recorded video on editor screen i.e. ```Zoom```, ```Glitch```, etc. 
