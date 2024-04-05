@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -13,7 +14,6 @@ import com.banuba.example.integrationapp.databinding.ActivityMainBinding
 import com.banuba.sdk.cameraui.data.PipConfig
 import com.banuba.sdk.core.ui.ext.visible
 import com.banuba.sdk.export.data.ExportResult
-import com.banuba.sdk.export.utils.EXTRA_EXPORTED_SUCCESS
 import com.banuba.sdk.pe.PhotoCreationActivity
 import com.banuba.sdk.pe.PhotoExportResultContract
 import com.banuba.sdk.ve.flow.VideoCreationActivity
@@ -72,8 +72,11 @@ class MainActivity : AppCompatActivity() {
 
     private val photoEditorExportResult =
         registerForActivityResult(PhotoExportResultContract()) { uri ->
-            if (uri == null) {
-                Log.w(SampleApp.TAG, "Failed to export image")
+            if (uri == null || uri == Uri.EMPTY) {
+                val errMessage =
+                    "Failed to export image or the token does not support Photo Editor SDK"
+                Log.w(SampleApp.TAG, errMessage)
+                Toast.makeText(applicationContext, errMessage, Toast.LENGTH_SHORT).show()
                 return@registerForActivityResult
             }
 
