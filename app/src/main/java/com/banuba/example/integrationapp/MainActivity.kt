@@ -70,11 +70,26 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private val requestImageOpenPhotoEditor = registerForActivityResult(
+        ActivityResultContracts.GetContent()
+    ) { imageUri ->
+        if (imageUri == null || imageUri == Uri.EMPTY) {
+            Log.w(SampleApp.TAG, "Please pick image to open Photo Editor SDK!")
+        } else {
+            photoEditorExportResult.launch(
+                PhotoCreationActivity.startFromEditor(
+                    applicationContext,
+                    imageUri = imageUri
+                )
+            )
+        }
+    }
+
     private val photoEditorExportResult =
         registerForActivityResult(PhotoExportResultContract()) { uri ->
             if (uri == null || uri == Uri.EMPTY) {
                 val errMessage =
-                    "Failed to export image or the token does not support Photo Editor SDK"
+                    "No exported image or the token does not support Photo Editor SDK"
                 Log.w(SampleApp.TAG, errMessage)
                 Toast.makeText(applicationContext, errMessage, Toast.LENGTH_SHORT).show()
                 return@registerForActivityResult
@@ -124,6 +139,11 @@ class MainActivity : AppCompatActivity() {
                 binding.btnOpenPhotoEditor.setOnClickListener {
                     // Start Photo Editor SDK
                     photoEditorExportResult.launch(PhotoCreationActivity.startFromGallery(this@MainActivity))
+                }
+
+                binding.btnOpenPhotoEditorImage.setOnClickListener {
+                    // Start Photo Editor SDK
+                    requestImageOpenPhotoEditor.launch("image/*")
                 }
             } else {
                 // ❌ Use of Video Editor is restricted. License is revoked or expired.
