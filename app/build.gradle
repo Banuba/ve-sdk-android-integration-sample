@@ -7,12 +7,12 @@ plugins {
 android {
 
     namespace "com.banuba.example.integrationapp"
+    buildToolsVersion =  "34.0.0"
 
     defaultConfig {
         applicationId "com.banuba.example.integrationapp"
         compileSdk 34
         minSdkVersion 23
-        buildToolsVersion "34.0.0"
 
         versionCode 1
         versionName "1.0"
