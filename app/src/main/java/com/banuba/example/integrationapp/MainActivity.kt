@@ -13,11 +13,14 @@ import androidx.lifecycle.lifecycleScope
 import com.banuba.example.integrationapp.databinding.ActivityMainBinding
 import com.banuba.sdk.cameraui.data.PipConfig
 import com.banuba.sdk.core.ui.ext.visible
+import com.banuba.sdk.effectplayer.adapter.BanubaSdkResourcesDownloader
 import com.banuba.sdk.export.data.ExportResult
-import com.banuba.sdk.pe.PhotoCreationActivity
-import com.banuba.sdk.pe.PhotoExportResultContract
+//import com.banuba.sdk.pe.PhotoCreationActivity
+//import com.banuba.sdk.pe.PhotoExportResultContract
 import com.banuba.sdk.ve.flow.VideoCreationActivity
 import com.banuba.sdk.ve.flow.VideoExportResultContract
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 
 class MainActivity : AppCompatActivity() {
@@ -76,16 +79,16 @@ class MainActivity : AppCompatActivity() {
         if (imageUri == null || imageUri == Uri.EMPTY) {
             Log.w(SampleApp.TAG, "Please pick image to open Photo Editor SDK!")
         } else {
-            photoEditorExportResult.launch(
+            /*photoEditorExportResult.launch(
                 PhotoCreationActivity.startFromEditor(
                     applicationContext,
                     imageUri = imageUri
                 )
-            )
+            )*/
         }
     }
 
-    private val photoEditorExportResult =
+    /*private val photoEditorExportResult =
         registerForActivityResult(PhotoExportResultContract()) { uri ->
             if (uri == null || uri == Uri.EMPTY) {
                 val errMessage =
@@ -96,7 +99,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             Utils.previewExportedImage(this, uri)
-        }
+        }*/
 
     private var _binding: ActivityMainBinding? = null
 
@@ -138,13 +141,17 @@ class MainActivity : AppCompatActivity() {
                 }
                 binding.btnOpenPhotoEditor.setOnClickListener {
                     // Start Photo Editor SDK
-                    photoEditorExportResult.launch(PhotoCreationActivity.startFromGallery(this@MainActivity))
+                    // photoEditorExportResult.launch(PhotoCreationActivity.startFromGallery(this@MainActivity))
                 }
 
                 binding.btnOpenPhotoEditorImage.setOnClickListener {
                     // Start Photo Editor SDK
                     requestImageOpenPhotoEditor.launch("image/*")
                 }
+
+
+                // WARNING! EXPERIMENTAL FEATURE
+                downloadFarSdkResources()
             } else {
                 // ❌ Use of Video Editor is restricted. License is revoked or expired.
                 binding.licenseStateView.text = SampleApp.ERR_LICENSE_REVOKED
@@ -198,5 +205,19 @@ class MainActivity : AppCompatActivity() {
     private fun startVideoEditor(veIntent: Intent) {
         (application as? SampleApp)?.prepareVideoEditor()
         videoEditorExportResult.launch(veIntent)
+    }
+
+
+    private fun downloadFarSdkResources() {
+        val downloadFarResourcesUrl = PUT DOWNLOAD ZIP URL
+        val job = lifecycleScope.launchWhenCreated {
+            withContext(Dispatchers.IO) {
+                BanubaSdkResourcesDownloader.download(
+                    applicationContext.filesDir,
+                    downloadFarResourcesUrl
+                )
+            }
+        }
+        job.start()
     }
 }

@@ -63,5 +63,8 @@ private class SampleIntegrationKoinModule {
         ) {
             AudioBrowserMusicProvider()
         }
+
+        // Enables and configures the feature for downloading resources from the cloud
+        single(named("downloadFarResources")) { true }
     }
 }
