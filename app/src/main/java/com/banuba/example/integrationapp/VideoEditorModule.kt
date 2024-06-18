@@ -19,6 +19,7 @@ import com.banuba.sdk.export.di.VeExportKoinModule
 import com.banuba.sdk.gallery.di.GalleryKoinModule
 import com.banuba.sdk.playback.di.VePlaybackSdkKoinModule
 import com.banuba.sdk.ve.di.VeSdkKoinModule
+import com.banuba.sdk.ve.flow.VideoCreationActivity
 import com.banuba.sdk.ve.flow.di.VeFlowKoinModule
 import com.banuba.sdk.veui.di.VeUiSdkKoinModule
 import org.koin.android.ext.koin.androidContext
@@ -74,11 +75,10 @@ private class SampleIntegrationKoinModule {
             object : MediaNavigationProcessor {
                 override fun process(activity: Activity, mediaList: List<Uri>): Boolean {
                     val pngs = mediaList.filter { it.path?.contains(".png") ?: false }
-                    if (pngs.isEmpty()) {
-                        return true
+                    return if (pngs.isEmpty()) {
+                        true
                     } else {
-                        val returnIntent = Intent()
-                        returnIntent.putExtra( "EXTRA_EXPORTED_SUCCESS" ,
+                        (activity as? VideoCreationActivity)?.closeWithResult(
                             ExportResult.Success(
                                 emptyList(),
                                 pngs.first(),
@@ -86,9 +86,7 @@ private class SampleIntegrationKoinModule {
                                 Bundle()
                             )
                         )
-                        activity.setResult(Activity.RESULT_OK, returnIntent)
-                        activity.finish()
-                        return false
+                        false
                     }
                 }
             }
