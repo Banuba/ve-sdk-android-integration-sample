@@ -59,14 +59,13 @@ dependencies {
 
     // Banuba Video Editor SDK dependencies
 
-    def banubaSdkVersion = '1.36.4'
+    def banubaSdkVersion = '1.37.0'
     implementation "com.banuba.sdk:ffmpeg:5.1.3"
     implementation "com.banuba.sdk:camera-sdk:${banubaSdkVersion}"
     implementation "com.banuba.sdk:camera-ui-sdk:${banubaSdkVersion}"
     implementation "com.banuba.sdk:core-sdk:${banubaSdkVersion}"
     implementation "com.banuba.sdk:core-ui-sdk:${banubaSdkVersion}"
     implementation "com.banuba.sdk:ve-flow-sdk:${banubaSdkVersion}"
-    implementation "com.banuba.sdk:ve-timeline-sdk:${banubaSdkVersion}"
     implementation "com.banuba.sdk:ve-sdk:${banubaSdkVersion}"
     implementation "com.banuba.sdk:ve-ui-sdk:${banubaSdkVersion}"
     implementation "com.banuba.sdk:ve-gallery-sdk:${banubaSdkVersion}"
@@ -80,6 +79,6 @@ dependencies {
     // Photo Editor SDK dependency
     // WARNING!
     // Remove this dependency if you only use Video Editor SDK
-    def banubaPESdkVersion = '1.2.6'
+    def banubaPESdkVersion = '1.2.7'
     implementation("com.banuba.sdk:pe-sdk:${banubaPESdkVersion}")
 }
