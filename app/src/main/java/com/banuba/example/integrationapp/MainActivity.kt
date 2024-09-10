@@ -32,19 +32,21 @@ class MainActivity : AppCompatActivity() {
 
             // Release Video Editor SDK after exporting video and closing the latest SDK screen
             //(application as? SampleApp)?.releaseVideoEditor()
-            AlertDialog.Builder(this).setMessage("Export result")
-                .setPositiveButton("Play Video") { _, _ ->
-                    playExportedVideo(result)
-                }
-                .setNeutralButton("Close") { _, _ ->
-                }.create().show()
+            Log.d(SampleApp.TAG, "Video Editor export result = $result")
+
+            if (result is ExportResult.Success) {
+                AlertDialog.Builder(this).setMessage("Export result")
+                    .setPositiveButton("Play Video") { _, _ ->
+                        playExportedVideo(result)
+                    }
+                    .setNeutralButton("Close") { _, _ ->
+                    }.create().show()
+            }
         }
 
-    private fun playExportedVideo(exportResult: ExportResult?) {
-        if (exportResult is ExportResult.Success) {
-            exportResult.videoList.firstOrNull()?.let {
-                Utils.playExportedVideo(this@MainActivity, it.sourceUri)
-            }
+    private fun playExportedVideo(exportResult: ExportResult.Success) {
+        exportResult.videoList.firstOrNull()?.let {
+            Utils.playExportedVideo(this@MainActivity, it.sourceUri)
         }
     }
 

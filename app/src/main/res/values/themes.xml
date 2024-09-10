@@ -1,6 +1,6 @@
 <resources>
 
-    <style name="Theme.IntegrationApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.IntegrationApp" parent="Theme.MaterialComponents.Light">
         <item name="colorPrimary">@color/surfaceDark</item>
         <item name="colorOnPrimary">@color/primaryBrandLight</item>
         <item name="colorSecondary">@color/primaryBrandDarkOpacity50</item>
