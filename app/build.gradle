@@ -11,9 +11,13 @@ android {
 
     defaultConfig {
         applicationId "com.banuba.example.integrationapp"
+
         compileSdk 34
         minSdkVersion 23
 
+        // Requires to avoid popup Unsafe app blocked on modern Android OS
+        targetSdk 34
+        
         versionCode 1
         versionName "1.0"
 
