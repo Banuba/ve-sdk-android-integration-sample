@@ -1,9 +1,21 @@
 # Effects integration guide
 
+- [Face AR masks](#face-ar-masks)
 - [Color filters](#Color-filters)
 - [Visual FX](#Visual-FX)
 - [Time](#Time)
 - [Transitions](#Transitions)
+
+## Face AR masks
+
+Any Face AR mask is a folder that includes a number of files required for [Face AR SDK](https://docs.banuba.com/face-ar-sdk-v1) to play the mask.
+
+There are 3 options for adding and managing AR masks:
+
+* Store all masks in [assets/bnb-resources/effects](../app/src/main/assets/bnb-resources/) folder in the app.
+* Use AR Cloud for storing effects on a server.
+
+You can use both options i.e. store just a few AR effects in assets and 100 or more AR masks on AR Cloud.
 
 ## Color filters
 Any color filter(or LUT) is a pair of files texture and preview. The texture file should be stored in [assets/bnb-resources/luts](../app/src/main/assets/bnb-resources/luts) folder. 
