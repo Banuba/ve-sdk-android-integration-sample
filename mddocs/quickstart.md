@@ -24,28 +24,28 @@ allprojects {
     repositories {
         ...
 
-        maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/Banuba/banuba-ve-sdk")
-            credentials {
-                username = "Banuba"
-                password = "\u0038\u0036\u0032\u0037\u0063\u0035\u0031\u0030\u0033\u0034\u0032\u0063\u0061\u0033\u0065\u0061\u0031\u0032\u0034\u0064\u0065\u0066\u0039\u0062\u0034\u0030\u0063\u0063\u0037\u0039\u0038\u0063\u0038\u0038\u0066\u0034\u0031\u0032\u0061\u0038"
-            }
-        }
-        maven {
-            name = "ARCloudPackages"
-            url = uri("https://maven.pkg.github.com/Banuba/banuba-ar")
-            credentials {
-                username = "Banuba"
-                password = "\u0038\u0036\u0032\u0037\u0063\u0035\u0031\u0030\u0033\u0034\u0032\u0063\u0061\u0033\u0065\u0061\u0031\u0032\u0034\u0064\u0065\u0066\u0039\u0062\u0034\u0030\u0063\u0063\u0037\u0039\u0038\u0063\u0038\u0038\u0066\u0034\u0031\u0032\u0061\u0038"
-            }
-        }
+       maven {
+          name = "GitHubPackages"
+          url = uri("https://maven.pkg.github.com/Banuba/banuba-ve-sdk")
+          credentials {
+             username = "Banuba"
+             password = "\u0038\u0036\u0032\u0037\u0063\u0035\u0031\u0030\u0033\u0034\u0032\u0063\u0061\u0033\u0065\u0061\u0031\u0032\u0034\u0064\u0065\u0066\u0039\u0062\u0034\u0030\u0063\u0063\u0037\u0039\u0038\u0063\u0038\u0038\u0066\u0034\u0031\u0032\u0061\u0038"
+          }
+       }
+       maven {
+          name = "ARCloudPackages"
+          url = uri("https://maven.pkg.github.com/Banuba/banuba-ar")
+          credentials {
+             username = "Banuba"
+             password = "\u0038\u0036\u0032\u0037\u0063\u0035\u0031\u0030\u0033\u0034\u0032\u0063\u0061\u0033\u0065\u0061\u0031\u0032\u0034\u0064\u0065\u0066\u0039\u0062\u0034\u0030\u0063\u0063\u0037\u0039\u0038\u0063\u0038\u0038\u0066\u0034\u0031\u0032\u0061\u0038"
+          }
+       }
        maven {
           name "GitHubPackagesEffectPlayer"
           url "https://maven.pkg.github.com/sdk-banuba/banuba-sdk-android"
           credentials {
              username = "sdk-banuba"
-             password = "\u0038\u0036\u0032\u0037\u0063\u0035\u0031\u0030\u0033\u0034\u0032\u0063\u0061\u0033\u0065\u0061\u0031\u0032\u0034\u0064\u0065\u0066\u0039\u0062\u0034\u0030\u0063\u0063\u0037\u0039\u0038\u0063\u0038\u0038\u0066\u0034\u0031\u0032\u0061\u0038"
+             password = "\u0067\u0068\u0070\u005f\u004a\u0067\u0044\u0052\u0079\u0049\u0032\u006d\u0032\u004e\u0055\u0059\u006f\u0033\u0033\u006b\u0072\u0034\u0049\u0069\u0039\u0049\u006f\u006d\u0077\u0034\u0052\u0057\u0043\u0064\u0030\u0052\u0078\u006d\u0045\u0069"
           }
        }
 
@@ -88,13 +88,11 @@ Additionally, make sure the following plugins are in your app [gradle](../app/bu
 Video Editor SDK uses a lot of resources required for running in the app.  
 Please make sure all these resources exist in your project.
 
-1. [bnb-resources](../app/src/main/assets/bnb-resources)  Banuba AR and color filters. AR effects ```assets/bnb-resources/effects``` requires [Face AR](https://docs.banuba.com/face-ar-sdk-v1) product.
-
-2. [drawable-xhdpi](../app/src/main/res/drawable-xhdpi),
+1. [drawable-xhdpi](../app/src/main/res/drawable-xhdpi),
    [drawable-xxhdpi](../app/src/main/res/drawable-xxhdpi),
    [drawable-xxxhdpi](../app/src/main/res/drawable-xxxhdpi) are visual assets for color filter previews.
 
-3. [themes.xml](../app/src/main/res/values/themes.xml) includes implementation of ```VideoCreationTheme``` of Video Editor SDK.
+2. [themes.xml](../app/src/main/res/values/themes.xml) includes implementation of ```VideoCreationTheme``` of Video Editor SDK.
 
 ## Configuration
 Add ```VideoCreationActivity``` in [AndroidManifest.xml](../app/src/main/AndroidManifest.xml#L27) files.  
