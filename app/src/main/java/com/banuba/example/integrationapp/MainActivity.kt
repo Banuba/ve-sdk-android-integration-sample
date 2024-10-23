@@ -83,7 +83,8 @@ class MainActivity : AppCompatActivity() {
             startPhotoEditor(
                 PhotoCreationActivity.startFromEditor(
                     applicationContext,
-                    imageUri = imageUri
+                    imageUri = imageUri,
+                    extras = extractResourcesExtras
                 )
             )
         }
@@ -113,6 +114,12 @@ class MainActivity : AppCompatActivity() {
 
     private val sampleApp: SampleApp
         get() = application as SampleApp
+
+    private val extractResourcesExtras by lazy(LazyThreadSafetyMode.NONE) {
+        Bundle().apply {
+            putBoolean(PhotoCreationActivity.EXTRA_EXTRACT_EXTERNAL_RESOURCES, true)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -149,7 +156,12 @@ class MainActivity : AppCompatActivity() {
                 }
                 binding.btnOpenPhotoEditor.setOnClickListener {
                     // Start Photo Editor SDK
-                    startPhotoEditor(PhotoCreationActivity.startFromGallery(this@MainActivity))
+                    startPhotoEditor(
+                        PhotoCreationActivity.startFromGallery(
+                            this@MainActivity,
+                            extras = extractResourcesExtras
+                        )
+                    )
                 }
 
                 binding.btnOpenPhotoEditorImage.setOnClickListener {

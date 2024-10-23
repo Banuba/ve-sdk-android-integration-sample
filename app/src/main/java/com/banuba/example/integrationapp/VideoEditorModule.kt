@@ -63,5 +63,7 @@ private class SampleIntegrationKoinModule {
         ) {
             AudioBrowserMusicProvider()
         }
+
+        single(named("extractExternalResources")) { true }
     }
 }

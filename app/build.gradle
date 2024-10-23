@@ -43,6 +43,10 @@ android {
         targetCompatibility JavaVersion.VERSION_17
     }
 
+    aaptOptions {
+        ignoreAssetsPattern "!photo_editor"
+    }
+
     packagingOptions {
         pickFirst '**/libbanuba-ve-yuv.so'
 
@@ -74,7 +78,25 @@ dependencies {
     implementation "com.banuba.sdk:ve-ui-sdk:${banubaSdkVersion}"
     implementation "com.banuba.sdk:ve-gallery-sdk:${banubaSdkVersion}"
     implementation "com.banuba.sdk:ve-effects-sdk:${banubaSdkVersion}"
-    implementation "com.banuba.sdk:effect-player-adapter:${banubaSdkVersion}"
+
+    implementation ("com.banuba.sdk:effect-player-adapter:${banubaSdkVersion}") {
+        // As a result only sdk_core, sdk_api will be used
+        exclude group: 'com.banuba.sdk', module: 'scripting'
+        exclude group: 'com.banuba.sdk', module: 'face_tracker'
+        exclude group: 'com.banuba.sdk', module: 'effect_player'
+        exclude group: 'com.banuba.sdk', module: 'skin'
+        exclude group: 'com.banuba.sdk', module: 'eyes'
+        exclude group: 'com.banuba.sdk', module: 'lips'
+        exclude group: 'com.banuba.sdk', module: 'hair'
+        exclude group: 'com.banuba.sdk', module: 'background'
+        exclude group: 'com.banuba.sdk', module: 'occlusion'
+        exclude group: 'com.banuba.sdk', module: 'visual_clip'
+        exclude group: 'com.banuba.sdk', module: 'correctors'
+        exclude group: 'com.banuba.sdk', module: 'makeup'
+        exclude group: 'com.banuba.sdk', module: 'brows'
+        exclude group: 'com.banuba.sdk', module: 'banuba_sdk_resources'
+    }
+
     implementation "com.banuba.sdk:ar-cloud:${banubaSdkVersion}"
     implementation "com.banuba.sdk:ve-audio-browser-sdk:${banubaSdkVersion}"
     implementation "com.banuba.sdk:ve-export-sdk:${banubaSdkVersion}"
