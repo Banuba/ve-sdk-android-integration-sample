@@ -10,8 +10,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.banuba.example.integrationapp.SampleApp.Companion.ERR_LICENSE_REVOKED
-import com.banuba.example.integrationapp.SampleApp.Companion.ERR_SDK_NOT_INITIALIZED
+import com.banuba.example.integrationapp.SampleApp.ERR_LICENSE_REVOKED
+import com.banuba.example.integrationapp.SampleApp.ERR_SDK_NOT_INITIALIZED
 import com.banuba.example.integrationapp.databinding.ActivityMainBinding
 import com.banuba.sdk.cameraui.data.PipConfig
 import com.banuba.sdk.core.ui.ext.visible
