@@ -65,7 +65,7 @@ object Utils {
         try {
             activity.startActivity(intent)
         } catch (e: Exception) {
-            Log.e(SampleApp.TAG, "Can't handle intent")
+            Log.e(JavaSampleApp.TAG, "Can't handle intent")
         }
     }
 

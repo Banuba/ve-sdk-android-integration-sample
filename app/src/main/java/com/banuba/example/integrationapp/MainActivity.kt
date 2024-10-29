@@ -10,8 +10,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.banuba.example.integrationapp.SampleApp.ERR_LICENSE_REVOKED
-import com.banuba.example.integrationapp.SampleApp.ERR_SDK_NOT_INITIALIZED
+import com.banuba.example.integrationapp.JavaSampleApp.ERR_LICENSE_REVOKED
+import com.banuba.example.integrationapp.JavaSampleApp.ERR_SDK_NOT_INITIALIZED
 import com.banuba.example.integrationapp.databinding.ActivityMainBinding
 import com.banuba.sdk.cameraui.data.PipConfig
 import com.banuba.sdk.core.ui.ext.visible
@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
             // Release Video Editor SDK after exporting video and closing the latest SDK screen
             //(application as? SampleApp)?.releaseVideoEditor()
-            Log.d(SampleApp.TAG, "Video Editor export result = $result")
+            Log.d(JavaSampleApp.TAG, "Video Editor export result = $result")
 
             if (result is ExportResult.Success) {
                 AlertDialog.Builder(this).setMessage("Export result")
@@ -78,7 +78,7 @@ class MainActivity : AppCompatActivity() {
         ActivityResultContracts.GetContent()
     ) { imageUri ->
         if (imageUri == null || imageUri == Uri.EMPTY) {
-            Log.w(SampleApp.TAG, "Please pick image to open Photo Editor SDK!")
+            Log.w(JavaSampleApp.TAG, "Please pick image to open Photo Editor SDK!")
         } else {
             startPhotoEditor(
                 PhotoCreationActivity.startFromEditor(
@@ -96,12 +96,12 @@ class MainActivity : AppCompatActivity() {
             if (uri == null || uri == Uri.EMPTY) {
                 val errMessage =
                     "No exported image or the token does not support Photo Editor SDK"
-                Log.w(SampleApp.TAG, errMessage)
+                Log.w(JavaSampleApp.TAG, errMessage)
                 Toast.makeText(applicationContext, errMessage, Toast.LENGTH_SHORT).show()
                 return@registerForActivityResult
             }
 
-            Log.d(SampleApp.TAG, "Exported image uri = $uri")
+            Log.d(JavaSampleApp.TAG, "Exported image uri = $uri")
 
             Utils.previewExportedImage(this, uri)
         }
@@ -111,8 +111,8 @@ class MainActivity : AppCompatActivity() {
     private val binding: ActivityMainBinding
         get() = requireNotNull(_binding)
 
-    private val sampleApp: SampleApp
-        get() = application as SampleApp
+    private val sampleApp: JavaSampleApp
+        get() = application as JavaSampleApp
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -159,7 +159,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 // ❌ Use of Video Editor is restricted. License is revoked or expired.
                 binding.licenseStateView.text = ERR_LICENSE_REVOKED
-                Log.w(SampleApp.TAG, ERR_LICENSE_REVOKED)
+                Log.w(JavaSampleApp.TAG, ERR_LICENSE_REVOKED)
 
                 binding.licenseStateView.visible()
                 binding.btnVideoEditor.isEnabled = false
@@ -218,7 +218,7 @@ class MainActivity : AppCompatActivity() {
         val editor = sampleApp.photoEditor
         if (editor == null) {
             // Token you provided is not correct - empty or truncated
-            Log.e(SampleApp.TAG, ERR_SDK_NOT_INITIALIZED)
+            Log.e(JavaSampleApp.TAG, ERR_SDK_NOT_INITIALIZED)
         } else {
             photoEditorExportResult.launch(intent)
         }
