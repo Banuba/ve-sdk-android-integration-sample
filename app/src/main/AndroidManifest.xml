@@ -24,12 +24,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.banuba.sdk.ve.flow.VideoCreationActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/CustomIntegrationAppTheme"
-            android:windowSoftInputMode="adjustResize"
-            tools:replace="android:theme" />
 
         <!-- Allows to play exported video -->
         <provider
