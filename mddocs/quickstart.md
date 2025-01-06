@@ -16,7 +16,7 @@
 ## Installation
 GitHub Packages is used for downloading Android Video Editor SDK modules.
 
-First, add repositories to [gradle](../build.gradle#L21) file in ```allprojects``` section.
+Add repositories to [gradle](../build.gradle#L21) file in ```allprojects``` section.
 ```groovy
 ...
 
@@ -54,10 +54,23 @@ allprojects {
 }
 ```
 
-Next, specify a list of dependencies in [gradle](../app/build.gradle#L63) file.
+Specify the following ```packaging options``` in your [build gradle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/build.gradle#L46-L53) file:
+```groovy
+android {
+...
+    packagingOptions {
+        jniLibs {
+            useLegacyPackaging = true
+        }
+    }
+...
+}
+```
+
+Specify a list of dependencies in [gradle](../app/build.gradle#L63) file.
 
 ```groovy
-    def banubaSdkVersion = '1.37.1'
+    def banubaSdkVersion = '1.39.1'
 
     implementation "com.banuba.sdk:ffmpeg:5.1.3"
     implementation "com.banuba.sdk:camera-sdk:${banubaSdkVersion}"
