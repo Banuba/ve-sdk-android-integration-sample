@@ -54,7 +54,7 @@ allprojects {
 }
 ```
 
-Add ```packagingOptions``` settings to app [gradle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/build.gradle#L46-L53) file in ```android``` section:
+Specify the following ```packaging options``` in your [build gradle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/build.gradle#L46-L53) file:
 ```groovy
 android {
 ...
