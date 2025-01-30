@@ -9,6 +9,7 @@ This guide is aimed to help you complete advanced integration of Video Editor SD
 - [Add audio content](#Add-audio-content)
 - [Drafts](#Drafts)
 - [Launch methods](#Launch-methods)
+- [Editor V2](#editor-v2)
 
 ## Video recording
 Video editor supports functionality allowing to record video using Android camera. There are many features, configurations and styles 
@@ -81,4 +82,15 @@ Video editor will not open in PIP mode if your license token does not support PI
     )
 ```
 
+## Editor V2
+
+To keep up with the latest developments and best practices, our team has completely redesigned the Video Editor SDK to be as convenient and enjoyable as possible.
+
+Create ```Bundle``` with Editor UI V2 configuration and pass ```extras``` to any Video Editor start method.
+
+```kotlin
+ val extras = bundleOf(
+    "EXTRA_USE_EDITOR_V2" to true
+ )
+```
 
