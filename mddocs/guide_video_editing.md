@@ -104,9 +104,15 @@ single(override = true) {
                 default = availableAspects.first()
             )
         }
+
+        override fun setBundle(bundle: Bundle) {}
     }
 }
 ```
+
+> [!NOTE]
+> The ```setBundle(bundle: Bundle) {}``` method is experimental for ```Editor V2```.
+> Leave it empty if you want to configure Aspects in ```Editor V1```
 
 In this case there will not be any aspect icon on trimmer screen. All video sources will be resized to 4x5 aspect ratio by default besides the way they were added (from gallery or recorded on camera).
 
