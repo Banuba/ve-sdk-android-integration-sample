@@ -12,11 +12,11 @@ android {
     defaultConfig {
         applicationId "com.banuba.example.integrationapp"
 
-        compileSdk 34
-        minSdkVersion 23
+        compileSdk 35
+        minSdkVersion 26
 
         // Requires to avoid popup Unsafe app blocked on modern Android OS
-        targetSdk 34
+        targetSdk 35
         
         versionCode 1
         versionName "1.0"
@@ -63,7 +63,7 @@ dependencies {
 
     // Banuba Video Editor SDK dependencies
 
-    def banubaSdkVersion = '1.41.2'
+    def banubaSdkVersion = '1.42.0'
     implementation "com.banuba.sdk:ffmpeg:5.3.0"
     implementation "com.banuba.sdk:camera-sdk:${banubaSdkVersion}"
     implementation "com.banuba.sdk:camera-ui-sdk:${banubaSdkVersion}"
