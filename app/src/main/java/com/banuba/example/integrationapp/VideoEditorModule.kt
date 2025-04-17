@@ -1,22 +1,34 @@
 package com.banuba.example.integrationapp
 
 import android.content.Context
+import android.net.Uri
 import android.os.Bundle
+import android.util.Size
+import androidx.core.net.toFile
 import androidx.fragment.app.Fragment
 import com.banuba.sdk.arcloud.data.source.ArEffectsRepositoryProvider
 import com.banuba.sdk.arcloud.di.ArCloudKoinModule
 import com.banuba.sdk.audiobrowser.di.AudioBrowserKoinModule
 import com.banuba.sdk.audiobrowser.domain.AudioBrowserMusicProvider
+import com.banuba.sdk.core.AspectRatio
+import com.banuba.sdk.core.VideoResolution
 import com.banuba.sdk.core.data.TrackData
 import com.banuba.sdk.core.ui.ContentFeatureProvider
 import com.banuba.sdk.effectplayer.adapter.BanubaEffectPlayerKoinModule
+import com.banuba.sdk.export.data.ExportParams
+import com.banuba.sdk.export.data.ExportParamsProvider
 import com.banuba.sdk.export.di.VeExportKoinModule
 import com.banuba.sdk.gallery.di.GalleryKoinModule
 import com.banuba.sdk.playback.di.VePlaybackSdkKoinModule
 import com.banuba.sdk.ve.data.EditorAspectSettings
+import com.banuba.sdk.ve.data.EditorAspectSettings.`16_9`.aspectRatio
 import com.banuba.sdk.ve.data.aspect.AspectSettings
 import com.banuba.sdk.ve.data.aspect.AspectsProvider
 import com.banuba.sdk.ve.di.VeSdkKoinModule
+import com.banuba.sdk.ve.domain.VideoRangeList
+import com.banuba.sdk.ve.effects.Effects
+import com.banuba.sdk.ve.effects.music.MusicEffect
+import com.banuba.sdk.ve.effects.watermark.WatermarkBuilder
 import com.banuba.sdk.ve.flow.di.VeFlowKoinModule
 import com.banuba.sdk.veui.data.EditorConfig
 import com.banuba.sdk.veui.di.VeUiSdkKoinModule
@@ -89,6 +101,13 @@ private class SampleIntegrationKoinModule {
         single {
             EditorConfig(
                 aspectSettings = EditorAspectSettings.`16_9`
+            )
+        }
+
+        factory<ExportParamsProvider> {
+            CustomExportParamsProvider(
+                exportDir = get(named("exportDir")),
+                watermarkBuilder = get()
             )
         }
     }
