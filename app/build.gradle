@@ -63,7 +63,7 @@ dependencies {
 
     // Banuba Video Editor SDK dependencies
 
-    def banubaSdkVersion = '1.42.2'
+    def banubaSdkVersion = '1.43.0'
     implementation "com.banuba.sdk:ffmpeg:5.3.0"
     implementation "com.banuba.sdk:camera-sdk:${banubaSdkVersion}"
     implementation "com.banuba.sdk:camera-ui-sdk:${banubaSdkVersion}"
