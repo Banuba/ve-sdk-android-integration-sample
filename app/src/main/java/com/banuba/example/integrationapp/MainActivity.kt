@@ -162,6 +162,9 @@ class MainActivity : AppCompatActivity() {
                     // Start Photo Editor SDK
                     requestImageOpenPhotoEditor.launch("image/*")
                 }
+                binding.btnTemplatesVideoEditor.setOnClickListener {
+                    openVideoEditorFromTemplates()
+                }
             } else {
                 // ❌ Use of Video Editor is restricted. License is revoked or expired.
                 binding.licenseStateView.text = ERR_LICENSE_REVOKED
@@ -214,6 +217,14 @@ class MainActivity : AppCompatActivity() {
             VideoCreationActivity.startFromTrimmer(
                 this,
                 videos.toTypedArray()
+            )
+        )
+    }
+
+    private fun openVideoEditorFromTemplates() {
+        startVideoEditor(
+            VideoCreationActivity.startFromTemplates(
+                context = this
             )
         )
     }
