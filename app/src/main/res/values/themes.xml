@@ -5,7 +5,14 @@
         <item name="colorOnPrimary">@color/primaryBrandLight</item>
         <item name="colorOnSecondary">@color/primaryBrandLight</item>
         <item name="android:statusBarColor">?attr/colorPrimary</item>
+        <item name="actionBarStyle">@style/CustomActionBarStyle</item>
+        <item name="android:textColorPrimary">@color/neutralLight</item>
     </style>
+
+    <style name="CustomActionBarStyle" parent="@style/Widget.MaterialComponents.Light.ActionBar.Solid">
+        <item name="titleTextStyle">@style/CustomTitleText</item>
+    </style>
+    <style name="CustomTitleText" parent="@style/TextAppearance.Material3.TitleMedium"/>
 
     <!-- Extend VideoCreationTheme style to customize Video Editor appearance for your app.
          Specify your style in AndroidManifest.xml file for VideoCreationActivity. -->
