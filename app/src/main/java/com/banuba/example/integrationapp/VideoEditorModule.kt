@@ -19,6 +19,8 @@ import com.banuba.sdk.veui.di.VeUiSdkKoinModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import org.koin.core.qualifier.named
+import com.banuba.sdk.core.domain.OnImageEditorCallback
+import com.banuba.sdk.pe.domain.PhotoEditorHandler
 import org.koin.dsl.module
 
 class VideoEditorModule {
@@ -67,6 +69,10 @@ private class SampleIntegrationKoinModule {
         // THE LICENSE MUST INCLUDE FACE AR AND PHOTO EDITOR
         single {
             EditorConfig(supportPhotoEditing = true)
+        }
+
+        factory<OnImageEditorCallback> {
+            PhotoEditorHandler
         }
     }
 }
