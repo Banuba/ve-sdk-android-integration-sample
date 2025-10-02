@@ -14,10 +14,13 @@ import com.banuba.sdk.gallery.di.GalleryKoinModule
 import com.banuba.sdk.playback.di.VePlaybackSdkKoinModule
 import com.banuba.sdk.ve.di.VeSdkKoinModule
 import com.banuba.sdk.ve.flow.di.VeFlowKoinModule
+import com.banuba.sdk.veui.data.EditorConfig
 import com.banuba.sdk.veui.di.VeUiSdkKoinModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import org.koin.core.qualifier.named
+import com.banuba.sdk.core.domain.OnImageEditorCallback
+import com.banuba.sdk.pe.domain.PhotoEditorHandler
 import org.koin.dsl.module
 
 class VideoEditorModule {
@@ -61,6 +64,15 @@ private class SampleIntegrationKoinModule {
             named("musicTrackProvider")
         ) {
             AudioBrowserMusicProvider()
+        }
+
+        // THE LICENSE MUST INCLUDE FACE AR AND PHOTO EDITOR
+        single {
+            EditorConfig(supportPhotoEditing = true)
+        }
+
+        factory<OnImageEditorCallback> {
+            PhotoEditorHandler
         }
     }
 }
