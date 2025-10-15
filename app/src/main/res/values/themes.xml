@@ -19,36 +19,7 @@
     <style name="CustomIntegrationAppTheme" parent="VideoCreationTheme">
         <item name="android:windowBackground">@color/backgroundGlobalPrimary</item>
 
-        <!-- WARNING: Here are the styles for Gallery module (ve-gallery-sdk). Gallery is
-         an Optional module. Add these styles in the app if you use
-          default SDK Gallery implementation -->
-        <item name="galleryAlbumBlurViewStyle">@style/GalleryAlbumBlurViewStyle</item>
-        <item name="galleryItemRadioButtonStyle">@style/GalleryItemRadioButtonStyle</item>
-        <item name="galleryItemTextStyle">@style/GalleryItemTextStyle</item>
-        <item name="selectedGalleryItemTextStyle">@style/SelectedGalleryItemTextStyle</item>
-        <item name="galleryTitleTextStyle">@style/GalleryTitleTextStyle</item>
-        <item name="galleryAlbumTitleTextStyle">@style/GalleryAlbumTitleTextStyle</item>
-        <item name="galleryAlbumDescTextStyle">@style/GalleryAlbumDescTextStyle</item>
-        <item name="galleryEmptyTextStyle">@style/GalleryEmptyTextStyle</item>
-        <item name="galleryBackButtonStyle">@style/GalleryBackButtonStyle</item>
-        <item name="galleryNextButtonStyle">@style/GalleryNextButtonStyle</item>
-        <item name="galleryAutoCutNextButtonStyle">@style/GalleryAutoCutNextButtonStyle</item>
-        <item name="galleryAutoCutButtonStyle">@style/GalleryAutoCutButtonStyle</item>
-        <item name="gallerySelectionDescriptionStyle">@style/GallerySelectionDescriptionStyle
-        </item>
-        <item name="galleryNextParentStyle">@style/GalleryNextParentStyle</item>
         <item name="galleryImageViewStyle">@style/GalleryImageViewStyle</item>
-        <item name="galleryColumnsNumber">wrap_content</item>
-        <item name="galleryTabLayoutStyle">@style/GalleryTabLayoutStyle</item>
-        <item name="galleryTabTextColors">@color/gallery_tab_color_state_list</item>
-
-        <item name="gallery_bg_color">@color/black</item>
-        <item name="gallery_item_corner_radius">0dp</item>
-        <item name="gallery_item_margin">0.5dp</item>
-        <item name="gallery_album_divider_color">@color/transparent</item>
-
-        <item name="previewActionButtonStyle">@style/PreviewActionButtonStyle</item>
-        <item name="previewContainerStyle">@style/PreviewContainerStyle</item>
 
         <!-- WARNING: Here are the styles for Audio Browser module (ve-audio-browser-sdk).
          Audio Browser is an Optional module. Add these styles in the app if you use

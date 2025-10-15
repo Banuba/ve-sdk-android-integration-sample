@@ -10,7 +10,6 @@ import com.banuba.sdk.core.data.TrackData
 import com.banuba.sdk.core.ui.ContentFeatureProvider
 import com.banuba.sdk.effectplayer.adapter.BanubaEffectPlayerKoinModule
 import com.banuba.sdk.export.di.VeExportKoinModule
-import com.banuba.sdk.gallery.di.GalleryKoinModule
 import com.banuba.sdk.playback.di.VePlaybackSdkKoinModule
 import com.banuba.sdk.ve.di.VeSdkKoinModule
 import com.banuba.sdk.ve.flow.di.VeFlowKoinModule
@@ -36,7 +35,6 @@ class VideoEditorModule {
                 ArCloudKoinModule().module,
                 VeUiSdkKoinModule().module,
                 VeFlowKoinModule().module,
-                GalleryKoinModule().module,
                 BanubaEffectPlayerKoinModule().module,
                 SampleIntegrationKoinModule().module,
             )
