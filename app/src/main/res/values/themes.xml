@@ -3,7 +3,7 @@
     <style name="Theme.IntegrationApp" parent="Theme.MaterialComponents.Light">
         <item name="colorPrimary">@color/surfaceDark</item>
         <item name="colorOnPrimary">@color/primaryBrandLight</item>
-        <item name="colorSecondary">@color/primaryBrandDarkOpacity50</item>
+<!--        <item name="colorSecondary">@color/primaryBrandDarkOpacity50</item>-->
         <item name="colorOnSecondary">@color/primaryBrandLight</item>
         <item name="android:statusBarColor">?attr/colorPrimary</item>
     </style>
