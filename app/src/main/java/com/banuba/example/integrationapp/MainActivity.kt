@@ -1,6 +1,7 @@
 package com.banuba.example.integrationapp
 
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -16,12 +17,17 @@ import com.banuba.example.integrationapp.SampleApp.Companion.ERR_SDK_NOT_INITIAL
 import com.banuba.example.integrationapp.databinding.ActivityMainBinding
 import com.banuba.sdk.cameraui.data.PipConfig
 import com.banuba.sdk.core.ui.ext.visible
+import com.banuba.sdk.core.utils.MAXIMUM_TEXT_SIZE
 import com.banuba.sdk.export.data.ExportResult
 import com.banuba.sdk.pe.BanubaPhotoEditor
 import com.banuba.sdk.pe.PhotoCreationActivity
 import com.banuba.sdk.pe.PhotoExportResultContract
 import com.banuba.sdk.ve.flow.VideoCreationActivity
 import com.banuba.sdk.ve.flow.VideoExportResultContract
+import com.banuba.sdk.veui.data.templates.TemplateEffect
+import com.banuba.sdk.veui.data.templates.TemplateEffectParams
+import com.banuba.sdk.veui.domain.DecorAlignment
+import com.banuba.sdk.veui.domain.LowerThirdData
 
 
 class MainActivity : AppCompatActivity() {
@@ -76,7 +82,7 @@ class MainActivity : AppCompatActivity() {
                     lifecycleScope,
                     imageUri
                 )
-            openVideoEditorTrimmerWithSlideShow(slideShowList)
+            openVideoEditorWithSlideShow(slideShowList)
         }
     }
 
@@ -211,12 +217,16 @@ class MainActivity : AppCompatActivity() {
         ))
     }
 
-    private fun openVideoEditorTrimmerWithSlideShow(videos: List<Uri>) {
+    private fun openVideoEditorWithSlideShow(videos: List<Uri>) {
         // Editor V2 is not available from Trimmer screen
         startVideoEditor(
-            VideoCreationActivity.startFromTrimmer(
-                this,
-                videos.toTypedArray()
+            VideoCreationActivity.startFromEditor(
+                context = this,
+                extras = extras,
+                predefinedVideos = videos.toTypedArray(),
+                // Pass predefined effects
+                predefinedLowerThirdData = createPredefinedLowerThird(),
+                predefinedTextEffect = createPredefinedTextEffect()
             )
         )
     }
@@ -246,4 +256,30 @@ class MainActivity : AppCompatActivity() {
             photoEditorExportResult.launch(intent)
         }
     }
+
+    private fun createPredefinedLowerThird(): LowerThirdData? =  LowerThirdData(
+        firstText = "Adam Smith",
+        firstTextTypefaceIndex = 0,
+        firstTextColor = -1,
+        secondText = "Senior Software Engineer",
+        secondTextTypefaceIndex = 0,
+        secondTextColor = -1,
+        decorAlignment = DecorAlignment.LEFT,
+        backgroundColor = Color.BLACK
+    )
+
+    private fun createPredefinedTextEffect(): TemplateEffect? = TemplateEffect(
+        name = "What is your responsibilities?",
+        type = "text",
+        start = null,
+        end = null,
+        params = TemplateEffectParams(
+            x = 0.1f,
+            y = 0.2f,
+            fontSize = (MAXIMUM_TEXT_SIZE * 0.5f).toInt(),
+            colorHex = "#FFFFFF",
+            rotation = 0,
+            backgroundColorHex = null
+        )
+    )
 }
