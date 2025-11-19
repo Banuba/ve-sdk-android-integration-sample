@@ -1,6 +1,7 @@
 package com.banuba.example.integrationapp
 
 import android.content.Context
+import android.graphics.Color
 import androidx.fragment.app.Fragment
 import com.banuba.sdk.arcloud.data.source.ArEffectsRepositoryProvider
 import com.banuba.sdk.arcloud.di.ArCloudKoinModule
@@ -14,7 +15,10 @@ import com.banuba.sdk.gallery.di.GalleryKoinModule
 import com.banuba.sdk.playback.di.VePlaybackSdkKoinModule
 import com.banuba.sdk.ve.di.VeSdkKoinModule
 import com.banuba.sdk.ve.flow.di.VeFlowKoinModule
+import com.banuba.sdk.veui.data.EditorConfig
+import com.banuba.sdk.veui.data.LowerThirdConfig
 import com.banuba.sdk.veui.di.VeUiSdkKoinModule
+import com.banuba.sdk.veui.domain.DecorAlignment
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import org.koin.core.qualifier.named
@@ -61,6 +65,20 @@ private class SampleIntegrationKoinModule {
             named("musicTrackProvider")
         ) {
             AudioBrowserMusicProvider()
+        }
+
+        single {
+            EditorConfig(
+                // Enable new experimental feature
+                lowerThirdConfig = LowerThirdConfig(
+                    firstText = "Full Name",
+                    maxSymbolsFirstText = 25,
+                    secondText = "Occupation",
+                    maxSymbolsSecondText = 50,
+                    backgroundColor = Color.BLACK,
+                    decorAlignment = DecorAlignment.LEFT
+                )
+            )
         }
     }
 }
