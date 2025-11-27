@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
     // Bundle with Editor UI V2 configuration
     private val extras = bundleOf(
-        "EXTRA_USE_EDITOR_V2" to true
+        "EXTRA_USE_EDITOR_V2" to false
     )
 
     // Handle Video Editor export results
