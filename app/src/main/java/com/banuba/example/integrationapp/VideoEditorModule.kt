@@ -14,6 +14,7 @@ import com.banuba.sdk.gallery.di.GalleryKoinModule
 import com.banuba.sdk.playback.di.VePlaybackSdkKoinModule
 import com.banuba.sdk.ve.di.VeSdkKoinModule
 import com.banuba.sdk.ve.flow.di.VeFlowKoinModule
+import com.banuba.sdk.veui.data.EditorConfig
 import com.banuba.sdk.veui.di.VeUiSdkKoinModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
@@ -61,6 +62,10 @@ private class SampleIntegrationKoinModule {
             named("musicTrackProvider")
         ) {
             AudioBrowserMusicProvider()
+        }
+
+        single<EditorConfig>{
+            EditorConfig(supportsGalleryOnTrimmer = false)
         }
     }
 }
