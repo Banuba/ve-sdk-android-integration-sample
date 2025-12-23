@@ -15,6 +15,7 @@ import com.banuba.sdk.playback.di.VePlaybackSdkKoinModule
 import com.banuba.sdk.ve.di.VeSdkKoinModule
 import com.banuba.sdk.ve.flow.di.VeFlowKoinModule
 import com.banuba.sdk.veui.di.VeUiSdkKoinModule
+import com.banuba.sdk.veui.domain.CoverProvider
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import org.koin.core.qualifier.named
@@ -61,6 +62,10 @@ private class SampleIntegrationKoinModule {
             named("musicTrackProvider")
         ) {
             AudioBrowserMusicProvider()
+        }
+
+        single <CoverProvider>{
+            CoverProvider.NONE
         }
     }
 }

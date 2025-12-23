@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
     // Bundle with Editor UI V2 configuration
     private val extras = bundleOf(
-        "EXTRA_USE_EDITOR_V2" to true
+        "EXTRA_USE_EDITOR_V2" to false
     )
 
     // Handle Video Editor export results
@@ -70,13 +70,7 @@ class MainActivity : AppCompatActivity() {
         ActivityResultContracts.GetContent()
     ) { imageUri ->
         if (imageUri != Uri.EMPTY && imageUri != null) {
-            val slideShowList =
-                Utils.createSlideShowList(
-                    applicationContext,
-                    lifecycleScope,
-                    imageUri
-                )
-            openVideoEditorTrimmerWithSlideShow(slideShowList)
+            openVideoEditorTrimmerWithSlideShow(listOf(imageUri))
         }
     }
 
@@ -151,7 +145,7 @@ class MainActivity : AppCompatActivity() {
                     openVideoEditorDrafts()
                 }
                 binding.btnSlideShowVideoEditorTrimmer.setOnClickListener {
-                    requestImageOpenTrimmer.launch("image/*")
+                    requestImageOpenTrimmer.launch("video/*")
                 }
                 binding.btnOpenPhotoEditor.setOnClickListener {
                     // Start Photo Editor SDK
