@@ -1,76 +1,66 @@
-# Quickstart Integration Guide
-
-## Concepts
-- Export - the process of making video file in video editor.
-- Slideshow - the feature that allows to create short video from single or multiple images.
-- PIP - short Picture-in-Picture feature.
-- Trimmer - a screen where the user can trim, merge, change aspects of videos
-- Editor -  a screen where the user can manage effects and audio. The next screen after trimmer.
+# Quickstart Guide
 
 - [Installation](#installation)
 - [Resources](#resources)
-- [Configuration](#configuration)
+- [AndroidManifest.xml Updates](#AndroidManifest-updates)
+- [Koin Module Setup](#Koin-Module-Setup)
 - [Launch](#Launch)
 - [Advanced integration](#Advanced-integration)
 
-## Installation
-GitHub Packages is used for downloading Android Video Editor SDK modules.
+## Installation  
+Add the Banuba repository to your project using **either** Groovy **or** Kotlin DSL:
 
-Add repositories to [gradle](../build.gradle#L21) file in ```allprojects``` section.
+**Groovy** (in project's [build.gradle](../build.gradle#L21))
+
 ```groovy
 ...
 
 allprojects {
     repositories {
-        ...
-
+       ...
        maven {
-          name = "GitHubPackages"
-          url = uri("https://maven.pkg.github.com/Banuba/banuba-ve-sdk")
-          credentials {
-             username = "Banuba"
-             password = "\u0038\u0036\u0032\u0037\u0063\u0035\u0031\u0030\u0033\u0034\u0032\u0063\u0061\u0033\u0065\u0061\u0031\u0032\u0034\u0064\u0065\u0066\u0039\u0062\u0034\u0030\u0063\u0063\u0037\u0039\u0038\u0063\u0038\u0038\u0066\u0034\u0031\u0032\u0061\u0038"
-          }
+          name = "nexus"
+          url = uri("https://nexus.banuba.net/repository/maven-releases")
        }
-       maven {
-          name = "ARCloudPackages"
-          url = uri("https://maven.pkg.github.com/Banuba/banuba-ar")
-          credentials {
-             username = "Banuba"
-             password = "\u0038\u0036\u0032\u0037\u0063\u0035\u0031\u0030\u0033\u0034\u0032\u0063\u0061\u0033\u0065\u0061\u0031\u0032\u0034\u0064\u0065\u0066\u0039\u0062\u0034\u0030\u0063\u0063\u0037\u0039\u0038\u0063\u0038\u0038\u0066\u0034\u0031\u0032\u0061\u0038"
-          }
-       }
-       maven {
-          name "GitHubPackagesEffectPlayer"
-          url "https://maven.pkg.github.com/sdk-banuba/banuba-sdk-android"
-          credentials {
-             username = "sdk-banuba"
-             password = "\u0067\u0068\u0070\u005f\u004a\u0067\u0044\u0052\u0079\u0049\u0032\u006d\u0032\u004e\u0055\u0059\u006f\u0033\u0033\u006b\u0072\u0034\u0049\u0069\u0039\u0049\u006f\u006d\u0077\u0034\u0052\u0057\u0043\u0064\u0030\u0052\u0078\u006d\u0045\u0069"
-          }
-       }
-
-        ...
     }
 }
 ```
+or 
 
-Specify the following ```packaging options``` in your [build gradle](https://github.com/Banuba/ve-sdk-android-integration-sample/blob/main/app/build.gradle#L46-L53) file:
+**Kotlin** (settings.gradle.kts)
+```kotlin
+...
+dependencyResolutionManagement {
+   repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+   repositories {
+      ...
+      maven {
+         name = "nexus"
+         url = uri("https://nexus.banuba.net/repository/maven-releases")
+      }
+   }
+}
+```
+
+Add ```packagingOptions``` to your app's [gradle](../app/build.gradle#L46-L53)
 ```groovy
 android {
 ...
-    packagingOptions {
-        jniLibs {
-            useLegacyPackaging = true
-        }
-    }
+   packagingOptions {
+      pickFirst '**/libbanuba-ve-yuv.so'
+
+      jniLibs {
+         useLegacyPackaging = true
+      }
+   }
 ...
 }
 ```
 
-Specify a list of dependencies in [gradle](../app/build.gradle#L63) file.
+Add dependencies to your app's [gradle](../app/build.gradle#L66)
 
 ```groovy
-    def banubaSdkVersion = '1.46.0'
+    def banubaSdkVersion = '1.49.5'
 
     implementation "com.banuba.sdk:ffmpeg:5.3.0"
     implementation "com.banuba.sdk:camera-sdk:${banubaSdkVersion}"
@@ -90,7 +80,7 @@ Specify a list of dependencies in [gradle](../app/build.gradle#L63) file.
 
 ```
 
-Additionally, make sure the following plugins are in your app [gradle](../app/build.gradle#L1) file.
+Ensure these plugins are in your app's [gradle](../app/build.gradle#L1).
 ```groovy
     apply plugin: 'com.android.application'
     apply plugin: 'kotlin-android'
@@ -99,16 +89,18 @@ Additionally, make sure the following plugins are in your app [gradle](../app/bu
 
 ## Resources
 Video Editor SDK uses a lot of resources required for running in the app.  
-Please make sure all these resources exist in your project.
+Ensure these resources are in your project.
 
 1. [drawable-xhdpi](../app/src/main/res/drawable-xhdpi),
    [drawable-xxhdpi](../app/src/main/res/drawable-xxhdpi),
-   [drawable-xxxhdpi](../app/src/main/res/drawable-xxxhdpi) are visual assets for color filter previews.
+   [drawable-xxxhdpi](../app/src/main/res/drawable-xxxhdpi) are previews for color filters.
 
 2. [themes.xml](../app/src/main/res/values/themes.xml) includes implementation of ```VideoCreationTheme``` of Video Editor SDK.
 
-## Configuration
-Add ```VideoCreationActivity``` in [AndroidManifest.xml](../app/src/main/AndroidManifest.xml#L27) files.  
+## AndroidManifest Updates
+Add the following to your [AndroidManifest.xml](../app/src/main/AndroidManifest.xml#L27):
+
+1. ```VideoCreationActivity``` – orchestrates the video editor screens
 ``` xml
 <activity android:name="com.banuba.sdk.ve.flow.VideoCreationActivity"
     android:screenOrientation="portrait"
@@ -116,36 +108,42 @@ Add ```VideoCreationActivity``` in [AndroidManifest.xml](../app/src/main/Android
     android:windowSoftInputMode="adjustResize"
     tools:replace="android:theme" />
 ```  
-
-```VideoCreationActivity``` is used for brining together and managing a number of Video Editor screens in a certain flow.   
-Each screen is implemented as a Android [Fragment](https://developer.android.com/guide/fragments). 
-
-Next, allow Network by adding permissions
+2. **Network permissions** (optional)– only required if using [Giphy](https://giphy.com/) stickers or downloading AR effects from the cloud. 
 ```xml
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.INTERNET" />
 ```
-Network is used for downloading AR effects from AR Cloud and stickers from [Giphy](https://giphy.com/).
 
-Custom implementation of ```VideoCreationTheme``` is required for running ```VideoCreationActivity``` for customizing visual appearance of Video Editor SDK i.e. colors, icons and more.  
-[See example](../app/src/main/res/values/themes.xml#L13).
+**Note:** You'll also need a custom VideoCreationTheme [example](../app/src/main/res/values/themes.xml#L13) to style the editor UI.
 
-Create new Kotlin class [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt) in your project
-for initializing and customizing Video Editor SDK features.
 
-Next, add new class [SampleIntegrationKoinModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L51)  for customizing Video Editor SDK features. 
+## Koin Module Setup
+1. Create [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt) to initialize and customize the Video Editor SDK.
+2. Inside it, add [SampleIntegrationKoinModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L51) with your customizations:
+ 
 ``` kotlin
 class VideoEditorModule {
    ...
    private class SampleIntegrationKoinModule {
       val module = module {
-         ...
+         single<ArEffectsRepositoryProvider>(createdAtStart = true) {
+            ArEffectsRepositoryProvider(
+                arEffectsRepository = get(named("backendArEffectsRepository"))
+            )
+        }
+
+        single<ContentFeatureProvider<TrackData, Fragment>>(
+            named("musicTrackProvider")
+        ) {
+            AudioBrowserMusicProvider()
+        }
+        
+        ...
       }
    } 
 }
 ```
-
-Next, add method to initialize Video Editor SDK modules and add ```SampleIntegrationKoinModule``` to the list of modules.
+3. Include this module during SDK initialization:
 ``` diff
 fun initialize(applicationContext: Context) {
         startKoin {
@@ -172,34 +170,31 @@ fun initialize(applicationContext: Context) {
 
 ## Launch
 
-Initialize ```VideoEditorModule```  in [Application](../app/src/main/java/com/banuba/example/integrationapp/SampleApp.kt#L42).
+Initialize ```VideoEditorModule``` in your [Application](../app/src/main/java/com/banuba/example/integrationapp/SampleApp.kt#L42) class.
 ``` kotlin
 override fun onCreate() {
         super.onCreate()
         VideoEditorModule().initialize(this)
         
-        ...
     }
 ```
 
-Next, create instance of ```BanubaVideoEditor```  by using the license token
+Create SDK instance of ```BanubaVideoEditor``` with your license token.
+
 ``` kotlin
 val videoEditorSDK = BanubaVideoEditor.initialize(LICENSE_TOKEN)
 ```
 
 :exclamation: Important
-1. Instance ```videoEditorSDK``` is ```null``` if the license token is incorrect. In this case you cannot use photo editor. Check your license token.
-2. It is highly recommended to [check](../app/src/main/java/com/banuba/example/integrationapp/MainActivity.kt#L104) if the license is active before starting Photo Editor.
+1. Returns ```nul```l if the license token is invalid – verify your token
+2. [Check license activation](../app/src/main/java/com/banuba/example/integrationapp/MainActivity.kt#L104) before starting the editor.
+3. Expired/revoked licenses show a "Video content unavailable" screen
 
-
-:exclamation: Video content unavailable screen will appear if you start Video Editor SDK with revoked or expired license.  
 <p align="center">
 <img src="screenshots/screen_expired.png"  width="25%" height="auto">
 </p>
-   
-Video Editor supports multiple launch methods described in [this guide](advanced_integration.md#Launch-methods).
 
-The following [implementation](../app/src/main/java/com/banuba/example/integrationapp/MainActivity.kt#L18) starts Video Editor from camera screen.
+This example launches from camera ([full implementation]((../app/src/main/java/com/banuba/example/integrationapp/MainActivity.kt#L18))):
 ```kotlin
  val createVideoRequest =
     registerForActivityResult(IntegrationAppExportVideoContract()) { exportResult ->
@@ -221,21 +216,15 @@ val intent = VideoCreationActivity.startFromCamera(
 createVideoRequest.launch(intent)
 ```
 
+## Concepts
+- Export - The process of rendering a video file from the editor
+- Slideshow - Creates short videos from one or more images
+- PIP (Picture-in-Picture)  - Overlays one video segment on top of another
+- Trimmer - Screen for trimming, merging, and adjusting video aspect ratios
+- Editor - Main editing screen (after trimmer) for applying effects and managing audio
+
 ## Advanced integration
-Video editor has built in UI/UX experience and provides a number of customizations you can use to meet your requirements.
+Explore [advanced setup and customization](https://docs.banuba.com/ve-pe-sdk/docs/android/adv-integration-overview) in our documentation.
 
-**AVAILABLE**  
-:white_check_mark: Use your branded icons  
-:white_check_mark: Use you branded colors  
-:white_check_mark: Change text styles i.e. font, color  
-:white_check_mark: Localize and change text resources. Default locale is :us:  
-:white_check_mark: Make content you want i.e. a number of video with different resolutions  and durations, an audio file. [See details](advanced_integration.md#Configure-export-flow)  
-:white_check_mark: Masks and filters order.
-
-NOT AVAILABLE  
-:x: Change layout  
-:x: Change order of screens after entry point
-
-Visit [Advanced integration guide](advanced_integration.md) to know more about features and customizations.
 
 
