@@ -7,8 +7,11 @@
 - [Launch](#Launch)
 - [Advanced integration](#Advanced-integration)
 
-## Installation
-Add the repository to [gradle](../build.gradle#L21) in ```allprojects``` section.
+## Installation  
+Add the Banuba repository to your project using **either** Groovy **or** Kotlin DSL:
+
+**Groovy** (in project's [build.gradle](../build.gradle#L21))
+
 ```groovy
 ...
 
@@ -20,6 +23,22 @@ allprojects {
           url = uri("https://nexus.banuba.net/repository/maven-releases")
        }
     }
+}
+```
+or 
+
+**Kotlin** (settings.gradle.kts)
+```kotlin
+...
+dependencyResolutionManagement {
+   repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+   repositories {
+      ...
+      maven {
+         name = "nexus"
+         url = uri("https://nexus.banuba.net/repository/maven-releases")
+      }
+   }
 }
 ```
 
