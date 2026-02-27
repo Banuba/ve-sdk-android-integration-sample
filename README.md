@@ -21,22 +21,30 @@
 
 ## Usage
 ### License
-Before you commit to a license, you are free to test all the features of the SDK for free. The trial period lasts 14 days.
+Before you commit to a license, you are free to test all the features of the SDK for free.  
+**The trial period lasts 14 days**.
 
 Send us a message to start the [Video Editor SDK trial](https://www.banuba.com/video-editor-sdk#form) | [Photo Editor SDK trial](https://www.banuba.com/photo-editor-sdk#form). We will get back to you with the trial token.
 
-Feel free to contact us if you have any questions regarding [Video Editor SDK](https://www.banuba.com/faq/kb-tickets/new) and [Photo Editor SDK](https://www.banuba.com/support)
-
-### Installation
-1. Clone the repository and open the project in IDE
-2. Add the license token [within the app](app/src/main/java/com/banuba/example/integrationapp/SampleApp.kt#L13)
-3. Run the sample application in your IDE
-
 ### Quickstart Integration Guide
-Our [Quickstart Guide](mddocs/quickstart.md) will help you to quickly integrate and customize Video Editor SDK into your Android project.
+See the [Quickstart Guide](mddocs/quickstart.md) for complete integration steps, including:
+
+1. Repository setup
+
+2. License token [configuration](app/src/main/java/com/banuba/example/integrationapp/SampleApp.kt#L13)
+
+3. Running the sample app
+
 
 ### Documentation
-Please visit [Video Editor SDK](https://docs.banuba.com/ve-pe-sdk/docs/android/requirements-ve) and [Photo Editor SDK](https://docs.banuba.com/ve-pe-sdk/docs/android/requirements-pe) documentation to know more about SDK.
+Explore the full capabilities of our SDKs:
+- [Video Editor SDK](https://docs.banuba.com/ve-pe-sdk/docs/android/requirements-ve)
+- [Photo Editor SDK](https://docs.banuba.com/ve-pe-sdk/docs/android/requirements-pe)
+
+### Support
+For questions about Video Editor or Photo Editor SDK, reach out to Banuba support service
+- [Video Editor SDK](https://www.banuba.com/faq/kb-tickets/new) 
+- [Photo Editor SDK](https://www.banuba.com/support)
 
 ### Requirements
 - Kotlin 2.2+ or Java 17
