@@ -39,7 +39,7 @@ Our [Quickstart Guide](mddocs/quickstart.md) will help you to quickly integrate 
 Please visit [Video Editor SDK](https://docs.banuba.com/ve-pe-sdk/docs/android/requirements-ve) and [Photo Editor SDK](https://docs.banuba.com/ve-pe-sdk/docs/android/requirements-pe) documentation to know more about SDK.
 
 ### Requirements
-- Kotlin 2.1+ or Java 17
+- Kotlin 2.2+ or Java 17
 - Android OS 8.0 or higher with Camera 2 API
 - OpenGL ES 3.0 (3.1 for Neural networks on GPU)
 - :white_check_mark: arm64-v8a , :white_check_mark: armv7, :exclamation: x86-64 limited support, :x: x86 - no support
