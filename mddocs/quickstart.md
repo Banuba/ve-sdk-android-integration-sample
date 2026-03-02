@@ -1,7 +1,6 @@
 # Quickstart Guide
 
 - [Installation](#installation)
-- [Resources](#resources)
 - [AndroidManifest.xml Updates](#AndroidManifest-updates)
 - [Koin Module Setup](#Koin-Module-Setup)
 - [Launch](#Launch)
@@ -60,7 +59,7 @@ android {
 Add dependencies to your app's [gradle](../app/build.gradle#L66)
 
 ```groovy
-    def banubaSdkVersion = '1.49.5'
+    def banubaSdkVersion = '1.50.0'
 
     implementation "com.banuba.sdk:ffmpeg:5.3.0"
     implementation "com.banuba.sdk:camera-sdk:${banubaSdkVersion}"
@@ -87,16 +86,6 @@ Ensure these plugins are in your app's [gradle](../app/build.gradle#L1).
     apply plugin: 'kotlin-parcelize'
 ```
 
-## Resources
-Video Editor SDK uses a lot of resources required for running in the app.  
-Ensure these resources are in your project.
-
-1. [drawable-xhdpi](../app/src/main/res/drawable-xhdpi),
-   [drawable-xxhdpi](../app/src/main/res/drawable-xxhdpi),
-   [drawable-xxxhdpi](../app/src/main/res/drawable-xxxhdpi) are previews for color filters.
-
-2. [themes.xml](../app/src/main/res/values/themes.xml) includes implementation of ```VideoCreationTheme``` of Video Editor SDK.
-
 ## AndroidManifest Updates
 Add the following to your [AndroidManifest.xml](../app/src/main/AndroidManifest.xml#L27):
 
@@ -108,6 +97,9 @@ Add the following to your [AndroidManifest.xml](../app/src/main/AndroidManifest.
     android:windowSoftInputMode="adjustResize"
     tools:replace="android:theme" />
 ```  
+> **Important**  
+> Add [CustomIntegrationAppTheme](../app/src/main/res/values/themes.xml#L19) styles resource file.
+
 2. **Network permissions** (optional)– only required if using [Giphy](https://giphy.com/) stickers or downloading AR effects from the cloud. 
 ```xml
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -186,7 +178,7 @@ val videoEditorSDK = BanubaVideoEditor.initialize(LICENSE_TOKEN)
 ```
 
 :exclamation: Important
-1. Returns ```nul```l if the license token is invalid – verify your token
+1. Returns ```null```l if the license token is invalid – verify your token
 2. [Check license activation](../app/src/main/java/com/banuba/example/integrationapp/MainActivity.kt#L104) before starting the editor.
 3. Expired/revoked licenses show a "Video content unavailable" screen
 
