@@ -208,13 +208,6 @@ val intent = VideoCreationActivity.startFromCamera(
 createVideoRequest.launch(intent)
 ```
 
-## Concepts
-- Export - The process of rendering a video file from the editor
-- Slideshow - Creates short videos from one or more images
-- PIP (Picture-in-Picture)  - Overlays one video segment on top of another
-- Trimmer - Screen for trimming, merging, and adjusting video aspect ratios
-- Editor - Main editing screen (after trimmer) for applying effects and managing audio
-
 ## Advanced integration
 Explore [advanced setup and customization](https://docs.banuba.com/ve-pe-sdk/docs/android/adv-integration-overview) in our documentation.
 
