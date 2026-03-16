@@ -4,7 +4,7 @@
 - [AndroidManifest.xml Updates](#AndroidManifest-updates)
 - [Koin Module Setup](#Koin-Module-Setup)
 - [Launch](#Launch)
-- [Advanced integration](#Advanced-integration)
+- [Customization options](#Customization-options)
 
 ## Installation  
 Add the Banuba repository to your project using **either** Groovy **or** Kotlin DSL:
@@ -208,8 +208,8 @@ val intent = VideoCreationActivity.startFromCamera(
 createVideoRequest.launch(intent)
 ```
 
-## Advanced integration
-Explore [advanced setup and customization](https://docs.banuba.com/ve-pe-sdk/docs/android/adv-integration-overview) in our documentation.
+## Customization options
+Explore [customization pptions](https://docs.banuba.com/ve-pe-sdk/docs/android/adv-integration-overview) in our documentation.
 
 
 
