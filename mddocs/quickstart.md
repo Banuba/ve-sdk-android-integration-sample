@@ -93,12 +93,10 @@ Add the following to your [AndroidManifest.xml](../app/src/main/AndroidManifest.
 ``` xml
 <activity android:name="com.banuba.sdk.ve.flow.VideoCreationActivity"
     android:screenOrientation="portrait"
-    android:theme="@style/CustomIntegrationAppTheme"
+    android:theme="@style/VideoCreationTheme"
     android:windowSoftInputMode="adjustResize"
     tools:replace="android:theme" />
 ```  
-> **Important**  
-> Add [CustomIntegrationAppTheme](../app/src/main/res/values/themes.xml#L19) styles resource file.
 
 2. **Network permissions** (optional)– only required if using [Giphy](https://giphy.com/) stickers or downloading AR effects from the cloud. 
 ```xml
