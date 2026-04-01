@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.bundleOf
 import androidx.lifecycle.lifecycleScope
 import com.banuba.example.integrationapp.SampleApp.Companion.ERR_LICENSE_REVOKED
 import com.banuba.example.integrationapp.SampleApp.Companion.ERR_SDK_NOT_INITIALIZED
@@ -24,6 +25,11 @@ import com.banuba.sdk.ve.flow.VideoExportResultContract
 
 
 class MainActivity : AppCompatActivity() {
+
+    // Bundle with Editor UI V2 configuration
+    private val extras = bundleOf(
+        "EXTRA_USE_EDITOR_V2" to true
+    )
 
     // Handle Video Editor export results
     private val videoEditorExportResult =
