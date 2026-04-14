@@ -11,8 +11,9 @@ class DemoMediaResolutionProvider(
     private val hardwareClass = hardwareClassProvider.provideHardwareClass()
 
     override fun provideOptimalCameraPreviewSize(): VideoResolution.Exact {
-        // Returning required video resolution as requested
-        return VideoResolution.Exact.VGA480
+        // The requested video resolution is returned.
+//        return VideoResolution.Exact.VGA480
+        return VideoResolution.Exact.HD
     }
 
     override fun provideOptimalSlideShowVideoSize() = hardwareClass.optimalResolution
