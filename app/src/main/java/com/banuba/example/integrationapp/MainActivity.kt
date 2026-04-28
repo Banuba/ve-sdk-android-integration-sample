@@ -97,8 +97,6 @@ class MainActivity : AppCompatActivity() {
 
     private val photoEditorExportResult =
         registerForActivityResult(PhotoExportResultContract()) { uri ->
-            BanubaPhotoEditor.release()
-
             if (uri == null || uri == Uri.EMPTY) {
                 val errMessage =
                     "No exported image or the token does not support Photo Editor SDK"

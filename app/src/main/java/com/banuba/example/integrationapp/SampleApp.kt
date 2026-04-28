@@ -40,7 +40,6 @@ class SampleApp : Application() {
         // It is required to keep only one instance.
 
         if (photoEditor != null) {
-            BanubaPhotoEditor.release()
             photoEditor = null
         }
 
