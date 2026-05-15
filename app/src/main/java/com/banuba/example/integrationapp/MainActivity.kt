@@ -17,7 +17,6 @@ import com.banuba.example.integrationapp.databinding.ActivityMainBinding
 import com.banuba.sdk.cameraui.data.PipConfig
 import com.banuba.sdk.core.ui.ext.visible
 import com.banuba.sdk.export.data.ExportResult
-import com.banuba.sdk.pe.BanubaPhotoEditor
 import com.banuba.sdk.pe.PhotoCreationActivity
 import com.banuba.sdk.pe.PhotoExportResultContract
 import com.banuba.sdk.ve.flow.VideoCreationActivity
@@ -125,7 +124,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Handle Video Editor license flow
-        val videoEditor = sampleApp.videoEditor
+        val videoEditor = sampleApp.editorSdk
         if (videoEditor == null) {
             binding.licenseStateView.visible()
             binding.licenseStateView.text = ERR_SDK_NOT_INITIALIZED
@@ -228,15 +227,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun startVideoEditor(intent: Intent) {
-        sampleApp.prepareVideoEditor()
+        sampleApp.initSdk()
 
         videoEditorExportResult.launch(intent)
     }
 
     private fun startPhotoEditor(intent: Intent) {
-        sampleApp.preparePhotoEditor()
-
-        val editor = sampleApp.photoEditor
+        val editor = sampleApp.editorSdk
         if (editor == null) {
             // Token you provided is not correct - empty or truncated
             Log.e(SampleApp.TAG, ERR_SDK_NOT_INITIALIZED)
