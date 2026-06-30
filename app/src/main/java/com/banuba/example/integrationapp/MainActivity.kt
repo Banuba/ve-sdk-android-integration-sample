@@ -25,11 +25,6 @@ import com.banuba.sdk.ve.flow.VideoExportResultContract
 
 class MainActivity : AppCompatActivity() {
 
-    // Bundle with Editor UI V2 configuration
-    private val extras = bundleOf(
-        "EXTRA_USE_EDITOR_V2" to true
-    )
-
     // Handle Video Editor export results
     private val videoEditorExportResult =
         registerForActivityResult(VideoExportResultContract()) { result ->
@@ -194,18 +189,13 @@ class MainActivity : AppCompatActivity() {
             // setup data that will be acceptable during export flow
             additionalExportData = null,
             // set TrackData object if you open VideoCreationActivity with preselected music track
-            audioTrackData = null,
-            // set Bundle to enable Editor V2
-            extras = extras
+            audioTrackData = null
         )
         startVideoEditor(videoCreationIntent)
     }
 
     private fun openVideoEditorDrafts() {
-        startVideoEditor(VideoCreationActivity.startFromDrafts(
-            this,
-            extras = extras
-        ))
+        startVideoEditor(VideoCreationActivity.startFromDrafts(this))
     }
 
     private fun openVideoEditorTrimmerWithSlideShow(videos: List<Uri>) {
