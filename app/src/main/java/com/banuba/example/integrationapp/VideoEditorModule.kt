@@ -4,8 +4,8 @@ import android.content.Context
 import androidx.fragment.app.Fragment
 import com.banuba.sdk.arcloud.data.source.ArEffectsRepositoryProvider
 import com.banuba.sdk.arcloud.di.ArCloudKoinModule
+import com.banuba.sdk.audiobrowser.data.AudioBrowserMusicProvider
 import com.banuba.sdk.audiobrowser.di.AudioBrowserKoinModule
-import com.banuba.sdk.audiobrowser.domain.AudioBrowserMusicProvider
 import com.banuba.sdk.core.data.TrackData
 import com.banuba.sdk.core.ui.ContentFeatureProvider
 import com.banuba.sdk.effectplayer.adapter.BanubaEffectPlayerKoinModule
