@@ -14,7 +14,7 @@ class SampleApp : Application() {
         const val TAG = "BanubaSdk"
 
         // Please set your license token for Banuba Video Editor SDK or Photo Editor SDK
-        private const val LICENSE_TOKEN = 
+        private const val LICENSE_TOKEN = "SET SDK KEY"
 
         const val ERR_SDK_NOT_INITIALIZED =
             "Banuba Video Editor SDK or Photo Editor SDK is not initialized: license token is unknown or incorrect.\nPlease check your license token or contact Banuba"
