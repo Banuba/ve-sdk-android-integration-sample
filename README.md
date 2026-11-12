@@ -31,7 +31,7 @@ See the [Quickstart Guide](mddocs/quickstart.md) for complete integration steps,
 
 1. Repository setup
 
-2. License token [configuration](app/src/main/java/com/banuba/example/integrationapp/SampleApp.kt#L13)
+2. License token [configuration](app/src/main/java/com/banuba/example/integrationapp/SampleApp.kt#L17)
 
 3. Running the sample app
 

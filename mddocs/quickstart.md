@@ -1,9 +1,8 @@
 # Quickstart Guide
 
-- [Installation](#installation)
+- [Installation](#Installation)
 - [AndroidManifest.xml Updates](#AndroidManifest-updates)
-- [Koin Module Setup](#Koin-Module-Setup)
-- [Launch](#Launch)
+- [Initialize SDK](#Initialize-SDK)
 - [Customization options](#Customization-options)
 
 ## Installation  
@@ -59,7 +58,7 @@ android {
 Add dependencies to your app's [gradle](../app/build.gradle#L66)
 
 ```groovy
-    def banubaSdkVersion = '1.54.1'
+    def banubaSdkVersion = '1.55.0'
 
     implementation "com.banuba.sdk:ffmpeg:5.3.0"
     implementation "com.banuba.sdk:camera-sdk:${banubaSdkVersion}"
@@ -106,77 +105,29 @@ Add the following to your [AndroidManifest.xml](../app/src/main/AndroidManifest.
 
 **Note:** You'll also need a custom VideoCreationTheme [example](../app/src/main/res/values/themes.xml#L13) to style the editor UI.
 
+## Initialize SDK
 
-## Koin Module Setup
-1. Create [VideoEditorModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt) to initialize and customize the Video Editor SDK.
-2. Inside it, add [SampleIntegrationKoinModule](../app/src/main/java/com/banuba/example/integrationapp/VideoEditorModule.kt#L51) with your customizations:
- 
-``` kotlin
-class VideoEditorModule {
-   ...
-   private class SampleIntegrationKoinModule {
-      val module = module {
-         single<ArEffectsRepositoryProvider>(createdAtStart = true) {
-            ArEffectsRepositoryProvider(
-                arEffectsRepository = get(named("backendArEffectsRepository"))
-            )
-        }
-
-        single<ContentFeatureProvider<TrackData, Fragment>>(
-            named("musicTrackProvider")
-        ) {
-            AudioBrowserMusicProvider()
-        }
-        
-        ...
-      }
-   } 
-}
-```
-3. Include this module during SDK initialization:
-``` diff
-fun initialize(applicationContext: Context) {
-        startKoin {
-            androidContext(applicationContext)
-            allowOverride(true)
-
-            // pass the customized Koin module that implements required dependencies. Keep order of modules
-            modules(
-                VeSdkKoinModule().module,
-                VeExportKoinModule().module,
-                VePlaybackSdkKoinModule().module,
-                AudioBrowserKoinModule().module, // use this module only if you bought it
-                ArCloudKoinModule().module,
-                VeUiSdkKoinModule().module,
-                VeFlowKoinModule().module,
-                GalleryKoinModule().module,
-                BanubaEffectPlayerKoinModule().module,
-                
-+                SampleIntegrationKoinModule().module,
-            )
-        }
-    }
-```
-
-## Launch
-
-Initialize ```VideoEditorModule``` in your [Application](../app/src/main/java/com/banuba/example/integrationapp/SampleApp.kt#L42) class.
+Initialize ```VideoEditorSDK``` in your [Application](../app/src/main/java/com/banuba/example/integrationapp/SampleApp.kt#L39) class.
 ``` kotlin
 override fun onCreate() {
         super.onCreate()
-        VideoEditorModule().initialize(this)
-        
-    }
-```
+        val editorSdk = VideoEditorSDK.Builder(applicationContext).apply {
+            // Optional AudioBrowser module for music providers: BanubaMusic, Soundstripe, Local
+            addModule(AudioBrowserKoinModule().module)
+            // Required if AudioBrowser is added.
+            setMusicTrackProvider(AudioBrowserMusicProvider())
 
-Create SDK instance of ```BanubaVideoEditor``` with your license token.
+            // Optional Banuba Gallery module for selecting videos and photos from device
+            addModule(GalleryKoinModule().module)
 
-``` kotlin
-val videoEditorSDK = BanubaVideoEditor.initialize(LICENSE_TOKEN)
-```
+            // Optional module to enable Face AR product
+            addModule(BanubaEffectPlayerKoinModule().module)
+        }.initialize(LICENSE_TOKEN)
+}
+``` 
 
 :exclamation: Important
-1. Returns ```null```l if the license token is invalid – verify your token
+1. ```editorSdk``` is ```null``` if the license token is invalid – verify your token
 2. [Check license activation](../app/src/main/java/com/banuba/example/integrationapp/MainActivity.kt#L104) before starting the editor.
 3. Expired/revoked licenses show a "Video content unavailable" screen
 
@@ -207,7 +158,7 @@ createVideoRequest.launch(intent)
 ```
 
 ## Customization options
-Explore [customization pptions](https://docs.banuba.com/ve-pe-sdk/docs/android/adv-integration-overview) in our documentation.
+Explore [customization options](https://docs.banuba.com/ve-pe-sdk/docs/android/adv-integration-overview) in our documentation.
 
 
 
