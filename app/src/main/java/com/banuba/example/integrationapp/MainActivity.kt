@@ -9,7 +9,6 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.os.bundleOf
 import androidx.lifecycle.lifecycleScope
 import com.banuba.example.integrationapp.SampleApp.Companion.ERR_LICENSE_REVOKED
 import com.banuba.example.integrationapp.SampleApp.Companion.ERR_SDK_NOT_INITIALIZED
@@ -26,7 +25,8 @@ import com.banuba.sdk.ve.flow.VideoExportResultContract
 
 class MainActivity : AppCompatActivity() {
 
-    // Handle Video Editor export results
+    // Handle Video Editor export results using VideoExportResultContract
+    // The activity result contract receives the export result (e.g. success with exported video list, cancel, or error).
     private val videoEditorExportResult =
         registerForActivityResult(VideoExportResultContract()) { result ->
             // The dialog is used only to demonstrate and play an exported video file.
@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         }
 
     // Opens system app to pick video for PIP
-    private val requestVideoOpenPIP = registerForActivityResult(
+    private val requestOpenVideoEditorPIP = registerForActivityResult(
         ActivityResultContracts.GetContent()
     ) { videoPipUri ->
         if (videoPipUri != Uri.EMPTY && videoPipUri != null) {
@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Opens system app to pick image for Trimmer
-    private val requestImageOpenTrimmer = registerForActivityResult(
+    private val requestOpenVideoEditorTrimmerWithImage = registerForActivityResult(
         ActivityResultContracts.GetContent()
     ) { imageUri ->
         if (imageUri != Uri.EMPTY && imageUri != null) {
@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private val requestImageOpenPhotoEditor = registerForActivityResult(
+    private val requestOpenPhotoEditorWithImage = registerForActivityResult(
         ActivityResultContracts.GetContent()
     ) { imageUri ->
         if (imageUri == null || imageUri == Uri.EMPTY) {
@@ -115,7 +115,9 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
-        // Handle Video Editor license flow
+        // Step 4: Initialize the SDK and Handle Video Editor license flow
+        // The SDK checks the license activation state asynchronously.
+        // A valid token is required to initialize and launch the Video Editor & Photo Editor.
         val videoEditor = sampleApp.editorSdk
         if (videoEditor == null) {
             binding.licenseStateView.visible()
@@ -123,40 +125,42 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
+        // Check license validity before opening editor screens.
         // Might take up to 1 sec in the worst case.
         // Please optimize use of this function in your project to bring the best user experience
         videoEditor.getLicenseState { isValid ->
             if (isValid) {
                 with(binding) {
                     // ✅ License is active, all good
-                    // You can show button that opens Video Editor or
-                    // Start Video Editor right away
+                    // Step 5: Launch the Video Editor or other features from your Activity
+                    // You can show buttons that open Video Editor, PiP, Drafts, Trimmer, Templates, or Photo Editor.
                     btnVideoEditor.setOnClickListener {
                         openVideoEditor()
                     }
                     btnPiPVideoEditor.setOnClickListener {
-                        requestVideoOpenPIP.launch("video/*")
+                        requestOpenVideoEditorPIP.launch("video/*")
                     }
                     btnDraftsVideoEditor.setOnClickListener {
                         openVideoEditorDrafts()
                     }
                     btnSlideShowVideoEditorTrimmer.setOnClickListener {
-                        requestImageOpenTrimmer.launch("image/*")
+                        requestOpenVideoEditorTrimmerWithImage.launch("image/*")
                     }
                     btnOpenPhotoEditor.setOnClickListener {
-                        // Start Photo Editor SDK
+                        // Start Photo Editor SDK from Gallery
                         startPhotoEditor(PhotoCreationActivity.startFromGallery(this@MainActivity))
                     }
                     btnOpenPhotoEditorImage.setOnClickListener {
-                        // Start Photo Editor SDK
-                        requestImageOpenPhotoEditor.launch("image/*")
+                        // Start Photo Editor SDK with a specific picked image
+                        requestOpenPhotoEditorWithImage.launch("image/*")
                     }
                     btnTemplatesVideoEditor.setOnClickListener {
                         openVideoEditorFromTemplates()
                     }
                 }
             } else {
-                // ❌ Use of Video Editor is restricted. License is revoked or expired.
+                // ❌ Use of Video Editor is restricted. License is revoked, expired, or invalid.
+                // Displays fallback warning and disables editor buttons.
                 Log.w(SampleApp.TAG, ERR_LICENSE_REVOKED)
                 with(binding) {
                     licenseStateView.text = ERR_LICENSE_REVOKED
@@ -177,6 +181,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun openVideoEditor(pipVideo: Uri = Uri.EMPTY) {
+        // Step 5: Launch the Video Editor starting from camera recording flow
+        // VideoCreationActivity orchestrates all video editor screens (Camera, Preview, Trimmer, etc.)
         val videoCreationIntent = VideoCreationActivity.startFromCamera(
             context = this,
             // set PiP video configuration
@@ -194,10 +200,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun openVideoEditorDrafts() {
+        // Launch Video Editor starting from saved drafts
         startVideoEditor(VideoCreationActivity.startFromDrafts(this))
     }
 
     private fun openVideoEditorTrimmerWithSlideShow(videos: List<Uri>) {
+        // Launch Video Editor trimmer with slideshow images
         // Editor V2 is not available from Trimmer screen
         startVideoEditor(
             VideoCreationActivity.startFromTrimmer(
@@ -208,6 +216,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun openVideoEditorFromTemplates() {
+        // Launch Video Editor starting from templates screen
         startVideoEditor(
             VideoCreationActivity.startFromTemplates(
                 context = this
@@ -216,11 +225,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun startVideoEditor(intent: Intent) {
+        // Ensure SDK is initialized and launch the video export result contract
         sampleApp.initSdk()
         videoEditorExportResult.launch(intent)
     }
 
     private fun startPhotoEditor(intent: Intent) {
+        // Verify SDK initialization and launch Photo Editor export result contract
         val editor = sampleApp.editorSdk
         if (editor == null) {
             // Token you provided is not correct - empty or truncated
