@@ -2,11 +2,11 @@ package com.banuba.example.integrationapp
 
 import android.app.Application
 import android.util.Log
-import com.banuba.sdk.core.EditorUtilityManager
-import com.banuba.sdk.core.license.EditorSdk
-import org.koin.android.ext.android.getKoin
-import org.koin.core.context.stopKoin
-import org.koin.core.error.InstanceCreationException
+import com.banuba.sdk.audiobrowser.data.AudioBrowserMusicProvider
+import com.banuba.sdk.audiobrowser.di.AudioBrowserKoinModule
+import com.banuba.sdk.effectplayer.adapter.BanubaEffectPlayerKoinModule
+import com.banuba.sdk.gallery.di.GalleryKoinModule
+import com.banuba.sdk.ve.flow.VideoEditorSDK
 
 class SampleApp : Application() {
 
@@ -14,7 +14,7 @@ class SampleApp : Application() {
         const val TAG = "BanubaSdk"
 
         // Please set your license token for Banuba Video Editor SDK or Photo Editor SDK
-        private const val LICENSE_TOKEN = 
+        private const val LICENSE_TOKEN =
 
         const val ERR_SDK_NOT_INITIALIZED =
             "Banuba Video Editor SDK or Photo Editor SDK is not initialized: license token is unknown or incorrect.\nPlease check your license token or contact Banuba"
@@ -22,7 +22,7 @@ class SampleApp : Application() {
             "License is revoked or expired. Please contact Banuba https://www.banuba.com/faq/kb-tickets/new"
     }
 
-    var editorSdk: EditorSdk? = null
+    var editorSdk: VideoEditorSDK? = null
 
     override fun onCreate() {
         super.onCreate()
@@ -34,39 +34,32 @@ class SampleApp : Application() {
         if (editorSdk == null) {
             Log.d(TAG, "Prepare Video Editor SDK")
 
-            // Initialize Video Editor
-            VideoEditorModule().initialize(this@SampleApp)
-
             // Initialize Banuba Video Editor SDK
-            if (editorSdk == null) {
-                editorSdk = EditorSdk.initialize(LICENSE_TOKEN)
-            }
 
-            if (editorSdk == null) {
-                // Token you provided is not correct - empty or truncated
-                Log.e(TAG, ERR_SDK_NOT_INITIALIZED)
-            }
+            editorSdk = VideoEditorSDK.Builder(applicationContext).apply {
+                // Optional AudioBrowser module for music providers: BanubaMusic, Soundstripe, Local
+                addModule(AudioBrowserKoinModule().module)
+                // Required if AudioBrowser is added.
+                setMusicTrackProvider(AudioBrowserMusicProvider())
+
+                // Optional Banuba Gallery module for selecting videos and photos from device
+                addModule(GalleryKoinModule().module)
+
+                // Optional module to enable Face AR product
+                addModule(BanubaEffectPlayerKoinModule().module)
+            }.initialize(LICENSE_TOKEN)
+        }
+
+        if (editorSdk == null) {
+            // Token you provided is not correct - empty or truncated
+            Log.e(TAG, ERR_SDK_NOT_INITIALIZED)
         }
     }
 
-    // Call it to release VE SDK before opening PE
+    // Call to release Video Editor SDK before opening Photo Editor SDK
     private fun releaseVideoEditor() {
         Log.d(TAG, "Release Video Editor SDK")
-        releaseUtilityManager()
-        stopKoin()
+        editorSdk?.release()
         editorSdk = null
-    }
-
-    private fun releaseUtilityManager() {
-        val utilityManager = try {
-            // EditorUtilityManager is NULL when the token is expired or revoked.
-            // This dependency is not explicitly created in DI.
-            getKoin().getOrNull<EditorUtilityManager>()
-        } catch (e: InstanceCreationException) {
-            Log.w(TAG, "EditorUtilityManager was not initialized!", e)
-            null
-        }
-
-        utilityManager?.release()
     }
 }

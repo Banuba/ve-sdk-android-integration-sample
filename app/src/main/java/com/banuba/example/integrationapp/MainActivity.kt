@@ -19,6 +19,7 @@ import com.banuba.sdk.core.ui.ext.visible
 import com.banuba.sdk.export.data.ExportResult
 import com.banuba.sdk.pe.PhotoCreationActivity
 import com.banuba.sdk.pe.PhotoExportResultContract
+import com.banuba.sdk.ve.flow.SdkIntegrationUtils
 import com.banuba.sdk.ve.flow.VideoCreationActivity
 import com.banuba.sdk.ve.flow.VideoExportResultContract
 
@@ -37,18 +38,14 @@ class MainActivity : AppCompatActivity() {
             if (result is ExportResult.Success) {
                 AlertDialog.Builder(this).setMessage("Export result")
                     .setPositiveButton("Play Video") { _, _ ->
-                        playExportedVideo(result)
+                        result.videoList.firstOrNull()?.let {
+                            SdkIntegrationUtils.playExportedVideo(this@MainActivity, it.sourceUri)
+                        }
                     }
                     .setNeutralButton("Close") { _, _ ->
                     }.create().show()
             }
         }
-
-    private fun playExportedVideo(exportResult: ExportResult.Success) {
-        exportResult.videoList.firstOrNull()?.let {
-            Utils.playExportedVideo(this@MainActivity, it.sourceUri)
-        }
-    }
 
     // Opens system app to pick video for PIP
     private val requestVideoOpenPIP = registerForActivityResult(
@@ -65,7 +62,7 @@ class MainActivity : AppCompatActivity() {
     ) { imageUri ->
         if (imageUri != Uri.EMPTY && imageUri != null) {
             val slideShowList =
-                Utils.createSlideShowList(
+                SdkIntegrationUtils.createSlideShowList(
                     applicationContext,
                     lifecycleScope,
                     imageUri
@@ -101,7 +98,7 @@ class MainActivity : AppCompatActivity() {
 
             Log.d(SampleApp.TAG, "Exported image uri = $uri")
 
-            Utils.previewExportedImage(this, uri)
+            SdkIntegrationUtils.previewExportedImage(this, uri)
         }
 
     private var _binding: ActivityMainBinding? = null
@@ -130,44 +127,46 @@ class MainActivity : AppCompatActivity() {
         // Please optimize use of this function in your project to bring the best user experience
         videoEditor.getLicenseState { isValid ->
             if (isValid) {
-                // ✅ License is active, all good
-                // You can show button that opens Video Editor or
-                // Start Video Editor right away
-                binding.btnVideoEditor.setOnClickListener {
-                    openVideoEditor()
-                }
-                binding.btnPiPVideoEditor.setOnClickListener {
-                    requestVideoOpenPIP.launch("video/*")
-                }
-                binding.btnDraftsVideoEditor.setOnClickListener {
-                    openVideoEditorDrafts()
-                }
-                binding.btnSlideShowVideoEditorTrimmer.setOnClickListener {
-                    requestImageOpenTrimmer.launch("image/*")
-                }
-                binding.btnOpenPhotoEditor.setOnClickListener {
-                    // Start Photo Editor SDK
-                    startPhotoEditor(PhotoCreationActivity.startFromGallery(this@MainActivity))
-                }
-
-                binding.btnOpenPhotoEditorImage.setOnClickListener {
-                    // Start Photo Editor SDK
-                    requestImageOpenPhotoEditor.launch("image/*")
-                }
-                binding.btnTemplatesVideoEditor.setOnClickListener {
-                    openVideoEditorFromTemplates()
+                with(binding) {
+                    // ✅ License is active, all good
+                    // You can show button that opens Video Editor or
+                    // Start Video Editor right away
+                    btnVideoEditor.setOnClickListener {
+                        openVideoEditor()
+                    }
+                    btnPiPVideoEditor.setOnClickListener {
+                        requestVideoOpenPIP.launch("video/*")
+                    }
+                    btnDraftsVideoEditor.setOnClickListener {
+                        openVideoEditorDrafts()
+                    }
+                    btnSlideShowVideoEditorTrimmer.setOnClickListener {
+                        requestImageOpenTrimmer.launch("image/*")
+                    }
+                    btnOpenPhotoEditor.setOnClickListener {
+                        // Start Photo Editor SDK
+                        startPhotoEditor(PhotoCreationActivity.startFromGallery(this@MainActivity))
+                    }
+                    btnOpenPhotoEditorImage.setOnClickListener {
+                        // Start Photo Editor SDK
+                        requestImageOpenPhotoEditor.launch("image/*")
+                    }
+                    btnTemplatesVideoEditor.setOnClickListener {
+                        openVideoEditorFromTemplates()
+                    }
                 }
             } else {
                 // ❌ Use of Video Editor is restricted. License is revoked or expired.
-                binding.licenseStateView.text = ERR_LICENSE_REVOKED
                 Log.w(SampleApp.TAG, ERR_LICENSE_REVOKED)
-
-                binding.licenseStateView.visible()
-                binding.btnVideoEditor.isEnabled = false
-                binding.btnPiPVideoEditor.isEnabled = false
-                binding.btnDraftsVideoEditor.isEnabled = false
-                binding.btnSlideShowVideoEditorTrimmer.isEnabled = false
-                binding.btnOpenPhotoEditor.isEnabled = false
+                with(binding) {
+                    licenseStateView.text = ERR_LICENSE_REVOKED
+                    licenseStateView.visible()
+                    btnVideoEditor.isEnabled = false
+                    btnPiPVideoEditor.isEnabled = false
+                    btnDraftsVideoEditor.isEnabled = false
+                    btnSlideShowVideoEditorTrimmer.isEnabled = false
+                    btnOpenPhotoEditor.isEnabled = false
+                }
             }
         }
     }
@@ -218,7 +217,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun startVideoEditor(intent: Intent) {
         sampleApp.initSdk()
-
         videoEditorExportResult.launch(intent)
     }
 
