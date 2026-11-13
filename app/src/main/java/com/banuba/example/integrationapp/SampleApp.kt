@@ -56,7 +56,7 @@ class SampleApp : Application() {
         }
     }
 
-    // Call it to release VE SDK before opening PE
+    // Call to release Video Editor SDK before opening Photo Editor SDK
     private fun releaseVideoEditor() {
         Log.d(TAG, "Release Video Editor SDK")
         editorSdk?.release()
